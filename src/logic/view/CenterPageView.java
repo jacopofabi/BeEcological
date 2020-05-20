@@ -54,6 +54,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
+import logic.utilities.Tool;
+
+
+
 @SuppressWarnings("unused")
 public class CenterPageView implements Initializable {
 	

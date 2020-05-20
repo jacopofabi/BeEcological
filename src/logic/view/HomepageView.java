@@ -32,6 +32,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logic.bean.UserBean;
 
+import logic.utilities.Tool;
+
 
 
 public class HomepageView implements Initializable {

@@ -44,6 +44,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import logic.utilities.Tool;
+
+
 
 public class SearchResultView implements Initializable {
 	

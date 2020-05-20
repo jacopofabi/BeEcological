@@ -1,22 +1,18 @@
 package logic.model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import logic.utilities.DaoHelper;
 
 
+@SuppressWarnings("null")
 public class CenterOwnerDAO {
 	
-	private static String codaoUSER = "root";
-    private static String codaoPASS = "root";
-    private static String codaoDBUrl = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private static String codaoDriverClassName = "com.mysql.cj.jdbc.Driver";
-    
+	//------------------------------------------------------------------------------
     public static boolean checkUsername(String username) {
     	Statement stmt = null;
         Connection conn = null;
@@ -24,17 +20,11 @@ public class CenterOwnerDAO {
         int count = 1;
         
         try {
-            //caricamento driver mysql
-        	Class.forName(codaoDriverClassName);
-        	//apertura connessione
-            conn = DriverManager.getConnection(codaoDBUrl, codaoUSER, codaoPASS);
-            
-            //creazione ed esecuzione della query
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY);
-
-        	String selectStatement = "SELECT count(*) FROM beecological.owner WHERE Username = '" + username + "';";
-        	res = stmt.executeQuery(selectStatement);
+            DaoHelper.getConnection();
+            DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+        	String query = "SELECT count(*) FROM beecological.owner WHERE Username = '" + username + "';";
+        	
+        	res = stmt.executeQuery(query);
         	res.next();				//res.next e' la prima riga del risultato della query
         	count = res.getInt(1);	//ottengo la prima colonna del risultato della query
             
@@ -43,24 +33,9 @@ public class CenterOwnerDAO {
         }
         
         finally {
-            try {
-				stmt.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				res.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				conn.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
+            DaoHelper.close(stmt);
+            DaoHelper.close(res);
+            DaoHelper.close(conn);
         }
         
         if(count == 1) {
@@ -69,6 +44,8 @@ public class CenterOwnerDAO {
         return true;		//username disponibile
     }
     
+    
+    //------------------------------------------------------------------------------
     public static boolean verifyLogin(CenterOwner owner) {
     	Statement stmt = null;
         Connection conn = null;
@@ -76,19 +53,12 @@ public class CenterOwnerDAO {
         int count = 0;
         
         try {
-            //caricamento driver mysql
-        	Class.forName(codaoDriverClassName);
-            
-        	//apertura connessione
-            conn = DriverManager.getConnection(codaoDBUrl, codaoUSER, codaoPASS);
-            
-            //creazione ed esecuzione della query
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY);
-            
-        	String selectStatement = "SELECT count(*) FROM beecological.Owner WHERE Username = '" + owner.getCoUsername() + 
+        	DaoHelper.getConnection();
+        	DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+        	String query = "SELECT count(*) FROM beecological.Owner WHERE Username = '" + owner.getCoUsername() + 
         			"' and Password = '" + owner.getCoPassword() + "';";
-        	res = stmt.executeQuery(selectStatement);
+        	
+        	res = stmt.executeQuery(query);
         	res.next();
         	count = res.getInt(1);
             
@@ -97,24 +67,9 @@ public class CenterOwnerDAO {
         }
         
         finally {
-            try {
-				stmt.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				res.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				conn.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
+            DaoHelper.close(stmt);
+            DaoHelper.close(res);
+            DaoHelper.close(conn);
         }
         
         if (count == 0) {
@@ -123,6 +78,8 @@ public class CenterOwnerDAO {
         return true; //count=1 nel db, l'utente matcha una registrazizone
     }
     
+    
+    //------------------------------------------------------------------------------
     public static List<String> ownerInfo(CenterOwner owner) {
     	Statement stmt = null;
         Connection conn = null;
@@ -130,19 +87,12 @@ public class CenterOwnerDAO {
         List<String> listInfo = new ArrayList<>();
         
         try {
-            //caricamento driver mysql
-        	Class.forName(codaoDriverClassName);
-            
-        	//apertura connessione
-            conn = DriverManager.getConnection(codaoDBUrl, codaoUSER, codaoPASS);
-            
-            //creazione ed esecuzione della query
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY);
-
-        	String selectStatement = "SELECT * FROM beecological.owner JOIN beecological.center ON beecological.owner.center = "
+            DaoHelper.getConnection();
+            DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+        	String query = "SELECT * FROM beecological.owner JOIN beecological.center ON beecological.owner.center = "
         			+ "beecological.center.centerName WHERE beecological.owner.username = '" + owner.getCoUsername() + "';";
-        	res = stmt.executeQuery(selectStatement);
+        	
+        	res = stmt.executeQuery(query);
     		res.next();
     		listInfo.add(res.getString("name"));
     		listInfo.add(res.getString("surname"));
@@ -160,64 +110,18 @@ public class CenterOwnerDAO {
         }
         
         finally {
-            try {
-				stmt.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				res.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				conn.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
+            DaoHelper.close(stmt);
+            DaoHelper.close(res);
+            DaoHelper.close(conn);
         }
-        
     	return listInfo;
     }
     
+    
+    //------------------------------------------------------------------------------
     public static void deleteOwnerAccount(String username) {
-    	Statement stmt = null;
-        Connection conn = null;
-        
-    	try {
-            //caricamento driver mysql
-        	Class.forName(codaoDriverClassName);
-            
-        	//apertura connessione
-            conn = DriverManager.getConnection(codaoDBUrl, codaoUSER, codaoPASS);
-            
-            //creazione ed esecuzione della query
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY);
-        	String deleteStatement = "DELETE FROM beecological.owner WHERE beecological.owner.username = '"+username+"';";
-        	stmt.executeUpdate(deleteStatement);
-            
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-    	
-        finally {
-            try {
-				stmt.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				conn.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-        }
+    	String delete = "DELETE FROM beecological.owner WHERE beecological.owner.username = '"+username+"';";
+    	DaoHelper.manipulateStatement(delete);
     }
     
 }

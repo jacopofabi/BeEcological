@@ -1,23 +1,18 @@
 package logic.model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import logic.utilities.DaoHelper;
 
 
+@SuppressWarnings("null")
 public class UserDAO {
 	
-	private static String usdaoUSER = "root";
-    private static String usdaoPASS = "root";
-    private static String usdaoDBUrl = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private static String usdaoDriverClassName = "com.mysql.cj.jdbc.Driver";
-   
-    
+	//------------------------------------------------------------------------------
     public static boolean checkUsername(String username) {
     	Statement stmt = null;
         Connection conn = null;
@@ -25,17 +20,11 @@ public class UserDAO {
         int count = 1;
         
         try {
-            //caricamento driver mysql
-        	Class.forName(usdaoDriverClassName);
-        	//apertura connessione
-            conn = DriverManager.getConnection(usdaoDBUrl, usdaoUSER, usdaoPASS);
-            
-            //creazione ed esecuzione della query
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY);
+            DaoHelper.getConnection();
+            DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+        	String query = "SELECT count(*) FROM beecological.User WHERE Username = '" + username + "';";
         	
-        	String selectStatement = "SELECT count(*) FROM beecological.User WHERE Username = '" + username + "';";
-        	res = stmt.executeQuery(selectStatement);
+        	res = stmt.executeQuery(query);
         	res.next();				//res.next e' la prima riga del risultato della query
         	count = res.getInt(1);	//ottengo la prima colonna del risultato della query
 
@@ -44,24 +33,9 @@ public class UserDAO {
         }
         
         finally {
-            try {
-				stmt.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				res.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				conn.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
+        	DaoHelper.close(stmt);
+        	DaoHelper.close(res);
+        	DaoHelper.close(conn);
         }
         
         if(count == 1) {
@@ -69,46 +43,9 @@ public class UserDAO {
         }
         return true;		//username disponibile
     }
-    
-    public static void saveUser(User user) {
-    	Statement stmt = null;
-        Connection conn = null;
         
-        try {
-            //caricamento driver mysql
-        	Class.forName(usdaoDriverClassName);
-            
-        	//apertura connessione
-            conn = DriverManager.getConnection(usdaoDBUrl, usdaoUSER, usdaoPASS);
-            
-            //creazione ed esecuzione della query
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY);
-            String insertStatement = String.format("INSERT INTO beecological.User (Username, Password, Name, Surname, Email, "
-            		+ "Phone, Ecopoints) VALUES ('%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' , 0)", user.getUsUsername(), user.getUsPassword(), 
-            		user.getUsName(), user.getUsSurname(), user.getUsEmail(), user.getUsPhone());
-            stmt.executeUpdate(insertStatement);
-            
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-        
-        finally {
-            try {
-				stmt.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				conn.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-        }
-    }
     
+    //------------------------------------------------------------------------------
     public static boolean verifyLogin(User user) {
     	Statement stmt = null;
         Connection conn = null;
@@ -116,19 +53,12 @@ public class UserDAO {
         int count = 0;
         
         try {
-            //caricamento driver mysql
-        	Class.forName(usdaoDriverClassName);
-        	
-        	//apertura connessione
-            conn = DriverManager.getConnection(usdaoDBUrl, usdaoUSER, usdaoPASS);
-            
-            //creazione ed esecuzione della query
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY);
-        	
-        	String selectStatement = "SELECT count(*) FROM beecological.User WHERE Username = '" + user.getUsUsername() + 
+	        DaoHelper.getConnection();
+	        DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+        	String query = "SELECT count(*) FROM beecological.User WHERE Username = '" + user.getUsUsername() + 
         			"' and Password = '" + user.getUsPassword() + "';";
-        	res = stmt.executeQuery(selectStatement);
+        	
+        	res = stmt.executeQuery(query);
         	res.next();
         	count = res.getInt(1);
             
@@ -137,24 +67,9 @@ public class UserDAO {
         }
         
         finally {
-            try {
-				stmt.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				res.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				conn.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
+			DaoHelper.close(stmt);
+			DaoHelper.close(res);
+			DaoHelper.close(conn);
         }
         
         if (count == 0) {
@@ -164,25 +79,19 @@ public class UserDAO {
     }
 
 
-    public static List<String> userInfo(User user) {
+    //------------------------------------------------------------------------------
+	public static List<String> userInfo(User user) {
     	Statement stmt = null;
         Connection conn = null;
         ResultSet res = null;
         List<String> listInfo = new ArrayList<>();
         
         try {
-            //caricamento driver mysql
-        	Class.forName(usdaoDriverClassName);
-            
-        	//apertura connessione
-            conn = DriverManager.getConnection(usdaoDBUrl, usdaoUSER, usdaoPASS);
-            
-            //creazione ed esecuzione della query
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY);
-
-        	String selectStatement = "SELECT * FROM beecological.User WHERE Username = '" + user.getUsUsername() + "';";
-        	res = stmt.executeQuery(selectStatement);   
+            DaoHelper.getConnection();
+            DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+        	String query = "SELECT * FROM beecological.User WHERE Username = '" + user.getUsUsername() + "';";
+        	
+        	res = stmt.executeQuery(query);   
     		res.next();
     		listInfo.add(res.getString("Name"));
         	listInfo.add(res.getString("Surname"));
@@ -195,103 +104,36 @@ public class UserDAO {
         }
         
         finally {
-            try {
-				stmt.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				res.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				conn.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
+        	DaoHelper.close(stmt);
+        	DaoHelper.close(res);
+        	DaoHelper.close(conn);
         }
         
     	return listInfo;
     }
-    
-    public static void deleteUserAccount(String username) {
-    	Statement stmt = null;
-        Connection conn = null;
-        
-    	try {
-            //caricamento driver mysql
-        	Class.forName(usdaoDriverClassName);
-            
-        	//apertura connessione
-            conn = DriverManager.getConnection(usdaoDBUrl, usdaoUSER, usdaoPASS);
-            
-            //creazione ed esecuzione della query
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY);
-        	String deleteStatement = String.format("DELETE FROM beecological.user WHERE beecological.user.username = '%s';", 
-        			username);
-        	stmt.executeUpdate(deleteStatement);
-            
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-    	
-        finally {
-            try {
-				stmt.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				conn.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-        }
+	
+	
+    //------------------------------------------------------------------------------
+    public static void saveUser(User user) {
+        String insert = String.format("INSERT INTO beecological.User (Username, Password, Name, Surname, Email, "
+        		+ "Phone, Ecopoints) VALUES ('%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' , 0)", user.getUsUsername(), user.getUsPassword(), 
+        		user.getUsName(), user.getUsSurname(), user.getUsEmail(), user.getUsPhone());
+        DaoHelper.manipulateStatement(insert);
     }
     
+    
+    //------------------------------------------------------------------------------
+    public static void deleteUserAccount(String username) {
+    	String delete = String.format("DELETE FROM beecological.user WHERE beecological.user.username = '%s';", 
+    			username);
+    	DaoHelper.manipulateStatement(delete);
+    }
+    
+    
+    //------------------------------------------------------------------------------
     public static void updateUserEcoPoints(String username,int ecoPoints) {
-    	Statement stmt = null;
-        Connection conn = null;
-        
-    	try {
-            //caricamento driver mysql
-        	Class.forName(usdaoDriverClassName);
-            
-        	//apertura connessione
-            conn = DriverManager.getConnection(usdaoDBUrl, usdaoUSER, usdaoPASS);
-            
-            //creazione ed esecuzione della query
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_READ_ONLY);
-            
-        	String updateStatement = String.format("UPDATE beecological.user SET beecological.user.ecoPoints = '%s' "
-        			+ "WHERE beecological.user.username = '%s';", ecoPoints, username);
-            stmt.executeUpdate(updateStatement);
-            
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-    	
-        finally {
-            try {
-				stmt.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-            try {
-				conn.close();
-			} 
-            catch (SQLException e) {
-				e.printStackTrace();
-			}
-        }
+    	String update = String.format("UPDATE beecological.user SET beecological.user.ecoPoints = '%s' "
+    			+ "WHERE beecological.user.username = '%s';", ecoPoints, username);
+        DaoHelper.manipulateStatement(update);
     }
 }
