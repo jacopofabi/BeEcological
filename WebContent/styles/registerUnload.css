@@ -1,0 +1,38 @@
+body{
+	padding-top:100px;
+}
+
+.form-control {
+	width: 100%;
+	height: 60px;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute;
+    left: -60px;
+}
+
+.navbar-brand:hover{
+	background-color: #0A384A;
+	border-radius: 10px;
+}
+
+.navbar-brand:active{
+	background-color: #093342;
+	border-radius: 10px;
+}
+
+.eco-datepicker{
+	width: 300px;
+	border-radius: 3px;
+	border-color: #e6e6e6;
+	height: 60px;
+	border-width: 0.5px;
+}
+
+.btn-primary {
+  background-color: #0B526D;
+  border-width: 0px;
+  white-space: pre-line;
+  width: 200px;
+}

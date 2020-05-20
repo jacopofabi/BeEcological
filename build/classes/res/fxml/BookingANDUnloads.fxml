@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="705.0" prefWidth="1345.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.BookingANDUnloadsView">
+   <children>
+      <AnchorPane>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
+            <MenuButton layoutX="1280.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton-blue.css" text="HELP" textFill="WHITE">
+               <items>
+                  <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0b526d;" text="About Us" />
+                  <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0b526d;" text="Contact  Us" />
+                  <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0b526d;" text="Read FAQ'S" />
+               </items>
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MenuButton>
+            <Button fx:id="homeButton" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" prefHeight="33.0" prefWidth="255.0" stylesheets="@../styles/TransparentButton-blue.css">
+               <graphic>
+                  <ImageView fitHeight="46.0" fitWidth="283.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/logo-owner.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Group layoutX="1108.5" layoutY="-1.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
+                  <MenuButton fx:id="ownerButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton-blue.css" text="&lt;OWNER-NICK&gt;" textFill="WHITE">
+                     <items>
+                        <MenuItem fx:id="ownerProfileItem" mnemonicParsing="false" onAction="#gotoOwnerProfile" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../img/blue-user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../img/blue-power.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </MenuButton>
+               </children>
+            </Group>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="1217.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" x="50.0" y="14.0" />
+         </children>
+      </AnchorPane>
+      <Text fill="#0b526d" layoutX="506.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking &amp; Unloads">
+         <font>
+            <Font name="Calibri" size="48.0" />
+         </font>
+      </Text>
+      <Group layoutX="23.0" layoutY="105.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="1.0" layoutX="400.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="750.0" />
+            <Text fill="#0b526d" layoutX="131.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking Accepted">
+               <font>
+                  <Font name="Calibri Light" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="23.0" layoutY="394.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="1.0" layoutX="450.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
+            <Text fill="#0b526d" layoutX="131.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registered  Unloads">
+               <font>
+                  <Font name="Calibri Light" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <ScrollPane layoutX="236.0" layoutY="172.0" prefHeight="235.0" prefWidth="854.0" stylesheets="@../styles/BlueScrollPane.css">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="824.0">
+               <children>
+                  <TableView fx:id="tableBookingAccepted" layoutX="183.0" layoutY="8.0" onMouseClicked="#refuseBookingAccepted" prefHeight="550.0" prefWidth="523.0" stylesheets="@../styles/BlueTableView.css">
+                    <columns>
+                        <TableColumn fx:id="col_id" prefWidth="75.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="ID" />
+                      <TableColumn fx:id="col_user" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="User" />
+                      <TableColumn fx:id="col_date" minWidth="0.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Date" />
+                        <TableColumn fx:id="col_time" minWidth="0.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Time" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <ScrollPane layoutX="236.0" layoutY="470.0" prefHeight="235.0" prefWidth="854.0" stylesheets="@../styles/BlueScrollPane.css">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="518.0" prefWidth="815.0">
+               <children>
+                  <TableView fx:id="tableRegisteredUnloads" layoutX="23.0" layoutY="4.0" onMouseClicked="#setRowSelected" prefHeight="550.0" prefWidth="790.0" stylesheets="@../styles/BlueTableView.css">
+                    <columns>
+                      <TableColumn fx:id="col_user1" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="User" />
+                      <TableColumn fx:id="col_date1" minWidth="0.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Date" />
+                        <TableColumn fx:id="col_time1" minWidth="0.0" prefWidth="104.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Time" />
+                        <TableColumn fx:id="col_waste" minWidth="0.0" prefWidth="174.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Waste" />
+                        <TableColumn fx:id="col_wasteQuantity" prefWidth="117.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="WasteQuantity" />
+                        <TableColumn fx:id="col_ecoPoints" prefWidth="84.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="EcoPoints" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,22 @@
+.button {
+	-fx-background-color: #589442;
+	-fx-background-radius: 100;
+}
+
+.button:pressed {
+	-fx-background-color: #486E3A;
+}
+
+.menu-button {
+	-fx-background-color: transparent;
+	-fx-mark-color: white;
+}
+
+.menu-button:pressed {
+	-fx-background-color: #dbdbdb;
+	-fx-mark-color: white;
+}
+
+.date-picker .text-field {
+    -fx-prompt-text-fill: #383838;
+}

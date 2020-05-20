@@ -1,0 +1,17 @@
+.button {
+	-fx-background-color: #BA1A1A;
+}
+
+.button:pressed {
+	-fx-background-color: #7A1111;
+}
+
+.menu-button {
+	-fx-background-color: #589442;
+	-fx-mark-color: white;
+}
+
+.menu-button:pressed {
+	-fx-background-color: #486E3A;
+	-fx-mark-color: white;
+}

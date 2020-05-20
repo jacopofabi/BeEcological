@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="705.0" prefWidth="1345.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="logic.view.ManageBookingView">
+   <children>
+      <AnchorPane>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
+            <MenuButton layoutX="1280.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton-blue.css" text="HELP" textFill="WHITE">
+               <items>
+                  <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0b526d;" text="About Us" />
+                  <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0b526d;" text="Contact  Us" />
+                  <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0b526d;" text="Read FAQ'S" />
+               </items>
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MenuButton>
+            <Button fx:id="homeButton" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" prefHeight="33.0" prefWidth="255.0" stylesheets="@../styles/TransparentButton-blue.css">
+               <graphic>
+                  <ImageView fitHeight="46.0" fitWidth="283.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/logo-owner.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Group layoutX="1108.5" layoutY="-1.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
+                  <MenuButton fx:id="ownerButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton-blue.css" text="&lt;OWNER-NICK&gt;" textFill="WHITE">
+                     <items>
+                        <MenuItem fx:id="ownerProfileItem" mnemonicParsing="false" onAction="#gotoOwnerProfile" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../img/blue-user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../img/blue-power.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </MenuButton>
+               </children>
+            </Group>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="1217.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" x="50.0" y="14.0" />
+         </children>
+      </AnchorPane>
+      <Text fill="#0b526d" layoutX="509.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Booking">
+         <font>
+            <Font name="Calibri" size="48.0" />
+         </font>
+      </Text>
+      <Group layoutX="353.0" layoutY="235.0">
+         <children>
+            <TextField fx:id="userToBook" layoutX="133.0" prefHeight="28.0" prefWidth="299.0" promptText="User">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </TextField>
+            <DatePicker fx:id="dateToBook" layoutX="133.0" layoutY="50.0" prefWidth="299.0" />
+            <TextField fx:id="hourToBook" layoutX="133.0" layoutY="100.0" onAction="#saveBookingRequest" prefHeight="28.0" prefWidth="299.0" promptText="HH:MM">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </TextField>
+            <Text layoutY="18.05078125" strokeType="OUTSIDE" strokeWidth="0.0" text="Unloader username" />
+            <Text layoutX="36.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking Date" />
+            <Text layoutX="36.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking Time" />
+         </children>
+      </Group>
+      <Button fx:id="bookingButton" layoutX="911.0" layoutY="260.0" mnemonicParsing="false" onAction="#saveBookingRequest" prefHeight="80.0" prefWidth="180.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="CONFIRM" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Button>
+      <Group layoutX="-65.0" layoutY="153.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="1.0" layoutX="350.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="850.0" />
+            <Text fill="#0b526d" layoutX="131.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add booking">
+               <font>
+                  <Font name="Calibri Light" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="-64.0" layoutY="360.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="1.0" layoutX="400.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="750.0" />
+            <Text fill="#0b526d" layoutX="131.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking request">
+               <font>
+                  <Font name="Calibri Light" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <ScrollPane layoutX="239.0" layoutY="430.0" prefHeight="235.0" prefWidth="854.0" stylesheets="@../styles/BlueScrollPane.css">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="824.0">
+               <children>
+                  <TableView fx:id="tableBookingRequest" layoutX="183.0" layoutY="8.0" onMouseClicked="#confirmBookingRequest" prefHeight="550.0" prefWidth="420.0" stylesheets="@../styles/BlueTableView.css">
+                     <columns>
+                        <TableColumn fx:id="col_user" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="User" />
+                        <TableColumn fx:id="col_date" minWidth="0.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="Date" />
+                        <TableColumn fx:id="col_time" minWidth="0.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="Time" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

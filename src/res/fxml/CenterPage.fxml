@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.CenterPageView">
+   <children>
+      <AnchorPane prefWidth="1366.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#589442" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
+            <MenuButton layoutX="1280.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton.css" text="HELP" textFill="WHITE">
+              <items>
+                <MenuItem mnemonicParsing="false" text="About Us" />
+                <MenuItem mnemonicParsing="false" text="Contact  Us" />
+                  <MenuItem mnemonicParsing="false" text="Read FAQ'S" />
+              </items>
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MenuButton>
+            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" stylesheets="@../styles/TransparentButton.css">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Group fx:id="loginGroup" layoutX="1175.0" layoutY="-1.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
+               <children>
+                  <Button fx:id="loginButton" layoutX="9.0" layoutY="17.0" mnemonicParsing="false" onAction="#toUserLogin" stylesheets="@../styles/TransparentButton.css" text="LOG IN" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
+               </children>
+            </Group>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="1217.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" x="50.0" y="14.0" />
+            <Group fx:id="userGroup" layoutX="345.0" layoutY="1.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="-69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
+                  <Button fx:id="shopButton" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </Button>
+                  <MenuButton fx:id="userButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton.css" text="&lt;USER-NICK&gt;" textFill="WHITE">
+                     <items>
+                        <MenuItem fx:id="userProfileItem" mnemonicParsing="false" onAction="#gotoUserProfile" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../img/green-user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../img/green-power.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </MenuButton>
+               </children>
+            </Group>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="60.0" prefHeight="58.0" prefWidth="1366.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
+            <TextField fx:id="searchBar" focusTraversable="false" layoutX="5.0" onAction="#doSearch" prefHeight="58.0" prefWidth="1174.0" promptText="Search by address, city, name of the ecological island..." style="-fx-background-color: transparent;">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <font>
+                  <Font name="Calibri" size="12.0" />
+               </font>
+            </TextField>
+            <Button fx:id="searchButton" layoutX="1201.0" layoutY="9.0" maxHeight="48.0" mnemonicParsing="false" onAction="#doSearch" prefHeight="40.0" prefWidth="147.0" stylesheets="@../styles/GreenButton.css" text="SEARCH" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Text fx:id="centerSearched" fill="#589442" layoutX="234.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Center Name&gt;">
+         <font>
+            <Font name="Calibri" size="56.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#589442" height="2.0" layoutX="232.0" layoutY="193.0" stroke="#589442" strokeType="INSIDE" strokeWidth="0.0" width="884.0" />
+      <ScrollPane layoutX="235.0" layoutY="217.0" prefHeight="482.0" prefWidth="878.0" stylesheets="@../styles/GreenScrollPane.css">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="943.0" prefWidth="849.0">
+               <children>
+                  <Pane layoutX="503.0" layoutY="150.0" prefHeight="174.0" prefWidth="327.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#589442" height="1.0" layoutX="35.0" layoutY="18.0" stroke="#589442" strokeType="INSIDE" strokeWidth="0.0" width="290.0" />
+                        <Text fill="#589442" layoutX="74.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Day">
+                           <font>
+                              <Font name="Calibri" size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#589442" layoutX="156.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Open at">
+                           <font>
+                              <Font name="Calibri" size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#589442" layoutX="251.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Close at">
+                           <font>
+                              <Font name="Calibri" size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched1" fill="#323232" layoutX="43.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sunday" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched11" fill="#323232" layoutX="43.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monday" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched12" fill="#323232" layoutX="43.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tuesday" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched121" fill="#323232" layoutX="43.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wednesday" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched13" fill="#323232" layoutX="43.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thursday" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched1211" fill="#323232" layoutX="43.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Friday" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched12111" fill="#323232" layoutX="43.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saturday" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#589442" height="120.0" layoutX="137.0" layoutY="30.0" stroke="#589442" strokeType="INSIDE" strokeWidth="0.0" width="1.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#589442" height="120.0" layoutX="235.0" layoutY="30.0" stroke="#589442" strokeType="INSIDE" strokeWidth="0.0" width="1.0" />
+                        <Text fx:id="infoSearched14" fill="#323232" layoutX="184.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched141" fill="#323232" layoutX="279.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched142" fill="#323232" layoutX="170.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="08:00" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched1421" fill="#323232" layoutX="266.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19:00" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched1422" fill="#323232" layoutX="170.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="08:00" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched1423" fill="#323232" layoutX="266.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19:00" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched1424" fill="#323232" layoutX="170.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="14:00" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched1425" fill="#323232" layoutX="266.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20:00" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched14241" fill="#323232" layoutX="170.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="07:00" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched14242" fill="#323232" layoutX="170.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="08:00" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched14243" fill="#323232" layoutX="170.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="09:00" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched142431" fill="#323232" layoutX="266.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="13:30" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched1424311" fill="#323232" layoutX="266.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19:00" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="infoSearched14243111" fill="#323232" layoutX="266.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="16:30" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Light" size="14.0" />
+                           </font>
+                        </Text>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#589442" height="1.0" layoutX="35.0" layoutY="160.0" stroke="#589442" strokeType="INSIDE" strokeWidth="0.0" width="290.0" />
+                     </children></Pane>
+                  <Text fill="#589442" layoutX="540.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opening Time">
+                     <font>
+                        <Font name="Calibri" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="infoSearched" fill="#323232" layoutX="538.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Address,City,CAP&gt;">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#589442" layoutX="540.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+                     <font>
+                        <Font name="Calibri" size="24.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="bookingButton" layoutX="609.0" layoutY="335.0" mnemonicParsing="false" onAction="#openBookingRequest" prefHeight="67.0" prefWidth="165.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="BOOK YOUR UNLOAD" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </Button>
+                  <Text fill="#589442" layoutX="617.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us">
+                     <font>
+                        <Font name="Calibri" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#589442" layoutX="174.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to reach us">
+                     <font>
+                        <Font name="Calibri" size="24.0" />
+                     </font>
+                  </Text>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#589442" height="2.0" layoutX="-7.0" layoutY="450.0" stroke="#589442" strokeType="INSIDE" strokeWidth="0.0" width="884.0" />
+                  <Text fill="#589442" layoutX="604.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
+                     <font>
+                        <Font name="Calibri" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#589442" layoutX="604.0" layoutY="679.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Center Phone">
+                     <font>
+                        <Font name="Calibri" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#589442" layoutX="604.0" layoutY="824.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner Phone">
+                     <font>
+                        <Font name="Calibri" size="20.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="550.0" layoutY="517.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/green_email.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="552.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/green_fisso.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="554.0" layoutY="804.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/green_phone.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="emailSearched" fill="#323232" layoutX="599.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;email&gt;">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="centerPhoneSearched" fill="#323232" layoutX="603.0" layoutY="706.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;CenterPhone&gt;">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="ownerPhoneSearched" fill="#323232" layoutX="606.0" layoutY="857.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;OwnerPhone&gt;">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="centerImageView" fitHeight="370.0" fitWidth="370.0" layoutX="56.0" layoutY="28.0" pickOnBounds="true" />
+                  <ImageView fitHeight="350.0" fitWidth="436.0" layoutX="28.0" layoutY="519.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../../img/map.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <AnchorPane fx:id="promptBox" layoutX="1119.0" layoutY="275.0" prefHeight="286.0" prefWidth="236.0" style="-fx-border-color: #589442; -fx-background-color: white;" visible="false">
+         <children>
+            <Text fill="#589442" layoutX="65.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the day" wrappingWidth="104.7490234375">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="datePicker" editable="false" layoutX="53.0" layoutY="66.0" prefHeight="25.0" prefWidth="131.0" promptText="Date to book" style="-fx-background-color: null; -fx-control-inner-background: null;" stylesheets="@../styles/TransparentButton.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </DatePicker>
+            <Rectangle arcHeight="5.0" arcWidth="10.0" fill="#589442" height="25.0" layoutX="2.0" layoutY="3.0" stroke="BLACK" strokeLineCap="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="0.0" width="234.0" />
+            <Text fill="WHITE" layoutX="11.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAKE A BOOKING REQUEST" wrappingWidth="210.8359375">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </Text>
+            <Button fx:id="closePromptButton" layoutX="209.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeBookingRequest" prefHeight="2.0" prefWidth="1.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css">
+               <graphic>
+                  <ImageView fitHeight="11.0" fitWidth="15.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/x.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Rectangle fill="#589442" height="1.0" layoutX="26.0" layoutY="101.0" stroke="BLACK" strokeLineCap="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="0.0" width="190.0" />
+            <Text fill="#589442" layoutX="62.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the hour" wrappingWidth="111.83056640625">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Text>
+            <Rectangle fill="#589442" height="1.0" layoutX="26.0" layoutY="190.0" stroke="BLACK" strokeLineCap="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="0.0" width="190.0" />
+            <ComboBox fx:id="hourBooking" layoutX="62.0" layoutY="151.0" prefHeight="25.0" prefWidth="120.0" promptText="Hour to book" style="-fx-background-color: null;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <Button fx:id="confirmButton" layoutX="78.0" layoutY="217.0" mnemonicParsing="false" onAction="#makeBookingRequest" prefHeight="37.0" prefWidth="80.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="CONFIRM" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="11.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

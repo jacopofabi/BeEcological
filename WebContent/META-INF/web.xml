@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+         
+         
+    <servlet>
+    <servlet-name>LoginUserServlet</servlet-name>
+    <servlet-class>Servlet.LoginUserServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>LoginUserServlet</servlet-name>
+        <url-pattern>/LoginUserServlet</url-pattern> 
+    </servlet-mapping>
+    
+    
+	<servlet>
+    <servlet-name>LoginOwnerServlet</servlet-name>
+    <servlet-class>Servlet.LoginOwnerServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>LoginOwnerServlet</servlet-name>
+        <url-pattern>/LoginOwnerServlet</url-pattern> 
+    </servlet-mapping>
+    
+    
+   	<servlet>
+    <servlet-name>HomeUserServlet</servlet-name>
+    <servlet-class>Servlet.HomeUserServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>HomeUserServlet</servlet-name>
+        <url-pattern>/HomeUserServlet</url-pattern> 
+    </servlet-mapping>
+    
+    
+   	<servlet>
+    <servlet-name>HomeOwnerServlet</servlet-name>
+    <servlet-class>Servlet.HomeOwnerServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>HomeOwnerServlet</servlet-name>
+        <url-pattern>/HomeOwnerServlet</url-pattern> 
+    </servlet-mapping>
+    
+    
+    <servlet>
+    <servlet-name>UserProfileServlet</servlet-name>
+    <servlet-class>Servlet.UserProfileServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <url-pattern>/UserProfileServlet</url-pattern> 
+    </servlet-mapping>
+    
+    
+    <servlet>
+    <servlet-name>OwnerProfileServlet</servlet-name>
+    <servlet-class>Servlet.OwnerProfileServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>OwnerProfileServlet</servlet-name>
+        <url-pattern>/OwnerProfileServlet</url-pattern> 
+    </servlet-mapping>
+    
+    
+   	<servlet>
+    <servlet-name>ShopServlet</servlet-name>
+    <servlet-class>Servlet.ShopServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>ShopServlet</servlet-name>
+        <url-pattern>/ShopServlet</url-pattern> 
+    </servlet-mapping>
+    
+    
+    <servlet>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>Servlet.SearchServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/SearchServlet</url-pattern> 
+    </servlet-mapping>
+    
+    
+    <servlet>
+    <servlet-name>UserBookingListServlet</servlet-name>
+    <servlet-class>Servlet.UserBookingListServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>UserBookingListServlet</servlet-name>
+        <url-pattern>/UserBookingListServlet</url-pattern> 
+    </servlet-mapping>
+    
+    
+    <servlet>
+    <servlet-name>BookingRequestServlet</servlet-name>
+    <servlet-class>Servlet.BookingRequestServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>BookingRequestServlet</servlet-name>
+        <url-pattern>/BookingRequestServlet</url-pattern> 
+    </servlet-mapping>
+    
+    
+    <servlet>
+    <servlet-name>HistoryANDunloadsServlet</servlet-name>
+    <servlet-class>Servlet.HistoryANDunloadsServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>HistoryANDunloadsServlet</servlet-name>
+        <url-pattern>/HistoryANDunloadsServlet</url-pattern> 
+    </servlet-mapping>    
+    
+    
+    <servlet>
+    <servlet-name>ManageBookingServlet</servlet-name>
+    <servlet-class>Servlet.ManageBookingServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>ManageBookingServlet</servlet-name>
+        <url-pattern>/ManageBookingServlet</url-pattern> 
+    </servlet-mapping>   
+    
+    
+    <servlet>
+    <servlet-name>RegisterUnloadServlet</servlet-name>
+    <servlet-class>Servlet.RegisterUnloadServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterUnloadServlet</servlet-name>
+        <url-pattern>/RegisterUnloadServlet</url-pattern> 
+    </servlet-mapping>   
+    
+    
+    <servlet>
+    <servlet-name>InsertBookingServlet</servlet-name>
+    <servlet-class>Servlet.InsertBookingServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>InsertBookingServlet</servlet-name>
+        <url-pattern>/InsertBookingServlet</url-pattern> 
+    </servlet-mapping>   
+    
+    
+    <servlet>
+    <servlet-name>ConfirmBookingServlet</servlet-name>
+    <servlet-class>Servlet.ConfirmBookingServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>ConfirmBookingServlet</servlet-name>
+        <url-pattern>/ConfirmBookingServlet</url-pattern> 
+    </servlet-mapping>  
+    
+    
+    <servlet>
+    <servlet-name>DeleteUnloadServlet</servlet-name>
+    <servlet-class>Servlet.DeleteUnloadServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteUnloadServlet</servlet-name>
+        <url-pattern>/DeleteUnloadServlet</url-pattern> 
+    </servlet-mapping>  
+    
+    
+    <servlet>
+    <servlet-name>DeleteOwnerServlet</servlet-name>
+    <servlet-class>Servlet.DeleteOwnerServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteOwnerServlet</servlet-name>
+        <url-pattern>/DeleteOwnerServlet</url-pattern> 
+    </servlet-mapping>  
+    
+    
+    <servlet>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <servlet-class>Servlet.DeleteUserServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/DeleteUserServlet</url-pattern> 
+    </servlet-mapping>
+    
+    
+    <servlet>
+    <servlet-name>BuyServlet</servlet-name>
+    <servlet-class>Servlet.BuyServlet</servlet-class>	
+	</servlet>
+    <servlet-mapping>
+        <servlet-name>BuyServlet</servlet-name>
+        <url-pattern>/BuyServlet</url-pattern> 
+    </servlet-mapping>   
+    
+</web-app>

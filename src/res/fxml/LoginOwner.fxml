@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="705.0" prefWidth="1345.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="logic.view.LoginOwnerView">
+   <children>
+      <TextField fx:id="loginUsername" layoutX="175.0" layoutY="273.0" onAction="#loginOwner" prefHeight="20.0" prefWidth="350.0" promptText="Username">
+         <font>
+            <Font name="Calibri Light" size="24.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="loginPassword" layoutX="175.0" layoutY="345.0" onAction="#loginOwner" prefHeight="20.0" prefWidth="350.0" promptText="Password">
+         <font>
+            <Font name="Calibri Light" size="24.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="toHomeOwnerButton" layoutX="291.0" layoutY="419.0" mnemonicParsing="false" onAction="#loginOwner" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="LOG IN" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font></Button>
+      <AnchorPane>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
+            <MenuButton layoutX="1280.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton-blue.css" text="HELP" textFill="WHITE">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About Us" />
+                  <MenuItem mnemonicParsing="false" text="Contact  Us" />
+                  <MenuItem mnemonicParsing="false" text="Read FAQ'S" />
+               </items>
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MenuButton>
+            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" stylesheets="@../styles/TransparentButton-blue.css">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Group layoutX="75.0" layoutY="100.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="2.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="546.0" />
+            <Label layoutX="14.0" prefHeight="66.0" prefWidth="530.0" text="Already Registered? Login!" textFill="#4d4b4b">
+               <font>
+                  <Font name="Calibri" size="48.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="2.0" layoutY="65.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="546.0" />
+         </children>
+      </Group>
+      <Group layoutX="122.0" layoutY="118.0">
+         <children>
+            <Label layoutX="-76.0" layoutY="68.0" prefHeight="0.0" prefWidth="675.0" text="Welcome back! Login to access BeEcological and manage your Ecological Island!" textFill="#4d4b4b">
+               <font>
+                  <Font name="Calibri Light" size="19.0" />
+               </font>
+            </Label>
+            <Group layoutX="87.0" layoutY="92.0">
+               <children>
+                  <Hyperlink layoutX="77.0" style="-fx-font-family: Calibri Light; -fx-font-size: 22;" text="forget your password?" textFill="#0b526d">
+                     <font>
+                        <Font size="70.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label layoutY="1.0" prefHeight="32.0" prefWidth="96.0" text="Did you" textFill="#4d4b4b">
+                     <font>
+                        <Font name="Calibri Light" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+         </children>
+      </Group>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4d4b4b" height="540.0" layoutX="686.0" layoutY="115.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1.0" />
+      <Group layoutX="763.0" layoutY="100.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="2.0" layoutX="15.0" layoutY="65.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="500.0" />
+            <Label layoutX="24.0" prefHeight="66.0" prefWidth="530.0" text="Not a user yet? Register!" textFill="#4d4b4b">
+               <font>
+                  <Font name="Calibri" size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+      <Button fx:id="signInButton" layoutX="975.0" layoutY="630.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="SIGN IN" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Button>
+      <Group layoutX="99.0" layoutY="544.0">
+         <children>
+            <Label layoutX="75.0" layoutY="23.0" prefHeight="28.0" prefWidth="338.0" text="Are you a simple user? Click Here!" textFill="#4d4b4b">
+               <font>
+                  <Font name="Calibri Light" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+      <Label layoutX="881.0" layoutY="181.0" prefHeight="27.0" prefWidth="310.0" text="Enter your data and join BeEcological!" textFill="#4d4b4b">
+         <font>
+            <Font name="Calibri Light" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="736.0" layoutY="204.0" prefHeight="22.0" prefWidth="598.0" text="Manage booking request, and increase your Ecological Island online visibility!" textFill="#4d4b4b">
+         <font>
+            <Font name="Calibri Light" size="19.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="723.0" layoutY="223.0" pannable="true" prefHeight="391.0" prefWidth="619.0" stylesheets="@../styles/BlueScrollPane.css">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="613.0" prefWidth="597.0">
+               <children>
+                  <Group layoutX="130.0" layoutY="10.0">
+                     <children>
+                        <Group layoutX="-120.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="1.0" layoutX="123.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="455.0" />
+                              <Label prefHeight="2.0" prefWidth="113.0" text="Personal Data" textFill="#0b526d">
+                                 <font>
+                                    <Font name="Calibri" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Group>
+                        <TextField fx:id="textName" layoutY="28.0" prefHeight="20.0" prefWidth="350.0" promptText="Name">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="textSurname" layoutY="73.0" prefHeight="20.0" prefWidth="350.0" promptText="Surname">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="textEmailAddress" layoutY="118.0" prefHeight="20.0" prefWidth="350.0" promptText="Email address">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="textPhoneNumber" layoutY="163.0" prefHeight="20.0" prefWidth="350.0" promptText="Phone number">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="textUsername" layoutY="208.0" prefHeight="20.0" prefWidth="350.0" promptText="Username">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </TextField>
+                        <PasswordField fx:id="textPassword" layoutY="253.0" prefHeight="20.0" prefWidth="350.0" promptText="Password">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </PasswordField>
+                        <PasswordField fx:id="textConfirmPassword" layoutY="298.0" prefHeight="20.0" prefWidth="350.0" promptText="Confirm password">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </PasswordField>
+                        <Group layoutX="-120.0" layoutY="350.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="1.0" layoutX="170.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="405.0" />
+                              <Label prefHeight="23.0" prefWidth="171.0" text="Center Information" textFill="#0b526d">
+                                 <font>
+                                    <Font name="Calibri" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Group>
+                     </children>
+                  </Group>
+                  <Group layoutX="140.0" layoutY="20.0">
+                     <children>
+                        <TextField fx:id="textCenterName" layoutX="-10.0" layoutY="377.0" prefHeight="20.0" prefWidth="350.0" promptText="Ecological island name">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="textCity" layoutX="-10.0" layoutY="422.0" prefHeight="20.0" prefWidth="350.0" promptText="City">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="textAddress" layoutX="-10.0" layoutY="467.0" prefHeight="34.0" prefWidth="184.0" promptText="Address">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="textN" layoutX="183.0" layoutY="467.0" prefHeight="34.0" prefWidth="38.0" promptText="n°">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="textCAP" layoutX="230.0" layoutY="467.0" prefHeight="34.0" prefWidth="110.0" promptText="CAP">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="textCenterPhone" layoutX="-10.0" layoutY="512.0" prefHeight="20.0" prefWidth="350.0" promptText="Center phone number">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </Group>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Button fx:id="toUserLoginButton" layoutX="291.0" layoutY="626.0" mnemonicParsing="false" onAction="#toUserLogin" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="CONTINUE" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="182.0" layoutY="525.0" prefHeight="41.0" prefWidth="328.0" text="BeEcological for users" textFill="#589442">
+         <font>
+            <Font name="Calibri" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="705.0" prefWidth="1345.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="logic.view.ManageInformationView">
+   <children>
+      <AnchorPane>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
+            <MenuButton layoutX="1280.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton-blue.css" text="HELP" textFill="WHITE">
+               <items>
+                  <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0b526d;" text="About Us" />
+                  <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0b526d;" text="Contact  Us" />
+                  <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0b526d;" text="Read FAQ'S" />
+               </items>
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MenuButton>
+            <Button fx:id="homeButton" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" prefHeight="33.0" prefWidth="255.0" stylesheets="@../styles/TransparentButton-blue.css">
+               <graphic>
+                  <ImageView fitHeight="46.0" fitWidth="283.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/logo-owner.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Group layoutX="1108.5" layoutY="-1.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
+                  <MenuButton fx:id="ownerButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton-blue.css" text="&lt;OWNER-NICK&gt;" textFill="WHITE">
+                     <items>
+                        <MenuItem fx:id="ownerProfileItem" mnemonicParsing="false" onAction="#gotoOwnerProfile" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../img/blue-user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../img/blue-power.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </MenuButton>
+               </children>
+            </Group>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="1217.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" x="50.0" y="14.0" />
+         </children>
+      </AnchorPane>
+      <Text fill="#0b526d" layoutX="502.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Information">
+         <font>
+            <Font name="Calibri" size="48.0" />
+         </font>
+      </Text>
+      <Group layoutX="489.0" layoutY="190.0" />
+      <Button fx:id="confirmButton" layoutX="593.0" layoutY="550.0" mnemonicParsing="false" onAction="#changeInformation" prefHeight="80.0" prefWidth="180.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="CONFIRM" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Button>
+      <Group layoutX="23.0" layoutY="140.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b526d" height="1.0" layoutX="450.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Text fill="#0b526d" layoutX="131.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Center Information">
+               <font>
+                  <Font name="Calibri Light" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="360.0" layoutY="254.0">
+         <children>
+            <Text fill="#0b526d" layoutY="203.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Center Phone Number">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#0b526d" layoutY="153.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font>
+            </Text>
+            <CheckBox fx:id="b4" layoutX="502.0" layoutY="141.0" mnemonicParsing="false" onAction="#getID" />
+            <TextField fx:id="f4" disable="true" layoutX="535.0" layoutY="137.0" prefHeight="25.0" prefWidth="160.0" promptText="New address" />
+            <CheckBox fx:id="b6" layoutX="502.0" layoutY="191.0" mnemonicParsing="false" onAction="#getID" />
+            <TextField fx:id="f6" disable="true" layoutX="535.0" layoutY="187.0" prefHeight="25.0" prefWidth="160.0" promptText="New phone" />
+            <TextField fx:id="f1" disable="true" layoutX="535.0" layoutY="-13.0" prefHeight="25.0" prefWidth="160.0" promptText="New name" />
+            <Text fill="#0b526d" layoutY="3.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Center Name">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font>
+            </Text>
+            <CheckBox fx:id="b1" layoutX="502.0" layoutY="-8.0" mnemonicParsing="false" onAction="#getID" prefHeight="6.0" prefWidth="6.0" />
+            <Text fx:id="centerName" layoutX="220.0" layoutY="4.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;CenterName&gt;" />
+            <Text fill="#0b526d" layoutY="53.5" strokeType="OUTSIDE" strokeWidth="0.0" text="City">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="cityName" layoutX="220.0" layoutY="54.05078125" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;CityName&gt;" />
+            <CheckBox fx:id="b2" layoutX="502.0" layoutY="42.0" mnemonicParsing="false" onAction="#getID" prefHeight="4.0" prefWidth="2.0" />
+            <TextField fx:id="f2" disable="true" layoutX="535.0" layoutY="38.0" prefHeight="25.0" prefWidth="160.0" promptText="New city" />
+            <Text fx:id="phoneNumber" layoutX="220.0" layoutY="204.05078125" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;PhoneNumber&gt;" />
+            <Text fill="#0b526d" layoutY="103.5" strokeType="OUTSIDE" strokeWidth="0.0" text="CAP">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="centerCAP" layoutX="220.0" layoutY="104.05078125" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;CenterCAP&gt;" />
+            <CheckBox fx:id="b3" layoutX="502.0" layoutY="92.0" mnemonicParsing="false" onAction="#getID" prefHeight="4.0" prefWidth="2.0" />
+            <TextField fx:id="f3" disable="true" layoutX="535.0" layoutY="88.0" prefHeight="25.0" prefWidth="160.0" promptText="New CAP" />
+            <CheckBox fx:id="b5" layoutX="723.0" layoutY="141.0" mnemonicParsing="false" onAction="#getID" />
+            <TextField fx:id="f5" disable="true" layoutX="755.0" layoutY="137.0" prefHeight="25.0" prefWidth="59.0" promptText="New n°" />
+            <HBox layoutX="220.0" layoutY="140.0" prefHeight="19.0" prefWidth="220.0" spacing="5.0">
+               <children>
+                  <Text fx:id="address" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Address&gt;" />
+                  <Text fx:id="num" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Num&gt;" />
+               </children>
+            </HBox>
+         </children>
+      </Group>
+   </children>
+</AnchorPane>

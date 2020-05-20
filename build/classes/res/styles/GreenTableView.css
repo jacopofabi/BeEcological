@@ -1,0 +1,29 @@
+.table-view{
+   -fx-background-color: transparent;
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: #589442;
+    -fx-text-fill: white;
+}
+
+.table-row-cell {
+	-fx-background-color: transparent;
+	-fx-cell-size: 35px;
+	-fx-font-size: 25px;
+	-fx-cursor: hand;
+}
+
+.table-row-cell: hover {
+	-fx-background-color: #b9e0ab;
+}
+
+.table-row-cell: pressed {
+	-fx-background-color: #8cbd7b;
+	-fx-text-fill: white;
+}
+
+.table-row-cell: empty {
+	-fx-background-color: transparent;
+	-fx-cursor: null;
+}

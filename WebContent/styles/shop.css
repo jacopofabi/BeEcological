@@ -1,0 +1,27 @@
+body{
+	padding-top:100px;
+}
+
+.form-control {
+	width: 100%;
+	height: 80px;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute;
+    left: -60px;
+}
+
+.navbar-brand:hover{
+	background-color: #538740;
+	border-radius: 10px;
+}
+
+.navbar-brand:active{
+	background-color: #486E3A;
+	border-radius: 10px;
+}
+
+.text-center {
+  position: relative;
+}

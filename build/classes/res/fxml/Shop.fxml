@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="logic.view.ShopView">
+   <children>
+      <Text fill="#589442" layoutX="50.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shop">
+         <font>
+            <Font name="Calibri" size="44.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#589442" height="2.0" layoutX="157.0" layoutY="111.0" stroke="BLACK" strokeType="INSIDE" width="1159.0" />
+      <AnchorPane>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#589442" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
+            <MenuButton layoutX="1280.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton.css" text="HELP" textFill="WHITE">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About Us" />
+                  <MenuItem mnemonicParsing="false" text="Contact  Us" />
+                  <MenuItem mnemonicParsing="false" text="Read FAQ'S" />
+               </items>
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MenuButton>
+            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" stylesheets="@../styles/TransparentButton.css">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="1217.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" x="50.0" y="14.0" />
+         </children>
+      </AnchorPane>
+      <Group layoutX="131.0" layoutY="180.0">
+         <children>
+            <Button fx:id="am05" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" stylesheets="@../styles/BlueButton.css">
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/Cards/amazon5.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="am10" layoutX="225.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/Cards/amazon10.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="am25" layoutX="450.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/Cards/amazon25.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="za05" layoutX="675.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/Cards/zalando5.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="za10" layoutX="900.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/Cards/zalando10.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Group>
+      <Group layoutX="131.0" layoutY="360.0">
+         <children>
+            <Button fx:id="gp05" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/Cards/google5.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="gp10" layoutX="225.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/Cards/google10.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="ap10" layoutX="450.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/Cards/apple5.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="rm10" layoutX="675.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/Cards/roma10.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="ms10" layoutX="900.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/Cards/microsoft10.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Group>
+      <Button fx:id="fe10" layoutX="131.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+         <graphic>
+            <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/Cards/feltrinelli5.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="ps05" layoutX="356.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+         <graphic>
+            <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/Cards/psn5.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="581.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;" fx:id="xb05">
+         <graphic>
+            <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/Cards/xbox5.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="nx10" layoutX="806.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+         <graphic>
+            <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/Cards/netflix10.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Text fill="#434343" layoutX="596.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Amazon 25€">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="374.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Amazon 10€">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="146.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Amazon 5€">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="823.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Zalando 5€">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="1049.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Zalando 10€">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="146.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Google Play 5€">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="371.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Google Play 10€">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="602.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card App Store 10€">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="824.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Roma Store 10€">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="1047.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Microsoft Store 10€">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="826.0" layoutY="655.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Netflix 10€">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="126.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card PSN 5€" x="248.0" y="360.0">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="141.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Xbox Store 5€" x="456.0" y="360.0">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#434343" layoutX="135.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gift card Feltrinelli 5€" x="14.0" y="360.0">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="596.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="450 ecoPoints">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="372.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="200 ecoPoints">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="148.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100 ecoPoints">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="823.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100 ecoPoints">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="1050.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="200 ecoPoints">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="145.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100 ecoPoints">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="371.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="200 ecoPoints">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="601.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="220 ecoPoints">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="822.0" layoutY="497.0" strokeType="OUTSIDE" strokeWidth="0.0" text="180 ecoPoints">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="1047.0" layoutY="497.0" strokeType="OUTSIDE" strokeWidth="0.0" text="210 ecoPoints">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="825.0" layoutY="675.0" strokeType="OUTSIDE" strokeWidth="0.0" text="220 ecoPoints">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="124.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="200 ecoPoints" x="248.0" y="360.0">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="139.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="200 ecoPoints" x="456.0" y="360.0">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="132.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="180 ecoPoints" x="14.0" y="360.0">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#589442" layoutX="53.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount of ecoPoints: ">
+         <font>
+            <Font name="Calibri Light" size="36.0" />
+         </font>
+      </Text>
+      <Text fx:id="ecoPoints" fill="#589442" layoutX="386.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;num&gt;">
+         <font>
+            <Font name="Calibri Bold" size="36.0" />
+         </font>
+      </Text>
+      <Group fx:id="userGroup" layoutX="20.0" layoutY="20.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="-69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
+            <Button fx:id="shopButton" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </Button>
+            <MenuButton fx:id="userButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton.css" text="&lt;USER-NICK&gt;" textFill="WHITE">
+               <items>
+                  <MenuItem fx:id="userProfileItem" mnemonicParsing="false" onAction="#gotoUserProfile" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../img/green-user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="logoutItem1" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../img/green-power.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+               </items>
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MenuButton>
+         </children>
+      </Group>
+   </children>
+</AnchorPane>
