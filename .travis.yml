@@ -1,5 +1,10 @@
 language: java
 jdk:
   - openjdk8
+addons:
+  sonarcloud:
+    organization: "ispw-beecological"
+    token: "62712f95b8b0076a7fd3e238e7d80b1d594e1d15"
 script: 
   - ant build
+  - sonar-scanner
