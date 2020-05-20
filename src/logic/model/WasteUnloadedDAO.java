@@ -12,6 +12,8 @@ import logic.utilities.DaoHelper;
 @SuppressWarnings("null")
 public class WasteUnloadedDAO {
 
+	private WasteUnloadedDAO() {}
+	
 	//------------------------------------------------------------------------------
     public static void registerWasteForUnload(WasteUnloaded wasteUnloaded) {
     	String insert = String.format("INSERT INTO beecological.wasteunloaded(user,center,date,time,waste,wasteQuantity)"
@@ -22,7 +24,7 @@ public class WasteUnloadedDAO {
     
     
     //------------------------------------------------------------------------------
-    public static List<WasteUnloaded> listOfUnloadRegisteredByCenter(String center) {
+	public static List<WasteUnloaded> listOfUnloadRegisteredByCenter(String center) {
     	Statement stmt = null;
         Connection conn = null;
         ResultSet res = null;

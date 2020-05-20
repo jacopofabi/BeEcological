@@ -5,6 +5,8 @@ import logic.utilities.DaoHelper;
 
 public class UnloadDAO {
 
+	private UnloadDAO() {}
+	
 	//------------------------------------------------------------------------------
     public static void saveUnload(Unload unload) {
         String insert = String.format("INSERT INTO beecological.unload (user, center, date, time) VALUES ('%s' ,'%s' ,'%s' ,"

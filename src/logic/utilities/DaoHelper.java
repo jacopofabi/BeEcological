@@ -36,29 +36,6 @@ public class DaoHelper {
 	
 	
 	//------------------------------------------------------------------------------
-	public static ResultSet selectStatement(String query) {
-		Statement stmt = null;
-		Connection conn = null;
-		ResultSet rs = null;
-		
-		try {
-			conn = getConnection();
-			stmt = getStatement(conn, StatementMode.READ);
-            rs = stmt.executeQuery(query);
-            
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-        
-        finally {
-        	close(stmt);
-        	close(conn);
-        }
-		return rs;
-	}
-	
-	
-	//------------------------------------------------------------------------------
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName(driverClassName);
 		return DriverManager.getConnection(url, user, pass);

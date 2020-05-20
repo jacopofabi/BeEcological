@@ -12,6 +12,8 @@ import logic.utilities.DaoHelper;
 @SuppressWarnings("null")
 public class CenterOwnerDAO {
 	
+	private CenterOwnerDAO() {}
+	
 	//------------------------------------------------------------------------------
     public static boolean checkUsername(String username) {
     	Statement stmt = null;

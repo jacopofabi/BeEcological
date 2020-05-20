@@ -12,6 +12,8 @@ import logic.utilities.DaoHelper;
 @SuppressWarnings("null")
 public class CenterDAO {
 
+	private CenterDAO() {}
+	
 	//------------------------------------------------------------------------------
     public static List<Center> verifyCenter(String name) {
     	Statement stmt = null;

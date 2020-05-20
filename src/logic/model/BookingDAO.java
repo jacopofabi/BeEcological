@@ -11,6 +11,8 @@ import logic.utilities.DaoHelper;
 @SuppressWarnings("null")
 public class BookingDAO {    
     
+	private BookingDAO() {}
+	
     //------------------------------------------------------------------------------
     public static void makeBooking(Booking booking) {
         String insert = String.format("INSERT INTO beecological.bookingrequest (user, center, date, time, status)"
