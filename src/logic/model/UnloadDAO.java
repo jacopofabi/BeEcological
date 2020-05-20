@@ -8,10 +8,6 @@ import java.sql.Statement;
 
 public class UnloadDAO {
 	
-	private UnloadDAO(String user) {
-		UnloadDAO.udaoUSER = user;
-	}
-	
 	private static String udaoUSER = "root";
     private static String udaoPASS = "root";
     private static String udaoDBUrl = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

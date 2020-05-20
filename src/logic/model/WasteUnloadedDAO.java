@@ -10,10 +10,6 @@ import java.util.List;
 
 public class WasteUnloadedDAO {
 	
-	private WasteUnloadedDAO(String user) {
-		WasteUnloadedDAO.wudaoUSER = user;
-	}
-	
 	private static String wudaoUSER = "root";
     private static String wudaoPASS = "root";
     private static String wudaoDBUrl = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

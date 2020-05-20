@@ -10,10 +10,6 @@ import java.util.List;
 
 public class CenterDAO {
 	
-	private CenterDAO(String user) {
-		CenterDAO.cdaoUSER = user;
-	}
-	
 	private static String cdaoUSER = "root";
     private static String cdaoPASS = "root";
     private static String cdaoDBUrl = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

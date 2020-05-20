@@ -10,8 +10,6 @@ import java.util.List;
 
 public class BookingDAO {
 	
-	private BookingDAO(String user) {BookingDAO.bdaoUSER = user;}
-	
 	private static String bdaoUSER = "root";
     private static String bdaoPASS = "root";
     private static String bdaoDBUrl = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

@@ -11,10 +11,6 @@ import java.util.List;
 
 public class UserDAO {
 	
-	private UserDAO(String user) {
-		UserDAO.usdaoUSER = user;
-	}
-	
 	private static String usdaoUSER = "root";
     private static String usdaoPASS = "root";
     private static String usdaoDBUrl = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

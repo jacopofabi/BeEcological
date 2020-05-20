@@ -11,10 +11,6 @@ import java.util.List;
 
 public class CenterOwnerDAO {
 	
-	private CenterOwnerDAO(String user) {
-		CenterOwnerDAO.codaoUSER = user;
-	}
-	
 	private static String codaoUSER = "root";
     private static String codaoPASS = "root";
     private static String codaoDBUrl = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

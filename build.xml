@@ -68,6 +68,8 @@
         <mkdir dir="build/classes"/>
         <copy includeemptydirs="false" todir="build/classes">
             <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.xtend"/>
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -104,8 +106,8 @@
             <classpath refid="BeEcological.classpath"/>
         </java>
     </target>
-    <target name="mainApp">
-        <java classname="logic.mainApp" failonerror="true" fork="yes">
+    <target name="StandaloneMain">
+        <java classname="logic.StandaloneMain" failonerror="true" fork="yes">
             <classpath refid="BeEcological.classpath"/>
         </java>
     </target>
