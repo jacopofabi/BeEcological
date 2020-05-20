@@ -2,16 +2,12 @@ package logic.view;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import error.EmptyFieldException;
 import error.InexistentUsernameException;
@@ -46,7 +42,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -56,10 +51,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
-
 
 @SuppressWarnings("unused")
 public class CenterPageView implements Initializable {
@@ -68,7 +61,7 @@ public class CenterPageView implements Initializable {
 	ObservableList<CenterBean> center = FXCollections.observableArrayList();
 	ObservableList<String> list = FXCollections.observableArrayList();
 	
-	String Login = "Login";
+	String login = "Login";
 	
 	@FXML private ComboBox<String> hourBooking;
 	@FXML private DatePicker datePicker;
@@ -100,13 +93,13 @@ public class CenterPageView implements Initializable {
     @FXML private ImageView centerImageView;
     
     private UserBean user;
-    private BookingBean booking;
     private UserController control;
-    private BookingController control1;
-    public long start;
-    public long end;
+    public static long start;
+    public static long end;
     boolean isBooking;
     
+    
+    //------------------------------------------------------------------------------
 	public void loadData() {
 		list.removeAll(list);
 		String a = "08:00";
@@ -135,31 +128,8 @@ public class CenterPageView implements Initializable {
 		hourBooking.getItems().addAll(list);
 	}
 	
-	public boolean checkDate(String date) {
-		String today = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-		int nowY = Integer.parseInt(today.substring(0,4));
-		int nowM = Integer.parseInt(today.substring(5,7));
-		int nowD = Integer.parseInt(today.substring(8));
-		int selY = Integer.parseInt(date.substring(0,4));
-		int selM = Integer.parseInt(date.substring(5,7));
-		int selD = Integer.parseInt(date.substring(8));
-
-		if (selY>nowY) {
-			return true;
-		}
-		if (selY == nowY) {
-			if (selM > nowM) {
-				return true;
-			}
-			if (selM == nowM) {
-				if (selD >= nowD) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
 	
+	//------------------------------------------------------------------------------
 	public void promptLogin() {
 		// Create the custom dialog.
 		Dialog<Pair<String, String>> dialog = new Dialog<>();
@@ -167,7 +137,7 @@ public class CenterPageView implements Initializable {
 		dialog.setHeaderText(null);
 
 		// Set the button types.
-		ButtonType loginButtonType = new ButtonType(Login, ButtonData.OK_DONE);
+		ButtonType loginButtonType = new ButtonType(login, ButtonData.OK_DONE);
 		dialog.getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
 
 		// Create the username and password labels and fields.
@@ -187,13 +157,11 @@ public class CenterPageView implements Initializable {
 		grid.add(password, 1, 1);
 
 		// Enable/Disable login button depending on whether a username was entered.
-		Node loginButton = dialog.getDialogPane().lookupButton(loginButtonType);
-		loginButton.setDisable(true);
+		Node logButton = dialog.getDialogPane().lookupButton(loginButtonType);
+		logButton.setDisable(true);
 
 		// Do some validation (using the Java 8 lambda syntax).
-		username.textProperty().addListener((observable, oldValue, newValue) -> {
-		    loginButton.setDisable(newValue.trim().isEmpty());
-		});
+		username.textProperty().addListener((observable, oldValue, newValue) -> logButton.setDisable(newValue.trim().isEmpty()));
 
 		dialog.getDialogPane().setContent(grid);
 
@@ -207,9 +175,8 @@ public class CenterPageView implements Initializable {
 
 		Optional<Pair<String, String>> result = dialog.showAndWait();
 		result.ifPresent(usernamePassword -> {
-			String usr,psw;
-		    usr = usernamePassword.getKey();
-		    psw = usernamePassword.getValue();
+			String usr = usernamePassword.getKey();
+		    String psw = usernamePassword.getValue();
 		    
 		    boolean ok = true;
 			user = new UserBean();
@@ -218,8 +185,8 @@ public class CenterPageView implements Initializable {
 			control = new UserController();
 			try {
 				ok = control.login(user);
-			} catch (InexistentUsernameException | EmptyFieldException e1) {
-
+			} catch (InexistentUsernameException | EmptyFieldException e) {
+				e.printStackTrace();
 			}
 			Alert alert1 = new Alert(AlertType.ERROR);
 			if (!ok) {
@@ -246,6 +213,8 @@ public class CenterPageView implements Initializable {
 
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void returnHomepage(ActionEvent event) {
 		try {
 		    Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -270,8 +239,10 @@ public class CenterPageView implements Initializable {
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void doSearch(ActionEvent event) {
-		tool.string = searchBar.getText();
+		Tool.string = searchBar.getText();
 		try {
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    URL url = new File("src/res/fxml/SearchResult.fxml").toURI().toURL();
@@ -298,6 +269,8 @@ public class CenterPageView implements Initializable {
 		}
 	}
 
+	
+	//------------------------------------------------------------------------------
 	public void toUserLogin(ActionEvent event) {
 		try {
 			URL url = new File("src/res/fxml/LoginUser.fxml").toURI().toURL();
@@ -305,13 +278,15 @@ public class CenterPageView implements Initializable {
 			Scene tableViewScene = new Scene(tableViewParent);
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 			window.setScene(tableViewScene);
-			window.setTitle(Login);
+			window.setTitle(login);
 			window.show();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	/*public void gotoUserProfile(ActionEvent event) {
 		try {
 			//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
@@ -331,16 +306,19 @@ public class CenterPageView implements Initializable {
 		}
 	}*/
 	
+	
+	//------------------------------------------------------------------------------
 	public void doLogout(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);
 		alert.setContentText("Are you sure you want to logout?");
-		Optional<ButtonType> result = alert.showAndWait();
+		alert.showAndWait();
 		
 		try {
-			Stage window = (Stage) userButton.getScene().getWindow();
-		    URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
+			//Stage window = (Stage) userButton.getScene().getWindow();
+			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
 		    FXMLLoader loader = new FXMLLoader(url);
 			Parent tableViewParent = loader.load();
 			Scene tableViewScene = new Scene(tableViewParent);
@@ -353,10 +331,13 @@ public class CenterPageView implements Initializable {
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void gotoShop(ActionEvent event) throws IOException {
 		//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
-		Stage window = (Stage) userButton.getScene().getWindow();
-	    URL url = new File("src/res/fxml/Shop.fxml").toURI().toURL();
+		//Stage window = (Stage) userButton.getScene().getWindow();
+		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		URL url = new File("src/res/fxml/Shop.fxml").toURI().toURL();
 	    FXMLLoader loader = new FXMLLoader(url);
 		Parent tableViewParent = loader.load();
 		Scene tableViewScene = new Scene(tableViewParent);
@@ -365,6 +346,8 @@ public class CenterPageView implements Initializable {
 		window.show();
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void openBookingRequest() {
 		isBooking = true;
 		promptBox.setVisible(true);
@@ -375,6 +358,7 @@ public class CenterPageView implements Initializable {
 	}
 	
 	
+	//------------------------------------------------------------------------------
 	public void showTimeoutAlert() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setAlertType(AlertType.ERROR);
@@ -384,15 +368,18 @@ public class CenterPageView implements Initializable {
 		alert.show();
 	}
 	
+	
+	
+	//------------------------------------------------------------------------------
 	 public class TimeoutThread extends Thread { //thread which control if the booking request is made within 2 minutes
 		 
-		    public void run(){
-		    	System.out.println("Timeout started!");
+		 	@Override
+		    public void run() {
 				while (System.currentTimeMillis() < end) {
 					//nothing
 				}
 				if (isBooking) {
-				Platform.runLater(new Runnable(){ //javaFX thread to modify GUI. Useful to show alerts. a classic java thread can't do this.
+				Platform.runLater(new Runnable() { //javaFX thread to modify GUI. Useful to show alerts. a classic java thread can't do this.
 				    public void run(){
 						showTimeoutAlert();
 						datePicker.setValue(null);
@@ -407,11 +394,15 @@ public class CenterPageView implements Initializable {
 		    } 	
 	 }
 	
+	 
+	//------------------------------------------------------------------------------ 
 	public void closeBookingRequest() {
 		isBooking = false;
 		promptBox.setVisible(false);
 	}
 
+	
+	//------------------------------------------------------------------------------
 	public void makeBookingRequest() throws IOException{
 		Alert alert = new Alert(AlertType.ERROR);
 		if (datePicker.getValue() == null || hourBooking.getValue() == null) {
@@ -425,7 +416,7 @@ public class CenterPageView implements Initializable {
 		String date = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		String time = hourBooking.getValue();
 		
-		if (!checkDate(date)) {
+		if (!Tool.checkDate(date)) {
 			alert.setAlertType(AlertType.ERROR);
 			alert.setTitle("Invalid booking request.");
 			alert.setHeaderText(null);
@@ -436,18 +427,18 @@ public class CenterPageView implements Initializable {
 		
 		
 		if (UserBean.getInstance() != null) {
-			booking = new BookingBean();
+			BookingBean booking = new BookingBean();
 			booking.setBbUser(UserBean.getInstance().getUsbUsername());
 			booking.setBbCenter(centerSearched.getText());
 			booking.setBbDate(date);
 			booking.setBbTime(time);
 			booking.setBbStatus("W");
 			
-			control1 = new BookingController();
+			BookingController control1 = new BookingController();
 			try {
 				control1.insertBooking(booking);
 			} catch (InexistentUsernameException e) {
-
+				e.printStackTrace();
 			}
 			alert.setAlertType(AlertType.INFORMATION);
 			alert.setTitle("Booking request completed.");
@@ -460,7 +451,7 @@ public class CenterPageView implements Initializable {
 		else {
 			alert.setAlertType(AlertType.CONFIRMATION);
 			alert.setTitle("Login to continue");
-			((Button) alert.getDialogPane().lookupButton(ButtonType.OK)).setText(Login);
+			((Button) alert.getDialogPane().lookupButton(ButtonType.OK)).setText(login);
 			alert.setHeaderText(null);
 			alert.setContentText("To book an unload you must be registered to BeEcological.\nLogin to continue.");
 			Optional<ButtonType> result = alert.showAndWait();
@@ -473,6 +464,8 @@ public class CenterPageView implements Initializable {
 				
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		loadData();
@@ -480,8 +473,8 @@ public class CenterPageView implements Initializable {
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
 		searchBar.setFont(Font.font("Calibri Light", FontWeight.NORMAL, 15));
 		userGroup.setVisible(false);
-		String centerName = tool.getCenterName();
-		File sourcePhoto = new File("src/res/jpeg/"+centerName+".jpg");
+		String filename = Tool.getCenterName();
+		File sourcePhoto = new File("src/res/jpeg/"+filename+".jpg");
 		if(sourcePhoto.exists() && !sourcePhoto.isDirectory()) { 
 			Image image = new Image(sourcePhoto.toURI().toString());
 	        centerImageView.setImage(image);

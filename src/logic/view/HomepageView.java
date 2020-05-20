@@ -30,7 +30,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import logic.view.SearchResultView;
 import logic.bean.UserBean;
 
 
@@ -57,6 +56,8 @@ public class HomepageView implements Initializable {
 	@FXML private TextField searchBar;
 	@FXML public Text welcomebackText;
 	
+	
+	//------------------------------------------------------------------------------
 	public void returnHomepage(ActionEvent event) {
 		try {
 		    Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -82,6 +83,8 @@ public class HomepageView implements Initializable {
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void gotoRequest(ActionEvent event) throws IOException {
 		URL url = new File("src/res/fxml/UserBookingList.fxml").toURI().toURL();
 		Parent tableViewParent = FXMLLoader.load(url);
@@ -92,8 +95,10 @@ public class HomepageView implements Initializable {
 		window.show();
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void doSearch(ActionEvent event) {
-		tool.string = searchBar.getText();
+		Tool.string = searchBar.getText();
 		try {
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    URL url = new File("src/res/fxml/SearchResult.fxml").toURI().toURL();
@@ -113,13 +118,15 @@ public class HomepageView implements Initializable {
 				controller.userGroup.setVisible(false);
 				controller.loginGroup.setVisible(true);
 			}
-			controller.textSearched.setText(tool.string); //setta il testo del risultato come quello cercato
+			controller.textSearched.setText(Tool.string); //setta il testo del risultato come quello cercato
 			window.show();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void toUserLogin(ActionEvent event) {
 		try {
 			URL url = new File("src/res/fxml/LoginUser.fxml").toURI().toURL();
@@ -134,6 +141,8 @@ public class HomepageView implements Initializable {
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void gotoUserProfile(ActionEvent event) {
 		try {
 		    URL url = new File("src/res/fxml/UserProfile.fxml").toURI().toURL();
@@ -149,6 +158,8 @@ public class HomepageView implements Initializable {
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void doLogout(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
@@ -179,6 +190,8 @@ public class HomepageView implements Initializable {
 		}	
 	}
 
+	
+	//------------------------------------------------------------------------------
 	public void gotoShop(ActionEvent event) {
 		try {
 		    URL url = new File("src/res/fxml/Shop.fxml").toURI().toURL();
@@ -194,6 +207,8 @@ public class HomepageView implements Initializable {
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void gotoOwnerLogin(ActionEvent event) {
 		try {
 			URL url = new File("src/res/fxml/LoginOwner.fxml").toURI().toURL();
@@ -209,7 +224,7 @@ public class HomepageView implements Initializable {
 	}
 	
 
-	
+	//------------------------------------------------------------------------------
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));

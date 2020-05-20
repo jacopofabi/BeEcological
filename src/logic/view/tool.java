@@ -5,30 +5,36 @@ import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
 
-public class tool {
+public class Tool {
 	static String string = "";
 	static String centerName = "";
 	
+	
+	//------------------------------------------------------------------------------
 	public static String getString() {
 		return string;
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public static String getCenterName() {
 		return centerName;
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public static boolean checkTime(String hour){
 	    try {
 	        LocalTime.parse(hour);
-	        System.out.println("Valid time string: " + hour);
 	        return true;
 	    }
 	    catch (DateTimeParseException | NullPointerException e) {
-	        System.out.println("Invalid time string: " + hour);
 	        return false;
 	    }
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public static boolean checkDate(String date) {
 		String today = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 		int nowY = Integer.parseInt(today.substring(0,4));
@@ -45,10 +51,8 @@ public class tool {
 			if (selM > nowM) {
 				return true;
 			}
-			if (selM == nowM) {
-				if (selD >= nowD) {
+			if (selM == nowM && selD >= nowD) {
 					return true;
-				}
 			}
 		}
 		return false;

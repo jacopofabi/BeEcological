@@ -48,7 +48,7 @@ import javafx.stage.Stage;
 public class SearchResultView implements Initializable {
 	
 	List<CenterBean> data = new ArrayList<>();
-	ObservableList<CenterBean> center_list = FXCollections.observableArrayList();
+	ObservableList<CenterBean> centerList = FXCollections.observableArrayList();
 	ObservableList<String> list = FXCollections.observableArrayList();
 	
 	@FXML private ComboBox<String> hourBooking;
@@ -59,21 +59,24 @@ public class SearchResultView implements Initializable {
 	@FXML private Button loginButton;
 	@FXML private Button searchButton;
 	@FXML private Button shopButton;
-	@FXML public Group loginGroup, userGroup;
+	@FXML public Group loginGroup; 
+	@FXML public Group userGroup;
 	@FXML private TextField searchBar;
 	@FXML public Text textSearched;
 	
     @FXML private TableView<CenterBean> tableView;
-    @FXML private TableColumn<CenterBean, String> col_name;
-    @FXML private TableColumn<CenterBean, String> col_city;
-    @FXML private TableColumn<CenterBean, String> col_cap;
-    @FXML private TableColumn<CenterBean, String> col_address;
-    @FXML private TableColumn<CenterBean, String> col_phone;
+    @FXML private TableColumn<CenterBean, String> colName;
+    @FXML private TableColumn<CenterBean, String> colCity;
+    @FXML private TableColumn<CenterBean, String> colCap;
+    @FXML private TableColumn<CenterBean, String> colAddress;
+    @FXML private TableColumn<CenterBean, String> colPhone;
 	
     private CenterBean center;
     private CenterOwnerBean owner;
     private CenterController control;
     
+    
+  //------------------------------------------------------------------------------
 	public void returnHomepage(ActionEvent event) {
 		try {
 		    Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -98,8 +101,10 @@ public class SearchResultView implements Initializable {
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void doSearch(ActionEvent event) {
-		tool.string = searchBar.getText();
+		Tool.string = searchBar.getText();
 		try {
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    URL url = new File("src/res/fxml/SearchResult.fxml").toURI().toURL();
@@ -119,13 +124,15 @@ public class SearchResultView implements Initializable {
 				controller.userGroup.setVisible(false);
 				controller.loginGroup.setVisible(true);
 			}
-			controller.textSearched.setText(tool.string); //setta il testo del risultato come quello cercato
+			controller.textSearched.setText(Tool.string); //setta il testo del risultato come quello cercato
 			window.show();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 
+	
+	//------------------------------------------------------------------------------
 	public void toUserLogin(ActionEvent event) {
 		try {
 			URL url = new File("src/res/fxml/LoginUser.fxml").toURI().toURL();
@@ -140,6 +147,8 @@ public class SearchResultView implements Initializable {
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void gotoShop(ActionEvent event) {
 		try {
 			//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
@@ -157,6 +166,8 @@ public class SearchResultView implements Initializable {
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void openCenterPage(MouseEvent event) {
 		if (event.getButton().equals(MouseButton.PRIMARY)) {
 	        int index = tableView.getSelectionModel().getSelectedIndex();
@@ -165,8 +176,7 @@ public class SearchResultView implements Initializable {
 	        center = tableView.getItems().get(index);
 	        owner = control.ownerOfTheSelectedCenter(center);
 		}
-		System.out.println("Nome cliccato: "+center.getCbName());
-		tool.centerName = center.getCbName();
+		Tool.centerName = center.getCbName();
 		try {
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    URL url = new File("src/res/fxml/CenterPage.fxml").toURI().toURL();
@@ -197,6 +207,8 @@ public class SearchResultView implements Initializable {
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void gotoUserProfile(ActionEvent event) {
 		try {
 			//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
@@ -214,6 +226,8 @@ public class SearchResultView implements Initializable {
 		}
 	}
 	
+	
+	//------------------------------------------------------------------------------
 	public void doLogout(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
@@ -223,7 +237,8 @@ public class SearchResultView implements Initializable {
 
 		if (result.get() == ButtonType.OK){
 			try {
-				Stage window = (Stage) userButton.getScene().getWindow();
+				//Stage window = (Stage) userButton.getScene().getWindow();
+				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 			    URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
 			    FXMLLoader loader = new FXMLLoader(url);
 				Parent tableViewParent = loader.load();
@@ -241,30 +256,31 @@ public class SearchResultView implements Initializable {
 		}
 	}
 
+	
+	//------------------------------------------------------------------------------
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
 		searchBar.setFont(Font.font("Calibri Light", FontWeight.NORMAL, 15));
 		
 		center = new CenterBean();
-		center.setCbName(tool.string);
-		center_list.removeAll(center_list);
+		center.setCbName(Tool.string);
+		centerList.removeAll(centerList);
 	    try{      
 	    	control = new CenterController();
 	        data = control.centerList(center);
-	        center_list.addAll(data);
+	        centerList.addAll(data);
 	    }
 	    catch(Exception e){
-	          e.printStackTrace();
-	          System.out.println("Error on Building Data");            
+	          e.printStackTrace();      
 	    }
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
-		col_name.setCellValueFactory(new PropertyValueFactory<>("cbName"));
-		col_city.setCellValueFactory(new PropertyValueFactory<>("cbCity"));
-		col_cap.setCellValueFactory(new PropertyValueFactory<>("cbCap"));
-		col_address.setCellValueFactory(new PropertyValueFactory<>("cbAddress"));
-		col_phone.setCellValueFactory(new PropertyValueFactory<>("cbPhone"));
-		tableView.setItems(center_list);
+		colName.setCellValueFactory(new PropertyValueFactory<>("cbName"));
+		colCity.setCellValueFactory(new PropertyValueFactory<>("cbCity"));
+		colCap.setCellValueFactory(new PropertyValueFactory<>("cbCap"));
+		colAddress.setCellValueFactory(new PropertyValueFactory<>("cbAddress"));
+		colPhone.setCellValueFactory(new PropertyValueFactory<>("cbPhone"));
+		tableView.setItems(centerList);
 		
 		tableView.widthProperty().addListener(new ChangeListener<Number>()
 		{
