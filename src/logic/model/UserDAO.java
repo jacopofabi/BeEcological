@@ -11,6 +11,10 @@ import java.util.List;
 
 public class UserDAO {
 	
+	private UserDAO(String user) {
+		UserDAO.usdaoUSER = user;
+	}
+	
 	private static String usdaoUSER = "root";
     private static String usdaoPASS = "root";
     private static String usdaoDBUrl = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -159,7 +163,8 @@ public class UserDAO {
             //creazione ed esecuzione della query
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
-        	String deleteStatement = String.format("DELETE FROM beecological.user WHERE beecological.user.username = '" +username+ "';");
+        	String deleteStatement = String.format("DELETE FROM beecological.user WHERE beecological.user.username = '%s';", 
+        			username);
         	stmt.executeUpdate(deleteStatement);
             
             stmt.close();
@@ -185,7 +190,7 @@ public class UserDAO {
                     ResultSet.CONCUR_READ_ONLY);
             
         	String updateStatement = String.format("UPDATE beecological.user SET beecological.user.ecoPoints = '%s' "
-        			+ "WHERE beecological.user.username = '" +username+ "';", ecoPoints);
+        			+ "WHERE beecological.user.username = '%s';", ecoPoints, username);
             stmt.executeUpdate(updateStatement);
             
             stmt.close();

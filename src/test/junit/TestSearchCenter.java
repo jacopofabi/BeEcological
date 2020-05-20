@@ -12,7 +12,6 @@ import logic.controller.CenterController;
 
 public class TestSearchCenter {
 	
-	private CenterBean centerBean;
 	private CenterBean center;
 	private CenterController centerController = new CenterController();
 	
@@ -37,7 +36,7 @@ public class TestSearchCenter {
 	@Test
 	public void testSearchCenter() {
 		String centername = "Centro smaltimento Acacia";
-		centerBean = new CenterBean();
+		CenterBean centerBean = new CenterBean();
 		centerBean.setCbName(centername);
 		
 		List<CenterBean> centerList = centerController.centerList(centerBean);

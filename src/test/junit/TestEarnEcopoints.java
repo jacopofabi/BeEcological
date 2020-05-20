@@ -43,7 +43,8 @@ public class TestEarnEcopoints {
 	
 	@Test
 	public void testAddEcopoints() {
-		int oldPoints, newPoints;
+		int oldPoints;
+		int newPoints;
 		int pointsObtained = 5*3; //3 is the value_per_kg of plastic packaging
 
 		List<String> info = userController.userInformation(userBean);

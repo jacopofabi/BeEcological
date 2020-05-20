@@ -12,21 +12,21 @@ public class Center {
         this.cName = name;
     }
     
-    public Center(String name, String city, String CAP, String address, String centerPhone) {
+    public Center(String name, String city, String cap, String address, String centerPhone) {
         this.cName = name;
         this.cPhone = centerPhone;
         this.cCity = city;
         this.cAddress = address;
-    	this.cCap = CAP;
+    	this.cCap = cap;
     }
 
-    public Center(String name, String city, String CAP, String address, String num, String centerPhone) {
+    public Center(String name, String city, String cap, String address, String num, String centerPhone) {
         this.cName = name;
         this.cPhone = centerPhone;
         this.cCity = city;
         this.cAddress = address;
         this.cNum = num;
-    	this.cCap = CAP;
+    	this.cCap = cap;
     }
     
     public String getcName() {
@@ -70,8 +70,8 @@ public class Center {
     }
 
 
-    public void setcCap(String CAP) {
-        this.cCap = CAP;
+    public void setcCap(String cap) {
+        this.cCap = cap;
     }
     
     public String getcNum() {

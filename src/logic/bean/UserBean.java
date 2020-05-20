@@ -1,7 +1,7 @@
 package logic.bean;
 
 public class UserBean {
-	public static UserBean usbInstance = null;
+	private static UserBean usbInstance = null;
 	
     private String usbUsername;
     private String usbPassword;
@@ -19,6 +19,14 @@ public class UserBean {
 			UserBean.usbInstance.usbUsername = username;
 		}
 		return usbInstance;
+	}
+	
+	public static UserBean getInstance() {
+		return UserBean.usbInstance;
+	}
+	
+	public static void setInstance(UserBean userBean) {
+		UserBean.usbInstance = userBean;
 	}
     
     public String getUsbUsername() {

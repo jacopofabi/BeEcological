@@ -5,13 +5,18 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class WasteUnloadedDAO {
 	
+	private WasteUnloadedDAO(String user) {
+		WasteUnloadedDAO.wudaoUSER = user;
+	}
+	
 	private static String wudaoUSER = "root";
     private static String wudaoPASS = "root";
-    private static String wudaoDB_URL = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static String wudaoDBUrl = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static String wudaoDriverClassName = "com.mysql.cj.jdbc.Driver";
    
 
@@ -24,7 +29,7 @@ public class WasteUnloadedDAO {
         	Class.forName(wudaoDriverClassName);
             
         	//apertura connessione
-            conn = DriverManager.getConnection(wudaoDB_URL, wudaoUSER, wudaoPASS);
+            conn = DriverManager.getConnection(wudaoDBUrl, wudaoUSER, wudaoPASS);
             
             //creazione ed esecuzione della query
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -42,18 +47,18 @@ public class WasteUnloadedDAO {
         }
     }
     
-    public static ArrayList<WasteUnloaded> listOfUnloadRegisteredByCenter(String center) {
+    public static List<WasteUnloaded> listOfUnloadRegisteredByCenter(String center) {
     	Statement stmt = null;
         Connection conn = null;
         ResultSet res;
-        ArrayList<WasteUnloaded> listUnload = new ArrayList<>();
+        List<WasteUnloaded> listUnload = new ArrayList<>();
         
         try {
             //caricamento driver mysql
         	Class.forName(wudaoDriverClassName);
             
         	//apertura connessione
-            conn = DriverManager.getConnection(wudaoDB_URL, wudaoUSER, wudaoPASS);
+            conn = DriverManager.getConnection(wudaoDBUrl, wudaoUSER, wudaoPASS);
             
             //creazione ed esecuzione della query
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -78,18 +83,18 @@ public class WasteUnloadedDAO {
         return listUnload;
     }
     
-    public static ArrayList<WasteUnloaded> listOfUnloadRegisteredByUser(String user) {
+    public static List<WasteUnloaded> listOfUnloadRegisteredByUser(String user) {
     	Statement stmt = null;
         Connection conn = null;
         ResultSet res;
-        ArrayList<WasteUnloaded> listUnload = new ArrayList<>();
+        List<WasteUnloaded> listUnload = new ArrayList<>();
         
         try {
             //caricamento driver mysql
         	Class.forName(wudaoDriverClassName);
             
         	//apertura connessione
-            conn = DriverManager.getConnection(wudaoDB_URL, wudaoUSER, wudaoPASS);
+            conn = DriverManager.getConnection(wudaoDBUrl, wudaoUSER, wudaoPASS);
             
             //creazione ed esecuzione della query
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -123,7 +128,7 @@ public class WasteUnloadedDAO {
         	Class.forName(wudaoDriverClassName);
             
         	//apertura connessione
-            conn = DriverManager.getConnection(wudaoDB_URL, wudaoUSER, wudaoPASS);
+            conn = DriverManager.getConnection(wudaoDBUrl, wudaoUSER, wudaoPASS);
             
             //creazione ed esecuzione della query
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -131,8 +136,8 @@ public class WasteUnloadedDAO {
 
         	String deleteStatement = String.format("DELETE FROM beecological.wasteunloaded WHERE beecological.wasteunloaded.user = '%s' "
         			+ "AND beecological.wasteunloaded.center = '%s' AND beecological.wasteunloaded.date = '%s' AND beecological.wasteunloaded.time = '%s' "
-        			+ "AND beecological.wasteunloaded.waste = '%s';", 
-        			wasteUnloaded.getWuUser(), wasteUnloaded.getWuCenter(), wasteUnloaded.getWuDate(), wasteUnloaded.getWuTime(), wasteUnloaded.getWuWaste());
+        			+ "AND beecological.wasteunloaded.waste = '%s';", wasteUnloaded.getWuUser(), wasteUnloaded.getWuCenter(), 
+        			wasteUnloaded.getWuDate(), wasteUnloaded.getWuTime(), wasteUnloaded.getWuWaste());
         	stmt.executeUpdate(deleteStatement);
             
             stmt.close();
@@ -153,7 +158,7 @@ public class WasteUnloadedDAO {
         	Class.forName(wudaoDriverClassName);
             
         	//apertura connessione
-            conn = DriverManager.getConnection(wudaoDB_URL, wudaoUSER, wudaoPASS);
+            conn = DriverManager.getConnection(wudaoDBUrl, wudaoUSER, wudaoPASS);
             
             //creazione ed esecuzione della query
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,

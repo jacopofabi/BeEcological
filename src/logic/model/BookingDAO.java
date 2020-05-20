@@ -5,9 +5,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class BookingDAO {
+	
+	private BookingDAO(String user) {BookingDAO.bdaoUSER = user;}
 	
 	private static String bdaoUSER = "root";
     private static String bdaoPASS = "root";
@@ -101,11 +104,11 @@ public class BookingDAO {
         return count;
     }
     
-    public static ArrayList<Booking> listOfBookingByCenter(String center, String status) {
+    public static List<Booking> listOfBookingByCenter(String center, String status) {
     	Statement stmt = null;
         Connection conn = null;
         ResultSet res;
-        ArrayList<Booking> listBooking = new ArrayList<>();
+        List<Booking> listBooking = new ArrayList<>();
         
         try {
             //caricamento driver mysql
@@ -134,11 +137,11 @@ public class BookingDAO {
         return listBooking;
     }
     
-    public static ArrayList<Booking> listOfBookingByUser(String user, String status) {
+    public static List<Booking> listOfBookingByUser(String user, String status) {
     	Statement stmt = null;
         Connection conn = null;
         ResultSet res;
-        ArrayList<Booking> listBooking = new ArrayList<>();
+        List<Booking> listBooking = new ArrayList<>();
         
         try {
             //caricamento driver mysql

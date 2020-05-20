@@ -2,6 +2,7 @@ package logic.controller;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import logic.bean.UserBean;
 import logic.bean.WasteUnloadedBean;
@@ -28,8 +29,8 @@ public class WasteUnloadedController {
 		return WasteUnloadedDAO.wasteForAnUnload(waste);
 	}
 	
-	public ArrayList<WasteUnloadedBean> listUnloadBean(ArrayList<WasteUnloaded> listOfUnload) {
-		ArrayList<WasteUnloadedBean> listOfUnloadBean = new ArrayList<>();
+	public List<WasteUnloadedBean> listUnloadBean(List<WasteUnloaded> listOfUnload) {
+		List<WasteUnloadedBean> listOfUnloadBean = new ArrayList<>();
 		for(WasteUnloaded waste : listOfUnload) {
 			WasteUnloadedBean wasteB = new WasteUnloadedBean();
 			wasteB.setWbUser(waste.getWuUser());
@@ -44,13 +45,13 @@ public class WasteUnloadedController {
 		return listOfUnloadBean;
 	}
 	
-	public ArrayList<WasteUnloadedBean> listUnloadByCenter(WasteUnloadedBean wasteBean) {
-		ArrayList<WasteUnloaded> listOfUnload = WasteUnloadedDAO.listOfUnloadRegisteredByCenter(wasteBean.getWbCenter());
+	public List<WasteUnloadedBean> listUnloadByCenter(WasteUnloadedBean wasteBean) {
+		List<WasteUnloaded> listOfUnload = WasteUnloadedDAO.listOfUnloadRegisteredByCenter(wasteBean.getWbCenter());
 		return listUnloadBean(listOfUnload);
 	}
 	
-	public ArrayList<WasteUnloadedBean> listUnloadByUser(UserBean userBean) {
-		ArrayList<WasteUnloaded> listOfUnload = WasteUnloadedDAO.listOfUnloadRegisteredByUser(userBean.getUsbUsername());
+	public List<WasteUnloadedBean> listUnloadByUser(UserBean userBean) {
+		List<WasteUnloaded> listOfUnload = WasteUnloadedDAO.listOfUnloadRegisteredByUser(userBean.getUsbUsername());
 		return listUnloadBean(listOfUnload);
 	}
 }

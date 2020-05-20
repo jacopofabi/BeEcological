@@ -1,6 +1,7 @@
 package logic.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import logic.bean.CenterBean;
 import logic.bean.CenterOwnerBean;
@@ -10,9 +11,9 @@ import logic.model.CenterOwner;
 
 public class CenterController {
 	
-	public ArrayList<CenterBean> centerList(CenterBean centerBean) {
-		ArrayList<CenterBean> listOfCenterBean = new ArrayList<>();
-		ArrayList<Center> listOfCenter = CenterDAO.verifyCenter(centerBean.getCbName());
+	public List<CenterBean> centerList(CenterBean centerBean) {
+		List<CenterBean> listOfCenterBean = new ArrayList<>();
+		List<Center> listOfCenter = CenterDAO.verifyCenter(centerBean.getCbName());
 		for(Center center : listOfCenter) {
 			CenterBean centerB = new CenterBean();
 			centerB.setCbName(center.getcName());

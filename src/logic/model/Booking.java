@@ -8,8 +8,8 @@ public class Booking {
 	private String bTime;
 	private String bStatus;
 	
-	public Booking(int ID, String user, String center, String date, String time, String status) {
-		this.bId = ID;
+	public Booking(int id, String user, String center, String date, String time, String status) {
+		this.bId = id;
 		this.bUser = user;
 		this.bCenter = center;
 		this.bDate = date;

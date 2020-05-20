@@ -19,9 +19,6 @@ public class UserController {
 		if(userBean.getUsbUsername().length() == 0 || userBean.getUsbPassword().length() == 0) {
 			throw new EmptyFieldException();
 		}
-		/*if(UserDAO.checkUsername(userBean.getUsbUsername())) {
-			throw new InexistentUsernameException();
-		}*/
 		return UserDAO.verifyLogin(user);
 	}
 	

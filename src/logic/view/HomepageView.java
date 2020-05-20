@@ -30,6 +30,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import logic.view.SearchResultView;
 import logic.bean.UserBean;
 
 
@@ -40,10 +41,19 @@ public class HomepageView implements Initializable {
 	
 	@FXML private Label circleOwnerText;
 	@FXML private ComboBox<String> hourBooking;
-	@FXML private MenuItem userProfileItem, logoutItem;
+	@FXML private MenuItem userProfileItem;
+	@FXML private MenuItem logoutItem;
 	@FXML public MenuButton userButton;
-	@FXML private Button homeButton, loginButton, searchButton, shopButton, circleOwnerButton, circleUserButton;
-	@FXML public Group loginGroup, userGroup, circleOwnerGroup, circleUserGroup;
+	@FXML private Button homeButton; 
+	@FXML private Button loginButton; 
+	@FXML private Button searchButton;
+	@FXML private Button shopButton;
+	@FXML private Button circleOwnerButton;
+	@FXML private Button circleUserButton;
+	@FXML public Group loginGroup;
+	@FXML public Group userGroup;
+	@FXML public Group circleOwnerGroup;
+	@FXML public Group circleUserGroup;
 	@FXML private TextField searchBar;
 	@FXML public Text welcomebackText;
 	
@@ -58,7 +68,7 @@ public class HomepageView implements Initializable {
 			window.setTitle("Homepage");
 			
 			HomepageView controller = (HomepageView) loader.getController();
-			if(UserBean.usbInstance != null) {
+			if(UserBean.getInstance() != null) {
 				controller.loginGroup.setVisible(false);
 				controller.userGroup.setVisible(true);
 				controller.circleUserGroup.setVisible(true);
@@ -82,7 +92,7 @@ public class HomepageView implements Initializable {
 		window.show();
 	}
 	
-	/*public void doSearch(ActionEvent event) {
+	public void doSearch(ActionEvent event) {
 		tool.string = searchBar.getText();
 		try {
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -94,10 +104,10 @@ public class HomepageView implements Initializable {
 			window.setTitle("BeEcological - Search Result");
 			
 			SearchResultView controller = (SearchResultView) loader.getController();
-			if(UserBean.usbInstance != null) {
+			if(UserBean.getInstance() != null) {
 				controller.loginGroup.setVisible(false);
 				controller.userGroup.setVisible(true);
-				controller.userButton.setText(UserBean.usbInstance.getUsbUsername());
+				controller.userButton.setText(UserBean.getInstance().getUsbUsername());
 			}
 			else {
 				controller.userGroup.setVisible(false);
@@ -108,7 +118,7 @@ public class HomepageView implements Initializable {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
 	public void toUserLogin(ActionEvent event) {
 		try {
@@ -126,12 +136,11 @@ public class HomepageView implements Initializable {
 	
 	public void gotoUserProfile(ActionEvent event) {
 		try {
-			//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
-			Stage window = (Stage) userButton.getScene().getWindow();
 		    URL url = new File("src/res/fxml/UserProfile.fxml").toURI().toURL();
 		    FXMLLoader loader = new FXMLLoader(url);
 			Parent tableViewParent = loader.load();
 			Scene tableViewScene = new Scene(tableViewParent);
+			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 			window.setScene(tableViewScene);
 			window.setTitle("BeEcological - Profile");
 			window.show();
@@ -149,17 +158,17 @@ public class HomepageView implements Initializable {
 
 		if (result.get() == ButtonType.OK){
 			try {
-				Stage window = (Stage) userButton.getScene().getWindow();
 			    URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
 			    FXMLLoader loader = new FXMLLoader(url);
 				Parent tableViewParent = loader.load();
 				Scene tableViewScene = new Scene(tableViewParent);
+				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 				window.setScene(tableViewScene);
 				window.setTitle("Homepage");
 				HomepageView controller = (HomepageView) loader.getController();
 				controller.userGroup.setVisible(false);
 				controller.loginGroup.setVisible(true);
-				UserBean.usbInstance = null;
+				UserBean.setInstance(null);
 				window.show();
 			}catch(Exception e){
 				e.printStackTrace();
@@ -172,12 +181,11 @@ public class HomepageView implements Initializable {
 
 	public void gotoShop(ActionEvent event) {
 		try {
-			//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
-			Stage window = (Stage) userButton.getScene().getWindow();
 		    URL url = new File("src/res/fxml/Shop.fxml").toURI().toURL();
 		    FXMLLoader loader = new FXMLLoader(url);
 			Parent tableViewParent = loader.load();
 			Scene tableViewScene = new Scene(tableViewParent);
+			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 			window.setScene(tableViewScene);
 			window.setTitle("BeEcological - Shop");
 			window.show();

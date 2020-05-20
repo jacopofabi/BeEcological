@@ -1,7 +1,7 @@
 package logic.bean;
 
 public class CenterOwnerBean {
-	public static CenterOwnerBean instance = null;
+	private static CenterOwnerBean instance = null;
 	
     private String cobUsername;
     private String cobPassword;
