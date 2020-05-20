@@ -3,6 +3,7 @@ package logic.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class CenterDAO {
     public static List<Center> verifyCenter(String name) {
     	Statement stmt = null;
         Connection conn = null;
-    	ResultSet res;
+    	ResultSet res = null;
         List<Center> listCenter = new ArrayList<>();
         
         try {
@@ -40,18 +41,38 @@ public class CenterDAO {
         				res.getString("address") +" "+ res.getString("num"), res.getString("centerPhone")));
         	}
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
         }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+        }
+        
         return listCenter;
     }
     
     public static CenterOwner ownerOfTheCenter(Center center) {
     	Statement stmt = null;
         Connection conn = null;
-    	ResultSet res;
+    	ResultSet res = null;
         CenterOwner owner = null;
         
     	try {
@@ -71,11 +92,31 @@ public class CenterDAO {
         	owner = new CenterOwner(res.getString("name"), res.getString("surname"), res.getString("email"), res.getString("phone"), 
         			res.getString("username"), res.getString("password"), res.getString("center"));
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
         }
+    	
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+        }
+    	
         return owner;
     }
 }

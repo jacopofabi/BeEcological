@@ -3,6 +3,7 @@ package logic.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 
@@ -33,10 +34,23 @@ public class UnloadDAO {
             		+ "'%s')", unload.getuUser(), unload.getuCenter(), unload.getuDate(), unload.getuTime());
             stmt.executeUpdate(insertStatement);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
     
@@ -60,10 +74,23 @@ public class UnloadDAO {
         			unload.getuUser(), unload.getuCenter(), unload.getuDate(), unload.getuTime());
         	stmt.executeUpdate(deleteStatement);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+    	
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
 }

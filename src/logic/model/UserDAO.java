@@ -3,6 +3,7 @@ package logic.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ public class UserDAO {
     public static boolean checkUsername(String username) {
     	Statement stmt = null;
         Connection conn = null;
-    	ResultSet res;
+    	ResultSet res = null;
         int count = 1;
         
         try {
@@ -37,10 +38,30 @@ public class UserDAO {
         	res = stmt.executeQuery(selectStatement);
         	res.next();				//res.next e' la prima riga del risultato della query
         	count = res.getInt(1);	//ottengo la prima colonna del risultato della query
-            stmt.close();
-            conn.close();
+
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
         
         if(count == 1) {
@@ -68,17 +89,30 @@ public class UserDAO {
             		user.getUsName(), user.getUsSurname(), user.getUsEmail(), user.getUsPhone());
             stmt.executeUpdate(insertStatement);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
     
     public static boolean verifyLogin(User user) {
     	Statement stmt = null;
         Connection conn = null;
-        ResultSet res;
+        ResultSet res = null;
         int count = 0;
         
         try {
@@ -98,10 +132,29 @@ public class UserDAO {
         	res.next();
         	count = res.getInt(1);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
         
         if (count == 0) {
@@ -114,7 +167,7 @@ public class UserDAO {
     public static List<String> userInfo(User user) {
     	Statement stmt = null;
         Connection conn = null;
-        ResultSet res;
+        ResultSet res = null;
         List<String> listInfo = new ArrayList<>();
         
         try {
@@ -137,11 +190,31 @@ public class UserDAO {
         	listInfo.add(res.getString("Phone"));
         	listInfo.add(res.getString("EcoPoints"));
         	
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
         }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+        }
+        
     	return listInfo;
     }
     
@@ -163,10 +236,23 @@ public class UserDAO {
         			username);
         	stmt.executeUpdate(deleteStatement);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+    	
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
     
@@ -189,10 +275,23 @@ public class UserDAO {
         			+ "WHERE beecological.user.username = '%s';", ecoPoints, username);
             stmt.executeUpdate(updateStatement);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+    	
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
 }

@@ -3,6 +3,7 @@ package logic.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class CenterOwnerDAO {
     public static boolean checkUsername(String username) {
     	Statement stmt = null;
         Connection conn = null;
-        ResultSet res;
+        ResultSet res = null;
         int count = 1;
         
         try {
@@ -37,10 +38,29 @@ public class CenterOwnerDAO {
         	res.next();				//res.next e' la prima riga del risultato della query
         	count = res.getInt(1);	//ottengo la prima colonna del risultato della query
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
         
         if(count == 1) {
@@ -52,7 +72,7 @@ public class CenterOwnerDAO {
     public static boolean verifyLogin(CenterOwner owner) {
     	Statement stmt = null;
         Connection conn = null;
-        ResultSet res;
+        ResultSet res = null;
         int count = 0;
         
         try {
@@ -72,10 +92,29 @@ public class CenterOwnerDAO {
         	res.next();
         	count = res.getInt(1);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
         
         if (count == 0) {
@@ -87,7 +126,7 @@ public class CenterOwnerDAO {
     public static List<String> ownerInfo(CenterOwner owner) {
     	Statement stmt = null;
         Connection conn = null;
-        ResultSet res;
+        ResultSet res = null;
         List<String> listInfo = new ArrayList<>();
         
         try {
@@ -116,11 +155,31 @@ public class CenterOwnerDAO {
         	listInfo.add(res.getString("CAP"));
         	listInfo.add(res.getString("num"));
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
         }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+        }
+        
     	return listInfo;
     }
     
@@ -141,10 +200,23 @@ public class CenterOwnerDAO {
         	String deleteStatement = "DELETE FROM beecological.owner WHERE beecological.owner.username = '"+username+"';";
         	stmt.executeUpdate(deleteStatement);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+    	
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
     

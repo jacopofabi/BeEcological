@@ -3,6 +3,7 @@ package logic.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,17 +37,30 @@ public class WasteUnloadedDAO {
         			wasteUnloaded.getWuTime(), wasteUnloaded.getWuWaste(), wasteUnloaded.getWuWasteQuantity());
             stmt.executeUpdate(insertStatement);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
     
     public static List<WasteUnloaded> listOfUnloadRegisteredByCenter(String center) {
     	Statement stmt = null;
         Connection conn = null;
-        ResultSet res;
+        ResultSet res = null;
         List<WasteUnloaded> listUnload = new ArrayList<>();
         
         try {
@@ -71,10 +85,29 @@ public class WasteUnloadedDAO {
         				res.getString("time"), res.getString("name"), res.getInt("wasteQuantity"), res.getInt("ecoPoints")));
         	}
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
         return listUnload;
     }
@@ -82,7 +115,7 @@ public class WasteUnloadedDAO {
     public static List<WasteUnloaded> listOfUnloadRegisteredByUser(String user) {
     	Statement stmt = null;
         Connection conn = null;
-        ResultSet res;
+        ResultSet res = null;
         List<WasteUnloaded> listUnload = new ArrayList<>();
         
         try {
@@ -106,11 +139,30 @@ public class WasteUnloadedDAO {
         		listUnload.add(new WasteUnloaded(res.getString("user"), res.getString("center"), res.getString("date"), 
         				res.getString("time"), res.getString("name"), res.getInt("wasteQuantity"), res.getInt("ecoPoints")));
         	}
-            
-            stmt.close();
-            conn.close();
+
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
         return listUnload;
     }
@@ -135,18 +187,31 @@ public class WasteUnloadedDAO {
         			+ "AND beecological.wasteunloaded.waste = '%s';", wasteUnloaded.getWuUser(), wasteUnloaded.getWuCenter(), 
         			wasteUnloaded.getWuDate(), wasteUnloaded.getWuTime(), wasteUnloaded.getWuWaste());
         	stmt.executeUpdate(deleteStatement);
-            
-            stmt.close();
-            conn.close();
+
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+    	
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
     
     public static int wasteForAnUnload(WasteUnloaded wasteUnloaded) {
     	Statement stmt = null;
         Connection conn = null;
-        ResultSet res;
+        ResultSet res = null;
         int count = 1;
         
     	try {
@@ -168,10 +233,29 @@ public class WasteUnloadedDAO {
         	
         	count = res.getInt(1);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+    	
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     	return count;
     }

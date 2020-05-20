@@ -3,6 +3,7 @@ package logic.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +36,23 @@ public class BookingDAO {
             		booking.getbTime(), booking.getbStatus());
             stmt.executeUpdate(insertStatement);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
     
@@ -63,17 +77,30 @@ public class BookingDAO {
             		booking.getbUser(), booking.getbCenter(), booking.getbDate(), booking.getbTime());
             stmt.executeUpdate(updateStatement);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
     }
     
     public static int existingBooking(Booking booking) {
     	Statement stmt = null;
         Connection conn = null;
-        ResultSet res;
+        ResultSet res = null;
         int count = 0;
         
         try {
@@ -94,10 +121,29 @@ public class BookingDAO {
         	res.next();
         	count = res.getInt(1);
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
         return count;
     }
@@ -105,7 +151,7 @@ public class BookingDAO {
     public static List<Booking> listOfBookingByCenter(String center, String status) {
     	Statement stmt = null;
         Connection conn = null;
-        ResultSet res;
+        ResultSet res = null;
         List<Booking> listBooking = new ArrayList<>();
         
         try {
@@ -127,10 +173,29 @@ public class BookingDAO {
         				res.getString("date"), res.getString("time"), res.getString("status")));
         	}
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
         return listBooking;
     }
@@ -138,7 +203,7 @@ public class BookingDAO {
     public static List<Booking> listOfBookingByUser(String user, String status) {
     	Statement stmt = null;
         Connection conn = null;
-        ResultSet res;
+        ResultSet res = null;
         List<Booking> listBooking = new ArrayList<>();
         
         try {
@@ -160,10 +225,29 @@ public class BookingDAO {
         				res.getString("date"), res.getString("time"), res.getString("status")));
         	}
             
-            stmt.close();
-            conn.close();
         }catch (Exception e) {
         	e.printStackTrace();
+        }
+        
+        finally {
+            try {
+				stmt.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				res.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
+            try {
+				conn.close();
+			} 
+            catch (SQLException e) {
+				e.printStackTrace();
+			}
         }
         return listBooking;
     }
