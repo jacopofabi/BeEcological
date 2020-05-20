@@ -13,7 +13,7 @@ import logic.model.UserDAO;
 
 public class BookingController {
 	Booking booking;
-	ArrayList<Booking> listOfBooking;
+	List<Booking> listOfBooking;
 	
 	public int verifyBooking(BookingBean bookingBean) {
 		booking = new Booking(bookingBean.getBbUser(), bookingBean.getBbCenter(), bookingBean.getBbDate(), 
@@ -36,7 +36,7 @@ public class BookingController {
 		BookingDAO.updateBooking(booking);
 	}
 	
-	public List<BookingBean> listBookingBean(ArrayList<Booking> listOfBooking) {
+	public List<BookingBean> listBookingBean(List<Booking> listOfBooking) {
 		List<BookingBean> listOfBookingBean = new ArrayList<>();
 		for(Booking book : listOfBooking) {
 			BookingBean bookB = new BookingBean();

@@ -5,7 +5,7 @@
 
 <html lang="en">
 
-<jsp:useBean id="userBean" scope="session" class="logic.Bean.UserBean"/>
+<jsp:useBean id="userBean" scope="session" class="logic.bean.UserBean"/>
 
 <head>
   <meta charset="utf-8">

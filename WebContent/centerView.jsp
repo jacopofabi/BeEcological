@@ -1,9 +1,9 @@
 <!doctype html>
 
 <html lang="en">
-<%@ page import="logic.Bean.UserBean" %>
-<%@ page import="logic.Bean.CenterBean" %>
-<%@ page import="logic.Bean.CenterOwnerBean" %>
+<%@ page import="logic.bean.UserBean" %>
+<%@ page import="logic.bean.CenterBean" %>
+<%@ page import="logic.bean.CenterOwnerBean" %>
 <%UserBean user = new UserBean();
 if(session.getAttribute("loggedUser")!=null){
 	user=(UserBean)session.getAttribute("loggedUser"); %>

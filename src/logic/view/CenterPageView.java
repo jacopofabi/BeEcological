@@ -249,7 +249,7 @@ public class CenterPageView implements Initializable {
 	public void returnHomepage(ActionEvent event) {
 		try {
 		    Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		    URL url = new File("src/fxml/Homepage.fxml").toURI().toURL();
+		    URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
 		    FXMLLoader loader = new FXMLLoader(url);
 			Parent tableViewParent = loader.load();
 			Scene tableViewScene = new Scene(tableViewParent);
@@ -274,7 +274,7 @@ public class CenterPageView implements Initializable {
 		tool.string = searchBar.getText();
 		try {
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		    URL url = new File("src/fxml/SearchResult.fxml").toURI().toURL();
+		    URL url = new File("src/res/fxml/SearchResult.fxml").toURI().toURL();
 		    FXMLLoader loader = new FXMLLoader(url);
 			Parent tableViewParent = loader.load();
 			Scene tableViewScene = new Scene(tableViewParent);
@@ -300,7 +300,7 @@ public class CenterPageView implements Initializable {
 
 	public void toUserLogin(ActionEvent event) {
 		try {
-			URL url = new File("src/fxml/LoginUser.fxml").toURI().toURL();
+			URL url = new File("src/res/fxml/LoginUser.fxml").toURI().toURL();
 			Parent tableViewParent = FXMLLoader.load(url);
 			Scene tableViewScene = new Scene(tableViewParent);
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -314,9 +314,9 @@ public class CenterPageView implements Initializable {
 	
 	/*public void gotoUserProfile(ActionEvent event) {
 		try {
-			//ricavo lo stage dal menuButton, poichè il menuItem non è una sottoclasse di Node
+			//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
 			//Stage window = (Stage) userButton.getScene().getWindow();
-		    URL url = new File("src/fxml/UserProfile.fxml").toURI().toURL();
+		    URL url = new File("src/res/fxml/UserProfile.fxml").toURI().toURL();
 		    FXMLLoader loader = new FXMLLoader(url);
 			Parent tableViewParent = loader.load();
 			Scene tableViewScene = new Scene(tableViewParent);
@@ -340,7 +340,7 @@ public class CenterPageView implements Initializable {
 		
 		try {
 			Stage window = (Stage) userButton.getScene().getWindow();
-		    URL url = new File("src/fxml/Homepage.fxml").toURI().toURL();
+		    URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
 		    FXMLLoader loader = new FXMLLoader(url);
 			Parent tableViewParent = loader.load();
 			Scene tableViewScene = new Scene(tableViewParent);
@@ -354,9 +354,9 @@ public class CenterPageView implements Initializable {
 	}
 	
 	public void gotoShop(ActionEvent event) throws IOException {
-		//ricavo lo stage dal menuButton, poichè il menuItem non è una sottoclasse di Node
+		//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
 		Stage window = (Stage) userButton.getScene().getWindow();
-	    URL url = new File("src/fxml/Shop.fxml").toURI().toURL();
+	    URL url = new File("src/res/fxml/Shop.fxml").toURI().toURL();
 	    FXMLLoader loader = new FXMLLoader(url);
 		Parent tableViewParent = loader.load();
 		Scene tableViewScene = new Scene(tableViewParent);

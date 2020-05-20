@@ -142,7 +142,7 @@ public class SearchResultView implements Initializable {
 	
 	public void gotoShop(ActionEvent event) {
 		try {
-			//ricavo lo stage dal menuButton, poichè il menuItem non è una sottoclasse di Node
+			//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
 			//Stage window = (Stage) userButton.getScene().getWindow();
 		    URL url = new File("src/res/fxml/Shop.fxml").toURI().toURL();
 		    FXMLLoader loader = new FXMLLoader(url);
@@ -199,7 +199,7 @@ public class SearchResultView implements Initializable {
 	
 	public void gotoUserProfile(ActionEvent event) {
 		try {
-			//ricavo lo stage dal menuButton, poichè il menuItem non è una sottoclasse di Node
+			//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
 			//Stage window = (Stage) userButton.getScene().getWindow();
 		    URL url = new File("src/res/fxml/UserProfile.fxml").toURI().toURL();
 		    FXMLLoader loader = new FXMLLoader(url);

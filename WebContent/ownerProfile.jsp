@@ -1,9 +1,9 @@
 <!doctype html>
 
 <html lang="en">
-<%@ page import="logic.Bean.CenterOwnerBean,logic.Bean.CenterBean" %>
-<jsp:useBean id="owner" class="logic.Bean.CenterOwnerBean" scope="session" />
-<jsp:useBean id="center" class="logic.Bean.CenterBean" scope="session" />
+<%@ page import="logic.bean.CenterOwnerBean,logic.bean.CenterBean" %>
+<jsp:useBean id="owner" class="logic.bean.CenterOwnerBean" scope="session" />
+<jsp:useBean id="center" class="logic.bean.CenterBean" scope="session" />
 <%owner = (CenterOwnerBean)session.getAttribute("loggedOwner");
 center = (CenterBean)session.getAttribute("centerInfo"); %>
 <head>

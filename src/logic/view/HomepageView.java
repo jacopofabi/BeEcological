@@ -96,7 +96,7 @@ public class HomepageView implements Initializable {
 		tool.string = searchBar.getText();
 		try {
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		    URL url = new File("src/fxml/SearchResult.fxml").toURI().toURL();
+		    URL url = new File("src/res/fxml/SearchResult.fxml").toURI().toURL();
 		    FXMLLoader loader = new FXMLLoader(url);
 			Parent tableViewParent = loader.load();
 			Scene tableViewScene = new Scene(tableViewParent);

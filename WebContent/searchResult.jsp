@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="logic.Bean.UserBean" %>
-<%@ page import="logic.Bean.CenterBean" %>
+<%@ page import="logic.bean.UserBean" %>
+<%@ page import="logic.bean.CenterBean" %>
 <%UserBean user = new UserBean();
 if(session.getAttribute("loggedUser")!=null){
 	user=(UserBean)session.getAttribute("loggedUser"); %>
