@@ -3,9 +3,7 @@ package logic.view;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -98,8 +96,8 @@ public class CenterPageView implements Initializable {
     
     private UserBean user;
     private UserController control;
-    public static long start;
-    public static long end;
+    public long start;
+    public long end;
     boolean isBooking;
     
     

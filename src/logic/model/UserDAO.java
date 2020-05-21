@@ -15,18 +15,16 @@ public class UserDAO {
 	private UserDAO() {}
 	
 	//------------------------------------------------------------------------------
-    public static boolean checkUsername(String username) {
-    	Statement stmt = null;
+	public static int getUser(String query) {
+		Statement stmt = null;
         Connection conn = null;
     	ResultSet res = null;
-        int count = 1;
+        int count = 10;
         
         try {
             DaoHelper.getConnection();
             DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
-        	String query = "SELECT count(*) FROM beecological.User WHERE Username = '" + username + "';";
-        	
-        	res = stmt.executeQuery(query);
+            res = stmt.executeQuery(query);
         	res.next();				//res.next e' la prima riga del risultato della query
         	count = res.getInt(1);	//ottengo la prima colonna del risultato della query
 
@@ -39,45 +37,34 @@ public class UserDAO {
         	DaoHelper.close(res);
         	DaoHelper.close(conn);
         }
-        
+        return count;
+	}
+	
+	
+	//------------------------------------------------------------------------------
+    public static boolean checkUsername(String username) {
+    	String query = "SELECT count(*) FROM beecological.User WHERE Username = '" + username + "';";
+    	int count = getUser(query);        
         if(count == 1) {
         	return false;	//username gia utilizzato da altro utente, non permetto registrazione(insert del nuovo utente)
         }
-        return true;		//username disponibile
+        else {
+        	return true;	//username disponibile
+        }
     }
         
     
     //------------------------------------------------------------------------------
     public static boolean verifyLogin(User user) {
-    	Statement stmt = null;
-        Connection conn = null;
-        ResultSet res = null;
-        int count = 0;
-        
-        try {
-	        DaoHelper.getConnection();
-	        DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
-        	String query = "SELECT count(*) FROM beecological.User WHERE Username = '" + user.getUsUsername() + 
-        			"' and Password = '" + user.getUsPassword() + "';";
-        	
-        	res = stmt.executeQuery(query);
-        	res.next();
-        	count = res.getInt(1);
-            
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-        
-        finally {
-			DaoHelper.close(stmt);
-			DaoHelper.close(res);
-			DaoHelper.close(conn);
-        }
-        
+    	String query = "SELECT count(*) FROM beecological.User WHERE Username = '" + user.getUsUsername() + 
+    			"' and Password = '" + user.getUsPassword() + "';";
+    	int count = getUser(query);
         if (count == 0) {
         	return false;	//utente immesso non esiste
         }
-        return true; //count=1 nel db, l'utente matcha una registrazizone
+        else {
+        	return true; 	//count=1 nel db, l'utente matcha una registrazione
+        }
     }
 
 

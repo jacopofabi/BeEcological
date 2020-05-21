@@ -35,6 +35,54 @@ public class BookingDAO {
     
     
     //------------------------------------------------------------------------------
+    public static List<Booking> listOfBooking(String query) {
+    	Statement stmt = null;
+        Connection conn = null;
+        ResultSet res = null;
+        List<Booking> listBooking = new ArrayList<>();
+        
+        try {
+        	DaoHelper.getConnection();
+        	DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+        	res = stmt.executeQuery(query);
+        	while (res.next()) {
+        		listBooking.add(new Booking(res.getInt("ID"), res.getString("user"), res.getString("center"), 
+        				res.getString("date"), res.getString("time"), res.getString("status")));
+        	}
+            
+        }catch (Exception e) {
+        	e.printStackTrace();
+        }
+        
+        finally {
+        	DaoHelper.close(stmt);
+        	DaoHelper.close(res);
+        	DaoHelper.close(conn);
+        }
+        return listBooking;
+        	
+    }
+    
+    
+    //------------------------------------------------------------------------------
+    public static List<Booking> listOfBookingByCenter(String center, String status) {
+    	String query = "SELECT * FROM beecological.bookingrequest WHERE beecological.bookingrequest.center = '" + center +"'"
+    		+ " and beecological.bookingrequest.status = '" + status + "' ORDER BY beecological.bookingrequest.date;";
+        	
+    	return listOfBooking(query);
+    }
+    
+    
+    //------------------------------------------------------------------------------
+    public static List<Booking> listOfBookingByUser(String user, String status) {
+    	String query = "SELECT * FROM beecological.bookingrequest WHERE beecological.bookingrequest.user = '" + user +"'"
+    			+ " and beecological.bookingrequest.status = '" + status + "' ORDER BY beecological.bookingrequest.date;";
+    	
+    	return listOfBooking(query);
+    }
+    
+    
+    //------------------------------------------------------------------------------
     public static int existingBooking(Booking booking) {
     	Statement stmt = null;
         Connection conn = null;
@@ -62,69 +110,5 @@ public class BookingDAO {
         	DaoHelper.close(conn);
         }
         return count;
-    }
-    
-    
-    //------------------------------------------------------------------------------
-    public static List<Booking> listOfBookingByCenter(String center, String status) {
-    	Statement stmt = null;
-        Connection conn = null;
-        ResultSet res = null;
-        List<Booking> listBooking = new ArrayList<>();
-        
-        try {
-        	DaoHelper.getConnection();
-        	DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
-        	String query = "SELECT * FROM beecological.bookingrequest WHERE beecological.bookingrequest.center = '" + center +"'"
-        			+ " and beecological.bookingrequest.status = '" + status + "' ORDER BY beecological.bookingrequest.date;";
-        	
-        	res = stmt.executeQuery(query);
-        	while (res.next()) {
-        		listBooking.add(new Booking(res.getInt("ID"), res.getString("user"), res.getString("center"), 
-        				res.getString("date"), res.getString("time"), res.getString("status")));
-        	}
-            
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-        
-        finally {
-        	DaoHelper.close(stmt);
-        	DaoHelper.close(res);
-        	DaoHelper.close(conn);
-        }
-        return listBooking;
-    }
-    
-    
-    //------------------------------------------------------------------------------
-    public static List<Booking> listOfBookingByUser(String user, String status) {
-    	Statement stmt = null;
-        Connection conn = null;
-        ResultSet res = null;
-        List<Booking> listBooking = new ArrayList<>();
-        
-        try {
-            DaoHelper.getConnection();
-            DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
-        	String query = "SELECT * FROM beecological.bookingrequest WHERE beecological.bookingrequest.user = '" + user +"'"
-        			+ " and beecological.bookingrequest.status = '" + status + "' ORDER BY beecological.bookingrequest.date;";
-        	
-        	res = stmt.executeQuery(query);
-        	while (res.next()) {
-        		listBooking.add(new Booking(res.getInt("ID"), res.getString("user"), res.getString("center"), 
-        				res.getString("date"), res.getString("time"), res.getString("status")));
-        	}
-            
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-        
-        finally {
-        	DaoHelper.close(stmt);
-        	DaoHelper.close(res);
-        	DaoHelper.close(conn);
-        }
-        return listBooking;
     }
 }
