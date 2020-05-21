@@ -125,13 +125,13 @@
                   <Font name="Calibri" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="circleOwnerText" layoutX="115.0" layoutY="120.0" onDragDetected="#gotoOwnerLogin" style="-fx-cursor: hand;" text="Join BeEcological" textFill="#4d4b4b" underline="true">
+            <Label fx:id="circleOwnerText" layoutX="115.0" layoutY="120.0" onDragDetected="#toOwnerLogin" style="-fx-cursor: hand;" text="Join BeEcological" textFill="#4d4b4b" underline="true">
                <font>
                   <Font name="Calibri Bold" size="18.0" />
                </font>
             </Label>
             <Text fill="#4d4b4b" layoutX="94.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to increase your online visibility,&#10;manage booking schedule&#10;and attract new customers." textAlignment="CENTER" />
-            <Button fx:id="circleOwnerButton" layoutX="123.0" layoutY="28.0" mnemonicParsing="false" onAction="#gotoOwnerLogin" prefHeight="80.0" prefWidth="73.0" style="-fx-cursor: hand; -fx-background-color: transparent;">
+            <Button fx:id="circleOwnerButton" layoutX="123.0" layoutY="28.0" mnemonicParsing="false" onAction="#toOwnerLogin" prefHeight="80.0" prefWidth="73.0" style="-fx-cursor: hand; -fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="93.0" fitWidth="93.0" preserveRatio="true" style="-fx-background-color: transparent;">
                      <image>

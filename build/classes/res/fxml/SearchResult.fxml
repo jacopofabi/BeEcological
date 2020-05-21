@@ -108,11 +108,11 @@
                <children>
                   <TableView fx:id="tableView" onMouseClicked="#openCenterPage" prefHeight="886.0" prefWidth="1298.0" stylesheets="@../styles/GreenTableView.css">
                     <columns>
-                      <TableColumn fx:id="col_name" editable="false" prefWidth="350.0" resizable="false" style="-fx-text-fill: #589442; -fx-cursor: hand;" text="Name" />
-                      <TableColumn fx:id="col_city" editable="false" minWidth="0.0" prefWidth="210.0" resizable="false" style="-fx-text-fill: #589442;" text="City" />
-                        <TableColumn fx:id="col_cap" editable="false" minWidth="0.0" prefWidth="87.0" resizable="false" style="-fx-text-fill: #589442;" text="CAP" />
-                        <TableColumn fx:id="col_address" editable="false" prefWidth="479.0" resizable="false" style="-fx-text-fill: #589442;" text="Address" />
-                        <TableColumn fx:id="col_phone" editable="false" prefWidth="171.0" resizable="false" style="-fx-text-fill: #589442;" text="Phone" />
+                      <TableColumn fx:id="colName" editable="false" prefWidth="350.0" resizable="false" style="-fx-text-fill: #589442; -fx-cursor: hand;" text="Name" />
+                      <TableColumn fx:id="colCity" editable="false" minWidth="0.0" prefWidth="210.0" resizable="false" style="-fx-text-fill: #589442;" text="City" />
+                        <TableColumn fx:id="colCap" editable="false" minWidth="0.0" prefWidth="87.0" resizable="false" style="-fx-text-fill: #589442;" text="CAP" />
+                        <TableColumn fx:id="colAddress" editable="false" prefWidth="479.0" resizable="false" style="-fx-text-fill: #589442;" text="Address" />
+                        <TableColumn fx:id="colPhone" editable="false" prefWidth="171.0" resizable="false" style="-fx-text-fill: #589442;" text="Phone" />
                     </columns>
                   </TableView>
                </children>

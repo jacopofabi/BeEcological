@@ -17,7 +17,7 @@ public class StandaloneMain extends Application {
 	public void start(Stage primaryStage) {
 	
 		try {
-			primaryStage.setTitle("Homepage");
+			primaryStage.setTitle("BeEcological - Homepage");
 			URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
 			Parent root = FXMLLoader.load(url);
 	        Scene scene = new Scene(root, 1366, 768);

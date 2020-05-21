@@ -9,7 +9,7 @@ public class User {
     private String usPhone;
     private int usEcoPoints;
 
-    public User(String username){
+    public User(String username) {
         this.usUsername = username;
     }
     

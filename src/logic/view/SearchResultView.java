@@ -1,11 +1,14 @@
 package logic.view;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.sun.javafx.scene.control.skin.TableHeaderRow;
 
@@ -43,7 +46,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
+import logic.utilities.PageLoader;
 import logic.utilities.Tool;
 
 
@@ -79,28 +82,14 @@ public class SearchResultView implements Initializable {
     private CenterController control;
     
     
-  //------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------
 	public void returnHomepage(ActionEvent event) {
+		PageLoader pageLoader;
 		try {
-		    Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		    URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
-		    FXMLLoader loader = new FXMLLoader(url);
-			Parent tableViewParent = loader.load();
-			Scene tableViewScene = new Scene(tableViewParent);
-			window.setScene(tableViewScene);
-			window.setTitle("Homepage");
-			HomepageView controller = (HomepageView) loader.getController();
-			if (UserBean.getInstance() != null) {
-				controller.loginGroup.setVisible(false);
-				controller.userGroup.setVisible(true);
-				controller.userButton.setText(UserBean.getUserInstance("").getUsbUsername());
-				controller.circleUserGroup.setVisible(true);
-				controller.circleOwnerGroup.setVisible(false);
-				controller.welcomebackText.setText("Welcome back, "+UserBean.getUserInstance("").getUsbUsername());
-			}
-			window.show();
-		}catch(Exception e){
-			e.printStackTrace();
+			pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+			pageLoader.homeConfig();
+		} catch (IOException e) {
+			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 		}
 	}
 	
@@ -108,45 +97,23 @@ public class SearchResultView implements Initializable {
 	//------------------------------------------------------------------------------
 	public void doSearch(ActionEvent event) {
 		Tool.setString(searchBar.getText());
+		PageLoader pageLoader;
 		try {
-			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		    URL url = new File("src/res/fxml/SearchResult.fxml").toURI().toURL();
-		    FXMLLoader loader = new FXMLLoader(url);
-			Parent tableViewParent = loader.load();
-			Scene tableViewScene = new Scene(tableViewParent);
-			window.setScene(tableViewScene);
-			window.setTitle("BeEcological - Search Result");
-			
-			SearchResultView controller = (SearchResultView) loader.getController();
-			if(UserBean.getInstance() != null) {
-				controller.loginGroup.setVisible(false);
-				controller.userGroup.setVisible(true);
-				controller.userButton.setText(UserBean.getUserInstance("").getUsbUsername());
-			}
-			else {
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
-			}
-			controller.textSearched.setText(Tool.getString()); //setta il testo del risultato come quello cercato
-			window.show();
-		}catch(Exception e){
-			e.printStackTrace();
+			pageLoader = new PageLoader(PageLoader.Page.SEARCH_RESULT, event);
+			pageLoader.searchConfig();
+		} catch (IOException e) {
+			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 		}
 	}
-
+	
 	
 	//------------------------------------------------------------------------------
 	public void toUserLogin(ActionEvent event) {
 		try {
-			URL url = new File("src/res/fxml/LoginUser.fxml").toURI().toURL();
-			Parent tableViewParent = FXMLLoader.load(url);
-			Scene tableViewScene = new Scene(tableViewParent);
-			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			window.setScene(tableViewScene);
-			window.setTitle("Login");
-			window.show();
-		}catch(Exception e){
-			e.printStackTrace();
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.LOGIN_USER, event);
+			pageLoader.stageShow();
+		} catch (IOException e) {
+			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 		}
 	}
 	
@@ -154,18 +121,21 @@ public class SearchResultView implements Initializable {
 	//------------------------------------------------------------------------------
 	public void gotoShop(ActionEvent event) {
 		try {
-			//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
-			//Stage window = (Stage) userButton.getScene().getWindow();
-		    URL url = new File("src/res/fxml/Shop.fxml").toURI().toURL();
-		    FXMLLoader loader = new FXMLLoader(url);
-			Parent tableViewParent = loader.load();
-			Scene tableViewScene = new Scene(tableViewParent);
-			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			window.setScene(tableViewScene);
-			window.setTitle("BeEcological - Shop");
-			window.show();
-		}catch(Exception e){
-			e.printStackTrace();
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.SHOP, event);
+			pageLoader.stageShow();
+		} catch (IOException e) {
+			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
+		}
+	}
+
+	
+	//------------------------------------------------------------------------------
+	public void gotoUserProfile(ActionEvent event) {
+		try {
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
+			pageLoader.stageShow();
+		} catch (IOException e) {
+			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 		}
 	}
 	
@@ -212,25 +182,6 @@ public class SearchResultView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
-	public void gotoUserProfile(ActionEvent event) {
-		try {
-			//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
-			//Stage window = (Stage) userButton.getScene().getWindow();
-		    URL url = new File("src/res/fxml/UserProfile.fxml").toURI().toURL();
-		    FXMLLoader loader = new FXMLLoader(url);
-			Parent tableViewParent = loader.load();
-			Scene tableViewScene = new Scene(tableViewParent);
-			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			window.setScene(tableViewScene);
-			window.setTitle("BeEcological - Profile");
-			window.show();
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-	}
-	
-	
-	//------------------------------------------------------------------------------
 	public void doLogout(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
@@ -238,8 +189,9 @@ public class SearchResultView implements Initializable {
 		alert.setContentText("Are you sure you want to logout?");
 		Optional<ButtonType> result = alert.showAndWait();
 
-		if (result.get() == ButtonType.OK){
-			try {
+		if(result.get() == ButtonType.OK) {
+			try {			
+				//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
 				//Stage window = (Stage) userButton.getScene().getWindow();
 				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 			    URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
@@ -248,14 +200,14 @@ public class SearchResultView implements Initializable {
 				Scene tableViewScene = new Scene(tableViewParent);
 				window.setScene(tableViewScene);
 				window.setTitle("Homepage");
+				HomepageView controller = (HomepageView) loader.getController();
+				controller.userGroup.setVisible(false);
+				controller.loginGroup.setVisible(true);
 				UserBean.setInstance(null);
 				window.show();
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		}
-		else {
-		    //do nothing
 		}
 	}
 
