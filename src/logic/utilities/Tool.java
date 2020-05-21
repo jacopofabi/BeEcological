@@ -7,8 +7,11 @@ import java.util.Date;
 
 
 public class Tool {
-	public static String string = "";
-	public static String centerName = "";
+	
+	private static String string = "";
+	private static String centerName = "";
+	
+	private Tool() {}
 	
 	//------------------------------------------------------------------------------
 	public static String getString() {
@@ -19,6 +22,18 @@ public class Tool {
 	//------------------------------------------------------------------------------
 	public static String getCenterName() {
 		return centerName;
+	}
+	
+	
+	//------------------------------------------------------------------------------
+	public static void setString(String str) {
+		string = str;
+	}
+	
+	
+	//------------------------------------------------------------------------------
+	public static void setCenterName(String str) {
+		centerName = str;
 	}
 	
 	

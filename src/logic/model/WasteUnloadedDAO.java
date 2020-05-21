@@ -41,8 +41,8 @@ public class WasteUnloadedDAO {
         List<WasteUnloaded> listUnload = new ArrayList<>();
         
         try {
-            DaoHelper.getConnection();
-            DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+            conn = DaoHelper.getConnection();
+            stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
         	res = stmt.executeQuery(query);
         	while (res.next()) {
         		listUnload.add(new WasteUnloaded(res.getString("user"), res.getString("center"), res.getString("date"), 
@@ -92,8 +92,8 @@ public class WasteUnloadedDAO {
         int count = 1;
         
     	try {
-    		DaoHelper.getConnection();
-    		DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+    		conn = DaoHelper.getConnection();
+    		stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
         	String query = "SELECT count(*) FROM beecological.wasteunloaded WHERE beecological.wasteunloaded.user = '"+wasteUnloaded.getWuUser()+"' "
         			+ "AND beecological.wasteunloaded.center = '"+wasteUnloaded.getWuCenter()+"' AND beecological.wasteunloaded.date = '"+wasteUnloaded.getWuDate()+"' "
         					+ "AND beecological.wasteunloaded.time = '"+wasteUnloaded.getWuTime()+"';";

@@ -100,7 +100,7 @@ public class HomepageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	public void doSearch(ActionEvent event) {
-		Tool.string = searchBar.getText();
+		Tool.setString(searchBar.getText());
 		try {
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    URL url = new File("src/res/fxml/SearchResult.fxml").toURI().toURL();
@@ -120,7 +120,7 @@ public class HomepageView implements Initializable {
 				controller.userGroup.setVisible(false);
 				controller.loginGroup.setVisible(true);
 			}
-			controller.textSearched.setText(Tool.string); //setta il testo del risultato come quello cercato
+			controller.textSearched.setText(Tool.getString()); //setta il testo del risultato come quello cercato
 			window.show();
 		}catch(Exception e){
 			e.printStackTrace();

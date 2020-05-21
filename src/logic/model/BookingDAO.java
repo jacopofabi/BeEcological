@@ -42,8 +42,8 @@ public class BookingDAO {
         List<Booking> listBooking = new ArrayList<>();
         
         try {
-        	DaoHelper.getConnection();
-        	DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+        	conn = DaoHelper.getConnection();
+        	stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
         	res = stmt.executeQuery(query);
         	while (res.next()) {
         		listBooking.add(new Booking(res.getInt("ID"), res.getString("user"), res.getString("center"), 

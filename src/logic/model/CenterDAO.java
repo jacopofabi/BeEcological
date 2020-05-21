@@ -22,8 +22,8 @@ public class CenterDAO {
         List<Center> listCenter = new ArrayList<>();
         
         try {
-           DaoHelper.getConnection();
-           DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+           conn = DaoHelper.getConnection();
+           stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
         	String query = "SELECT * FROM beecological.center WHERE beecological.center.centerName = '" + name + "' or "
         			+ "beecological.center.city = '" + name + "' or beecological.center.address = '" + name + "';";
         	res = stmt.executeQuery(query);
@@ -53,8 +53,8 @@ public class CenterDAO {
         CenterOwner owner = null;
         
     	try {
-            DaoHelper.getConnection();
-            DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+            conn = DaoHelper.getConnection();
+            stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
         	String query = "SELECT * FROM beecological.owner WHERE beecological.owner.center = '" + center.getcName() + "';";
         	
         	res = stmt.executeQuery(query);

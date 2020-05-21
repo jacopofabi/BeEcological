@@ -22,8 +22,8 @@ public class UserDAO {
         int count = 10;
         
         try {
-            DaoHelper.getConnection();
-            DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+            conn = DaoHelper.getConnection();
+            stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
             res = stmt.executeQuery(query);
         	res.next();				//res.next e' la prima riga del risultato della query
         	count = res.getInt(1);	//ottengo la prima colonna del risultato della query
@@ -76,8 +76,8 @@ public class UserDAO {
         List<String> listInfo = new ArrayList<>();
         
         try {
-            DaoHelper.getConnection();
-            DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+            conn = DaoHelper.getConnection();
+            stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
         	String query = "SELECT * FROM beecological.User WHERE Username = '" + user.getUsUsername() + "';";
         	
         	res = stmt.executeQuery(query);   

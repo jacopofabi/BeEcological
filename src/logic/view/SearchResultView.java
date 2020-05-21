@@ -107,7 +107,7 @@ public class SearchResultView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	public void doSearch(ActionEvent event) {
-		Tool.string = searchBar.getText();
+		Tool.setString(searchBar.getText());
 		try {
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    URL url = new File("src/res/fxml/SearchResult.fxml").toURI().toURL();
@@ -127,7 +127,7 @@ public class SearchResultView implements Initializable {
 				controller.userGroup.setVisible(false);
 				controller.loginGroup.setVisible(true);
 			}
-			controller.textSearched.setText(Tool.string); //setta il testo del risultato come quello cercato
+			controller.textSearched.setText(Tool.getString()); //setta il testo del risultato come quello cercato
 			window.show();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -179,7 +179,7 @@ public class SearchResultView implements Initializable {
 	        center = tableView.getItems().get(index);
 	        owner = control.ownerOfTheSelectedCenter(center);
 		}
-		Tool.centerName = center.getCbName();
+		Tool.setCenterName(center.getCbName());
 		try {
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    URL url = new File("src/res/fxml/CenterPage.fxml").toURI().toURL();
@@ -265,10 +265,10 @@ public class SearchResultView implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
 		searchBar.setFont(Font.font("Calibri Light", FontWeight.NORMAL, 15));
-		
 		center = new CenterBean();
-		center.setCbName(Tool.string);
+		center.setCbName(Tool.getString());
 		centerList.removeAll(centerList);
+		System.out.println(center.getCbName());
 	    try{      
 	    	control = new CenterController();
 	        data = control.centerList(center);
@@ -277,6 +277,8 @@ public class SearchResultView implements Initializable {
 	    catch(Exception e){
 	          e.printStackTrace();      
 	    }
+
+		System.out.println("diocane");
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
 		colName.setCellValueFactory(new PropertyValueFactory<>("cbName"));
 		colCity.setCellValueFactory(new PropertyValueFactory<>("cbCity"));

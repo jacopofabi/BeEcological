@@ -96,8 +96,8 @@ public class CenterPageView implements Initializable {
     
     private UserBean user;
     private UserController control;
-    public long start;
-    public long end;
+    private long start;
+    private long end;
     boolean isBooking;
     
     
@@ -244,7 +244,8 @@ public class CenterPageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	public void doSearch(ActionEvent event) {
-		Tool.string = searchBar.getText();
+		Tool.setString(searchBar.getText());
+		System.out.println(Tool.getString());
 		try {
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    URL url = new File("src/res/fxml/SearchResult.fxml").toURI().toURL();
