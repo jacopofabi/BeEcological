@@ -41,7 +41,6 @@ public class OwnerProfileView implements Initializable {
 	@FXML private Text email;
 	@FXML private Text phoneNumber;
 	
-	private CenterOwnerBean owner;
 	private OwnerController control;
 	
 	
@@ -65,7 +64,6 @@ public class OwnerProfileView implements Initializable {
 		alert.setHeaderText(null);
 		alert.setContentText("Functionality not implemented.");		
 		alert.showAndWait();
-		return;
 	}
 	
 	
@@ -77,7 +75,6 @@ public class OwnerProfileView implements Initializable {
 		alert.setHeaderText(null);
 		alert.setContentText("Functionality not implemented.");		
 		alert.showAndWait();
-		return;
 	}
 	
 	
@@ -149,7 +146,7 @@ public class OwnerProfileView implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
-		owner = new CenterOwnerBean();
+		CenterOwnerBean owner = new CenterOwnerBean();
 		control = new OwnerController();
 		owner.setCobUsername(CenterOwnerBean.getOwnerInstance("").getCobUsername());
 		ownerButton.setText(owner.getCobUsername());

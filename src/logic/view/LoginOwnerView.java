@@ -78,7 +78,6 @@ public class LoginOwnerView implements Initializable {
 		alert.setContentText("Functionality not implemented. The registration must have a confirmation email, send by the"
 				+ "administrator.");
 		alert.showAndWait();
-		return;
 	}
 	
 	

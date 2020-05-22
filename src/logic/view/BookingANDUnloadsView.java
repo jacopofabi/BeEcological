@@ -68,10 +68,8 @@ public class BookingANDUnloadsView implements Initializable {
 
 	private BookingBean book;
 	private WasteUnloadedBean waste;
-	private UnloadBean unload;
 	private WasteUnloadedController control;
-	private UnloadController control1;
-	private BookingController control2;
+	private BookingController control1;
 	
 	
 	//------------------------------------------------------------------------------
@@ -114,13 +112,13 @@ public class BookingANDUnloadsView implements Initializable {
 				int count = control.numberOfWasteForAnUnload(waste);
 				if(count==0) {
 					//non ho piu niente registrato per quello scarico, lo elimino
-			        unload = new UnloadBean();
+			        UnloadBean unload = new UnloadBean();
 					unload.setUbUser(waste.getWbUser());
 					unload.setUbCenter(waste.getWbCenter());
 					unload.setUbDate(waste.getWbDate());
 					unload.setUbTime(waste.getWbTime());
-					control1 = new UnloadController();
-			        control1.deleteAnUnload(unload);
+					UnloadController control2 = new UnloadController();
+			        control2.deleteAnUnload(unload);
 					alert.setAlertType(AlertType.INFORMATION);
 					alert.setTitle("Unload deleted.");
 		    		alert.setHeaderText(null);
@@ -158,8 +156,8 @@ public class BookingANDUnloadsView implements Initializable {
 	        
 	        if (result.get() == ButtonType.OK){
 	    		booking.setBbStatus("D");
-	    		control2 = new BookingController();
-	        	control2.modifyBooking(booking);
+	    		control1 = new BookingController();
+	        	control1.modifyBooking(booking);
 	    		alert.setAlertType(AlertType.INFORMATION);
 	    		alert.setTitle("Booking refuse completed.");
 	    		alert.setHeaderText(null);
@@ -172,7 +170,7 @@ public class BookingANDUnloadsView implements Initializable {
 	        book.setBbStatus("A");
 	        bookingList.removeAll(bookingList);
 		    try {
-		        data = control2.bookingListByCenter(book);
+		        data = control1.bookingListByCenter(book);
 		        bookingList.addAll(data);
 		    }
 		    catch(Exception e){
@@ -225,13 +223,12 @@ public class BookingANDUnloadsView implements Initializable {
 		book.setBbStatus("A");
 		bookingList.removeAll(bookingList);
 	    try {
-	    	control2 = new BookingController();
-	        data = control2.bookingListByCenter(book);
+	    	control1 = new BookingController();
+	        data = control1.bookingListByCenter(book);
 	        bookingList.addAll(data);
 	    }
 	    catch(Exception e){
-	          e.printStackTrace();
-	          System.out.println(errorData);            
+	    	Logger.getGlobal().log(Level.SEVERE, errorData);        
 	    }
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
 		colid.setCellValueFactory(new PropertyValueFactory<>("bbId"));
@@ -264,8 +261,7 @@ public class BookingANDUnloadsView implements Initializable {
 	        unloadList.addAll(data1);
 	    }
 	    catch(Exception e){
-	          e.printStackTrace();
-	          System.out.println(errorData);            
+	    	Logger.getGlobal().log(Level.SEVERE, errorData);           
 	    }
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
 		colUser1.setCellValueFactory(new PropertyValueFactory<>("wbUser"));

@@ -108,13 +108,7 @@ public class RegisterUnloadView implements Initializable {
 	@FXML private TableColumn<BookingBean, String> colDate; 
 	@FXML private TableColumn<BookingBean, String> colTime;
 	
-	private UserBean user;
-	private UnloadBean unload;
-	private WasteUnloadedBean wasteUnloaded;
 	private BookingBean booking;
-	private UserController control;
-	private UnloadController control1;
-	private WasteUnloadedController control2;
 	private BookingController control3;
 	
 	
@@ -137,46 +131,46 @@ public class RegisterUnloadView implements Initializable {
 		String id = chk.getId();
 		switch(id) {
 		case "b1":
-			textDisabler(event,b1,f1);
+			textDisabler(b1,f1);
 			return;
 		case "b2":
-			textDisabler(event,b2,f2);
+			textDisabler(b2,f2);
 			return;
 		case "b3":
-			textDisabler(event,b3,f3);
+			textDisabler(b3,f3);
 			return;
 		case "b4":
-			textDisabler(event,b4,f4);
+			textDisabler(b4,f4);
 			return;
 		case "b5":
-			textDisabler(event,b5,f5);
+			textDisabler(b5,f5);
 			return;
 		case "b6":
-			textDisabler(event,b6,f6);
+			textDisabler(b6,f6);
 			return;
 		case "b7":
-			textDisabler(event,b7,f7);
+			textDisabler(b7,f7);
 			return;
 		case "b8":
-			textDisabler(event,b8,f8);
+			textDisabler(b8,f8);
 			return;
 		case "b9":
-			textDisabler(event,b9,f9);
+			textDisabler(b9,f9);
 			return;
 		case "b10":
-			textDisabler(event,b10,f10);
+			textDisabler(b10,f10);
 			return;
 		case "b11":
-			textDisabler(event,b11,f11);
+			textDisabler(b11,f11);
 			return;
 		case "b12":
-			textDisabler(event,b12,f12);
+			textDisabler(b12,f12);
 			return;
 		case "b13":
-			textDisabler(event,b13,f13);
+			textDisabler(b13,f13);
 			return;
 		case "b14":
-			textDisabler(event,b14,f14);
+			textDisabler(b14,f14);
 			return;
 		default:
 			return;
@@ -185,7 +179,7 @@ public class RegisterUnloadView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
-	public void textDisabler(ActionEvent theEvent,CheckBox theBox, TextField theField) {
+	public void textDisabler(CheckBox theBox, TextField theField) {
 		if (theBox.isSelected()) {
 			theField.setDisable(false);
 		}
@@ -199,18 +193,18 @@ public class RegisterUnloadView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void setRowSelected(MouseEvent event) {
-		BookingBean booking = null;
+		BookingBean book = null;
 		if (event.getButton().equals(MouseButton.PRIMARY)) {
 	        int index = tableBookingAccepted.getSelectionModel().getSelectedIndex();
-	        booking = tableBookingAccepted.getItems().get(index);
-			textUser.setText(booking.getBbUser());
-	        textHour.setText(booking.getBbTime());
-			textDate.setValue(LocalDate.parse(booking.getBbDate(), DateTimeFormatter.ofPattern(dateFormat)));
+	        book = tableBookingAccepted.getItems().get(index);
+			textUser.setText(book.getBbUser());
+	        textHour.setText(book.getBbTime());
+			textDate.setValue(LocalDate.parse(book.getBbDate(), DateTimeFormatter.ofPattern(dateFormat)));
 			
-			bookingID = booking.getBbId();
-			userSelected = booking.getBbUser();
-			hourSelected = booking.getBbTime();
-			dateSelected = booking.getBbDate();
+			bookingID = book.getBbId();
+			userSelected = book.getBbUser();
+			hourSelected = book.getBbTime();
+			dateSelected = book.getBbDate();
 		}
 	}
 
@@ -219,8 +213,8 @@ public class RegisterUnloadView implements Initializable {
 	@FXML
 	public void confirmRegistrationUnload(ActionEvent event) {
 		boolean res;
-		user = new UserBean();
-		control = new UserController();
+		UserBean user = new UserBean();
+		UserController control = new UserController();
 		user.setUsbUsername(textUser.getText());
 		LocalDate date = textDate.getValue();
 		String time = textHour.getText();
@@ -259,15 +253,16 @@ public class RegisterUnloadView implements Initializable {
 		data1.addAll(wasteQuantityList);
 		data2.addAll(wasteList);
 		
-		unload = new UnloadBean();
-		control1 = new UnloadController();
+		UnloadBean unload = new UnloadBean();
+		UnloadController control1 = new UnloadController();
 		unload.setUbUser(user.getUsbUsername());
 		unload.setUbCenter(CenterOwnerBean.getInstance().getCobCenter());
 		unload.setUbDate(date.format(DateTimeFormatter.ofPattern(dateFormat)));
 		unload.setUbTime(time);
 		control1.insertAnUnload(unload);
 		
-		int i, quantity;
+		int i; 
+		int quantity;
 		String waste;
 		boolean check = false;
 		
@@ -275,8 +270,8 @@ public class RegisterUnloadView implements Initializable {
 			if(!data1.get(i).getText().isEmpty()) {
 				waste = data2.get(i).getText();
 				quantity = Integer.parseInt(data1.get(i).getText());
-				wasteUnloaded = new WasteUnloadedBean();
-				control2 = new WasteUnloadedController();
+				WasteUnloadedBean wasteUnloaded = new WasteUnloadedBean();
+				WasteUnloadedController control2 = new WasteUnloadedController();
 				wasteUnloaded.setWbUser(user.getUsbUsername());
 				wasteUnloaded.setWbCenter(CenterOwnerBean.getInstance().getCobCenter());
 				wasteUnloaded.setWbDate(date.format(DateTimeFormatter.ofPattern(dateFormat)));
@@ -382,8 +377,7 @@ public class RegisterUnloadView implements Initializable {
 	        bookingList.addAll(data);
 	    }
 	    catch(Exception e){
-	          e.printStackTrace();
-	          System.out.println("Error on Building Data");            
+	    	Logger.getGlobal().log(Level.SEVERE, errorData);         
 	    }
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
 	    colid.setCellValueFactory(new PropertyValueFactory<>("bbId"));

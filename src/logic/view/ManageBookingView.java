@@ -154,7 +154,7 @@ public class ManageBookingView implements Initializable {
     		//esiste prenotazione, la aggiorno accettandola
     		booking.setBbStatus("A");
     		control2.modifyBooking(booking);
-    		alert.setAlertType(AlertType.INFORMATION);;
+    		alert.setAlertType(AlertType.INFORMATION);
     		alert.setTitle(okBooking);
     		alert.setHeaderText(null);
     		alert.setContentText(bookInsert+booking.getBbUser()+insertSuccess);		
@@ -177,7 +177,7 @@ public class ManageBookingView implements Initializable {
 		count = control2.verifyBooking(booking);
 		if (count!=0) {
 			//la prenotazione già è stata accettata
-			alert.setAlertType(AlertType.INFORMATION);;
+			alert.setAlertType(AlertType.INFORMATION);
 			alert.setTitle("Booking request not valid.");
 			alert.setHeaderText(null);
 			alert.setContentText(bookInsert+booking.getBbUser()+"' already exists. Retry.");		
@@ -188,9 +188,9 @@ public class ManageBookingView implements Initializable {
 		try {
 			control2.insertBooking(booking);
 		} catch (InexistentUsernameException e) {
-
+			Logger.getGlobal().log(Level.SEVERE, "Invalid username"); 
 		}
-		alert.setAlertType(AlertType.INFORMATION);;
+		alert.setAlertType(AlertType.INFORMATION);
 		alert.setTitle(okBooking);
 		alert.setHeaderText(null);
 		alert.setContentText(bookInsert+booking.getBbUser()+insertSuccess);		
@@ -203,7 +203,7 @@ public class ManageBookingView implements Initializable {
 	public void confirmBookingRequest(MouseEvent event) {
 		if (event.getButton().equals(MouseButton.PRIMARY)) {
 	        int index = tableBookingRequest.getSelectionModel().getSelectedIndex();
-	        BookingBean booking = tableBookingRequest.getItems().get(index);
+	        BookingBean book = tableBookingRequest.getItems().get(index);
 	        
 	        control2 = new BookingController();
 	        
@@ -221,27 +221,27 @@ public class ManageBookingView implements Initializable {
 	        Optional<ButtonType> result = alert.showAndWait();
 	        Alert alert1 = new Alert(AlertType.INFORMATION);
 	        if (result.get() == buttonTypeYes){
-	    		booking.setBbStatus("A");
-	        	control2.modifyBooking(booking);
+	    		book.setBbStatus("A");
+	        	control2.modifyBooking(book);
 	    		alert1.setTitle(okBooking);
 	    		alert1.setHeaderText(null);
-	    		alert1.setContentText(bookInsert+booking.getBbUser()+insertSuccess);		
+	    		alert1.setContentText(bookInsert+book.getBbUser()+insertSuccess);		
 	    		alert1.showAndWait();
 	        } else if (result.get() == buttonTypeNo) {
-	            booking.setBbStatus("D");
-	        	control2.modifyBooking(booking);
+	            book.setBbStatus("D");
+	        	control2.modifyBooking(book);
 	    		alert1.setTitle("Booking request refused.");
 	    		alert1.setHeaderText(null);
-	    		alert1.setContentText("Booking refused for '"+booking.getBbUser()+"' has been completed successfully");		
+	    		alert1.setContentText("Booking refused for '"+book.getBbUser()+"' has been completed successfully");		
 	    		alert1.showAndWait();
 	        } else {
 	            //do nothing
 	        }
 	        bookingList.removeAll(bookingList);
 		    try {
-		        booking.setBbCenter(CenterOwnerBean.getInstance().getCobCenter());
-		        booking.setBbStatus("W");
-		    	data = control2.bookingListByCenter(booking); //richieste di prenotazione da accettare
+		        book.setBbCenter(CenterOwnerBean.getInstance().getCobCenter());
+		        book.setBbStatus("W");
+		    	data = control2.bookingListByCenter(book); //richieste di prenotazione da accettare
 		        bookingList.addAll(data);
 		    }
 		    catch(Exception e){

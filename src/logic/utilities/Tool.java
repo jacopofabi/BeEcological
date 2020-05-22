@@ -72,4 +72,10 @@ public class Tool {
 		}
 		return false;
 	}
+	
+	
+	//------------------------------------------------------------------------------
+	public static boolean isFalse() {
+		return false;
+	}
 }

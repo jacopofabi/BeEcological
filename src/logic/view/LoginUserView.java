@@ -14,6 +14,7 @@ import error.ShortPasswordException;
 import logic.bean.UserBean;
 import logic.controller.UserController;
 import logic.utilities.PageLoader;
+import logic.utilities.Tool;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -158,7 +159,7 @@ public class LoginUserView implements Initializable {
 			return;
 		}
 		
-		if (phoneNumber.isEmpty() || phoneNumber.matches("[0-9]+") == false) {
+		if (phoneNumber.isEmpty() || phoneNumber.matches("[0-9]+") == Tool.isFalse()) {
 			alert.setTitle("Registration Failed - Invalid phone number");
 			alert.setHeaderText(null);
 			alert.setContentText("Insert a valid phone number.");

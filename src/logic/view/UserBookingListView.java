@@ -1,6 +1,5 @@
 package logic.view;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -22,12 +21,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -39,17 +34,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 
-@SuppressWarnings({ "unused" })
 public class UserBookingListView implements Initializable {
 	
-	String errorData = "Error on Building Data";
-	String tableHeader = "TableHeaderRow";
-	String centerString = "bbCenter";
+	private static String errorData = "Error on Building Data";
+	private static String tableHeader = "TableHeaderRow";
+	private static String centerString = "bbCenter";
+	private static String dateString = "bbDate";
+	private static String timeString = "bbTime";
 	
-	private List<BookingBean> data = new ArrayList<>();
 	private ObservableList<BookingBean> bookingWaitList = FXCollections.observableArrayList();
 	private ObservableList<BookingBean> bookingAcceptList = FXCollections.observableArrayList();
 	private ObservableList<BookingBean> bookingRefuseList = FXCollections.observableArrayList();
@@ -84,7 +78,6 @@ public class UserBookingListView implements Initializable {
 	@FXML private TableColumn<BookingBean, String> colDate2;
 	@FXML private TableColumn<BookingBean, String> colTime2;
 	
-	private BookingBean booking;
 	private BookingController control;
 	
 	
@@ -151,26 +144,26 @@ public class UserBookingListView implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
 		userGroup.setVisible(true);
-		booking = new BookingBean();
+		BookingBean booking = new BookingBean();
 		booking.setBbUser(UserBean.getInstance().getUsbUsername());
 		booking.setBbStatus("W");
 		userNick.setText(booking.getBbUser());
 		userButton.setText(booking.getBbUser());
 		
 		bookingWaitList.removeAll(bookingWaitList);
-	    try {
+		List<BookingBean> data = new ArrayList<>();
+		try {
 			control = new BookingController();
 	    	data = control.bookingListByUser(booking); //richieste di prenotazione in attesa
 	        bookingWaitList.addAll(data);
 	    }
 	    catch(Exception e){
-	          e.printStackTrace();
-	          System.out.println(errorData);            
+	    	Logger.getGlobal().log(Level.SEVERE, errorData);           
 	    }
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
 	    colCenter.setCellValueFactory(new PropertyValueFactory<>(centerString));
-		colDate.setCellValueFactory(new PropertyValueFactory<>("bbDate"));
-		colTime.setCellValueFactory(new PropertyValueFactory<>("bbTime"));
+		colDate.setCellValueFactory(new PropertyValueFactory<>(dateString));
+		colTime.setCellValueFactory(new PropertyValueFactory<>(timeString));
 		waitingTable.setItems(bookingWaitList);
 		
 		//blocco dello spostamento delle colonne della tabella
@@ -196,13 +189,12 @@ public class UserBookingListView implements Initializable {
 	        bookingAcceptList.addAll(data);
 	    }
 	    catch(Exception e){
-	          e.printStackTrace();
-	          System.out.println(errorData);            
+	    	Logger.getGlobal().log(Level.SEVERE, errorData);           
 	    }
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
 	    colCenter1.setCellValueFactory(new PropertyValueFactory<>(centerString));
-		colDate1.setCellValueFactory(new PropertyValueFactory<>("bbDate"));
-		colTime1.setCellValueFactory(new PropertyValueFactory<>("bbTime"));
+		colDate1.setCellValueFactory(new PropertyValueFactory<>(dateString));
+		colTime1.setCellValueFactory(new PropertyValueFactory<>(timeString));
 		acceptedTable.setItems(bookingAcceptList);
 		
 		//blocco dello spostamento delle colonne della tabella
@@ -228,13 +220,12 @@ public class UserBookingListView implements Initializable {
 	        bookingRefuseList.addAll(data);
 	    }
 	    catch(Exception e){
-	          e.printStackTrace();
-	          System.out.println(errorData);            
+	    	Logger.getGlobal().log(Level.SEVERE, errorData);        
 	    }
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
 	    colCenter2.setCellValueFactory(new PropertyValueFactory<>(centerString));
-		colDate2.setCellValueFactory(new PropertyValueFactory<>("bbDate"));
-		colTime2.setCellValueFactory(new PropertyValueFactory<>("bbTime"));
+		colDate2.setCellValueFactory(new PropertyValueFactory<>(dateString));
+		colTime2.setCellValueFactory(new PropertyValueFactory<>(timeString));
 		refusedTable.setItems(bookingRefuseList);
 		
 		//blocco dello spostamento delle colonne della tabella

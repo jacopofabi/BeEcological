@@ -97,7 +97,6 @@ public class HomeOwnerView implements Initializable {
 		alert.setHeaderText(null);
 		alert.setContentText("Functionality not implemented.");		
 		alert.showAndWait();
-		return;
 	}
 	
 	
@@ -193,9 +192,9 @@ public class HomeOwnerView implements Initializable {
 		ownerPhone.setText(ownerInfo.get(3));
 		centerPhone.setText(ownerInfo.get(5));
 		
-		String centerName = ownerInfo.get(4);
-		CenterOwnerBean.getOwnerInstance("").setCobCenter(centerName);
-		File sourcePhoto = new File("src/jpeg/"+centerName+".jpg");
+		String filename = ownerInfo.get(4);
+		CenterOwnerBean.getOwnerInstance("").setCobCenter(filename);
+		File sourcePhoto = new File("src/jpeg/"+filename+".jpg");
 		if(sourcePhoto.exists() && !sourcePhoto.isDirectory()) { 
 			Image image = new Image(sourcePhoto.toURI().toString());
 	        centerImageView.setImage(image);

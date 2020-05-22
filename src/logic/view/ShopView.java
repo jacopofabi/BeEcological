@@ -47,9 +47,9 @@ public class ShopView implements Initializable {
 	@FXML private Button xb05;
 	@FXML private Button nx10;
 	@FXML private Text ecoPoints;
-	public long end;
-	public boolean isBuying = false;
-	public Alert alert;
+	private long end;
+	private Alert alert;
+	private static boolean isBuying = false;
 	
 	private UserController control;
 	
@@ -57,7 +57,7 @@ public class ShopView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void showTimeoutAlert() {
-		Alert alert = new Alert(AlertType.ERROR);
+		alert = new Alert(AlertType.ERROR);
 		alert.setAlertType(AlertType.ERROR);
 		alert.setTitle("Timeout expired");
 		alert.setHeaderText(null);
@@ -70,8 +70,10 @@ public class ShopView implements Initializable {
 	//------------------------------------------------------------------------------
 	public class TimeoutThread extends Thread { //thread which control if the booking request is made within 2 minutes
 		 
+		@Override
 		public void run(){
 			while (System.currentTimeMillis() < end) {
+				isBuying = false;
 			}
 			if (isBuying) {
 			Platform.runLater(new Runnable(){ //javaFX thread to modify GUI. Useful to show alerts. a classic java thread can't do this.
@@ -101,7 +103,7 @@ public class ShopView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doLogout(ActionEvent event) {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);
 		alert.setContentText("Are you sure you want to logout?");
@@ -152,46 +154,30 @@ public class ShopView implements Initializable {
 		String id = clicked.getId();
 		switch(id) {
 		case "am05":
-			updateEcoPoints(event,100);
-			return;
-		case "am10":
-			updateEcoPoints(event,200);
-			return;
-		case "am25":
-			updateEcoPoints(event,450);
-			return;
 		case "za05":
-			updateEcoPoints(event,100);
-			return;
-		case "za10":
-			updateEcoPoints(event,200);
-			return;
 		case "gp05":
 			updateEcoPoints(event,100);
 			return;
-		case "gp10":
-			updateEcoPoints(event,200);
-			return;
-		case "ap10":
-			updateEcoPoints(event,220);
-			return;
 		case "rm10":
+		case "fe10":
 			updateEcoPoints(event,180);
+			return;
+		case "am10":
+		case "za10":
+		case "gp10":
+		case "ps05":
+		case "xb05":
+			updateEcoPoints(event,200);
 			return;
 		case "ms10":
 			updateEcoPoints(event,210);
 			return;
-		case "fe10":
-			updateEcoPoints(event,180);
-			return;
-		case "ps05":
-			updateEcoPoints(event,200);
-			return;
-		case "xb05":
-			updateEcoPoints(event,200);
-			return;
 		case "nx10":
+		case "ap10":
 			updateEcoPoints(event,220);
+			return;
+		case "am25":
+			updateEcoPoints(event,450);
 			return;
 		default:
 			return;

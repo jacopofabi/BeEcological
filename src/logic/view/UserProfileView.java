@@ -38,7 +38,7 @@ import javafx.scene.text.Text;
 
 public class UserProfileView implements Initializable {
 	
-	private List<WasteUnloadedBean> data = new ArrayList<>();
+	private static String errorData = "Error On Building Data";
 	private ObservableList<WasteUnloadedBean> unloadList = FXCollections.observableArrayList();
 	
 	@FXML private MenuItem userProfileItem; 
@@ -68,7 +68,6 @@ public class UserProfileView implements Initializable {
 	@FXML private TableColumn<WasteUnloadedBean, String> colPoints;
 	
 	private UserController control;
-	private WasteUnloadedController control1;
 	
 	
 	//------------------------------------------------------------------------------
@@ -115,7 +114,6 @@ public class UserProfileView implements Initializable {
 		alert.setHeaderText(null);
 		alert.setContentText("Functionality not implemented.");		
 		alert.showAndWait();
-		return;
 	}
 	
 	
@@ -127,7 +125,6 @@ public class UserProfileView implements Initializable {
 		alert.setHeaderText(null);
 		alert.setContentText("Functionality not implemented.");		
 		alert.showAndWait();
-		return;
 	}
 	
 	
@@ -208,14 +205,14 @@ public class UserProfileView implements Initializable {
 		ecoPoints.setText(userInfo.get(4));
 		
 		unloadList.removeAll(unloadList);
+		List<WasteUnloadedBean> data = new ArrayList<>();
 	    try {
-	        control1 = new WasteUnloadedController();
+	        WasteUnloadedController control1 = new WasteUnloadedController();
 	    	data = control1.listUnloadByUser(UserBean.getInstance());
 	        unloadList.addAll(data);
 	    }
 	    catch(Exception e){
-	          e.printStackTrace();
-	          System.out.println("Error on Building Data");            
+	    	Logger.getGlobal().log(Level.SEVERE, errorData);         
 	    }
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
 		colCenter.setCellValueFactory(new PropertyValueFactory<>("wbCenter"));
