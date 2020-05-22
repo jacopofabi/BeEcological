@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import logic.model.Booking;
+
 
 public class DaoHelper {
 	static String user = "root";
@@ -34,6 +36,32 @@ public class DaoHelper {
         }
 	}
 	
+	
+    //------------------------------------------------------------------------------
+    public static int countStatement(String query) {
+    	Statement stmt = null;
+        Connection conn = null;
+        ResultSet res = null;
+        int count = 0;
+        
+        try {
+			conn = DaoHelper.getConnection();
+			stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
+        	res = stmt.executeQuery(query);
+        	res.next();
+        	count = res.getInt(1);
+            
+        }catch (Exception e) {
+        	e.printStackTrace();
+        }
+        
+        finally {
+        	DaoHelper.close(stmt);
+        	DaoHelper.close(res);
+        	DaoHelper.close(conn);
+        }
+        return count;
+    }
 	
 	//------------------------------------------------------------------------------
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {

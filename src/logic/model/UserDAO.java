@@ -9,42 +9,14 @@ import java.util.List;
 import logic.utilities.DaoHelper;
 
 
-@SuppressWarnings("null")
 public class UserDAO {
 	
 	private UserDAO() {}
 	
 	//------------------------------------------------------------------------------
-	public static int getUser(String query) {
-		Statement stmt = null;
-        Connection conn = null;
-    	ResultSet res = null;
-        int count = 10;
-        
-        try {
-            conn = DaoHelper.getConnection();
-            stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
-            res = stmt.executeQuery(query);
-        	res.next();				//res.next e' la prima riga del risultato della query
-        	count = res.getInt(1);	//ottengo la prima colonna del risultato della query
-
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-        
-        finally {
-        	DaoHelper.close(stmt);
-        	DaoHelper.close(res);
-        	DaoHelper.close(conn);
-        }
-        return count;
-	}
-	
-	
-	//------------------------------------------------------------------------------
     public static boolean checkUsername(String username) {
     	String query = "SELECT count(*) FROM beecological.User WHERE Username = '" + username + "';";
-    	int count = getUser(query);        
+    	int count = DaoHelper.countStatement(query);        
         if(count == 1) {
         	return false;	//username gia utilizzato da altro utente, non permetto registrazione(insert del nuovo utente)
         }
@@ -58,7 +30,7 @@ public class UserDAO {
     public static boolean verifyLogin(User user) {
     	String query = "SELECT count(*) FROM beecological.User WHERE Username = '" + user.getUsUsername() + 
     			"' and Password = '" + user.getUsPassword() + "';";
-    	int count = getUser(query);
+    	int count = DaoHelper.countStatement(query);
         if (count == 0) {
         	return false;	//utente immesso non esiste
         }

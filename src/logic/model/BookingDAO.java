@@ -8,7 +8,6 @@ import java.util.List;
 
 import logic.utilities.DaoHelper;
 
-@SuppressWarnings("null")
 public class BookingDAO {    
     
 	private BookingDAO() {}
@@ -84,31 +83,10 @@ public class BookingDAO {
     
     //------------------------------------------------------------------------------
     public static int existingBooking(Booking booking) {
-    	Statement stmt = null;
-        Connection conn = null;
-        ResultSet res = null;
-        int count = 0;
-        
-        try {
-			conn = DaoHelper.getConnection();
-			stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
-        	String query = "SELECT count(*) FROM beecological.bookingrequest WHERE beecological.bookingrequest.user = '" + booking.getbUser() +"' "
-        			+ "and beecological.bookingrequest.center = '" + booking.getbCenter() + "' and beecological.bookingrequest.date = '" + booking.getbDate() + "' "
-        					+ "and beecological.bookingrequest.time = '" + booking.getbTime() + "' and beecological.bookingrequest.status = '" + booking.getbStatus() + "';";
-        	
-        	res = stmt.executeQuery(query);
-        	res.next();
-        	count = res.getInt(1);
-            
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-        
-        finally {
-        	DaoHelper.close(stmt);
-        	DaoHelper.close(res);
-        	DaoHelper.close(conn);
-        }
-        return count;
+    	String query = "SELECT count(*) FROM beecological.bookingrequest WHERE beecological.bookingrequest.user = '" + booking.getbUser() +"' "
+    			+ "and beecological.bookingrequest.center = '" + booking.getbCenter() + "' and beecological.bookingrequest.date = '" + booking.getbDate() + "' "
+    					+ "and beecological.bookingrequest.time = '" + booking.getbTime() + "' and beecological.bookingrequest.status = '" + booking.getbStatus() + "';";
+    	
+    	return DaoHelper.countStatement(query);
     }
 }

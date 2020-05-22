@@ -9,7 +9,6 @@ import java.util.List;
 import logic.utilities.DaoHelper;
 
 
-@SuppressWarnings("null")
 public class WasteUnloadedDAO {
 
 	private WasteUnloadedDAO() {}
@@ -86,31 +85,10 @@ public class WasteUnloadedDAO {
     
     //------------------------------------------------------------------------------
     public static int wasteForAnUnload(WasteUnloaded wasteUnloaded) {
-    	Statement stmt = null;
-        Connection conn = null;
-        ResultSet res = null;
-        int count = 1;
-        
-    	try {
-    		conn = DaoHelper.getConnection();
-    		stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
-        	String query = "SELECT count(*) FROM beecological.wasteunloaded WHERE beecological.wasteunloaded.user = '"+wasteUnloaded.getWuUser()+"' "
-        			+ "AND beecological.wasteunloaded.center = '"+wasteUnloaded.getWuCenter()+"' AND beecological.wasteunloaded.date = '"+wasteUnloaded.getWuDate()+"' "
-        					+ "AND beecological.wasteunloaded.time = '"+wasteUnloaded.getWuTime()+"';";
-        	
-        	res = stmt.executeQuery(query);
-        	res.next();
-        	count = res.getInt(1);
-            
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-    	
-        finally {
-        	DaoHelper.close(stmt);
-        	DaoHelper.close(res);
-        	DaoHelper.close(conn);
-        }
-    	return count;
+    	String query = "SELECT count(*) FROM beecological.wasteunloaded WHERE beecological.wasteunloaded.user = '"+wasteUnloaded.getWuUser()+"' "
+    			+ "AND beecological.wasteunloaded.center = '"+wasteUnloaded.getWuCenter()+"' AND beecological.wasteunloaded.date = '"+wasteUnloaded.getWuDate()+"' "
+    					+ "AND beecological.wasteunloaded.time = '"+wasteUnloaded.getWuTime()+"';";
+
+    	return DaoHelper.countStatement(query);
     }
 }
