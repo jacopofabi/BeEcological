@@ -62,6 +62,7 @@ public class HomepageView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
+	@FXML
 	public void returnHomepage(ActionEvent event) {
 		PageLoader pageLoader;
 		try {
@@ -74,6 +75,7 @@ public class HomepageView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
+	@FXML
 	public void doSearch(ActionEvent event) {
 		Tool.setString(searchBar.getText());
 		PageLoader pageLoader;
@@ -87,6 +89,7 @@ public class HomepageView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
+	@FXML
 	public void toUserLogin(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.LOGIN_USER, event);
@@ -98,6 +101,7 @@ public class HomepageView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
+	@FXML
 	public void toOwnerLogin(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.LOGIN_OWNER, event);
@@ -110,6 +114,7 @@ public class HomepageView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
+	@FXML
 	public void gotoShop(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.SHOP, event);
@@ -121,6 +126,7 @@ public class HomepageView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
+	@FXML
 	public void gotoUserProfile(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
@@ -132,6 +138,7 @@ public class HomepageView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
+	@FXML
 	public void gotoRequest(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_BOOKING_LIST, event);
@@ -143,6 +150,7 @@ public class HomepageView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
+	@FXML
 	public void doLogout(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
