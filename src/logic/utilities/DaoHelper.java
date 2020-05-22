@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class DaoHelper {
 	static String user = "root";
 	static String pass = "root";
-	static String url = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";;
+	static String url = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	static String driverClassName = "com.mysql.cj.jdbc.Driver";
 	
 	

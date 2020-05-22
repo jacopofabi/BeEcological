@@ -287,7 +287,6 @@ public class CenterPageView implements Initializable {
 		alert.showAndWait();
 		
 		try {
-			//Stage window = (Stage) userButton.getScene().getWindow();
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 			URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
 		    FXMLLoader loader = new FXMLLoader(url);

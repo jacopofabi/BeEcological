@@ -196,8 +196,6 @@ public class SearchResultView implements Initializable {
 
 		if(result.get() == ButtonType.OK) {
 			try {			
-				//ricavo lo stage dal menuButton, il menuItem non e' una sottoclasse di Node
-				//Stage window = (Stage) userButton.getScene().getWindow();
 				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 			    URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
 			    FXMLLoader loader = new FXMLLoader(url);
