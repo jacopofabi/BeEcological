@@ -85,9 +85,8 @@ public class SearchResultView implements Initializable {
 	//------------------------------------------------------------------------------
     @FXML
 	public void returnHomepage(ActionEvent event) {
-		PageLoader pageLoader;
 		try {
-			pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 			pageLoader.homeConfig();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
@@ -99,9 +98,8 @@ public class SearchResultView implements Initializable {
     @FXML
 	public void doSearch(ActionEvent event) {
 		Tool.setString(searchBar.getText());
-		PageLoader pageLoader;
 		try {
-			pageLoader = new PageLoader(PageLoader.Page.SEARCH_RESULT, event);
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.SEARCH_RESULT, event);
 			pageLoader.searchConfig();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
@@ -227,7 +225,6 @@ public class SearchResultView implements Initializable {
 		center = new CenterBean();
 		center.setCbName(Tool.getString());
 		centerList.removeAll(centerList);
-		System.out.println(center.getCbName());
 	    try{      
 	    	control = new CenterController();
 	        data = control.centerList(center);
@@ -236,8 +233,6 @@ public class SearchResultView implements Initializable {
 	    catch(Exception e){
 	          e.printStackTrace();      
 	    }
-
-		System.out.println("diocane");
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
 		colName.setCellValueFactory(new PropertyValueFactory<>("cbName"));
 		colCity.setCellValueFactory(new PropertyValueFactory<>("cbCity"));

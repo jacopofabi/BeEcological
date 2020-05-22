@@ -64,9 +64,8 @@ public class HomepageView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void returnHomepage(ActionEvent event) {
-		PageLoader pageLoader;
 		try {
-			pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 			pageLoader.homeConfig();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
@@ -78,9 +77,8 @@ public class HomepageView implements Initializable {
 	@FXML
 	public void doSearch(ActionEvent event) {
 		Tool.setString(searchBar.getText());
-		PageLoader pageLoader;
 		try {
-			pageLoader = new PageLoader(PageLoader.Page.SEARCH_RESULT, event);
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.SEARCH_RESULT, event);
 			pageLoader.searchConfig();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());

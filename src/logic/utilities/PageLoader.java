@@ -17,9 +17,6 @@ import logic.view.SearchResultView;
 public class PageLoader {
 	private FXMLLoader loader;
 	private Stage stage;
-	private URL url;
-	private Parent tableViewParent;
-	private Scene tableViewScene;
 	private static String errorMessage = "Page loading error";
 	
 	
@@ -35,10 +32,10 @@ public class PageLoader {
 	
 	private void init(String resource, String title, Event event) throws IOException {
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-	    url = new File(resource).toURI().toURL();
+	    URL url = new File(resource).toURI().toURL();
 	    loader = new FXMLLoader(url);
-		tableViewParent = loader.load();
-		tableViewScene = new Scene(tableViewParent);
+		Parent tableViewParent = loader.load();
+		Scene tableViewScene = new Scene(tableViewParent);
 		stage.setScene(tableViewScene);
 		stage.setTitle(title);
 	}
