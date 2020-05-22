@@ -13,6 +13,7 @@ import error.EmptyFieldException;
 import error.InexistentUsernameException;
 import logic.bean.BookingBean;
 import logic.bean.CenterBean;
+import logic.bean.CenterOwnerBean;
 import logic.bean.UserBean;
 import logic.controller.BookingController;
 import logic.controller.UserController;
@@ -21,13 +22,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -51,7 +49,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.util.Pair;
 import logic.utilities.PageLoader;
 import logic.utilities.Tool;
@@ -284,20 +281,18 @@ public class CenterPageView implements Initializable {
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);
 		alert.setContentText("Are you sure you want to logout?");
-		alert.showAndWait();
-		
-		try {
-			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
-		    FXMLLoader loader = new FXMLLoader(url);
-			Parent tableViewParent = loader.load();
-			Scene tableViewScene = new Scene(tableViewParent);
-			window.setScene(tableViewScene);
-			window.setTitle("Homepage");
-			UserBean.setInstance(null);
-			window.show();
-		}catch(Exception e){
-			e.printStackTrace();
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == ButtonType.OK) {
+			try {
+				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				HomepageView controller = (HomepageView) pageLoader.getController();
+				controller.userGroup.setVisible(false);
+				controller.loginGroup.setVisible(true);
+				CenterOwnerBean.setInstance(null);
+				pageLoader.stageShow();
+			} catch (IOException e) {
+				Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
+			}
 		}
 	}
 	

@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="logic.view.UserBookingListView">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.UserBookingListView">
    <children>
       <VBox alignment="TOP_RIGHT" layoutX="641.0" layoutY="87.0" />
       <Text fx:id="userNick" fill="#589442" layoutX="573.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;USER-NICK&gt;" x="-520.0">
@@ -41,9 +41,9 @@
                <children>
                   <TableView fx:id="acceptedTable" layoutX="-4.0" layoutY="5.0" prefHeight="328.0" prefWidth="552.0" stylesheets="@../styles/GreenTableView-small.css">
                     <columns>
-                      <TableColumn fx:id="col_center1" prefWidth="333.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Center" />
-                      <TableColumn fx:id="col_date1" prefWidth="115.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Date" />
-                        <TableColumn fx:id="col_time1" prefWidth="102.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Time" />
+                      <TableColumn fx:id="colCenter1" prefWidth="333.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Center" />
+                      <TableColumn fx:id="colDate1" prefWidth="115.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Date" />
+                        <TableColumn fx:id="colTime1" prefWidth="102.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Time" />
                     </columns>
                   </TableView>
                </children>
@@ -101,7 +101,7 @@
                         </ImageView>
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="logoutItem1" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                  <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -131,9 +131,9 @@
                <children>
                   <TableView fx:id="refusedTable" layoutX="-4.0" layoutY="5.0" prefHeight="328.0" prefWidth="553.0" stylesheets="@../styles/GreenTableView-small.css">
                      <columns>
-                        <TableColumn fx:id="col_center2" prefWidth="350.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Center" />
-                        <TableColumn fx:id="col_date2" prefWidth="113.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Date" />
-                        <TableColumn fx:id="col_time2" prefWidth="89.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Time" />
+                        <TableColumn fx:id="colCenter2" prefWidth="350.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Center" />
+                        <TableColumn fx:id="colDate2" prefWidth="113.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Date" />
+                        <TableColumn fx:id="colTime2" prefWidth="89.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Time" />
                      </columns>
                   </TableView>
                </children>
@@ -146,9 +146,9 @@
                <children>
                   <TableView fx:id="waitingTable" layoutX="5.0" layoutY="5.0" prefHeight="328.0" prefWidth="534.0" stylesheets="@../styles/GreenTableView-small.css">
                      <columns>
-                        <TableColumn fx:id="col_center" prefWidth="328.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Center" />
-                        <TableColumn fx:id="col_date" prefWidth="114.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Date" />
-                        <TableColumn fx:id="col_time" prefWidth="90.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Time" />
+                        <TableColumn fx:id="colCenter" prefWidth="328.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Center" />
+                        <TableColumn fx:id="colDate" prefWidth="114.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Date" />
+                        <TableColumn fx:id="colTime" prefWidth="90.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Time" />
                      </columns>
                   </TableView>
                </children>

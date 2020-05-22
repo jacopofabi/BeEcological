@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="705.0" prefWidth="1345.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="logic.view.LoginOwnerView">
+<AnchorPane prefHeight="705.0" prefWidth="1345.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.LoginOwnerView">
    <children>
       <TextField fx:id="loginUsername" layoutX="175.0" layoutY="273.0" onAction="#loginOwner" prefHeight="20.0" prefWidth="350.0" promptText="Username">
          <font>
@@ -107,7 +107,7 @@
             </Label>
          </children>
       </Group>
-      <Button fx:id="signInButton" layoutX="975.0" layoutY="630.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="SIGN IN" textFill="WHITE">
+      <Button fx:id="signInButton" layoutX="975.0" layoutY="630.0" mnemonicParsing="false" onAction="#signIn" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="SIGN IN" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>

@@ -137,9 +137,9 @@
                <children>
                   <TableView fx:id="tableBookingRequest" layoutX="183.0" layoutY="8.0" onMouseClicked="#confirmBookingRequest" prefHeight="550.0" prefWidth="420.0" stylesheets="@../styles/BlueTableView.css">
                      <columns>
-                        <TableColumn fx:id="col_user" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="User" />
-                        <TableColumn fx:id="col_date" minWidth="0.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="Date" />
-                        <TableColumn fx:id="col_time" minWidth="0.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="Time" />
+                        <TableColumn fx:id="colUser" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="User" />
+                        <TableColumn fx:id="colDate" minWidth="0.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="Date" />
+                        <TableColumn fx:id="colTime" minWidth="0.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="Time" />
                      </columns>
                   </TableView>
                </children>

@@ -1,7 +1,7 @@
 package logic.bean;
 
 public class CenterOwnerBean {
-	private static CenterOwnerBean instance = null;
+	private static CenterOwnerBean cobInstance = null;
 	
     private String cobUsername;
     private String cobPassword;
@@ -13,11 +13,19 @@ public class CenterOwnerBean {
     
     
 	public static CenterOwnerBean getOwnerInstance(String username) {
-		if (CenterOwnerBean.instance == null) {
-			CenterOwnerBean.instance = new CenterOwnerBean();
-			CenterOwnerBean.instance.cobUsername = username;
+		if (CenterOwnerBean.cobInstance == null) {
+			CenterOwnerBean.cobInstance = new CenterOwnerBean();
+			CenterOwnerBean.cobInstance.cobUsername = username;
 		}
-		return instance;
+		return cobInstance;
+	}
+	
+	public static CenterOwnerBean getInstance() {
+		return CenterOwnerBean.cobInstance;
+	}
+	
+	public static void setInstance(CenterOwnerBean centerOwnerBean) {
+		CenterOwnerBean.cobInstance = centerOwnerBean;
 	}
 
     public String getCobUsername() {

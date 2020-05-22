@@ -91,12 +91,12 @@
       </Text>
       <Group layoutX="747.0" layoutY="186.0">
          <children>
-            <TextField fx:id="text_user" layoutX="133.0" prefHeight="28.0" prefWidth="299.0" promptText="User">
+            <TextField fx:id="textUser" layoutX="133.0" prefHeight="28.0" prefWidth="299.0" promptText="User">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="text_hour" layoutX="133.0" layoutY="100.0" prefHeight="28.0" prefWidth="299.0" promptText="HH:MM">
+            <TextField fx:id="textHour" layoutX="133.0" layoutY="100.0" prefHeight="28.0" prefWidth="299.0" promptText="HH:MM">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font>
@@ -104,7 +104,7 @@
             <Text layoutY="18.05078125" strokeType="OUTSIDE" strokeWidth="0.0" text="Unloader username" />
             <Text layoutX="36.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unload date" />
             <Text layoutX="36.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unload time" />
-            <DatePicker fx:id="text_date" layoutX="133.0" layoutY="50.0" prefWidth="299.0" />
+            <DatePicker fx:id="textDate" layoutX="133.0" layoutY="50.0" prefWidth="299.0" />
          </children>
       </Group>
       <Button fx:id="confirmButton" layoutX="983.0" layoutY="495.0" mnemonicParsing="false" onAction="#confirmRegistrationUnload" prefHeight="80.0" prefWidth="180.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="CONFIRM" textAlignment="CENTER" textFill="WHITE">
@@ -170,10 +170,10 @@
                <children>
                   <TableView fx:id="tableBookingAccepted" layoutX="-4.0" onMouseClicked="#setRowSelected" prefHeight="550.0" prefWidth="480.0" stylesheets="@../styles/BlueTableView.css">
                      <columns>
-                        <TableColumn fx:id="col_id" prefWidth="64.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="ID" />
-                        <TableColumn fx:id="col_user" prefWidth="198.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="User" />
-                        <TableColumn fx:id="col_date" minWidth="0.0" prefWidth="113.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="Date" />
-                        <TableColumn fx:id="col_time" minWidth="0.0" prefWidth="105.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="Time" />
+                        <TableColumn fx:id="colid" prefWidth="64.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="ID" />
+                        <TableColumn fx:id="colUser" prefWidth="198.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="User" />
+                        <TableColumn fx:id="colDate" minWidth="0.0" prefWidth="113.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="Date" />
+                        <TableColumn fx:id="colTime" minWidth="0.0" prefWidth="105.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="Time" />
                      </columns>
                   </TableView>
                </children>

@@ -186,30 +186,23 @@ public class SearchResultView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
-    @FXML
-	public void doLogout(ActionEvent event) {
+	@FXML
+	public void doLogout(ActionEvent event){
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);
 		alert.setContentText("Are you sure you want to logout?");
 		Optional<ButtonType> result = alert.showAndWait();
-
-		if(result.get() == ButtonType.OK) {
-			try {			
-				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			    URL url = new File("src/res/fxml/Homepage.fxml").toURI().toURL();
-			    FXMLLoader loader = new FXMLLoader(url);
-				Parent tableViewParent = loader.load();
-				Scene tableViewScene = new Scene(tableViewParent);
-				window.setScene(tableViewScene);
-				window.setTitle("Homepage");
-				HomepageView controller = (HomepageView) loader.getController();
+		if (result.get() == ButtonType.OK){
+			try {
+				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				HomepageView controller = (HomepageView) pageLoader.getController();
 				controller.userGroup.setVisible(false);
 				controller.loginGroup.setVisible(true);
 				UserBean.setInstance(null);
-				window.show();
-			}catch(Exception e){
-				e.printStackTrace();
+				pageLoader.stageShow();
+			} catch (IOException e) {
+				Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 			}
 		}
 	}

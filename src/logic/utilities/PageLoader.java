@@ -39,7 +39,12 @@ public class PageLoader {
 		stage.setScene(tableViewScene);
 		stage.setTitle(title);
 	}
+
 	
+	public Object getController() {
+		return loader.getController();
+	}
+
 	
 	public void stageShow() {
 		stage.show();
@@ -83,20 +88,20 @@ public class PageLoader {
 	
 	
 	public enum Page {
-		BOOKING_AND_UNLOADS("src/res/fxml/BookingANDUnloads.fxml", "BeEcological - Booking And Unloads"),
+		BOOKING_AND_UNLOADS("src/res/fxml/BookingANDUnloads.fxml", "BeEcological - Booking & Unloads"),
 		CENTER_PAGE("src/res/fxml/CenterPage.fxml", "BeEcological - Center Page"),
-		HOME_OWNER("src/res/fxml/HomeOwner.fxml", "BeEcological - Home Owner"),
+		HOME_OWNER("src/res/fxml/HomeOwner.fxml", "BeEcological for Managers - Homepage"),
 		HOMEPAGE("src/res/fxml/Homepage.fxml", "BeEcological - Homepage"),
-		LOGIN_OWNER("src/res/fxml/LoginOwner.fxml", "Checkout Summary"),
-		LOGIN_USER("src/res/fxml/LoginUser.fxml", "Checkout Summary Element"),
-		MANAGE_BOOKING("src/res/fxml/ManageBooking", "BeEvological - Manage Booking"),
-		MANAGE_INFORMATION("src/res/fxml/ManageInformation.fxml", "Product"),
-		OWNER_PROFILE("src/res/fxml/OwnerProfile.fxml", "Login"),
-		REGISTER_UNLOAD("src/res/fxml/RegisterUnload.fxml", "Register"),
+		LOGIN_OWNER("src/res/fxml/LoginOwner.fxml", "BeEcological - Login"),
+		LOGIN_USER("src/res/fxml/LoginUser.fxml", "BeEcological - Login"),
+		MANAGE_BOOKING("src/res/fxml/ManageBooking", "BeEcological for Managers - Manage Booking"),
+		MANAGE_INFORMATION("src/res/fxml/ManageInformation.fxml", "BeEcological for Managers - Manage Information"),
+		OWNER_PROFILE("src/res/fxml/OwnerProfile.fxml", "BeEcological for Managers - Profile"),
+		REGISTER_UNLOAD("src/res/fxml/RegisterUnload.fxml", "BeEcological for Managers - Register Unload"),
 		SEARCH_RESULT("src/res/fxml/SearchResult.fxml", "BeEcological - Search Result"),
-		SHOP("src/res/fxml/Shop.fxml", "BeEcological - Shop"),
-		USER_BOOKING_LIST("src/res/fxml/UserBookingList.fxml", "Check Order"),
-		USER_PROFILE("src/res/fxml/UserProfile.fxml", "Check Order");
+		SHOP("src/res/fxml/Shop.fxml", "BeEcological - BeEcological - Shop"),
+		USER_BOOKING_LIST("src/res/fxml/UserBookingList.fxml", "BeEcological - Booking List"),
+		USER_PROFILE("src/res/fxml/UserProfile.fxml", "BeEcological - Profile");
 		
 		private String resource;
 		private String title;
