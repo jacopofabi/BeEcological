@@ -42,40 +42,10 @@ public class CenterOwnerDAO {
     
     //------------------------------------------------------------------------------
     public static List<String> ownerInfo(CenterOwner owner) {
-    	Statement stmt = null;
-        Connection conn = null;
-        ResultSet res = null;
-        List<String> listInfo = new ArrayList<>();
-        
-        try {
-            conn = DaoHelper.getConnection();
-            stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
-        	String query = "SELECT * FROM beecological.owner JOIN beecological.center ON beecological.owner.center = "
-        			+ "beecological.center.centerName WHERE beecological.owner.username = '" + owner.getCoUsername() + "';";
-        	
-        	res = stmt.executeQuery(query);
-    		res.next();
-    		listInfo.add(res.getString("name"));
-    		listInfo.add(res.getString("surname"));
-    		listInfo.add(res.getString("email"));
-        	listInfo.add(res.getString("phone"));
-        	listInfo.add(res.getString("centerName"));
-        	listInfo.add(res.getString("centerPhone"));
-        	listInfo.add(res.getString("city"));
-        	listInfo.add(res.getString("address"));
-        	listInfo.add(res.getString("CAP"));
-        	listInfo.add(res.getString("num"));
-            
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-        
-        finally {
-            DaoHelper.close(stmt);
-            DaoHelper.close(res);
-            DaoHelper.close(conn);
-        }
-    	return listInfo;
+    	String query = "SELECT * FROM beecological.owner JOIN beecological.center ON beecological.owner.center = "
+    			+ "beecological.center.centerName WHERE beecological.owner.username = '" + owner.getCoUsername() + "';";
+
+    	return DaoHelper.listInfoStatement(query);
     }
     
     

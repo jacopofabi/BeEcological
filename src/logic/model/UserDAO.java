@@ -42,35 +42,9 @@ public class UserDAO {
 
     //------------------------------------------------------------------------------
 	public static List<String> userInfo(User user) {
-    	Statement stmt = null;
-        Connection conn = null;
-        ResultSet res = null;
-        List<String> listInfo = new ArrayList<>();
-        
-        try {
-            conn = DaoHelper.getConnection();
-            stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
-        	String query = "SELECT * FROM beecological.User WHERE Username = '" + user.getUsUsername() + "';";
-        	
-        	res = stmt.executeQuery(query);   
-    		res.next();
-    		listInfo.add(res.getString("Name"));
-        	listInfo.add(res.getString("Surname"));
-        	listInfo.add(res.getString("Email"));
-        	listInfo.add(res.getString("Phone"));
-        	listInfo.add(res.getString("EcoPoints"));
-        	
-        }catch (Exception e) {
-        	e.printStackTrace();
-        }
-        
-        finally {
-        	DaoHelper.close(stmt);
-        	DaoHelper.close(res);
-        	DaoHelper.close(conn);
-        }
-        
-    	return listInfo;
+    	String query = "SELECT * FROM beecological.User WHERE Username = '" + user.getUsUsername() + "';";
+    	
+    	return DaoHelper.listInfoStatement(query);
     }
 	
 	
