@@ -9,7 +9,6 @@ import java.util.List;
 import logic.utilities.DaoHelper;
 
 
-@SuppressWarnings("null")
 public class CenterDAO {
 
 	private CenterDAO() {}

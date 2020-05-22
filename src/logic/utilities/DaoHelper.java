@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import logic.model.Booking;
-
 
 public class DaoHelper {
 	static String user = "root";
