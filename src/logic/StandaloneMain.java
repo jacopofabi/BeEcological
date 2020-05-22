@@ -2,11 +2,13 @@ package logic;
 import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import logic.utilities.PageLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
@@ -25,7 +27,7 @@ public class StandaloneMain extends Application {
 	        primaryStage.setMaximized(true);
 	        primaryStage.show();
 		}catch(Exception e) {
-			e.printStackTrace();
+			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 		}    
 	}
 	

@@ -73,14 +73,7 @@ public class DaoHelper {
         }
         finally {
         	DaoHelper.close(stmt);
-    		if(res != null) {
-        		try {
-        			res.close();
-        		} 
-        		catch (SQLException e) {
-        			e.printStackTrace();
-        		}
-        	}
+        	DaoHelper.close(res);
         	DaoHelper.close(conn);
         }
         return count;
@@ -124,14 +117,7 @@ public class DaoHelper {
         }
         finally {
         	DaoHelper.close(stmt);
-    		if(res != null) {
-        		try {
-        			res.close();
-        		} 
-        		catch (SQLException e) {
-        			e.printStackTrace();
-        		}
-        	}
+        	DaoHelper.close(res);
         	DaoHelper.close(conn);
         }
         return listInfo;

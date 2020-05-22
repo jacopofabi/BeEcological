@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import logic.utilities.DaoHelper;
 
@@ -32,7 +34,7 @@ public class CenterDAO {
         	}
             
         }catch (Exception e) {
-        	e.printStackTrace();
+        	Logger.getGlobal().log(Level.SEVERE, "SQL Error");
         }
         
         finally {
@@ -62,7 +64,7 @@ public class CenterDAO {
         			res.getString("username"), res.getString("password"), res.getString("center"));
             
         }catch (Exception e) {
-        	e.printStackTrace();
+        	Logger.getGlobal().log(Level.SEVERE, "SQL Error");
         }
     	
         finally {

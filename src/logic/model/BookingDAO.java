@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import logic.utilities.DaoHelper;
 
@@ -50,7 +52,7 @@ public class BookingDAO {
         	}
             
         }catch (Exception e) {
-        	e.printStackTrace();
+        	Logger.getGlobal().log(Level.SEVERE, "SQL Error");
         }
         
         finally {
