@@ -49,7 +49,7 @@ public class ShopView implements Initializable {
 	@FXML private Text ecoPoints;
 	private long end;
 	private Alert alert;
-	private static boolean isBuying = false;
+	private boolean isBuying = false;
 	
 	private UserController control;
 	
