@@ -20,7 +20,7 @@
 <AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="logic.view.UserProfileView">
    <children>
       <VBox alignment="TOP_RIGHT" layoutX="641.0" layoutY="87.0" />
-      <Text fx:id="userNick" fill="#589442" layoutX="577.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;USER-NICK&gt;" x="-520.0">
+      <Text fx:id="userNick13" fill="#589442" layoutX="577.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;USER-NICK&gt;" x="-520.0">
          <font>
             <Font name="Calibri Bold" size="55.0" />
          </font>
@@ -32,7 +32,7 @@
                   <Font name="Calibri" size="24.0" />
                </font>
             </Text>
-            <Text fx:id="ecoPoints" fill="#589442" layoutX="-128.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;num&gt;" wrappingWidth="76.99603271484375">
+            <Text fx:id="ecoPoints13" fill="#589442" layoutX="-128.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;num&gt;" wrappingWidth="76.99603271484375">
                <font>
                   <Font name="Calibri Bold" size="24.0" />
                </font>
@@ -55,7 +55,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="1255.0">
                <children>
-                  <TableView fx:id="unloadTable" layoutX="240.0" layoutY="1.0" prefHeight="328.0" prefWidth="900.0" stylesheets="@../styles/GreenTableView-small.css">
+                  <TableView fx:id="unloadTable13" layoutX="240.0" layoutY="1.0" prefHeight="328.0" prefWidth="900.0" stylesheets="@../styles/GreenTableView-small.css">
                     <columns>
                       <TableColumn fx:id="colCenter" prefWidth="350.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Center" />
                       <TableColumn fx:id="colDate" prefWidth="110.0" style="-fx-background-color: transparent; -fx-text-fill: #589442;" text="Date" />
@@ -89,7 +89,7 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Button fx:id="editDataButton" layoutX="944.0" layoutY="214.0" mnemonicParsing="false" onAction="#editData13" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="    EDIT PERSONAL&#10;    DATA&#10;" textFill="WHITE">
+      <Button fx:id="editDataButton13" layoutX="944.0" layoutY="214.0" mnemonicParsing="false" onAction="#editData13" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="    EDIT PERSONAL&#10;    DATA&#10;" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
@@ -101,7 +101,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="changeCredButton" layoutX="1114.0" layoutY="214.0" mnemonicParsing="false" onAction="#changeCred13" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="    CHANGE LOGIN&#10;    CREDENTIALS&#10;" textFill="WHITE">
+      <Button fx:id="changeCredButton13" layoutX="1114.0" layoutY="214.0" mnemonicParsing="false" onAction="#changeCred13" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="    CHANGE LOGIN&#10;    CREDENTIALS&#10;" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
@@ -113,22 +113,22 @@
             </ImageView>
          </graphic>
       </Button>
-      <Text fx:id="name" fill="#4d4b4b" layoutX="519.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Name&gt;" AnchorPane.bottomAnchor="519.5" AnchorPane.leftAnchor="519.0" AnchorPane.topAnchor="230.5">
+      <Text fx:id="name13" fill="#4d4b4b" layoutX="519.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Name&gt;" AnchorPane.bottomAnchor="519.5" AnchorPane.leftAnchor="519.0" AnchorPane.topAnchor="230.5">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="surname" fill="#4d4b4b" layoutX="519.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Surname&gt;" AnchorPane.leftAnchor="519.0">
+      <Text fx:id="surname13" fill="#4d4b4b" layoutX="519.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Surname&gt;" AnchorPane.leftAnchor="519.0">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="email" fill="#4d4b4b" layoutX="519.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Email&gt; " AnchorPane.leftAnchor="519.0">
+      <Text fx:id="email13" fill="#4d4b4b" layoutX="519.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Email&gt; " AnchorPane.leftAnchor="519.0">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="phoneNumber" fill="#4d4b4b" layoutX="519.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Phone Number&gt;" AnchorPane.leftAnchor="519.0">
+      <Text fx:id="phoneNumber13" fill="#4d4b4b" layoutX="519.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Phone Number&gt;" AnchorPane.leftAnchor="519.0">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
@@ -149,7 +149,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage13" stylesheets="@../styles/TransparentButton.css">
+            <Button fx:id="homeButton13" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage13" stylesheets="@../styles/TransparentButton.css">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -164,7 +164,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="1217.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" x="50.0" y="14.0" />
          </children>
       </AnchorPane>
-      <Button fx:id="deleteAccountButton" layoutX="1114.0" layoutY="290.0" mnemonicParsing="false" onAction="#deleteAccount13" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" text="DELETE ACCOUNT" textFill="WHITE">
+      <Button fx:id="deleteAccountButton13" layoutX="1114.0" layoutY="290.0" mnemonicParsing="false" onAction="#deleteAccount13" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" text="DELETE ACCOUNT" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
@@ -180,11 +180,11 @@
             <URL value="@../styles/RedButton.css" />
          </stylesheets>
       </Button>
-      <Group fx:id="userGroup" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
+      <Group fx:id="userGroup13" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="-69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
-            <Button fx:id="shopButton" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop13" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
+            <Button fx:id="shopButton13" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop13" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>
@@ -219,7 +219,7 @@
             </MenuButton>
          </children>
       </Group>
-      <Button fx:id="seeBookingButton" layoutX="944.0" layoutY="291.0" mnemonicParsing="false" onAction="#gotoUserBookingList13" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="    SEE BOOKING&#10;    REQUEST&#10;" textFill="WHITE">
+      <Button fx:id="seeBookingButton13" layoutX="944.0" layoutY="291.0" mnemonicParsing="false" onAction="#gotoUserBookingList13" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="    SEE BOOKING&#10;    REQUEST&#10;" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>

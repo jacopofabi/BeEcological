@@ -92,7 +92,6 @@ public class CenterPageView implements Initializable {
     
     @FXML private ImageView centerImageView;
     
-    private Alert alert2;
     private UserBean user;
     private UserController control;
     private long end;
@@ -278,7 +277,7 @@ public class CenterPageView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doLogout2(ActionEvent event) {
-		alert2 = new Alert(AlertType.CONFIRMATION);
+		Alert alert2 = new Alert(AlertType.CONFIRMATION);
 		alert2.setTitle("Logout");
 		alert2.setHeaderText(null);
 		alert2.setContentText("Are you sure you want to logout?");

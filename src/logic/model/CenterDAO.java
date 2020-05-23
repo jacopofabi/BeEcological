@@ -25,8 +25,8 @@ public class CenterDAO {
         try {
            conn = DaoHelper.getConnection();
            stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
-        	String query = "SELECT * FROM beecological.center WHERE beecological.center.centerName = '" + name + "' or "
-        			+ "beecological.center.city = '" + name + "' or beecological.center.address = '" + name + "';";
+        	String query = String.format("SELECT * FROM beecological.center WHERE beecological.center.centerName = '%s' or "
+        			+ "beecological.center.city = '%s' or beecological.center.address = '%s';", name, name, name);
         	res = stmt.executeQuery(query);
         	while (res.next()) {
         		listCenter.add(new Center(res.getString("centerName"), res.getString("city"), res.getString("CAP"), 
@@ -56,7 +56,8 @@ public class CenterDAO {
     	try {
             conn = DaoHelper.getConnection();
             stmt = DaoHelper.getStatement(conn, DaoHelper.StatementMode.READ);
-        	String query = "SELECT * FROM beecological.owner WHERE beecological.owner.center = '" + center.getcName() + "';";
+        	String query = String.format("SELECT * FROM beecological.owner WHERE beecological.owner.center = '%s';", 
+        			center.getcName());
         	
         	res = stmt.executeQuery(query);
         	res.next();

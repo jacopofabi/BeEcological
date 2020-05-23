@@ -44,22 +44,22 @@ public class UserProfileView implements Initializable {
 	@FXML private MenuItem userProfileItem; 
 	@FXML private MenuItem logoutItem;
 	@FXML public MenuButton userButton;
-	@FXML private Group userGroup;
-	@FXML private Button homeButton;
-	@FXML private Button searchButton;
-	@FXML private Button shopButton;
-	@FXML private Button seeBookingButton; 
-	@FXML private Button editDataButton;
-	@FXML private Button changeCredButton;
-	@FXML private Button deleteAccountButton;
-	@FXML private Text userNick;
-	@FXML private Text ecoPoints;
-	@FXML private Text name;
-	@FXML private Text surname; 
-	@FXML private Text email;
-	@FXML private Text phoneNumber;
+	@FXML private Group userGroup13;
+	@FXML private Button homeButton13;
+	@FXML private Button searchButton13;
+	@FXML private Button shopButton13;
+	@FXML private Button seeBookingButton13; 
+	@FXML private Button editDataButton13;
+	@FXML private Button changeCredButton13;
+	@FXML private Button deleteAccountButton13;
+	@FXML private Text userNick13;
+	@FXML private Text ecoPoints13;
+	@FXML private Text name13;
+	@FXML private Text surname13; 
+	@FXML private Text email13;
+	@FXML private Text phoneNumber13;
 	
-	@FXML private TableView<WasteUnloadedBean> unloadTable;
+	@FXML private TableView<WasteUnloadedBean> unloadTable13;
 	@FXML private TableColumn<WasteUnloadedBean, String> colCenter; 
 	@FXML private TableColumn<WasteUnloadedBean, String> colDate; 
 	@FXML private TableColumn<WasteUnloadedBean, String> colTime;
@@ -193,16 +193,16 @@ public class UserProfileView implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		userGroup.setVisible(true);
+		userGroup13.setVisible(true);
 		control = new UserController();
 		List<String> userInfo = control.userInformation(UserBean.getInstance());
 		userButton.setText(UserBean.getInstance().getUsbUsername());
-		userNick.setText(UserBean.getInstance().getUsbUsername());
-		name.setText(userInfo.get(0));
-		surname.setText(userInfo.get(1));
-		email.setText(userInfo.get(2));
-		phoneNumber.setText(userInfo.get(3));
-		ecoPoints.setText(userInfo.get(4));
+		userNick13.setText(UserBean.getInstance().getUsbUsername());
+		name13.setText(userInfo.get(0));
+		surname13.setText(userInfo.get(1));
+		email13.setText(userInfo.get(2));
+		phoneNumber13.setText(userInfo.get(3));
+		ecoPoints13.setText(userInfo.get(4));
 		
 		unloadList.removeAll(unloadList);
 		List<WasteUnloadedBean> data = new ArrayList<>();
@@ -221,14 +221,14 @@ public class UserProfileView implements Initializable {
 		colWaste.setCellValueFactory(new PropertyValueFactory<>("wbWaste"));
 		colQuantity.setCellValueFactory(new PropertyValueFactory<>("wbWasteQuantity"));
 		colPoints.setCellValueFactory(new PropertyValueFactory<>("wbEcoPoints"));
-		unloadTable.setItems(unloadList);
+		unloadTable13.setItems(unloadList);
 		
-		unloadTable.widthProperty().addListener(new ChangeListener<Number>()
+		unloadTable13.widthProperty().addListener(new ChangeListener<Number>()
 		{
 			@Override
 		    public void changed(ObservableValue<? extends Number> source, Number oldWidth, Number newWidth)
 		    {
-				TableHeaderRow header = (TableHeaderRow) unloadTable.lookup("TableHeaderRow");
+				TableHeaderRow header = (TableHeaderRow) unloadTable13.lookup("TableHeaderRow");
 		        header.reorderingProperty().addListener(new ChangeListener<Boolean>() {
 		            @Override
 		            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {

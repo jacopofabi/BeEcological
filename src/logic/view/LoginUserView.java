@@ -41,7 +41,6 @@ public class LoginUserView implements Initializable {
 	@FXML private TextField loginUsername6;
 	@FXML private TextField loginPassword6;
 	
-	private Alert alert6;
     private UserController control;
     private UserBean user;
 	
@@ -82,7 +81,7 @@ public class LoginUserView implements Initializable {
 		
 		control = new UserController();
 		ok = control.login(user);
-		alert6 = new Alert(AlertType.ERROR);
+		Alert alert6 = new Alert(AlertType.ERROR);
 		if (!ok) {
 			UserBean.setInstance(null);
 			alert6.setTitle("Login failed");
