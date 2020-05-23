@@ -74,7 +74,7 @@ public class BookingANDUnloadsView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage1(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOME_OWNER, event);
 			pageLoader.stageShow();
@@ -182,7 +182,7 @@ public class BookingANDUnloadsView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoOwnerProfile(ActionEvent event) {
+	public void gotoOwnerProfile1(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.OWNER_PROFILE, event);
 			pageLoader.stageShow();
@@ -193,7 +193,7 @@ public class BookingANDUnloadsView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doLogout(ActionEvent event) {
+	public void doLogout1(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);

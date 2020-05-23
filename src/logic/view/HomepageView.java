@@ -57,7 +57,7 @@ public class HomepageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage4(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 			pageLoader.homeConfig();
@@ -69,7 +69,7 @@ public class HomepageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doSearch(ActionEvent event) {
+	public void doSearch4(ActionEvent event) {
 		Tool.setString(searchBar.getText());
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.SEARCH_RESULT, event);
@@ -82,7 +82,7 @@ public class HomepageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void toUserLogin(ActionEvent event) {
+	public void toUserLogin4(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.LOGIN_USER, event);
 			pageLoader.stageShow();
@@ -94,7 +94,7 @@ public class HomepageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void toOwnerLogin(ActionEvent event) {
+	public void toOwnerLogin4(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.LOGIN_OWNER, event);
 			pageLoader.stageShow();
@@ -106,7 +106,7 @@ public class HomepageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoShop(ActionEvent event) {
+	public void gotoShop4(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.SHOP, event);
 			pageLoader.stageShow();
@@ -118,9 +118,9 @@ public class HomepageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoUserProfile(ActionEvent event) {
+	public void gotoUserProfile4(ActionEvent event) {
 		try {
-			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, userButton);
 			pageLoader.stageShow();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
@@ -130,7 +130,7 @@ public class HomepageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoRequest(ActionEvent event) {
+	public void gotoRequest4(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_BOOKING_LIST, event);
 			pageLoader.stageShow();
@@ -142,7 +142,7 @@ public class HomepageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doLogout(ActionEvent event) {
+	public void doLogout4(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);
@@ -150,7 +150,7 @@ public class HomepageView implements Initializable {
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, userButton);
 				HomepageView controller = (HomepageView) pageLoader.getController();
 				controller.userGroup.setVisible(false);
 				controller.loginGroup.setVisible(true);

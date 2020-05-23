@@ -47,7 +47,7 @@ public class LoginUserView implements Initializable {
     
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage6(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 			pageLoader.homeConfig();
@@ -59,7 +59,7 @@ public class LoginUserView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void toOwnerLogin(ActionEvent event) {
+	public void toOwnerLogin6(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.LOGIN_OWNER, event);
 			pageLoader.stageShow();
@@ -71,7 +71,7 @@ public class LoginUserView implements Initializable {
 
 	//------------------------------------------------------------------------------
 	@FXML
-	public void loginUser(ActionEvent event) throws InexistentUsernameException, EmptyFieldException {
+	public void loginUser6(ActionEvent event) throws InexistentUsernameException, EmptyFieldException {
 		boolean ok;
 		String username = loginUsername.getText();
 		String password = loginPassword.getText();
@@ -107,7 +107,7 @@ public class LoginUserView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void registerUser(ActionEvent event) throws EmptyFieldException, ShortPasswordException, InvalidEmailException, AlreadyUsedUsernameException {
+	public void registerUser6(ActionEvent event) throws EmptyFieldException, ShortPasswordException, InvalidEmailException, AlreadyUsedUsernameException {
 		boolean ok = true;
 		String name = textName.getText();
 		String surname = textSurname.getText();

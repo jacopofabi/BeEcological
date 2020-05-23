@@ -18,17 +18,17 @@
 
 <AnchorPane prefHeight="705.0" prefWidth="1345.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.LoginOwnerView">
    <children>
-      <TextField fx:id="loginUsername" layoutX="175.0" layoutY="273.0" onAction="#loginOwner" prefHeight="20.0" prefWidth="350.0" promptText="Username">
+      <TextField fx:id="loginUsername" layoutX="175.0" layoutY="273.0" onAction="#loginOwner5" prefHeight="20.0" prefWidth="350.0" promptText="Username">
          <font>
             <Font name="Calibri Light" size="24.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="loginPassword" layoutX="175.0" layoutY="345.0" onAction="#loginOwner" prefHeight="20.0" prefWidth="350.0" promptText="Password">
+      <PasswordField fx:id="loginPassword" layoutX="175.0" layoutY="345.0" onAction="#loginOwner5" prefHeight="20.0" prefWidth="350.0" promptText="Password">
          <font>
             <Font name="Calibri Light" size="24.0" />
          </font>
       </PasswordField>
-      <Button fx:id="toHomeOwnerButton" layoutX="291.0" layoutY="419.0" mnemonicParsing="false" onAction="#loginOwner" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="LOG IN" textFill="WHITE">
+      <Button fx:id="toHomeOwnerButton" layoutX="291.0" layoutY="419.0" mnemonicParsing="false" onAction="#loginOwner5" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="LOG IN" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font></Button>
@@ -48,7 +48,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" stylesheets="@../styles/TransparentButton-blue.css">
+            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage5" stylesheets="@../styles/TransparentButton-blue.css">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -107,7 +107,7 @@
             </Label>
          </children>
       </Group>
-      <Button fx:id="signInButton" layoutX="975.0" layoutY="630.0" mnemonicParsing="false" onAction="#signIn" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="SIGN IN" textFill="WHITE">
+      <Button fx:id="signInButton" layoutX="975.0" layoutY="630.0" mnemonicParsing="false" onAction="#signIn5" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="SIGN IN" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
@@ -232,7 +232,7 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Button fx:id="toUserLoginButton" layoutX="291.0" layoutY="626.0" mnemonicParsing="false" onAction="#toUserLogin" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="CONTINUE" textFill="WHITE">
+      <Button fx:id="toUserLoginButton" layoutX="291.0" layoutY="626.0" mnemonicParsing="false" onAction="#toUserLogin5" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="CONTINUE" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>

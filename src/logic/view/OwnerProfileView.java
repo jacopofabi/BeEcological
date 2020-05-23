@@ -46,7 +46,7 @@ public class OwnerProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage8(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOME_OWNER, event);
 			pageLoader.stageShow();
@@ -80,7 +80,7 @@ public class OwnerProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void deleteAccount(ActionEvent event) {
+	public void deleteAccount8(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Delete Account");
 		alert.setHeaderText(null);
@@ -108,7 +108,7 @@ public class OwnerProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doLogout(ActionEvent event) {
+	public void doLogout8(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);
@@ -133,7 +133,7 @@ public class OwnerProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoOwnerProfile(ActionEvent event) {
+	public void gotoOwnerProfile8(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.OWNER_PROFILE, event);
 			pageLoader.stageShow();

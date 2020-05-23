@@ -48,7 +48,7 @@ public class LoginOwnerView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage5(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOME_OWNER, event);
 			pageLoader.stageShow();
@@ -59,7 +59,7 @@ public class LoginOwnerView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void toUserLogin(ActionEvent event) {
+	public void toUserLogin5(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.LOGIN_USER, event);
 			pageLoader.stageShow();
@@ -71,7 +71,7 @@ public class LoginOwnerView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void signIn(ActionEvent event) {
+	public void signIn5(ActionEvent event) {
 		Alert alert = new Alert(AlertType.INFORMATION);		
 		alert.setTitle("Registration");
 		alert.setHeaderText(null);
@@ -83,7 +83,7 @@ public class LoginOwnerView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void loginOwner(ActionEvent event) {
+	public void loginOwner5(ActionEvent event) {
 		boolean ok;
 		String username = loginUsername.getText();
 		String password = loginPassword.getText();

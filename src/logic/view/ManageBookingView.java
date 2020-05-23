@@ -79,7 +79,7 @@ public class ManageBookingView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage7(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOME_OWNER, event);
 			pageLoader.stageShow();
@@ -91,7 +91,7 @@ public class ManageBookingView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void saveBookingRequest(ActionEvent event) {
+	public void saveBookingRequest7(ActionEvent event) {
 		boolean res = true;
 		booking = new BookingBean();
 		user = new UserBean();
@@ -200,7 +200,7 @@ public class ManageBookingView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void confirmBookingRequest(MouseEvent event) {
+	public void confirmBookingRequest7(MouseEvent event) {
 		if (event.getButton().equals(MouseButton.PRIMARY)) {
 	        int index = tableBookingRequest.getSelectionModel().getSelectedIndex();
 	        BookingBean book = tableBookingRequest.getItems().get(index);
@@ -254,7 +254,7 @@ public class ManageBookingView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoOwnerProfile(ActionEvent event) {
+	public void gotoOwnerProfile7(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.OWNER_PROFILE, event);
 			pageLoader.stageShow();
@@ -266,7 +266,7 @@ public class ManageBookingView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doLogout(ActionEvent event) {
+	public void doLogout7(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);

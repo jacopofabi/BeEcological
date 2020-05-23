@@ -215,7 +215,7 @@ public class CenterPageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage2(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 			pageLoader.homeConfig();
@@ -227,7 +227,7 @@ public class CenterPageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doSearch(ActionEvent event) {
+	public void doSearch2(ActionEvent event) {
 		Tool.setString(searchBar.getText());
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.SEARCH_RESULT, event);
@@ -240,7 +240,7 @@ public class CenterPageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void toUserLogin(ActionEvent event) {
+	public void toUserLogin2(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.LOGIN_USER, event);
 			pageLoader.stageShow();
@@ -252,7 +252,7 @@ public class CenterPageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoShop(ActionEvent event) {
+	public void gotoShop2(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.SHOP, event);
 			pageLoader.stageShow();
@@ -264,7 +264,7 @@ public class CenterPageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoUserProfile(ActionEvent event) {
+	public void gotoUserProfile2(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
 			pageLoader.stageShow();
@@ -276,7 +276,7 @@ public class CenterPageView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doLogout(ActionEvent event) {
+	public void doLogout2(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);

@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuButton;
 import javafx.stage.Stage;
 import logic.bean.UserBean;
 import logic.view.HomepageView;
@@ -20,18 +21,29 @@ public class PageLoader {
 	private static String errorMessage = "Page loading error";
 	
 	
-	public PageLoader(String resource, String title, Event event) throws IOException {
-		init(resource, title, event);
-	}
-	
-	
 	public PageLoader(Page page, Event event) throws IOException {
 		init(page.getResource(), page.getTitle(), event);
 	}
 	
 	
+	public PageLoader(Page page, MenuButton button) throws IOException {
+		init(page.getResource(), page.getTitle(), button);
+	}
+	
+	
 	private void init(String resource, String title, Event event) throws IOException {
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	    URL url = new File(resource).toURI().toURL();
+	    loader = new FXMLLoader(url);
+		Parent tableViewParent = loader.load();
+		Scene tableViewScene = new Scene(tableViewParent);
+		stage.setScene(tableViewScene);
+		stage.setTitle(title);
+	}
+	
+	
+	private void init(String resource, String title, MenuButton button) throws IOException {
+		stage = (Stage) button.getScene().getWindow();
 	    URL url = new File(resource).toURI().toURL();
 	    loader = new FXMLLoader(url);
 		Parent tableViewParent = loader.load();
@@ -94,7 +106,7 @@ public class PageLoader {
 		HOMEPAGE("src/res/fxml/Homepage.fxml", "BeEcological - Homepage"),
 		LOGIN_OWNER("src/res/fxml/LoginOwner.fxml", "BeEcological - Login"),
 		LOGIN_USER("src/res/fxml/LoginUser.fxml", "BeEcological - Login"),
-		MANAGE_BOOKING("src/res/fxml/ManageBooking", "BeEcological for Managers - Manage Booking"),
+		MANAGE_BOOKING("src/res/fxml/ManageBooking.fxml", "BeEcological for Managers - Manage Booking"),
 		MANAGE_INFORMATION("src/res/fxml/ManageInformation.fxml", "BeEcological for Managers - Manage Information"),
 		OWNER_PROFILE("src/res/fxml/OwnerProfile.fxml", "BeEcological for Managers - Profile"),
 		REGISTER_UNLOAD("src/res/fxml/RegisterUnload.fxml", "BeEcological for Managers - Register Unload"),

@@ -55,7 +55,7 @@ public class HomeOwnerView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage3(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOME_OWNER, event);
 			pageLoader.stageShow();
@@ -67,7 +67,7 @@ public class HomeOwnerView implements Initializable {
 
 	//------------------------------------------------------------------------------
 	@FXML
-	public void registerUnload(ActionEvent event) {
+	public void registerUnload3(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.REGISTER_UNLOAD, event);
 			pageLoader.stageShow();
@@ -79,7 +79,7 @@ public class HomeOwnerView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void manageBooking(ActionEvent event) {
+	public void manageBooking3(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.MANAGE_BOOKING, event);
 			pageLoader.stageShow();
@@ -91,7 +91,7 @@ public class HomeOwnerView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void manageInformation(ActionEvent event) {
+	public void manageInformation3(ActionEvent event) {
 		Alert alert = new Alert(AlertType.INFORMATION);		
 		alert.setTitle("Manage Information");
 		alert.setHeaderText(null);
@@ -102,7 +102,7 @@ public class HomeOwnerView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void bookingANDUnloads(ActionEvent event) {
+	public void bookingANDUnloads3(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.BOOKING_AND_UNLOADS, event);
 			pageLoader.stageShow();
@@ -115,9 +115,9 @@ public class HomeOwnerView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoOwnerProfile(ActionEvent event) {
+	public void gotoOwnerProfile3(ActionEvent event) {
 		try {
-			PageLoader pageLoader = new PageLoader(PageLoader.Page.OWNER_PROFILE, event);
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.OWNER_PROFILE, ownerButton);
 			pageLoader.stageShow();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
@@ -127,7 +127,7 @@ public class HomeOwnerView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doLogout(ActionEvent event) {
+	public void doLogout3(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);
@@ -135,7 +135,7 @@ public class HomeOwnerView implements Initializable {
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, ownerButton);
 				HomepageView controller = (HomepageView) pageLoader.getController();
 				controller.userGroup.setVisible(false);
 				controller.loginGroup.setVisible(true);
@@ -150,7 +150,7 @@ public class HomeOwnerView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void changePhoto(ActionEvent event) {
+	public void changePhoto3(ActionEvent event) {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().addAll(//
 			       new FileChooser.ExtensionFilter("JPG", "*.jpg"), 
@@ -167,7 +167,7 @@ public class HomeOwnerView implements Initializable {
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 		}
-		returnHomepage(event);
+		returnHomepage3(event);
 	}
 		
 
