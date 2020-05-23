@@ -36,7 +36,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" stylesheets="@../styles/TransparentButton.css">
+            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage11" stylesheets="@../styles/TransparentButton.css">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -53,7 +53,7 @@
       </AnchorPane>
       <Group layoutX="131.0" layoutY="180.0">
          <children>
-            <Button fx:id="am05" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" stylesheets="@../styles/BlueButton.css">
+            <Button fx:id="am05" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" stylesheets="@../styles/BlueButton.css">
                <graphic>
                   <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -62,7 +62,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="am10" layoutX="225.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <Button fx:id="am10" layoutX="225.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                <graphic>
                   <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -71,7 +71,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="am25" layoutX="450.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <Button fx:id="am25" layoutX="450.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                <graphic>
                   <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -80,7 +80,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="za05" layoutX="675.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <Button fx:id="za05" layoutX="675.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                <graphic>
                   <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -89,7 +89,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="za10" layoutX="900.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <Button fx:id="za10" layoutX="900.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                <graphic>
                   <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -102,7 +102,7 @@
       </Group>
       <Group layoutX="131.0" layoutY="360.0">
          <children>
-            <Button fx:id="gp05" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <Button fx:id="gp05" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                <graphic>
                   <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -111,7 +111,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="gp10" layoutX="225.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <Button fx:id="gp10" layoutX="225.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                <graphic>
                   <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -120,7 +120,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="ap10" layoutX="450.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <Button fx:id="ap10" layoutX="450.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                <graphic>
                   <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -129,7 +129,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="rm10" layoutX="675.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <Button fx:id="rm10" layoutX="675.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                <graphic>
                   <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -138,7 +138,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="ms10" layoutX="900.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <Button fx:id="ms10" layoutX="900.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                <graphic>
                   <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -149,7 +149,7 @@
             </Button>
          </children>
       </Group>
-      <Button fx:id="fe10" layoutX="131.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+      <Button fx:id="fe10" layoutX="131.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
          <graphic>
             <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -158,7 +158,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="ps05" layoutX="356.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+      <Button fx:id="ps05" layoutX="356.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
          <graphic>
             <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -167,7 +167,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="581.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;" fx:id="xb05">
+      <Button layoutX="581.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;" fx:id="xb05">
          <graphic>
             <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -176,7 +176,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="nx10" layoutX="806.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+      <Button fx:id="nx10" layoutX="806.0" layoutY="540.0" mnemonicParsing="false" onAction="#buyItem11" prefHeight="105.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
          <graphic>
             <ImageView fitHeight="107.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -339,14 +339,14 @@
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="-69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
-            <Button fx:id="shopButton" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
+            <Button fx:id="shopButton" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop11" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>
             </Button>
             <MenuButton fx:id="userButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton.css" text="&lt;USER-NICK&gt;" textFill="WHITE">
                <items>
-                  <MenuItem fx:id="userProfileItem" mnemonicParsing="false" onAction="#gotoUserProfile" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                  <MenuItem fx:id="userProfileItem" mnemonicParsing="false" onAction="#gotoUserProfile11" style="-fx-text-fill: #0b526d;" text="Your Profile">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -355,7 +355,7 @@
                         </ImageView>
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="logoutItem1" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                  <MenuItem fx:id="logoutItem1" mnemonicParsing="false" onAction="#doLogout11" style="-fx-text-fill: #0b526d;" text="Log Out">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>

@@ -84,7 +84,7 @@ public class SearchResultView implements Initializable {
     
 	//------------------------------------------------------------------------------
     @FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage10(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 			pageLoader.homeConfig();
@@ -96,7 +96,7 @@ public class SearchResultView implements Initializable {
 	
 	//------------------------------------------------------------------------------
     @FXML
-	public void doSearch(ActionEvent event) {
+	public void doSearch10(ActionEvent event) {
 		Tool.setString(searchBar.getText());
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.SEARCH_RESULT, event);
@@ -109,7 +109,7 @@ public class SearchResultView implements Initializable {
 	
 	//------------------------------------------------------------------------------
     @FXML
-	public void toUserLogin(ActionEvent event) {
+	public void toUserLogin10(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.LOGIN_USER, event);
 			pageLoader.stageShow();
@@ -121,7 +121,7 @@ public class SearchResultView implements Initializable {
 	
 	//------------------------------------------------------------------------------
     @FXML
-	public void gotoShop(ActionEvent event) {
+	public void gotoShop10(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.SHOP, event);
 			pageLoader.stageShow();
@@ -133,7 +133,7 @@ public class SearchResultView implements Initializable {
 	
 	//------------------------------------------------------------------------------
     @FXML
-	public void gotoUserProfile(ActionEvent event) {
+	public void gotoUserProfile10(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
 			pageLoader.stageShow();
@@ -145,7 +145,7 @@ public class SearchResultView implements Initializable {
 	
 	//------------------------------------------------------------------------------
     @FXML
-	public void openCenterPage(MouseEvent event) {
+	public void openCenterPage10(MouseEvent event) {
 		if (event.getButton().equals(MouseButton.PRIMARY)) {
 	        int index = tableView.getSelectionModel().getSelectedIndex();
 	        center = new CenterBean();
@@ -187,7 +187,7 @@ public class SearchResultView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doLogout(ActionEvent event){
+	public void doLogout10(ActionEvent event){
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);

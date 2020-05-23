@@ -86,7 +86,7 @@ public class BookingANDUnloadsView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void setRowSelected(MouseEvent event) {
+	public void setRowSelected1(MouseEvent event) {
 		waste = null;
 		if (event.getButton().equals(MouseButton.PRIMARY)) {
 	        int index = tableRegisteredUnloads.getSelectionModel().getSelectedIndex();
@@ -142,7 +142,7 @@ public class BookingANDUnloadsView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void refuseBookingAccepted(MouseEvent event) {
+	public void refuseBookingAccepted1(MouseEvent event) {
 		BookingBean booking = null;
 		if (event.getButton().equals(MouseButton.PRIMARY)) {
 	        int index = tableBookingAccepted.getSelectionModel().getSelectedIndex();

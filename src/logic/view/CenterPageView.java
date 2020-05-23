@@ -99,7 +99,7 @@ public class CenterPageView implements Initializable {
     
     
     //------------------------------------------------------------------------------
-	public void loadData() {
+	public void loadData2() {
 		list.removeAll(list);
 		String a = "08:00";
 		String b = "08:30";
@@ -129,7 +129,7 @@ public class CenterPageView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
-	public void promptLogin() {
+	public void promptLogin2() {
 		// Create the custom dialog.
 		Dialog<Pair<String, String>> dialog = new Dialog<>();
 		dialog.setTitle("Login to continue");
@@ -298,18 +298,18 @@ public class CenterPageView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
-	public void openBookingRequest() {
+	public void openBookingRequest2() {
 		long start = System.currentTimeMillis();
 		isBooking = true;
 		promptBox.setVisible(true);
 		end = start + 60*1000; // 60 seconds * 1000 ms/sec
-		TimeoutThread timeout = new TimeoutThread();
+		TimeoutThread2 timeout = new TimeoutThread2();
 		timeout.start();
 	}
 	
 	
 	//------------------------------------------------------------------------------
-	public void showTimeoutAlert() {
+	public void showTimeoutAlert2() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setAlertType(AlertType.ERROR);
 		alert.setTitle("Timeout expired");
@@ -321,7 +321,7 @@ public class CenterPageView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
-	 public class TimeoutThread extends Thread { //thread which control if the booking request is made within 2 minutes
+	 public class TimeoutThread2 extends Thread { //thread which control if the booking request is made within 2 minutes
 		 
 		 	@Override
 		    public void run() {
@@ -331,7 +331,7 @@ public class CenterPageView implements Initializable {
 				if (isBooking) {
 				Platform.runLater(new Runnable() { //javaFX thread to modify GUI. Useful to show alerts. a classic java thread can't do this.
 				    public void run(){
-						showTimeoutAlert();
+						showTimeoutAlert2();
 						datePicker.setValue(null);
 						datePicker.getEditor().clear();
 						hourBooking.getSelectionModel().clearSelection();
@@ -346,14 +346,14 @@ public class CenterPageView implements Initializable {
 	
 	 
 	//------------------------------------------------------------------------------ 
-	public void closeBookingRequest() {
+	public void closeBookingRequest2() {
 		isBooking = false;
 		promptBox.setVisible(false);
 	}
 
 	
 	//------------------------------------------------------------------------------
-	public void makeBookingRequest() throws IOException{
+	public void makeBookingRequest2() throws IOException{
 		Alert alert = new Alert(AlertType.ERROR);
 		if (datePicker.getValue() == null || hourBooking.getValue() == null) {
 			alert.setAlertType(AlertType.ERROR);
@@ -396,7 +396,7 @@ public class CenterPageView implements Initializable {
 			alert.setContentText("Your booking request for '"+centerSearched.getText()+"' has been completed successfully, the center owner will check it shortly.\n\nYou can check the status of your request through\n         'My Profile> See Booking Request'.");		
 			alert.show();
 			isBooking = false;
-			closeBookingRequest();
+			closeBookingRequest2();
 		}
 		else {
 			alert.setAlertType(AlertType.CONFIRMATION);
@@ -407,7 +407,7 @@ public class CenterPageView implements Initializable {
 			Optional<ButtonType> result = alert.showAndWait();
 			
 			if (result.get() == ButtonType.OK){
-				promptLogin();
+				promptLogin2();
 			}
 		}
 		
@@ -418,7 +418,7 @@ public class CenterPageView implements Initializable {
 	//------------------------------------------------------------------------------
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		loadData();
+		loadData2();
 		isBooking = false;
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
 		searchBar.setFont(Font.font("Calibri Light", FontWeight.NORMAL, 15));

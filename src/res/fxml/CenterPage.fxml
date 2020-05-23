@@ -276,7 +276,7 @@
                         <Font name="Calibri" size="24.0" />
                      </font>
                   </Text>
-                  <Button fx:id="bookingButton" layoutX="609.0" layoutY="335.0" mnemonicParsing="false" onAction="#openBookingRequest" prefHeight="67.0" prefWidth="165.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="BOOK YOUR UNLOAD" textFill="WHITE">
+                  <Button fx:id="bookingButton" layoutX="609.0" layoutY="335.0" mnemonicParsing="false" onAction="#openBookingRequest2" prefHeight="67.0" prefWidth="165.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="BOOK YOUR UNLOAD" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="15.0" />
                      </font>
@@ -365,7 +365,7 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </Text>
-            <Button fx:id="closePromptButton" layoutX="209.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeBookingRequest" prefHeight="2.0" prefWidth="1.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css">
+            <Button fx:id="closePromptButton" layoutX="209.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeBookingRequest2" prefHeight="2.0" prefWidth="1.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css">
                <graphic>
                   <ImageView fitHeight="11.0" fitWidth="15.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -386,7 +386,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ComboBox>
-            <Button fx:id="confirmButton" layoutX="78.0" layoutY="217.0" mnemonicParsing="false" onAction="#makeBookingRequest" prefHeight="37.0" prefWidth="80.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="CONFIRM" textFill="WHITE">
+            <Button fx:id="confirmButton" layoutX="78.0" layoutY="217.0" mnemonicParsing="false" onAction="#makeBookingRequest2" prefHeight="37.0" prefWidth="80.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="CONFIRM" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="11.0" />
                </font>

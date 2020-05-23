@@ -58,7 +58,7 @@ public class OwnerProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void editData(ActionEvent event) {
+	public void editData8(ActionEvent event) {
 		Alert alert = new Alert(AlertType.INFORMATION);		
 		alert.setTitle("Edit Personal Data");
 		alert.setHeaderText(null);
@@ -69,7 +69,7 @@ public class OwnerProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void changeCred(ActionEvent event) {
+	public void changeCred8(ActionEvent event) {
 		Alert alert = new Alert(AlertType.INFORMATION);		
 		alert.setTitle("Change Login Credentials");
 		alert.setHeaderText(null);

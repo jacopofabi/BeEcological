@@ -83,7 +83,7 @@ public class UserBookingListView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage12(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 			pageLoader.homeConfig();
@@ -95,7 +95,7 @@ public class UserBookingListView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doLogout(ActionEvent event) {
+	public void doLogout12(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);
@@ -118,7 +118,7 @@ public class UserBookingListView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoUserProfile(ActionEvent event) {
+	public void gotoUserProfile12(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
 			pageLoader.stageShow();
@@ -130,7 +130,7 @@ public class UserBookingListView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoShop(ActionEvent event) {
+	public void gotoShop12(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.SHOP, event);
 			pageLoader.stageShow();

@@ -114,7 +114,7 @@ public class RegisterUnloadView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage9(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOME_OWNER, event);
 			pageLoader.stageShow();
@@ -126,51 +126,51 @@ public class RegisterUnloadView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void getID(ActionEvent event) {
+	public void getID9(ActionEvent event) {
 		CheckBox chk = (CheckBox) event.getSource();
 		String id = chk.getId();
 		switch(id) {
 		case "b1":
-			textDisabler(b1,f1);
+			textDisabler9(b1,f1);
 			return;
 		case "b2":
-			textDisabler(b2,f2);
+			textDisabler9(b2,f2);
 			return;
 		case "b3":
-			textDisabler(b3,f3);
+			textDisabler9(b3,f3);
 			return;
 		case "b4":
-			textDisabler(b4,f4);
+			textDisabler9(b4,f4);
 			return;
 		case "b5":
-			textDisabler(b5,f5);
+			textDisabler9(b5,f5);
 			return;
 		case "b6":
-			textDisabler(b6,f6);
+			textDisabler9(b6,f6);
 			return;
 		case "b7":
-			textDisabler(b7,f7);
+			textDisabler9(b7,f7);
 			return;
 		case "b8":
-			textDisabler(b8,f8);
+			textDisabler9(b8,f8);
 			return;
 		case "b9":
-			textDisabler(b9,f9);
+			textDisabler9(b9,f9);
 			return;
 		case "b10":
-			textDisabler(b10,f10);
+			textDisabler9(b10,f10);
 			return;
 		case "b11":
-			textDisabler(b11,f11);
+			textDisabler9(b11,f11);
 			return;
 		case "b12":
-			textDisabler(b12,f12);
+			textDisabler9(b12,f12);
 			return;
 		case "b13":
-			textDisabler(b13,f13);
+			textDisabler9(b13,f13);
 			return;
 		case "b14":
-			textDisabler(b14,f14);
+			textDisabler9(b14,f14);
 			return;
 		default:
 			return;
@@ -179,7 +179,7 @@ public class RegisterUnloadView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
-	public void textDisabler(CheckBox theBox, TextField theField) {
+	public void textDisabler9(CheckBox theBox, TextField theField) {
 		if (theBox.isSelected()) {
 			theField.setDisable(false);
 		}
@@ -192,7 +192,7 @@ public class RegisterUnloadView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void setRowSelected(MouseEvent event) {
+	public void setRowSelected9(MouseEvent event) {
 		BookingBean book = null;
 		if (event.getButton().equals(MouseButton.PRIMARY)) {
 	        int index = tableBookingAccepted.getSelectionModel().getSelectedIndex();
@@ -211,7 +211,7 @@ public class RegisterUnloadView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void confirmRegistrationUnload(ActionEvent event) {
+	public void confirmRegistrationUnload9(ActionEvent event) {
 		boolean res;
 		UserBean user = new UserBean();
 		UserController control = new UserController();
@@ -330,7 +330,7 @@ public class RegisterUnloadView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoOwnerProfile(ActionEvent event) {
+	public void gotoOwnerProfile9(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.OWNER_PROFILE, event);
 			pageLoader.stageShow();
@@ -342,7 +342,7 @@ public class RegisterUnloadView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doLogout(ActionEvent event) {
+	public void doLogout9(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);

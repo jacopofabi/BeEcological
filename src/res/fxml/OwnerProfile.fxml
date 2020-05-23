@@ -50,7 +50,7 @@
                   <Font name="Calibri" size="24.0" />
                </font>
             </Text>
-            <Button fx:id="editDataButton" layoutX="500.0" layoutY="19.0" mnemonicParsing="false" onAction="#editData" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="    EDIT PERSONAL&#10;    DATA&#10;" textFill="WHITE">
+            <Button fx:id="editDataButton" layoutX="500.0" layoutY="19.0" mnemonicParsing="false" onAction="#editData8" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="    EDIT PERSONAL&#10;    DATA&#10;" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>
@@ -62,7 +62,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="changeCredButton" layoutX="723.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeCred" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="    CHANGE LOGIN&#10;    CREDENTIALS&#10;" textFill="WHITE">
+            <Button fx:id="changeCredButton" layoutX="723.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeCred8" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="    CHANGE LOGIN&#10;    CREDENTIALS&#10;" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>

@@ -56,7 +56,7 @@ public class ShopView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void showTimeoutAlert() {
+	public void showTimeoutAlert11() {
 		alert = new Alert(AlertType.ERROR);
 		alert.setAlertType(AlertType.ERROR);
 		alert.setTitle("Timeout expired");
@@ -68,7 +68,7 @@ public class ShopView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
-	public class TimeoutThread extends Thread { //thread which control if the booking request is made within 2 minutes
+	public class TimeoutThread11 extends Thread { //thread which control if the booking request is made within 2 minutes
 		 
 		@Override
 		public void run(){
@@ -80,7 +80,7 @@ public class ShopView implements Initializable {
 			    public void run(){
 			    	isBuying = false;
 			    	alert.close();
-			    	showTimeoutAlert();
+			    	showTimeoutAlert11();
 			    	}
 				});
 			}
@@ -90,7 +90,7 @@ public class ShopView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage11(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 			pageLoader.homeConfig();
@@ -102,7 +102,7 @@ public class ShopView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doLogout(ActionEvent event) {
+	public void doLogout11(ActionEvent event) {
 		alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);
@@ -125,7 +125,7 @@ public class ShopView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoUserProfile(ActionEvent event) {
+	public void gotoUserProfile11(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
 			pageLoader.stageShow();
@@ -137,7 +137,7 @@ public class ShopView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoShop(ActionEvent event) {
+	public void gotoShop11(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.SHOP, event);
 			pageLoader.stageShow();
@@ -149,35 +149,35 @@ public class ShopView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void buyItem(ActionEvent event) {
+	public void buyItem11(ActionEvent event) {
 		Button clicked=(Button) event.getSource();
 		String id = clicked.getId();
 		switch(id) {
 		case "am05":
 		case "za05":
 		case "gp05":
-			updateEcoPoints(event,100);
+			updateEcoPoints11(event,100);
 			return;
 		case "rm10":
 		case "fe10":
-			updateEcoPoints(event,180);
+			updateEcoPoints11(event,180);
 			return;
 		case "am10":
 		case "za10":
 		case "gp10":
 		case "ps05":
 		case "xb05":
-			updateEcoPoints(event,200);
+			updateEcoPoints11(event,200);
 			return;
 		case "ms10":
-			updateEcoPoints(event,210);
+			updateEcoPoints11(event,210);
 			return;
 		case "nx10":
 		case "ap10":
-			updateEcoPoints(event,220);
+			updateEcoPoints11(event,220);
 			return;
 		case "am25":
-			updateEcoPoints(event,450);
+			updateEcoPoints11(event,450);
 			return;
 		default:
 			return;
@@ -186,7 +186,7 @@ public class ShopView implements Initializable {
 	
 	
 	//------------------------------------------------------------------------------
-	public void updateEcoPoints(ActionEvent event, int cost) {
+	public void updateEcoPoints11(ActionEvent event, int cost) {
 		int oldEcoPoints = Integer.parseInt(ecoPoints.getText());
 		alert = new Alert(AlertType.ERROR);
 		if (oldEcoPoints-cost<0) {
@@ -200,7 +200,7 @@ public class ShopView implements Initializable {
 		long start = System.currentTimeMillis();
 		isBuying = true;
 		end = start + 10*1000; // 60 seconds * 1000 ms/sec
-		TimeoutThread timeout = new TimeoutThread();
+		TimeoutThread11 timeout = new TimeoutThread11();
 		timeout.start();
 		alert.setAlertType(AlertType.CONFIRMATION);
 		alert.setTitle("Confirm");
@@ -214,7 +214,7 @@ public class ShopView implements Initializable {
 			control = new UserController();
 			control.updateEcoPoints(UserBean.getUserInstance(""));
 			isBuying = false;
-			gotoShop(event);
+			gotoShop11(event);
 		}	
 	}
 	

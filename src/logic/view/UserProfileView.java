@@ -72,7 +72,7 @@ public class UserProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void returnHomepage(ActionEvent event) {
+	public void returnHomepage13(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 			pageLoader.homeConfig();
@@ -84,7 +84,7 @@ public class UserProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoUserBookingList(ActionEvent event) {
+	public void gotoUserBookingList13(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_BOOKING_LIST, event);
 			pageLoader.homeConfig();
@@ -96,7 +96,7 @@ public class UserProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoShop(ActionEvent event) {
+	public void gotoShop13(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.SHOP, event);
 			pageLoader.stageShow();
@@ -108,7 +108,7 @@ public class UserProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void editData(ActionEvent event) {
+	public void editData13(ActionEvent event) {
 		Alert alert = new Alert(AlertType.INFORMATION);		
 		alert.setTitle("Edit Personal Data");
 		alert.setHeaderText(null);
@@ -119,7 +119,7 @@ public class UserProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void changeCred(ActionEvent event) {
+	public void changeCred13(ActionEvent event) {
 		Alert alert = new Alert(AlertType.INFORMATION);		
 		alert.setTitle("Change Login Credentials");
 		alert.setHeaderText(null);
@@ -130,7 +130,7 @@ public class UserProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void deleteAccount(ActionEvent event) {
+	public void deleteAccount13(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Delete Account");
 		alert.setHeaderText(null);
@@ -158,7 +158,7 @@ public class UserProfileView implements Initializable {
 		
 	//------------------------------------------------------------------------------
 	@FXML
-	public void gotoUserProfile(ActionEvent event) {
+	public void gotoUserProfile13(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
 			pageLoader.stageShow();
@@ -170,7 +170,7 @@ public class UserProfileView implements Initializable {
 	
 	//------------------------------------------------------------------------------
 	@FXML
-	public void doLogout(ActionEvent event) {
+	public void doLogout13(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Logout");
 		alert.setHeaderText(null);
