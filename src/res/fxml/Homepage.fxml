@@ -27,7 +27,7 @@
       <AnchorPane layoutX="258.0" layoutY="160.0" prefHeight="58.0" prefWidth="856.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="847.0" />
-            <TextField fx:id="searchBar" onAction="#doSearch4" prefHeight="58.0" prefWidth="725.0" promptText="Search by address, city, name of the ecological island..." style="-fx-background-color: transparent;">
+            <TextField fx:id="searchBar4" onAction="#doSearch4" prefHeight="58.0" prefWidth="725.0" promptText="Search by address, city, name of the ecological island..." style="-fx-background-color: transparent;">
                <padding>
                   <Insets left="40.0" />
                </padding>
@@ -35,7 +35,7 @@
                   <Font name="Calibri" size="12.0" />
                </font>
             </TextField>
-            <Button fx:id="searchButton" layoutX="739.0" layoutY="5.0" mnemonicParsing="false" onAction="#doSearch4" prefHeight="48.0" prefWidth="100.0" stylesheets="@../styles/GreenButton.css" text="SEARCH" textFill="WHITE">
+            <Button fx:id="searchButton4" layoutX="739.0" layoutY="5.0" mnemonicParsing="false" onAction="#doSearch4" prefHeight="48.0" prefWidth="100.0" stylesheets="@../styles/GreenButton.css" text="SEARCH" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>
@@ -118,20 +118,20 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4d4b4b" height="1.0" layoutY="216.0" stroke="#4d4b4b" strokeType="INSIDE" width="856.0" />
          </children>
       </AnchorPane>
-      <Group fx:id="circleOwnerGroup" layoutX="528.0" layoutY="488.0">
+      <Group fx:id="circleOwnerGroup4" layoutX="528.0" layoutY="488.0">
          <children>
             <Label style="-fx-text-fill: 4D4B4B;" text="You are an Ecological Island Owner?" textFill="#4d4b4b">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="circleOwnerText" layoutX="115.0" layoutY="120.0" onDragDetected="#toOwnerLogin4" style="-fx-cursor: hand;" text="Join BeEcological" textFill="#4d4b4b" underline="true">
+            <Label fx:id="circleOwnerText4" layoutX="115.0" layoutY="120.0" onDragDetected="#toOwnerLogin4" style="-fx-cursor: hand;" text="Join BeEcological" textFill="#4d4b4b" underline="true">
                <font>
                   <Font name="Calibri Bold" size="18.0" />
                </font>
             </Label>
             <Text fill="#4d4b4b" layoutX="94.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to increase your online visibility,&#10;manage booking schedule&#10;and attract new customers." textAlignment="CENTER" />
-            <Button fx:id="circleOwnerButton" layoutX="123.0" layoutY="28.0" mnemonicParsing="false" onAction="#toOwnerLogin4" prefHeight="80.0" prefWidth="73.0" style="-fx-cursor: hand; -fx-background-color: transparent;">
+            <Button fx:id="circleOwnerButton4" layoutX="123.0" layoutY="28.0" mnemonicParsing="false" onAction="#toOwnerLogin4" prefHeight="80.0" prefWidth="73.0" style="-fx-cursor: hand; -fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="93.0" fitWidth="93.0" preserveRatio="true" style="-fx-background-color: transparent;">
                      <image>
@@ -158,17 +158,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Group fx:id="userGroup" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
+            <Group fx:id="userGroup4" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="-69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
-                  <Button fx:id="shopButton" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop4" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
+                  <Button fx:id="shopButton4" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop4" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="15.0" />
                      </font></Button>
-                  <MenuButton fx:id="userButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton.css" text="&lt;USER-NICK&gt;" textFill="WHITE">
+                  <MenuButton fx:id="userButton4" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton.css" text="&lt;USER-NICK&gt;" textFill="WHITE">
                      <items>
-                        <MenuItem fx:id="userProfileItem" mnemonicParsing="false" onAction="#gotoUserProfile4" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                        <MenuItem fx:id="userProfileItem4" mnemonicParsing="false" onAction="#gotoUserProfile4" style="-fx-text-fill: #0b526d;" text="Your Profile">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -177,7 +177,7 @@
                               </ImageView>
                            </graphic>
                         </MenuItem>
-                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout4" style="-fx-text-fill: #0b526d;" text="Log Out">
+                        <MenuItem fx:id="logoutItem4" mnemonicParsing="false" onAction="#doLogout4" style="-fx-text-fill: #0b526d;" text="Log Out">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -196,9 +196,9 @@
                   </MenuButton>
                </children>
             </Group>
-            <Group fx:id="loginGroup" layoutX="1175.0" layoutY="-1.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
+            <Group fx:id="loginGroup4" layoutX="1175.0" layoutY="-1.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
                <children>
-                  <Button fx:id="loginButton" layoutX="9.0" layoutY="17.0" mnemonicParsing="false" onAction="#toUserLogin4" stylesheets="@../styles/TransparentButton.css" text="LOG IN" textFill="WHITE">
+                  <Button fx:id="loginButton4" layoutX="9.0" layoutY="17.0" mnemonicParsing="false" onAction="#toUserLogin4" stylesheets="@../styles/TransparentButton.css" text="LOG IN" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="15.0" />
                      </font>
@@ -210,7 +210,7 @@
                </children>
             </Group>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="1217.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" x="50.0" y="14.0" />
-            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage4" stylesheets="@../styles/TransparentButton.css">
+            <Button fx:id="homeButton4" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage4" stylesheets="@../styles/TransparentButton.css">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -224,14 +224,14 @@
             </Button>
          </children>
       </AnchorPane>
-      <Group fx:id="circleUserGroup" layoutX="628.0" layoutY="472.0">
+      <Group fx:id="circleUserGroup4" layoutX="628.0" layoutY="472.0">
          <children>
-            <Text fx:id="welcomebackText" fill="#4d4b4b" layoutX="-600.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back!" textAlignment="CENTER" wrappingWidth="1356.6875">
+            <Text fx:id="welcomebackText4" fill="#4d4b4b" layoutX="-600.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back!" textAlignment="CENTER" wrappingWidth="1356.6875">
                <font>
                   <Font name="Calibri" size="36.0" />
                </font>
             </Text>
-            <Button fx:id="circleUserButton" layoutX="37.0" layoutY="54.0" mnemonicParsing="false" onAction="#gotoRequest4" prefHeight="80.0" prefWidth="80.0" style="-fx-cursor: hand;" stylesheets="@../styles/SquareHomeButton.css">
+            <Button fx:id="circleUserButton4" layoutX="37.0" layoutY="54.0" mnemonicParsing="false" onAction="#gotoRequest4" prefHeight="80.0" prefWidth="80.0" style="-fx-cursor: hand;" stylesheets="@../styles/SquareHomeButton.css">
                <graphic>
                   <ImageView fitHeight="47.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -30,17 +30,18 @@ public class LoginUserView implements Initializable {
 	@FXML private Button toOwnerLoginButton;
 	@FXML private Button homeButton;
 	@FXML private Button signInButton;
-	@FXML private TextField textName;
-	@FXML private TextField textSurname;
-	@FXML private TextField textEmailAddress;
-	@FXML private TextField textPhoneNumber;
-	@FXML private TextField textUsername;
-	@FXML private TextField textPassword;
-	@FXML private TextField textConfirmPassword;
 	@FXML private Button loginButton;
-	@FXML private TextField loginUsername;
-	@FXML private TextField loginPassword;
+	@FXML private TextField textName6;
+	@FXML private TextField textSurname6;
+	@FXML private TextField textEmailAddress6;
+	@FXML private TextField textPhoneNumber6;
+	@FXML private TextField textUsername6;
+	@FXML private TextField textPassword6;
+	@FXML private TextField textConfirmPassword6;
+	@FXML private TextField loginUsername6;
+	@FXML private TextField loginPassword6;
 	
+	private Alert alert6;
     private UserController control;
     private UserBean user;
 	
@@ -73,32 +74,32 @@ public class LoginUserView implements Initializable {
 	@FXML
 	public void loginUser6(ActionEvent event) throws InexistentUsernameException, EmptyFieldException {
 		boolean ok;
-		String username = loginUsername.getText();
-		String password = loginPassword.getText();
+		String username = loginUsername6.getText();
+		String password = loginPassword6.getText();
 		
 		user = UserBean.getUserInstance(username);
 		user.setUsbPassword(password);
 		
 		control = new UserController();
 		ok = control.login(user);
-		Alert alert = new Alert(AlertType.ERROR);
+		alert6 = new Alert(AlertType.ERROR);
 		if (!ok) {
 			UserBean.setInstance(null);
-			alert.setTitle("Login failed");
-			alert.setHeaderText(null);
-			alert.setContentText("User not registered: incorrect username or password.\nRetry or register!");
-			alert.showAndWait();
+			alert6.setTitle("Login failed");
+			alert6.setHeaderText(null);
+			alert6.setContentText("User not registered: incorrect username or password.\nRetry or register!");
+			alert6.showAndWait();
 			return;
 		}
 		try {
-			alert.setAlertType(AlertType.INFORMATION);
-			alert.setTitle("Welcome Back!");
-			alert.setHeaderText(null);
-			alert.setContentText("User verified, login completed.");
-			alert.showAndWait();
+			alert6.setAlertType(AlertType.INFORMATION);
+			alert6.setTitle("Welcome Back!");
+			alert6.setHeaderText(null);
+			alert6.setContentText("User verified, login completed.");
+			alert6.showAndWait();
 			
-		    PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-			pageLoader.homeConfig();
+		    PageLoader pageLoader6 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+			pageLoader6.homeConfig();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 		}
@@ -109,25 +110,25 @@ public class LoginUserView implements Initializable {
 	@FXML
 	public void registerUser6(ActionEvent event) throws EmptyFieldException, ShortPasswordException, InvalidEmailException, AlreadyUsedUsernameException {
 		boolean ok = true;
-		String name = textName.getText();
-		String surname = textSurname.getText();
-		String emailAddress = textEmailAddress.getText();
-		String phoneNumber = textPhoneNumber.getText();
-		String username = textUsername.getText();
-		String password = textPassword.getText();
-		String confirmPassword = textConfirmPassword.getText();
+		String name = textName6.getText();
+		String surname = textSurname6.getText();
+		String emailAddress = textEmailAddress6.getText();
+		String phoneNumber = textPhoneNumber6.getText();
+		String username = textUsername6.getText();
+		String password = textPassword6.getText();
+		String confirmPassword = textConfirmPassword6.getText();
 		
 		user = new UserBean();
 		user.setUsbUsername(username);
 		control = new UserController();
 		
 		ok = control.checkRegistration(user);
-		Alert alert = new Alert(AlertType.ERROR);
+		Alert alert6 = new Alert(AlertType.ERROR);
 		if (name.isEmpty() || surname.isEmpty()) {
-			alert.setTitle("Registration Failed - Invalid name");
-			alert.setHeaderText(null);
-			alert.setContentText("Name and surname cannot be empty.");
-			alert.showAndWait();
+			alert6.setTitle("Registration Failed - Invalid name");
+			alert6.setHeaderText(null);
+			alert6.setContentText("Name and surname cannot be empty.");
+			alert6.showAndWait();
 			return;
 		}
 		
@@ -136,50 +137,50 @@ public class LoginUserView implements Initializable {
 			!emailAddress.contains("@outlook.com") && !emailAddress.contains("@mail.com") &&
 			!emailAddress.contains("@virgilio.it") && !emailAddress.contains("@email.it"))	
 		{
-			alert.setTitle("Registration Failed - Invalid email");
-			alert.setHeaderText(null);
-			alert.setContentText("Insert a valid email address.");
-			alert.showAndWait();
+			alert6.setTitle("Registration Failed - Invalid email");
+			alert6.setHeaderText(null);
+			alert6.setContentText("Insert a valid email address.");
+			alert6.showAndWait();
 			return;
 		}
 		
 		if (username.isEmpty()) {
-			alert.setTitle("Registration Failed - Missing username");
-			alert.setHeaderText(null);
-			alert.setContentText("Insert an username.");
-			alert.showAndWait();
+			alert6.setTitle("Registration Failed - Missing username");
+			alert6.setHeaderText(null);
+			alert6.setContentText("Insert an username.");
+			alert6.showAndWait();
 			return;
 		}
 		
 		if (!ok) {
-			alert.setTitle("Registration Failed - Username already existing");
-			alert.setHeaderText(null);
-			alert.setContentText("Choose another username available.");
-			alert.showAndWait();
+			alert6.setTitle("Registration Failed - Username already existing");
+			alert6.setHeaderText(null);
+			alert6.setContentText("Choose another username available.");
+			alert6.showAndWait();
 			return;
 		}
 		
 		if (phoneNumber.isEmpty() || phoneNumber.matches("[0-9]+") == Tool.isFalse()) {
-			alert.setTitle("Registration Failed - Invalid phone number");
-			alert.setHeaderText(null);
-			alert.setContentText("Insert a valid phone number.");
-			alert.showAndWait();
+			alert6.setTitle("Registration Failed - Invalid phone number");
+			alert6.setHeaderText(null);
+			alert6.setContentText("Insert a valid phone number.");
+			alert6.showAndWait();
 			return;
 		}
 		
 		if (password.isEmpty() || (password.length() < 8)) {
-			alert.setTitle("Registration Failed - Password too weak");
-			alert.setHeaderText(null);
-			alert.setContentText("Choose a password with at least 8 characters.");
-			alert.showAndWait();
+			alert6.setTitle("Registration Failed - Password too weak");
+			alert6.setHeaderText(null);
+			alert6.setContentText("Choose a password with at least 8 characters.");
+			alert6.showAndWait();
 			return;
 		}
 		
 		if (!password.equalsIgnoreCase(confirmPassword)) {
-			alert.setTitle("Registration Failed - Wrong password confirmation");
-			alert.setHeaderText(null);
-			alert.setContentText("The two passwords you entered not match, try again.");
-			alert.showAndWait();
+			alert6.setTitle("Registration Failed - Wrong password confirmation");
+			alert6.setHeaderText(null);
+			alert6.setContentText("The two passwords you entered not match, try again.");
+			alert6.showAndWait();
 			return;
 		}
 		user.setUsbName(name);
@@ -192,13 +193,13 @@ public class LoginUserView implements Initializable {
 		control.saveRegistration(user);
 		
 		try {
-			alert.setAlertType(AlertType.INFORMATION);
-			alert.setTitle("Welcome to BeEcological!");
-			alert.setHeaderText(null);
-			alert.setContentText("Registration completed, you will be redirected to the beecological homepage.");
-			alert.showAndWait();
-		    PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-		    pageLoader.homeConfig();
+			alert6.setAlertType(AlertType.INFORMATION);
+			alert6.setTitle("Welcome to BeEcological!");
+			alert6.setHeaderText(null);
+			alert6.setContentText("Registration completed, you will be redirected to the beecological homepage.");
+			alert6.showAndWait();
+		    PageLoader pageLoader6 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+		    pageLoader6.homeConfig();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 		}
@@ -206,7 +207,7 @@ public class LoginUserView implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		loginUsername.requestFocus();
+		loginUsername6.requestFocus();
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
 	}
 	

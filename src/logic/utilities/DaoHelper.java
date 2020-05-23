@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -15,6 +17,8 @@ public class DaoHelper {
 	static String pass = "root";
 	static String url = "jdbc:mysql://127.0.0.1:3306/beecological?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	static String driverClassName = "com.mysql.cj.jdbc.Driver";
+	
+	static String errorMex = "Exception";
 	
 	
 	//------------------------------------------------------------------------------
@@ -45,7 +49,7 @@ public class DaoHelper {
             stmt.executeUpdate(str);  
         }
 		catch (Exception e) {
-        	e.printStackTrace();
+			Logger.getGlobal().log(Level.SEVERE, errorMex);
         }
         finally {
         	close(stmt);
@@ -69,7 +73,7 @@ public class DaoHelper {
         	count = res.getInt(1);
         }
         catch (Exception e) {
-        	e.printStackTrace();
+        	Logger.getGlobal().log(Level.SEVERE, errorMex);
         }
         finally {
         	DaoHelper.close(stmt);
@@ -113,7 +117,7 @@ public class DaoHelper {
     		}
         }
         catch (Exception e) {
-        	e.printStackTrace();
+        	Logger.getGlobal().log(Level.SEVERE, errorMex);
         }
         finally {
         	DaoHelper.close(stmt);
@@ -131,7 +135,7 @@ public class DaoHelper {
     			stmt.close();
     		} 
     		catch (SQLException e) {
-    			e.printStackTrace();
+    			Logger.getGlobal().log(Level.SEVERE, errorMex);
     		}
     	}
 	}
@@ -144,7 +148,7 @@ public class DaoHelper {
     			conn.close();
     		} 
     		catch (SQLException e) {
-    			e.printStackTrace();
+    			Logger.getGlobal().log(Level.SEVERE, errorMex);
     		}
     	}
 	}
@@ -157,7 +161,7 @@ public class DaoHelper {
     			res.close();
     		} 
     		catch (SQLException e) {
-    			e.printStackTrace();
+    			Logger.getGlobal().log(Level.SEVERE, errorMex);
     		}
     	}
 	}

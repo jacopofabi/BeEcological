@@ -28,18 +28,18 @@ public class OwnerProfileView implements Initializable {
 	
 	@FXML private MenuItem ownerProfileItem; 
 	@FXML private MenuItem logoutItem;
-	@FXML private MenuButton ownerButton;
-	@FXML private Button homeButton;
-	@FXML private Button searchButton;
-	@FXML private Button editDataButton;
-	@FXML private Button changeCredButton;
-	@FXML private Button deleteAccountButton;
-	@FXML private Text userNick;
-	@FXML private Text ecoPoints;
-	@FXML private Text name;
-	@FXML private Text surname; 
-	@FXML private Text email;
-	@FXML private Text phoneNumber;
+	@FXML private MenuButton ownerButton8;
+	@FXML private Button homeButton8;
+	@FXML private Button searchButton8;
+	@FXML private Button editDataButton8;
+	@FXML private Button changeCredButton8;
+	@FXML private Button deleteAccountButton8;
+	@FXML private Text userNick8;
+	@FXML private Text ecoPoints8;
+	@FXML private Text name8;
+	@FXML private Text surname8; 
+	@FXML private Text email8;
+	@FXML private Text phoneNumber8;
 	
 	private OwnerController control;
 	
@@ -93,8 +93,8 @@ public class OwnerProfileView implements Initializable {
 				
 				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				controller.userGroup4.setVisible(false);
+				controller.loginGroup4.setVisible(true);
 				
 				control.deleteAccount(CenterOwnerBean.getInstance());
 				CenterOwnerBean.setInstance(null);
@@ -109,20 +109,20 @@ public class OwnerProfileView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doLogout8(ActionEvent event) {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Logout");
-		alert.setHeaderText(null);
-		alert.setContentText("Are you sure you want to logout?");
-		Optional<ButtonType> result = alert.showAndWait();
+		Alert alert8 = new Alert(AlertType.CONFIRMATION);
+		alert8.setTitle("Logout");
+		alert8.setHeaderText(null);
+		alert8.setContentText("Are you sure you want to logout?");
+		Optional<ButtonType> result = alert8.showAndWait();
 
 		if (result.get() == ButtonType.OK){
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				PageLoader pageLoader8 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				HomepageView controller8 = (HomepageView) pageLoader8.getController();
+				controller8.userGroup4.setVisible(false);
+				controller8.loginGroup4.setVisible(true);
 				CenterOwnerBean.setInstance(null);
-				pageLoader.stageShow();
+				pageLoader8.stageShow();
 			} catch (IOException e) {
 				Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 			}
@@ -145,18 +145,18 @@ public class OwnerProfileView implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
+		homeButton8.setTooltip(new Tooltip("Return to BeEcological Homepage"));
 		CenterOwnerBean owner = new CenterOwnerBean();
 		control = new OwnerController();
 		owner.setCobUsername(CenterOwnerBean.getOwnerInstance("").getCobUsername());
-		ownerButton.setText(owner.getCobUsername());
-		userNick.setText(owner.getCobUsername());
+		ownerButton8.setText(owner.getCobUsername());
+		userNick8.setText(owner.getCobUsername());
 		
 		List<String> ownerInfo = control.ownerData(owner);
 
-		name.setText(ownerInfo.get(0));
-		surname.setText(ownerInfo.get(1));
-		email.setText(ownerInfo.get(2));
-		phoneNumber.setText(ownerInfo.get(3));
+		name8.setText(ownerInfo.get(0));
+		surname8.setText(ownerInfo.get(1));
+		email8.setText(ownerInfo.get(2));
+		phoneNumber8.setText(ownerInfo.get(3));
 	}
 }

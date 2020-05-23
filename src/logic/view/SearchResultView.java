@@ -1,6 +1,5 @@
 package logic.view;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -22,12 +21,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -45,7 +40,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import logic.utilities.PageLoader;
 import logic.utilities.Tool;
 
@@ -155,15 +149,8 @@ public class SearchResultView implements Initializable {
 		}
 		Tool.setCenterName(center.getCbName());
 		try {
-			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		    URL url = new File("src/res/fxml/CenterPage.fxml").toURI().toURL();
-		    FXMLLoader loader = new FXMLLoader(url);
-			Parent tableViewParent = loader.load();
-			Scene tableViewScene = new Scene(tableViewParent);
-			window.setScene(tableViewScene);
-			window.setTitle("BeEcological - Center Page");
-			
-			CenterPageView controller = (CenterPageView) loader.getController();
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.CENTER_PAGE, event);
+			CenterPageView controller = (CenterPageView) pageLoader.getController();
 			if(UserBean.getInstance() != null) {
 				controller.loginGroup.setVisible(false);
 				controller.userGroup.setVisible(true);
@@ -178,9 +165,9 @@ public class SearchResultView implements Initializable {
 			controller.centerPhoneSearched.setText(center.getCbPhone());
 			controller.emailSearched.setText(owner.getCobEmail());
 			controller.ownerPhoneSearched.setText(owner.getCobPhone());
-			window.show();
+			pageLoader.stageShow();
 		}catch(Exception e){
-			e.printStackTrace();
+			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 		}
 	}
 	
@@ -188,19 +175,19 @@ public class SearchResultView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doLogout10(ActionEvent event){
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Logout");
-		alert.setHeaderText(null);
-		alert.setContentText("Are you sure you want to logout?");
-		Optional<ButtonType> result = alert.showAndWait();
+		Alert alert10 = new Alert(AlertType.CONFIRMATION);
+		alert10.setTitle("Logout");
+		alert10.setHeaderText(null);
+		alert10.setContentText("Are you sure you want to logout?");
+		Optional<ButtonType> result = alert10.showAndWait();
 		if (result.get() == ButtonType.OK){
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				PageLoader pageLoader10 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				HomepageView controller10 = (HomepageView) pageLoader10.getController();
+				controller10.userGroup4.setVisible(false);
+				controller10.loginGroup4.setVisible(true);
 				UserBean.setInstance(null);
-				pageLoader.stageShow();
+				pageLoader10.stageShow();
 			} catch (IOException e) {
 				Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 			}
@@ -222,7 +209,7 @@ public class SearchResultView implements Initializable {
 	        centerList.addAll(data);
 	    }
 	    catch(Exception e){
-	          e.printStackTrace();      
+	    	Logger.getGlobal().log(Level.SEVERE, "Error On Binding Data");  
 	    }
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
 		colName.setCellValueFactory(new PropertyValueFactory<>("cbName"));

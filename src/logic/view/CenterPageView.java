@@ -92,6 +92,7 @@ public class CenterPageView implements Initializable {
     
     @FXML private ImageView centerImageView;
     
+    private Alert alert2;
     private UserBean user;
     private UserController control;
     private long end;
@@ -277,19 +278,19 @@ public class CenterPageView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doLogout2(ActionEvent event) {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Logout");
-		alert.setHeaderText(null);
-		alert.setContentText("Are you sure you want to logout?");
-		Optional<ButtonType> result = alert.showAndWait();
+		alert2 = new Alert(AlertType.CONFIRMATION);
+		alert2.setTitle("Logout");
+		alert2.setHeaderText(null);
+		alert2.setContentText("Are you sure you want to logout?");
+		Optional<ButtonType> result = alert2.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				PageLoader pageLoader2 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				HomepageView controller2 = (HomepageView) pageLoader2.getController();
+				controller2.userGroup4.setVisible(false);
+				controller2.loginGroup4.setVisible(true);
 				CenterOwnerBean.setInstance(null);
-				pageLoader.stageShow();
+				pageLoader2.stageShow();
 			} catch (IOException e) {
 				Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 			}

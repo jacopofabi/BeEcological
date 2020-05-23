@@ -48,7 +48,7 @@ public class ShopView implements Initializable {
 	@FXML private Button nx10;
 	@FXML private Text ecoPoints;
 	private long end;
-	private Alert alert;
+	private Alert alert11;
 	private boolean isBuying = false;
 	
 	private UserController control;
@@ -57,12 +57,12 @@ public class ShopView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void showTimeoutAlert11() {
-		alert = new Alert(AlertType.ERROR);
-		alert.setAlertType(AlertType.ERROR);
-		alert.setTitle("Timeout expired");
-		alert.setHeaderText(null);
-		alert.setContentText("Buying timeout expired, retry!");		
-		alert.show();
+		alert11 = new Alert(AlertType.ERROR);
+		alert11.setAlertType(AlertType.ERROR);
+		alert11.setTitle("Timeout expired");
+		alert11.setHeaderText(null);
+		alert11.setContentText("Buying timeout expired, retry!");		
+		alert11.show();
 	}
 
 	
@@ -79,7 +79,7 @@ public class ShopView implements Initializable {
 			Platform.runLater(new Runnable(){ //javaFX thread to modify GUI. Useful to show alerts. a classic java thread can't do this.
 			    public void run(){
 			    	isBuying = false;
-			    	alert.close();
+			    	alert11.close();
 			    	showTimeoutAlert11();
 			    	}
 				});
@@ -103,19 +103,19 @@ public class ShopView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doLogout11(ActionEvent event) {
-		alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Logout");
-		alert.setHeaderText(null);
-		alert.setContentText("Are you sure you want to logout?");
-		Optional<ButtonType> result = alert.showAndWait();
+		alert11 = new Alert(AlertType.CONFIRMATION);
+		alert11.setTitle("Logout");
+		alert11.setHeaderText(null);
+		alert11.setContentText("Are you sure you want to logout?");
+		Optional<ButtonType> result = alert11.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				PageLoader pageLoader11 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				HomepageView controller11 = (HomepageView) pageLoader11.getController();
+				controller11.userGroup4.setVisible(false);
+				controller11.loginGroup4.setVisible(true);
 				UserBean.setInstance(null);
-				pageLoader.stageShow();
+				pageLoader11.stageShow();
 			} catch (IOException e) {
 				Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 			}
@@ -188,12 +188,12 @@ public class ShopView implements Initializable {
 	//------------------------------------------------------------------------------
 	public void updateEcoPoints11(ActionEvent event, int cost) {
 		int oldEcoPoints = Integer.parseInt(ecoPoints.getText());
-		alert = new Alert(AlertType.ERROR);
+		alert11 = new Alert(AlertType.ERROR);
 		if (oldEcoPoints-cost<0) {
-			alert.setTitle("Error");
-			alert.setHeaderText(null);
-			alert.setContentText("You don't have enough ecoPoints to purchase the selected item");		
-			alert.showAndWait();
+			alert11.setTitle("Error");
+			alert11.setHeaderText(null);
+			alert11.setContentText("You don't have enough ecoPoints to purchase the selected item");		
+			alert11.showAndWait();
 			isBuying = false;
 			return;
 		}
@@ -202,12 +202,12 @@ public class ShopView implements Initializable {
 		end = start + 10*1000; // 60 seconds * 1000 ms/sec
 		TimeoutThread11 timeout = new TimeoutThread11();
 		timeout.start();
-		alert.setAlertType(AlertType.CONFIRMATION);
-		alert.setTitle("Confirm");
-		alert.setHeaderText("Do you want to purchase this item?");
-		alert.setContentText("Current ecoPoints:     "+oldEcoPoints+"\nNew ecoPoints:          "+Integer.toString(oldEcoPoints-cost));
+		alert11.setAlertType(AlertType.CONFIRMATION);
+		alert11.setTitle("Confirm");
+		alert11.setHeaderText("Do you want to purchase this item?");
+		alert11.setContentText("Current ecoPoints:     "+oldEcoPoints+"\nNew ecoPoints:          "+Integer.toString(oldEcoPoints-cost));
 	
-		Optional<ButtonType> result = alert.showAndWait();
+		Optional<ButtonType> result = alert11.showAndWait();
 		if (result.get() == ButtonType.OK){
 			int newEcoPoints = oldEcoPoints - cost;
 			UserBean.getInstance().setEcopoints(newEcoPoints);

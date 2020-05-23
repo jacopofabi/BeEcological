@@ -96,19 +96,19 @@ public class UserBookingListView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doLogout12(ActionEvent event) {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Logout");
-		alert.setHeaderText(null);
-		alert.setContentText("Are you sure you want to logout?");
-		Optional<ButtonType> result = alert.showAndWait();
+		Alert alert12 = new Alert(AlertType.CONFIRMATION);
+		alert12.setTitle("Logout");
+		alert12.setHeaderText(null);
+		alert12.setContentText("Are you sure you want to logout?");
+		Optional<ButtonType> result = alert12.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				PageLoader pageLoader12 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				HomepageView controller12 = (HomepageView) pageLoader12.getController();
+				controller12.userGroup4.setVisible(false);
+				controller12.loginGroup4.setVisible(true);
 				UserBean.setInstance(null);
-				pageLoader.stageShow();
+				pageLoader12.stageShow();
 			} catch (IOException e) {
 				Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 			}

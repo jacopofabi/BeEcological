@@ -57,7 +57,7 @@ public class RegisterUnloadView implements Initializable {
 	private List<BookingBean> data = new ArrayList<>();
 	private List<TextField> data1 = new ArrayList<>();
 	private List<CheckBox> data2 = new ArrayList<>();
-	private ObservableList<BookingBean> bookingList = FXCollections.observableArrayList();
+	private ObservableList<BookingBean> bookingList9 = FXCollections.observableArrayList();
 	private ObservableList<TextField> wasteQuantityList = FXCollections.observableArrayList();
 	private ObservableList<CheckBox> wasteList = FXCollections.observableArrayList();
 	
@@ -108,7 +108,7 @@ public class RegisterUnloadView implements Initializable {
 	@FXML private TableColumn<BookingBean, String> colDate; 
 	@FXML private TableColumn<BookingBean, String> colTime;
 	
-	private BookingBean booking;
+	private BookingBean booking9;
 	private BookingController control3;
 	
 	
@@ -299,18 +299,18 @@ public class RegisterUnloadView implements Initializable {
 
 		//se era una prenotazione presente nella griglia la salvo come registrata
 		if(user.getUsbUsername().equals(userSelected) && date.format(DateTimeFormatter.ofPattern(dateFormat)).equals(dateSelected) && time.equals(hourSelected )) {
-			booking = new BookingBean();
+			booking9 = new BookingBean();
 			control3 = new BookingController();
-			booking.setBbId(bookingID);
-			booking.setBbStatus("R");
-			control3.modifyBooking(booking);
+			booking9.setBbId(bookingID);
+			booking9.setBbStatus("R");
+			control3.modifyBooking(booking9);
 			
-			bookingList.removeAll(bookingList);
+			bookingList9.removeAll(bookingList9);
 		    try {
-		    	booking.setBbCenter(CenterOwnerBean.getInstance().getCobCenter());
-		    	booking.setBbStatus("A");
-		    	data = control3.bookingListByCenter(booking);	//prenotazioni accettate dal gestore
-		        bookingList.addAll(data);
+		    	booking9.setBbCenter(CenterOwnerBean.getInstance().getCobCenter());
+		    	booking9.setBbStatus("A");
+		    	data = control3.bookingListByCenter(booking9);	//prenotazioni accettate dal gestore
+		        bookingList9.addAll(data);
 		    }
 		    catch(Exception e){
 		    	Logger.getGlobal().log(Level.SEVERE, errorData);           
@@ -320,7 +320,7 @@ public class RegisterUnloadView implements Initializable {
 		    colUser.setCellValueFactory(new PropertyValueFactory<>("bbUser"));
 			colDate.setCellValueFactory(new PropertyValueFactory<>("bbDate"));
 			colTime.setCellValueFactory(new PropertyValueFactory<>("bbTime"));
-			tableBookingAccepted.setItems(bookingList);
+			tableBookingAccepted.setItems(bookingList9);
 		}
 		textUser.clear();
 		textHour.clear();
@@ -343,19 +343,19 @@ public class RegisterUnloadView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doLogout9(ActionEvent event) {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Logout");
-		alert.setHeaderText(null);
-		alert.setContentText("Are you sure you want to logout?");
-		Optional<ButtonType> result = alert.showAndWait();
+		Alert alert9 = new Alert(AlertType.CONFIRMATION);
+		alert9.setTitle("Logout");
+		alert9.setHeaderText(null);
+		alert9.setContentText("Are you sure you want to logout?");
+		Optional<ButtonType> result = alert9.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				PageLoader pageLoader9 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				HomepageView controller9 = (HomepageView) pageLoader9.getController();
+				controller9.userGroup4.setVisible(false);
+				controller9.loginGroup4.setVisible(true);
 				CenterOwnerBean.setInstance(null);
-				pageLoader.stageShow();
+				pageLoader9.stageShow();
 			} catch (IOException e) {
 				Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 			}
@@ -367,14 +367,14 @@ public class RegisterUnloadView implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
 		ownerButton.setText(CenterOwnerBean.getOwnerInstance("").getCobUsername());
-		bookingList.removeAll(bookingList);
+		bookingList9.removeAll(bookingList9);
 	    try {
-	    	booking = new BookingBean();
+	    	booking9 = new BookingBean();
 	    	control3 = new BookingController();
-	    	booking.setBbCenter(CenterOwnerBean.getInstance().getCobCenter());
-	    	booking.setBbStatus("A");
-	    	data = control3.bookingListByCenter(booking);	//prenotazioni accettate dal gestore
-	        bookingList.addAll(data);
+	    	booking9.setBbCenter(CenterOwnerBean.getInstance().getCobCenter());
+	    	booking9.setBbStatus("A");
+	    	data = control3.bookingListByCenter(booking9);	//prenotazioni accettate dal gestore
+	        bookingList9.addAll(data);
 	    }
 	    catch(Exception e){
 	    	Logger.getGlobal().log(Level.SEVERE, errorData);         
@@ -384,18 +384,18 @@ public class RegisterUnloadView implements Initializable {
 	    colUser.setCellValueFactory(new PropertyValueFactory<>("bbUser"));
 		colDate.setCellValueFactory(new PropertyValueFactory<>("bbDate"));
 		colTime.setCellValueFactory(new PropertyValueFactory<>("bbTime"));
-		tableBookingAccepted.setItems(bookingList);
+		tableBookingAccepted.setItems(bookingList9);
 
 		tableBookingAccepted.widthProperty().addListener(new ChangeListener<Number>()
 		{
 			@Override
 		    public void changed(ObservableValue<? extends Number> source, Number oldWidth, Number newWidth)
 		    {
-				TableHeaderRow header = (TableHeaderRow) tableBookingAccepted.lookup("TableHeaderRow");
-		        header.reorderingProperty().addListener(new ChangeListener<Boolean>() {
+				TableHeaderRow header9 = (TableHeaderRow) tableBookingAccepted.lookup("TableHeaderRow");
+		        header9.reorderingProperty().addListener(new ChangeListener<Boolean>() {
 		            @Override
 		            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-		                header.setReordering(false);
+		                header9.setReordering(false);
 		            }
 		        });
 		    }

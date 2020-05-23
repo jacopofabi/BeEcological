@@ -36,23 +36,23 @@ public class HomepageView implements Initializable {
 	
 	ObservableList<String> list = FXCollections.observableArrayList();
 	
-	@FXML private Label circleOwnerText;
-	@FXML private ComboBox<String> hourBooking;
-	@FXML private MenuItem userProfileItem;
-	@FXML private MenuItem logoutItem;
-	@FXML public MenuButton userButton;
-	@FXML private Button homeButton; 
-	@FXML private Button loginButton; 
-	@FXML private Button searchButton;
-	@FXML private Button shopButton;
-	@FXML private Button circleOwnerButton;
-	@FXML private Button circleUserButton;
-	@FXML public Group loginGroup;
-	@FXML public Group userGroup;
-	@FXML public Group circleOwnerGroup;
-	@FXML public Group circleUserGroup;
-	@FXML private TextField searchBar;
-	@FXML public Text welcomebackText;
+	@FXML private Label circleOwnerText4;
+	@FXML private ComboBox<String> hourBooking4;
+	@FXML private MenuItem userProfileItem4;
+	@FXML private MenuItem logoutItem4;
+	@FXML public MenuButton userButton4;
+	@FXML private Button homeButton4; 
+	@FXML private Button loginButton4; 
+	@FXML private Button searchButton4;
+	@FXML private Button shopButton4;
+	@FXML private Button circleOwnerButton4;
+	@FXML private Button circleUserButton4;
+	@FXML public Group loginGroup4;
+	@FXML public Group userGroup4;
+	@FXML public Group circleOwnerGroup4;
+	@FXML public Group circleUserGroup4;
+	@FXML private TextField searchBar4;
+	@FXML public Text welcomebackText4;
 	
 	
 	//------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ public class HomepageView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doSearch4(ActionEvent event) {
-		Tool.setString(searchBar.getText());
+		Tool.setString(searchBar4.getText());
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.SEARCH_RESULT, event);
 			pageLoader.searchConfig();
@@ -120,7 +120,7 @@ public class HomepageView implements Initializable {
 	@FXML
 	public void gotoUserProfile4(ActionEvent event) {
 		try {
-			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, userButton);
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, userButton4);
 			pageLoader.stageShow();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
@@ -150,10 +150,10 @@ public class HomepageView implements Initializable {
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, userButton);
+				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, userButton4);
 				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				controller.userGroup4.setVisible(false);
+				controller.loginGroup4.setVisible(true);
 				UserBean.setInstance(null);
 				pageLoader.stageShow();
 			} catch (IOException e) {
@@ -166,10 +166,10 @@ public class HomepageView implements Initializable {
 	//------------------------------------------------------------------------------
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
-		searchBar.setFont(Font.font("Calibri Light", FontWeight.NORMAL, 15));
-		userGroup.setVisible(false);
-		circleUserGroup.setVisible(false);
+		homeButton4.setTooltip(new Tooltip("Return to BeEcological Homepage"));
+		searchBar4.setFont(Font.font("Calibri Light", FontWeight.NORMAL, 15));
+		userGroup4.setVisible(false);
+		circleUserGroup4.setVisible(false);
 	}
 	
 }

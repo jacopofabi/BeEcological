@@ -49,7 +49,7 @@ import javafx.scene.control.Tooltip;
 public class ManageBookingView implements Initializable {
 	
 	List<BookingBean> data = new ArrayList<>();
-	ObservableList<BookingBean> bookingList = FXCollections.observableArrayList();
+	ObservableList<BookingBean> bookingList7 = FXCollections.observableArrayList();
 	String invalidBooking = "Invalid booking request.";
 	String okBooking = "Booking request completed.";
 	String insertSuccess = "' has been completed successfully.\n\nYou can check the list of booking accepted through\n         'Homepage> History & Unloads'.";
@@ -159,17 +159,17 @@ public class ManageBookingView implements Initializable {
     		alert.setHeaderText(null);
     		alert.setContentText(bookInsert+booking.getBbUser()+insertSuccess);		
     		alert.showAndWait();
-	        bookingList.removeAll(bookingList);
+	        bookingList7.removeAll(bookingList7);
 		    try {
 		        booking.setBbCenter(CenterOwnerBean.getInstance().getCobCenter());
 		        booking.setBbStatus("W");
 		    	data = control2.bookingListByCenter(booking); //richieste di prenotazione da accettare
-		        bookingList.addAll(data);
+		        bookingList7.addAll(data);
 		    }
 		    catch(Exception e){
 		    	Logger.getGlobal().log(Level.SEVERE, errorData);        
 		    }
-			tableBookingRequest.setItems(bookingList);
+			tableBookingRequest.setItems(bookingList7);
     		return;
     	}
 		
@@ -237,17 +237,17 @@ public class ManageBookingView implements Initializable {
 	        } else {
 	            //do nothing
 	        }
-	        bookingList.removeAll(bookingList);
+	        bookingList7.removeAll(bookingList7);
 		    try {
 		        book.setBbCenter(CenterOwnerBean.getInstance().getCobCenter());
 		        book.setBbStatus("W");
 		    	data = control2.bookingListByCenter(book); //richieste di prenotazione da accettare
-		        bookingList.addAll(data);
+		        bookingList7.addAll(data);
 		    }
 		    catch(Exception e){
 		    	Logger.getGlobal().log(Level.SEVERE, errorData);        
 		    }
-			tableBookingRequest.setItems(bookingList);
+			tableBookingRequest.setItems(bookingList7);
 		}
 	}
 	
@@ -267,19 +267,19 @@ public class ManageBookingView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doLogout7(ActionEvent event) {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Logout");
-		alert.setHeaderText(null);
-		alert.setContentText("Are you sure you want to logout?");
-		Optional<ButtonType> result = alert.showAndWait();
+		Alert alert7 = new Alert(AlertType.CONFIRMATION);
+		alert7.setTitle("Logout");
+		alert7.setHeaderText(null);
+		alert7.setContentText("Are you sure you want to logout?");
+		Optional<ButtonType> result = alert7.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				PageLoader pageLoader7 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				HomepageView controller7 = (HomepageView) pageLoader7.getController();
+				controller7.userGroup4.setVisible(false);
+				controller7.loginGroup4.setVisible(true);
 				CenterOwnerBean.setInstance(null);
-				pageLoader.stageShow();
+				pageLoader7.stageShow();
 			} catch (IOException e) {
 				Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 			}
@@ -291,7 +291,7 @@ public class ManageBookingView implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
 		ownerButton.setText(CenterOwnerBean.getOwnerInstance("").getCobUsername());
-		bookingList.removeAll(bookingList);
+		bookingList7.removeAll(bookingList7);
 		try {
 	    	booking = new BookingBean();
 	    	control2 = new BookingController();
@@ -299,7 +299,7 @@ public class ManageBookingView implements Initializable {
 	    	booking.setBbStatus("W");
 	        control2 = new BookingController();
 	    	data = control2.bookingListByCenter(booking); //richieste di prenotazione da accettare
-	        bookingList.addAll(data);
+	        bookingList7.addAll(data);
 	    }
 	    catch(Exception e){
 	    	Logger.getGlobal().log(Level.SEVERE, errorData);          
@@ -308,7 +308,7 @@ public class ManageBookingView implements Initializable {
 	    colUser.setCellValueFactory(new PropertyValueFactory<>("bbUser"));
 		colDate.setCellValueFactory(new PropertyValueFactory<>("bbDate"));
 		colTime.setCellValueFactory(new PropertyValueFactory<>("bbTime"));
-		tableBookingRequest.setItems(bookingList);
+		tableBookingRequest.setItems(bookingList7);
 		
 		//blocco dello spostamento delle colonne della tabella
 		tableBookingRequest.widthProperty().addListener(new ChangeListener<Number>()

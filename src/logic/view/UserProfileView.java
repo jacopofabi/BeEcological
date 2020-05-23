@@ -143,8 +143,8 @@ public class UserProfileView implements Initializable {
 				
 				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				controller.userGroup4.setVisible(false);
+				controller.loginGroup4.setVisible(true);
 				
 				control.deleteAccount(UserBean.getInstance());
 				UserBean.setInstance(null);
@@ -171,19 +171,19 @@ public class UserProfileView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doLogout13(ActionEvent event) {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Logout");
-		alert.setHeaderText(null);
-		alert.setContentText("Are you sure you want to logout?");
-		Optional<ButtonType> result = alert.showAndWait();
+		Alert alert13 = new Alert(AlertType.CONFIRMATION);
+		alert13.setTitle("Logout");
+		alert13.setHeaderText(null);
+		alert13.setContentText("Are you sure you want to logout?");
+		Optional<ButtonType> result = alert13.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				PageLoader pageLoader13 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				HomepageView controller13 = (HomepageView) pageLoader13.getController();
+				controller13.userGroup4.setVisible(false);
+				controller13.loginGroup4.setVisible(true);
 				UserBean.setInstance(null);
-				pageLoader.stageShow();
+				pageLoader13.stageShow();
 			} catch (IOException e) {
 				Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 			}

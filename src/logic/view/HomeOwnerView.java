@@ -137,8 +137,8 @@ public class HomeOwnerView implements Initializable {
 			try {
 				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, ownerButton);
 				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				controller.userGroup4.setVisible(false);
+				controller.loginGroup4.setVisible(true);
 				CenterOwnerBean.setInstance(null);
 				pageLoader.stageShow();
 			} catch (IOException e) {

@@ -22,16 +22,16 @@ public class PageLoader {
 	
 	
 	public PageLoader(Page page, Event event) throws IOException {
-		init(page.getResource(), page.getTitle(), event);
+		init1(page.getResource(), page.getTitle(), event);
 	}
 	
 	
 	public PageLoader(Page page, MenuButton button) throws IOException {
-		init(page.getResource(), page.getTitle(), button);
+		init2(page.getResource(), page.getTitle(), button);
 	}
 	
 	
-	private void init(String resource, String title, Event event) throws IOException {
+	private void init1(String resource, String title, Event event) throws IOException {
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	    URL url = new File(resource).toURI().toURL();
 	    loader = new FXMLLoader(url);
@@ -42,7 +42,7 @@ public class PageLoader {
 	}
 	
 	
-	private void init(String resource, String title, MenuButton button) throws IOException {
+	private void init2(String resource, String title, MenuButton button) throws IOException {
 		stage = (Stage) button.getScene().getWindow();
 	    URL url = new File(resource).toURI().toURL();
 	    loader = new FXMLLoader(url);
@@ -66,12 +66,12 @@ public class PageLoader {
 	public void homeConfig() {
 		HomepageView controller = (HomepageView) loader.getController();
 		if(UserBean.getInstance() != null) {
-			controller.loginGroup.setVisible(false);
-			controller.userGroup.setVisible(true);
-			controller.circleUserGroup.setVisible(true);
-			controller.circleOwnerGroup.setVisible(false);
-			controller.userButton.setText(UserBean.getInstance().getUsbUsername());
-			controller.welcomebackText.setText("Welcome back, "+UserBean.getUserInstance("").getUsbUsername());
+			controller.loginGroup4.setVisible(false);
+			controller.userGroup4.setVisible(true);
+			controller.circleUserGroup4.setVisible(true);
+			controller.circleOwnerGroup4.setVisible(false);
+			controller.userButton4.setText(UserBean.getInstance().getUsbUsername());
+			controller.welcomebackText4.setText("Welcome back, "+UserBean.getUserInstance("").getUsbUsername());
 		}
 		stage.show();
 	}

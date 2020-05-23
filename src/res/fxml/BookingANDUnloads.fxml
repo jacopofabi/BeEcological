@@ -110,12 +110,12 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="824.0">
                <children>
-                  <TableView fx:id="tableBookingAccepted" layoutX="183.0" layoutY="8.0" onMouseClicked="#refuseBookingAccepted1" prefHeight="550.0" prefWidth="523.0" stylesheets="@../styles/BlueTableView.css">
+                  <TableView fx:id="tableBookingAccepted1" layoutX="183.0" layoutY="8.0" onMouseClicked="#refuseBookingAccepted1" prefHeight="550.0" prefWidth="523.0" stylesheets="@../styles/BlueTableView.css">
                     <columns>
-                        <TableColumn fx:id="colid" prefWidth="75.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="ID" />
-                      <TableColumn fx:id="colUser" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="User" />
-                      <TableColumn fx:id="colDate" minWidth="0.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Date" />
-                        <TableColumn fx:id="colTime" minWidth="0.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Time" />
+                        <TableColumn fx:id="col1id" prefWidth="75.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="ID" />
+                      <TableColumn fx:id="col1User" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="User" />
+                      <TableColumn fx:id="col1Date" minWidth="0.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Date" />
+                        <TableColumn fx:id="col1Time" minWidth="0.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Time" />
                     </columns>
                   </TableView>
                </children>
@@ -126,14 +126,14 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="518.0" prefWidth="815.0">
                <children>
-                  <TableView fx:id="tableRegisteredUnloads" layoutX="23.0" layoutY="4.0" onMouseClicked="#setRowSelected1" prefHeight="550.0" prefWidth="790.0" stylesheets="@../styles/BlueTableView.css">
+                  <TableView fx:id="tableRegisteredUnloads1" layoutX="23.0" layoutY="4.0" onMouseClicked="#setRowSelected1" prefHeight="550.0" prefWidth="790.0" stylesheets="@../styles/BlueTableView.css">
                     <columns>
-                      <TableColumn fx:id="colUser1" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="User" />
-                      <TableColumn fx:id="colDate1" minWidth="0.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Date" />
-                        <TableColumn fx:id="colTime1" minWidth="0.0" prefWidth="104.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Time" />
-                        <TableColumn fx:id="colWaste" minWidth="0.0" prefWidth="174.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Waste" />
-                        <TableColumn fx:id="colQuantity" prefWidth="117.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="WasteQuantity" />
-                        <TableColumn fx:id="colPoints" prefWidth="84.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="EcoPoints" />
+                      <TableColumn fx:id="col2User" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="User" />
+                      <TableColumn fx:id="col2Date" minWidth="0.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Date" />
+                        <TableColumn fx:id="col2Time" minWidth="0.0" prefWidth="104.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Time" />
+                        <TableColumn fx:id="col2Waste" minWidth="0.0" prefWidth="174.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="Waste" />
+                        <TableColumn fx:id="col2Quantity" prefWidth="117.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="WasteQuantity" />
+                        <TableColumn fx:id="col2Points" prefWidth="84.0" style="-fx-background-color: transparent; -fx-text-fill: #0b526d;" text="EcoPoints" />
                     </columns>
                   </TableView>
                </children>

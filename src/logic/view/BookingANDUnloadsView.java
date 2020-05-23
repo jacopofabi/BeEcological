@@ -53,18 +53,18 @@ public class BookingANDUnloadsView implements Initializable {
 	@FXML private MenuButton ownerButton;
 	@FXML private MenuItem ownerProfileItem;
 	@FXML private MenuItem logoutItem;
-	@FXML private TableView<BookingBean> tableBookingAccepted;
-	@FXML private TableView<WasteUnloadedBean> tableRegisteredUnloads;
-	@FXML private TableColumn<BookingBean, String> colid;
-	@FXML private TableColumn<BookingBean, String> colUser; 
-	@FXML private TableColumn<BookingBean, String> colDate; 
-	@FXML private TableColumn<BookingBean, String> colTime;
-	@FXML private TableColumn<WasteUnloadedBean, String> colUser1; 
-	@FXML private TableColumn<WasteUnloadedBean, String> colDate1; 
-	@FXML private TableColumn<WasteUnloadedBean, String> colTime1; 
-	@FXML private TableColumn<WasteUnloadedBean, String>colWaste;
-	@FXML private TableColumn<WasteUnloadedBean, String> colQuantity;
-	@FXML private TableColumn<WasteUnloadedBean, String>colPoints;
+	@FXML private TableView<BookingBean> tableBookingAccepted1;
+	@FXML private TableView<WasteUnloadedBean> tableRegisteredUnloads1;
+	@FXML private TableColumn<BookingBean, String> col1id;
+	@FXML private TableColumn<BookingBean, String> col1User; 
+	@FXML private TableColumn<BookingBean, String> col1Date; 
+	@FXML private TableColumn<BookingBean, String> col1Time;
+	@FXML private TableColumn<WasteUnloadedBean, String> col2User; 
+	@FXML private TableColumn<WasteUnloadedBean, String> col2Date; 
+	@FXML private TableColumn<WasteUnloadedBean, String> col2Time; 
+	@FXML private TableColumn<WasteUnloadedBean, String>col2Waste;
+	@FXML private TableColumn<WasteUnloadedBean, String> col2Quantity;
+	@FXML private TableColumn<WasteUnloadedBean, String>col2Points;
 
 	private BookingBean book;
 	private WasteUnloadedBean waste;
@@ -89,8 +89,8 @@ public class BookingANDUnloadsView implements Initializable {
 	public void setRowSelected1(MouseEvent event) {
 		waste = null;
 		if (event.getButton().equals(MouseButton.PRIMARY)) {
-	        int index = tableRegisteredUnloads.getSelectionModel().getSelectedIndex();
-	        waste = tableRegisteredUnloads.getItems().get(index);
+	        int index = tableRegisteredUnloads1.getSelectionModel().getSelectedIndex();
+	        waste = tableRegisteredUnloads1.getItems().get(index);
 			
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Delete a registered unload");
@@ -134,7 +134,7 @@ public class BookingANDUnloadsView implements Initializable {
 	    	    catch(Exception e){
 	    	    	Logger.getGlobal().log(Level.SEVERE, errorData);          
 	    	    }
-	    	    tableRegisteredUnloads.setItems(unloadList);
+	    	    tableRegisteredUnloads1.setItems(unloadList);
 			}
 		}
 	}
@@ -145,8 +145,8 @@ public class BookingANDUnloadsView implements Initializable {
 	public void refuseBookingAccepted1(MouseEvent event) {
 		BookingBean booking = null;
 		if (event.getButton().equals(MouseButton.PRIMARY)) {
-	        int index = tableBookingAccepted.getSelectionModel().getSelectedIndex();
-	        booking = tableBookingAccepted.getItems().get(index);
+	        int index = tableBookingAccepted1.getSelectionModel().getSelectedIndex();
+	        booking = tableBookingAccepted1.getItems().get(index);
 	        
 	        Alert alert = new Alert(AlertType.CONFIRMATION);
 	        alert.setTitle("Delete booking accepted");
@@ -176,7 +176,7 @@ public class BookingANDUnloadsView implements Initializable {
 		    catch(Exception e){
 		    	Logger.getGlobal().log(Level.SEVERE, errorData);           
 		    }
-			tableBookingAccepted.setItems(bookingList);
+			tableBookingAccepted1.setItems(bookingList);
 		}
 	}
 	
@@ -194,19 +194,19 @@ public class BookingANDUnloadsView implements Initializable {
 	//------------------------------------------------------------------------------
 	@FXML
 	public void doLogout1(ActionEvent event) {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Logout");
-		alert.setHeaderText(null);
-		alert.setContentText("Are you sure you want to logout?");
-		Optional<ButtonType> result = alert.showAndWait();
+		Alert alert1 = new Alert(AlertType.CONFIRMATION);
+		alert1.setTitle("Logout");
+		alert1.setHeaderText(null);
+		alert1.setContentText("Are you sure you want to logout?");
+		Optional<ButtonType> result = alert1.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-				HomepageView controller = (HomepageView) pageLoader.getController();
-				controller.userGroup.setVisible(false);
-				controller.loginGroup.setVisible(true);
+				PageLoader pageLoader1 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				HomepageView controller1 = (HomepageView) pageLoader1.getController();
+				controller1.userGroup4.setVisible(false);
+				controller1.loginGroup4.setVisible(true);
 				CenterOwnerBean.setInstance(null);
-				pageLoader.stageShow();
+				pageLoader1.stageShow();
 			} catch (IOException e) {
 				Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 			}
@@ -231,22 +231,22 @@ public class BookingANDUnloadsView implements Initializable {
 	    	Logger.getGlobal().log(Level.SEVERE, errorData);        
 	    }
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
-		colid.setCellValueFactory(new PropertyValueFactory<>("bbId"));
-	    colUser.setCellValueFactory(new PropertyValueFactory<>("bbUser"));
-		colDate.setCellValueFactory(new PropertyValueFactory<>("bbDate"));
-		colTime.setCellValueFactory(new PropertyValueFactory<>("bbTime"));
-		tableBookingAccepted.setItems(bookingList);
+		col1id.setCellValueFactory(new PropertyValueFactory<>("bbId"));
+	    col1User.setCellValueFactory(new PropertyValueFactory<>("bbUser"));
+		col1Date.setCellValueFactory(new PropertyValueFactory<>("bbDate"));
+		col1Time.setCellValueFactory(new PropertyValueFactory<>("bbTime"));
+		tableBookingAccepted1.setItems(bookingList);
 		
-		tableBookingAccepted.widthProperty().addListener(new ChangeListener<Number>()
+		tableBookingAccepted1.widthProperty().addListener(new ChangeListener<Number>()
 		{
 			@Override
 		    public void changed(ObservableValue<? extends Number> source, Number oldWidth, Number newWidth)
 		    {
-				TableHeaderRow header = (TableHeaderRow) tableBookingAccepted.lookup("TableHeaderRow");
-		        header.reorderingProperty().addListener(new ChangeListener<Boolean>() {
+				TableHeaderRow header1 = (TableHeaderRow) tableBookingAccepted1.lookup("TableHeaderRow");
+		        header1.reorderingProperty().addListener(new ChangeListener<Boolean>() {
 		            @Override
 		            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-		                header.setReordering(false);
+		                header1.setReordering(false);
 		            }
 		        });
 		    }
@@ -264,24 +264,24 @@ public class BookingANDUnloadsView implements Initializable {
 	    	Logger.getGlobal().log(Level.SEVERE, errorData);           
 	    }
 	    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
-		colUser1.setCellValueFactory(new PropertyValueFactory<>("wbUser"));
-	    colDate1.setCellValueFactory(new PropertyValueFactory<>("wbDate"));
-		colTime1.setCellValueFactory(new PropertyValueFactory<>("wbTime"));
-		colWaste.setCellValueFactory(new PropertyValueFactory<>("wbWaste"));
-		colQuantity.setCellValueFactory(new PropertyValueFactory<>("wbWasteQuantity"));
-		colPoints.setCellValueFactory(new PropertyValueFactory<>("wbEcoPoints"));
-		tableRegisteredUnloads.setItems(unloadList);
+		col2User.setCellValueFactory(new PropertyValueFactory<>("wbUser"));
+	    col2Date.setCellValueFactory(new PropertyValueFactory<>("wbDate"));
+		col2Time.setCellValueFactory(new PropertyValueFactory<>("wbTime"));
+		col2Waste.setCellValueFactory(new PropertyValueFactory<>("wbWaste"));
+		col2Quantity.setCellValueFactory(new PropertyValueFactory<>("wbWasteQuantity"));
+		col2Points.setCellValueFactory(new PropertyValueFactory<>("wbEcoPoints"));
+		tableRegisteredUnloads1.setItems(unloadList);
 		
-		tableRegisteredUnloads.widthProperty().addListener(new ChangeListener<Number>()
+		tableRegisteredUnloads1.widthProperty().addListener(new ChangeListener<Number>()
 		{
 			@Override
 		    public void changed(ObservableValue<? extends Number> source, Number oldWidth, Number newWidth)
 		    {
-				TableHeaderRow header = (TableHeaderRow) tableRegisteredUnloads.lookup("TableHeaderRow");
-		        header.reorderingProperty().addListener(new ChangeListener<Boolean>() {
+				TableHeaderRow header1 = (TableHeaderRow) tableRegisteredUnloads1.lookup("TableHeaderRow");
+		        header1.reorderingProperty().addListener(new ChangeListener<Boolean>() {
 		            @Override
 		            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-		                header.setReordering(false);
+		                header1.setReordering(false);
 		            }
 		        });
 		    }
