@@ -13,12 +13,9 @@ public class CenterOwnerDAO {
     public static boolean checkUsername(String username) {
     	String query = "SELECT count(*) FROM beecological.owner WHERE Username = '" + username + "';";
     	int count = DaoHelper.countStatement(query);
-        if(count == 1) {
-        	return false;	//username gia utilizzato oppure errore non permetto registrazione(insert del nuovo utente)
-        }
-        else {
-        	return true;		//username disponibile
-        }
+        
+    	//true se username disponibile, false se username gia usato (no nuova registrazione)
+    	return count == 0;
     }
     
     
@@ -27,12 +24,9 @@ public class CenterOwnerDAO {
     	String query = "SELECT count(*) FROM beecological.Owner WHERE Username = '" + owner.getCoUsername() + 
     			"' and Password = '" + owner.getCoPassword() + "';";
     	int count = DaoHelper.countStatement(query);
-        if (count == 0) {
-        	return false;	//utente immesso non esiste
-        }
-        else {
-        	return true; //count=1 nel db, l'utente matcha una registrazione
-        }
+    	
+    	//true se utente esiste (login), false se non esiste nel db
+    	return count == 1;
     }
     
     

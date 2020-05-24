@@ -35,7 +35,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button fx:id="homeButton" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" prefHeight="33.0" prefWidth="255.0" stylesheets="@../styles/TransparentButton-blue.css">
+            <Button fx:id="homeButton" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage7" prefHeight="33.0" prefWidth="255.0" stylesheets="@../styles/TransparentButton-blue.css">
                <graphic>
                   <ImageView fitHeight="46.0" fitWidth="283.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -52,7 +52,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
                   <MenuButton fx:id="ownerButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton-blue.css" text="&lt;OWNER-NICK&gt;" textFill="WHITE">
                      <items>
-                        <MenuItem fx:id="ownerProfileItem" mnemonicParsing="false" onAction="#gotoOwnerProfile" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                        <MenuItem fx:id="ownerProfileItem" mnemonicParsing="false" onAction="#gotoOwnerProfile7" style="-fx-text-fill: #0b526d;" text="Your Profile">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -61,7 +61,7 @@
                               </ImageView>
                            </graphic>
                         </MenuItem>
-                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout7" style="-fx-text-fill: #0b526d;" text="Log Out">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -96,7 +96,7 @@
                </font>
             </TextField>
             <DatePicker fx:id="dateToBook" layoutX="133.0" layoutY="50.0" prefWidth="299.0" />
-            <TextField fx:id="hourToBook" layoutX="133.0" layoutY="100.0" onAction="#saveBookingRequest" prefHeight="28.0" prefWidth="299.0" promptText="HH:MM">
+            <TextField fx:id="hourToBook" layoutX="133.0" layoutY="100.0" onAction="#saveBookingRequest7" prefHeight="28.0" prefWidth="299.0" promptText="HH:MM">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font>
@@ -106,7 +106,7 @@
             <Text layoutX="36.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking Time" />
          </children>
       </Group>
-      <Button fx:id="bookingButton" layoutX="911.0" layoutY="260.0" mnemonicParsing="false" onAction="#saveBookingRequest" prefHeight="80.0" prefWidth="180.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="CONFIRM" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="bookingButton" layoutX="911.0" layoutY="260.0" mnemonicParsing="false" onAction="#saveBookingRequest7" prefHeight="80.0" prefWidth="180.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="CONFIRM" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
@@ -135,7 +135,7 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="824.0">
                <children>
-                  <TableView fx:id="tableBookingRequest" layoutX="183.0" layoutY="8.0" onMouseClicked="#confirmBookingRequest" prefHeight="550.0" prefWidth="420.0" stylesheets="@../styles/BlueTableView.css">
+                  <TableView fx:id="tableBookingRequest" layoutX="183.0" layoutY="8.0" onMouseClicked="#confirmBookingRequest7" prefHeight="550.0" prefWidth="420.0" stylesheets="@../styles/BlueTableView.css">
                      <columns>
                         <TableColumn fx:id="colUser" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="User" />
                         <TableColumn fx:id="colDate" minWidth="0.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="Date" />

@@ -17,7 +17,7 @@
 <AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="logic.view.OwnerProfileView">
    <children>
       <VBox alignment="TOP_RIGHT" layoutX="641.0" layoutY="87.0" />
-      <Text fx:id="userNick" fill="#0b526d" layoutX="31.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;OWNER-NICK&gt;">
+      <Text fx:id="userNick8" fill="#0b526d" layoutX="31.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;OWNER-NICK&gt;">
          <font>
             <Font name="Calibri Bold" size="64.0" />
          </font>
@@ -50,7 +50,7 @@
                   <Font name="Calibri" size="24.0" />
                </font>
             </Text>
-            <Button fx:id="editDataButton" layoutX="500.0" layoutY="19.0" mnemonicParsing="false" onAction="#editData" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="    EDIT PERSONAL&#10;    DATA&#10;" textFill="WHITE">
+            <Button fx:id="editDataButton8" layoutX="500.0" layoutY="19.0" mnemonicParsing="false" onAction="#editData8" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="    EDIT PERSONAL&#10;    DATA&#10;" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>
@@ -62,7 +62,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="changeCredButton" layoutX="723.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeCred" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="    CHANGE LOGIN&#10;    CREDENTIALS&#10;" textFill="WHITE">
+            <Button fx:id="changeCredButton8" layoutX="723.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeCred8" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="    CHANGE LOGIN&#10;    CREDENTIALS&#10;" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>
@@ -74,22 +74,22 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Text fx:id="name" fill="#4d4b4b" layoutX="175.0" layoutY="4.5" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Name&gt;">
+            <Text fx:id="name8" fill="#4d4b4b" layoutX="175.0" layoutY="4.5" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Name&gt;">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
             </Text>
-            <Text fx:id="surname" fill="#4d4b4b" layoutX="175.0" layoutY="39.5" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Surname&gt;">
+            <Text fx:id="surname8" fill="#4d4b4b" layoutX="175.0" layoutY="39.5" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Surname&gt;">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
             </Text>
-            <Text fx:id="email" fill="#4d4b4b" layoutX="175.0" layoutY="78.5" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Email&gt; ">
+            <Text fx:id="email8" fill="#4d4b4b" layoutX="175.0" layoutY="78.5" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Email&gt; ">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
             </Text>
-            <Text fx:id="phoneNumber" fill="#4d4b4b" layoutX="175.0" layoutY="117.5" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Phone Number&gt;">
+            <Text fx:id="phoneNumber8" fill="#4d4b4b" layoutX="175.0" layoutY="117.5" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Phone Number&gt;">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
@@ -112,7 +112,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button fx:id="homeButton" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" prefHeight="33.0" prefWidth="255.0" stylesheets="@../styles/TransparentButton-blue.css">
+            <Button fx:id="homeButton8" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage8" prefHeight="33.0" prefWidth="255.0" stylesheets="@../styles/TransparentButton-blue.css">
                <graphic>
                   <ImageView fitHeight="46.0" fitWidth="283.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -127,9 +127,9 @@
             <Group layoutX="1108.5" layoutY="-1.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
-                  <MenuButton fx:id="ownerButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton-blue.css" text="&lt;OWNER-NICK&gt;" textFill="WHITE">
+                  <MenuButton fx:id="ownerButton8" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton-blue.css" text="&lt;OWNER-NICK&gt;" textFill="WHITE">
                      <items>
-                        <MenuItem fx:id="ownerProfileItem" mnemonicParsing="false" onAction="#gotoOwnerProfile" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                        <MenuItem fx:id="ownerProfileItem" mnemonicParsing="false" onAction="#gotoOwnerProfile8" style="-fx-text-fill: #0b526d;" text="Your Profile">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -138,7 +138,7 @@
                               </ImageView>
                            </graphic>
                         </MenuItem>
-                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout8" style="-fx-text-fill: #0b526d;" text="Log Out">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -160,7 +160,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="1217.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" x="50.0" y="14.0" />
          </children>
       </AnchorPane>
-      <Button fx:id="deleteAccountButton" layoutX="622.0" layoutY="586.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" text="DELETE ACCOUNT" textFill="WHITE">
+      <Button fx:id="deleteAccountButton8" layoutX="622.0" layoutY="586.0" mnemonicParsing="false" onAction="#deleteAccount8" prefHeight="68.0" prefWidth="159.0" style="-fx-cursor: hand;" text="DELETE ACCOUNT" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>

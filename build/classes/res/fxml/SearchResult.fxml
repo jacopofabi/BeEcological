@@ -35,7 +35,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" stylesheets="@../styles/TransparentButton.css">
+            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage10" stylesheets="@../styles/TransparentButton.css">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -49,7 +49,7 @@
             </Button>
             <Group fx:id="loginGroup" layoutX="1175.0" layoutY="-1.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
                <children>
-                  <Button fx:id="loginButton" layoutX="9.0" layoutY="17.0" mnemonicParsing="false" onAction="#toUserLogin" stylesheets="@../styles/TransparentButton.css" text="LOG IN" textFill="WHITE">
+                  <Button fx:id="loginButton" layoutX="9.0" layoutY="17.0" mnemonicParsing="false" onAction="#toUserLogin10" stylesheets="@../styles/TransparentButton.css" text="LOG IN" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="15.0" />
                      </font>
@@ -65,14 +65,14 @@
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="-69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
-                  <Button fx:id="shopButton" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
+                  <Button fx:id="shopButton" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop10" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="15.0" />
                      </font>
                   </Button>
                   <MenuButton fx:id="userButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton.css" text="&lt;USER-NICK&gt;" textFill="WHITE">
                      <items>
-                        <MenuItem fx:id="userProfileItem" mnemonicParsing="false" onAction="#gotoUserProfile" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                        <MenuItem fx:id="userProfileItem" mnemonicParsing="false" onAction="#gotoUserProfile10" style="-fx-text-fill: #0b526d;" text="Your Profile">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -81,7 +81,7 @@
                               </ImageView>
                            </graphic>
                         </MenuItem>
-                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout10" style="-fx-text-fill: #0b526d;" text="Log Out">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -106,7 +106,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1412.0" prefWidth="818.0">
                <children>
-                  <TableView fx:id="tableView" onMouseClicked="#openCenterPage" prefHeight="886.0" prefWidth="1298.0" stylesheets="@../styles/GreenTableView.css">
+                  <TableView fx:id="tableView" onMouseClicked="#openCenterPage10" prefHeight="886.0" prefWidth="1298.0" stylesheets="@../styles/GreenTableView.css">
                     <columns>
                       <TableColumn fx:id="colName" editable="false" prefWidth="350.0" resizable="false" style="-fx-text-fill: #589442; -fx-cursor: hand;" text="Name" />
                       <TableColumn fx:id="colCity" editable="false" minWidth="0.0" prefWidth="210.0" resizable="false" style="-fx-text-fill: #589442;" text="City" />
@@ -136,7 +136,7 @@
       <AnchorPane layoutY="60.0" prefHeight="58.0" prefWidth="1366.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
-            <TextField fx:id="searchBar" focusTraversable="false" layoutX="5.0" onAction="#doSearch" prefHeight="58.0" prefWidth="947.0" promptText="Search by address, city, name of the ecological island..." style="-fx-background-color: transparent;">
+            <TextField fx:id="searchBar" focusTraversable="false" layoutX="5.0" onAction="#doSearch10" prefHeight="58.0" prefWidth="947.0" promptText="Search by address, city, name of the ecological island..." style="-fx-background-color: transparent;">
                <padding>
                   <Insets left="40.0" />
                </padding>
@@ -144,7 +144,7 @@
                   <Font name="Calibri" size="12.0" />
                </font>
             </TextField>
-            <Button fx:id="searchButton" layoutX="1201.0" layoutY="9.0" mnemonicParsing="false" onAction="#doSearch" prefHeight="40.0" prefWidth="147.0" stylesheets="@../styles/GreenButton.css" text="SEARCH" textFill="WHITE">
+            <Button fx:id="searchButton" layoutX="1201.0" layoutY="9.0" mnemonicParsing="false" onAction="#doSearch10" prefHeight="40.0" prefWidth="147.0" stylesheets="@../styles/GreenButton.css" text="SEARCH" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>

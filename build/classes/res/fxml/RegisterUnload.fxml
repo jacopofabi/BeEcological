@@ -36,7 +36,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button fx:id="homeButton" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" prefHeight="33.0" prefWidth="255.0" stylesheets="@../styles/TransparentButton-blue.css">
+            <Button fx:id="homeButton" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage9" prefHeight="33.0" prefWidth="255.0" stylesheets="@../styles/TransparentButton-blue.css">
                <graphic>
                   <ImageView fitHeight="46.0" fitWidth="283.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -53,7 +53,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
                   <MenuButton fx:id="ownerButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton-blue.css" text="&lt;OWNER-NICK&gt;" textFill="WHITE">
                      <items>
-                        <MenuItem fx:id="ownerProfileItem" mnemonicParsing="false" onAction="#gotoOwnerProfile" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                        <MenuItem fx:id="ownerProfileItem" mnemonicParsing="false" onAction="#gotoOwnerProfile9" style="-fx-text-fill: #0b526d;" text="Your Profile">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -62,7 +62,7 @@
                               </ImageView>
                            </graphic>
                         </MenuItem>
-                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout9" style="-fx-text-fill: #0b526d;" text="Log Out">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -107,7 +107,7 @@
             <DatePicker fx:id="textDate" layoutX="133.0" layoutY="50.0" prefWidth="299.0" />
          </children>
       </Group>
-      <Button fx:id="confirmButton" layoutX="983.0" layoutY="495.0" mnemonicParsing="false" onAction="#confirmRegistrationUnload" prefHeight="80.0" prefWidth="180.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="CONFIRM" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="confirmButton" layoutX="983.0" layoutY="495.0" mnemonicParsing="false" onAction="#confirmRegistrationUnload9" prefHeight="80.0" prefWidth="180.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="CONFIRM" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
@@ -124,20 +124,20 @@
       </Group>
       <Group layoutX="175.0" layoutY="421.0">
          <children>
-            <CheckBox fx:id="b1" layoutX="27.0" mnemonicParsing="false" onAction="#getID" text="Bulky waste" />
-            <CheckBox fx:id="b2" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#getID" text="Glass" />
-            <CheckBox fx:id="b3" layoutX="27.0" layoutY="70.0" mnemonicParsing="false" onAction="#getID" text="Mixed material packaging" />
-            <CheckBox fx:id="b4" layoutX="27.0" layoutY="105.0" mnemonicParsing="false" onAction="#getID" text="Plastic packaging" />
-            <CheckBox fx:id="b5" layoutX="27.0" layoutY="140.0" mnemonicParsing="false" onAction="#getID" text="Metal packaging" />
-            <CheckBox fx:id="b6" layoutX="27.0" layoutY="175.0" mnemonicParsing="false" onAction="#getID" text="Toner and cartridges" />
-            <CheckBox fx:id="b7" layoutX="27.0" layoutY="210.0" mnemonicParsing="false" onAction="#getID" text="Battery" />
-            <CheckBox fx:id="b8" layoutX="442.0" mnemonicParsing="false" onAction="#getID" text="Organic waste" />
-            <CheckBox fx:id="b9" layoutX="442.0" layoutY="35.0" mnemonicParsing="false" onAction="#getID" text="Electrical and electronic equipment" />
-            <CheckBox fx:id="b10" layoutX="442.0" layoutY="70.0" mnemonicParsing="false" onAction="#getID" text="Cold and climate" />
-            <CheckBox fx:id="b11" layoutX="442.0" layoutY="105.0" mnemonicParsing="false" onAction="#getID" text="Wood waste" />
-            <CheckBox fx:id="b12" layoutX="442.0" layoutY="140.0" mnemonicParsing="false" onAction="#getID" text="Mercury" />
-            <CheckBox fx:id="b13" layoutX="442.0" layoutY="175.0" mnemonicParsing="false" onAction="#getID" text="Textile" />
-            <CheckBox fx:id="b14" layoutX="442.0" layoutY="210.0" mnemonicParsing="false" onAction="#getID" text="Tires" />
+            <CheckBox fx:id="b1" layoutX="27.0" mnemonicParsing="false" onAction="#getID9" text="Bulky waste" />
+            <CheckBox fx:id="b2" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#getID9" text="Glass" />
+            <CheckBox fx:id="b3" layoutX="27.0" layoutY="70.0" mnemonicParsing="false" onAction="#getID9" text="Mixed material packaging" />
+            <CheckBox fx:id="b4" layoutX="27.0" layoutY="105.0" mnemonicParsing="false" onAction="#getID9" text="Plastic packaging" />
+            <CheckBox fx:id="b5" layoutX="27.0" layoutY="140.0" mnemonicParsing="false" onAction="#getID9" text="Metal packaging" />
+            <CheckBox fx:id="b6" layoutX="27.0" layoutY="175.0" mnemonicParsing="false" onAction="#getID9" text="Toner and cartridges" />
+            <CheckBox fx:id="b7" layoutX="27.0" layoutY="210.0" mnemonicParsing="false" onAction="#getID9" text="Battery" />
+            <CheckBox fx:id="b8" layoutX="442.0" mnemonicParsing="false" onAction="#getID9" text="Organic waste" />
+            <CheckBox fx:id="b9" layoutX="442.0" layoutY="35.0" mnemonicParsing="false" onAction="#getID9" text="Electrical and electronic equipment" />
+            <CheckBox fx:id="b10" layoutX="442.0" layoutY="70.0" mnemonicParsing="false" onAction="#getID9" text="Cold and climate" />
+            <CheckBox fx:id="b11" layoutX="442.0" layoutY="105.0" mnemonicParsing="false" onAction="#getID9" text="Wood waste" />
+            <CheckBox fx:id="b12" layoutX="442.0" layoutY="140.0" mnemonicParsing="false" onAction="#getID9" text="Mercury" />
+            <CheckBox fx:id="b13" layoutX="442.0" layoutY="175.0" mnemonicParsing="false" onAction="#getID9" text="Textile" />
+            <CheckBox fx:id="b14" layoutX="442.0" layoutY="210.0" mnemonicParsing="false" onAction="#getID9" text="Tires" />
             <TextField fx:id="f1" disable="true" layoutX="223.0" layoutY="-4.0" prefHeight="25.0" prefWidth="75.0" promptText="Kg" />
             <TextField fx:id="f2" disable="true" layoutX="223.0" layoutY="31.0" prefHeight="25.0" prefWidth="75.0" promptText="Kg" />
             <TextField fx:id="f3" disable="true" layoutX="223.0" layoutY="66.0" prefHeight="25.0" prefWidth="75.0" promptText="Kg" />
@@ -168,7 +168,7 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="430.0">
                <children>
-                  <TableView fx:id="tableBookingAccepted" layoutX="-4.0" onMouseClicked="#setRowSelected" prefHeight="550.0" prefWidth="480.0" stylesheets="@../styles/BlueTableView.css">
+                  <TableView fx:id="tableBookingAccepted" layoutX="-4.0" onMouseClicked="#setRowSelected9" prefHeight="550.0" prefWidth="480.0" stylesheets="@../styles/BlueTableView.css">
                      <columns>
                         <TableColumn fx:id="colid" prefWidth="64.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="ID" />
                         <TableColumn fx:id="colUser" prefWidth="198.0" style="-fx-background-color: transparent; -fx-text-fill: #0B526D;" text="User" />

@@ -36,7 +36,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" stylesheets="@../styles/TransparentButton.css">
+            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage2" stylesheets="@../styles/TransparentButton.css">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,7 +50,7 @@
             </Button>
             <Group fx:id="loginGroup" layoutX="1175.0" layoutY="-1.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="106.5" AnchorPane.topAnchor="13.0">
                <children>
-                  <Button fx:id="loginButton" layoutX="9.0" layoutY="17.0" mnemonicParsing="false" onAction="#toUserLogin" stylesheets="@../styles/TransparentButton.css" text="LOG IN" textFill="WHITE">
+                  <Button fx:id="loginButton" layoutX="9.0" layoutY="17.0" mnemonicParsing="false" onAction="#toUserLogin2" stylesheets="@../styles/TransparentButton.css" text="LOG IN" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="15.0" />
                      </font>
@@ -66,7 +66,7 @@
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" layoutX="-69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="0.5" y="14.0" />
-                  <Button fx:id="shopButton" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
+                  <Button fx:id="shopButton" layoutX="-64.0" layoutY="15.0" mnemonicParsing="false" onAction="#gotoShop2" prefHeight="31.0" prefWidth="59.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css" text="SHOP" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="15.0" />
                      </font>
@@ -82,7 +82,7 @@
                               </ImageView>
                            </graphic>
                         </MenuItem>
-                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout" style="-fx-text-fill: #0b526d;" text="Log Out">
+                        <MenuItem fx:id="logoutItem" mnemonicParsing="false" onAction="#doLogout2" style="-fx-text-fill: #0b526d;" text="Log Out">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -106,7 +106,7 @@
       <AnchorPane layoutY="60.0" prefHeight="58.0" prefWidth="1366.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
-            <TextField fx:id="searchBar" focusTraversable="false" layoutX="5.0" onAction="#doSearch" prefHeight="58.0" prefWidth="1174.0" promptText="Search by address, city, name of the ecological island..." style="-fx-background-color: transparent;">
+            <TextField fx:id="searchBar" focusTraversable="false" layoutX="5.0" onAction="#doSearch2" prefHeight="58.0" prefWidth="1174.0" promptText="Search by address, city, name of the ecological island..." style="-fx-background-color: transparent;">
                <padding>
                   <Insets left="40.0" />
                </padding>
@@ -114,7 +114,7 @@
                   <Font name="Calibri" size="12.0" />
                </font>
             </TextField>
-            <Button fx:id="searchButton" layoutX="1201.0" layoutY="9.0" maxHeight="48.0" mnemonicParsing="false" onAction="#doSearch" prefHeight="40.0" prefWidth="147.0" stylesheets="@../styles/GreenButton.css" text="SEARCH" textFill="WHITE">
+            <Button fx:id="searchButton" layoutX="1201.0" layoutY="9.0" maxHeight="48.0" mnemonicParsing="false" onAction="#doSearch2" prefHeight="40.0" prefWidth="147.0" stylesheets="@../styles/GreenButton.css" text="SEARCH" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>
@@ -276,7 +276,7 @@
                         <Font name="Calibri" size="24.0" />
                      </font>
                   </Text>
-                  <Button fx:id="bookingButton" layoutX="609.0" layoutY="335.0" mnemonicParsing="false" onAction="#openBookingRequest" prefHeight="67.0" prefWidth="165.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="BOOK YOUR UNLOAD" textFill="WHITE">
+                  <Button fx:id="bookingButton" layoutX="609.0" layoutY="335.0" mnemonicParsing="false" onAction="#openBookingRequest2" prefHeight="67.0" prefWidth="165.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="BOOK YOUR UNLOAD" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="15.0" />
                      </font>
@@ -365,7 +365,7 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </Text>
-            <Button fx:id="closePromptButton" layoutX="209.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeBookingRequest" prefHeight="2.0" prefWidth="1.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css">
+            <Button fx:id="closePromptButton" layoutX="209.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeBookingRequest2" prefHeight="2.0" prefWidth="1.0" style="-fx-cursor: hand;" stylesheets="@../styles/TransparentButton.css">
                <graphic>
                   <ImageView fitHeight="11.0" fitWidth="15.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -386,7 +386,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ComboBox>
-            <Button fx:id="confirmButton" layoutX="78.0" layoutY="217.0" mnemonicParsing="false" onAction="#makeBookingRequest" prefHeight="37.0" prefWidth="80.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="CONFIRM" textFill="WHITE">
+            <Button fx:id="confirmButton" layoutX="78.0" layoutY="217.0" mnemonicParsing="false" onAction="#makeBookingRequest2" prefHeight="37.0" prefWidth="80.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="CONFIRM" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="11.0" />
                </font>

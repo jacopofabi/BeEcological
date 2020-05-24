@@ -16,6 +16,7 @@ import logic.controller.UserController;
 import logic.utilities.PageLoader;
 import logic.utilities.Tool;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -90,18 +91,7 @@ public class LoginUserView implements Initializable {
 			alert6.showAndWait();
 			return;
 		}
-		try {
-			alert6.setAlertType(AlertType.INFORMATION);
-			alert6.setTitle("Welcome Back!");
-			alert6.setHeaderText(null);
-			alert6.setContentText("User verified, login completed.");
-			alert6.showAndWait();
-			
-		    PageLoader pageLoader6 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
-			pageLoader6.homeConfig();
-		} catch (IOException e) {
-			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
-		}
+		alertConfig("Welcome Back!", "User verified, login completed.", event);
 	}
 	
 	
@@ -188,21 +178,27 @@ public class LoginUserView implements Initializable {
 		user.setUsbPhone(phoneNumber);
 		user.setUsbPassword(password);
 		user.setEcopoints(0);
-		
 		control.saveRegistration(user);
-		
+		alertConfig("Welcome to BeEcological!", "Registration completed, you will be redirected to the homepage.", event);
+	}
+	
+	
+	//------------------------------------------------------------------------------
+	public void alertConfig(String title, String contentText, Event event) {
+		Alert alert6 = new Alert(AlertType.INFORMATION);
 		try {
-			alert6.setAlertType(AlertType.INFORMATION);
-			alert6.setTitle("Welcome to BeEcological!");
+			alert6.setTitle(title);
 			alert6.setHeaderText(null);
-			alert6.setContentText("Registration completed, you will be redirected to the beecological homepage.");
+			alert6.setContentText(contentText);
 			alert6.showAndWait();
 		    PageLoader pageLoader6 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 		    pageLoader6.homeConfig();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
+			e.printStackTrace();
 		}
 	}
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

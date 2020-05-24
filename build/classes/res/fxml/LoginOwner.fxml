@@ -18,17 +18,17 @@
 
 <AnchorPane prefHeight="705.0" prefWidth="1345.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.LoginOwnerView">
    <children>
-      <TextField fx:id="loginUsername" layoutX="175.0" layoutY="273.0" onAction="#loginOwner" prefHeight="20.0" prefWidth="350.0" promptText="Username">
+      <TextField fx:id="loginUsername" layoutX="175.0" layoutY="273.0" onAction="#loginOwner5" prefHeight="20.0" prefWidth="350.0" promptText="Username">
          <font>
             <Font name="Calibri Light" size="24.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="loginPassword" layoutX="175.0" layoutY="345.0" onAction="#loginOwner" prefHeight="20.0" prefWidth="350.0" promptText="Password">
+      <PasswordField fx:id="loginPassword" layoutX="175.0" layoutY="345.0" onAction="#loginOwner5" prefHeight="20.0" prefWidth="350.0" promptText="Password">
          <font>
             <Font name="Calibri Light" size="24.0" />
          </font>
       </PasswordField>
-      <Button fx:id="toHomeOwnerButton" layoutX="291.0" layoutY="419.0" mnemonicParsing="false" onAction="#loginOwner" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="LOG IN" textFill="WHITE">
+      <Button fx:id="toHomeOwnerButton" layoutX="291.0" layoutY="419.0" mnemonicParsing="false" onAction="#loginOwner5" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="LOG IN" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font></Button>
@@ -48,7 +48,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" stylesheets="@../styles/TransparentButton-blue.css">
+            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage5" stylesheets="@../styles/TransparentButton-blue.css">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -107,7 +107,7 @@
             </Label>
          </children>
       </Group>
-      <Button fx:id="signInButton" layoutX="975.0" layoutY="630.0" mnemonicParsing="false" onAction="#signIn" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="SIGN IN" textFill="WHITE">
+      <Button fx:id="signInButton" layoutX="975.0" layoutY="630.0" mnemonicParsing="false" onAction="#signIn5" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="SIGN IN" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
@@ -147,37 +147,37 @@
                               </Label>
                            </children>
                         </Group>
-                        <TextField fx:id="textName" layoutY="28.0" prefHeight="20.0" prefWidth="350.0" promptText="Name">
+                        <TextField fx:id="textName1" layoutY="28.0" prefHeight="20.0" prefWidth="350.0" promptText="Name">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="textSurname" layoutY="73.0" prefHeight="20.0" prefWidth="350.0" promptText="Surname">
+                        <TextField fx:id="textSurname1" layoutY="73.0" prefHeight="20.0" prefWidth="350.0" promptText="Surname">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="textEmailAddress" layoutY="118.0" prefHeight="20.0" prefWidth="350.0" promptText="Email address">
+                        <TextField fx:id="textEmailAddress1" layoutY="118.0" prefHeight="20.0" prefWidth="350.0" promptText="Email address">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="textPhoneNumber" layoutY="163.0" prefHeight="20.0" prefWidth="350.0" promptText="Phone number">
+                        <TextField fx:id="textPhoneNumber1" layoutY="163.0" prefHeight="20.0" prefWidth="350.0" promptText="Phone number">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="textUsername" layoutY="208.0" prefHeight="20.0" prefWidth="350.0" promptText="Username">
+                        <TextField fx:id="textUsername1" layoutY="208.0" prefHeight="20.0" prefWidth="350.0" promptText="Username">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
                         </TextField>
-                        <PasswordField fx:id="textPassword" layoutY="253.0" prefHeight="20.0" prefWidth="350.0" promptText="Password">
+                        <PasswordField fx:id="textPassword1" layoutY="253.0" prefHeight="20.0" prefWidth="350.0" promptText="Password">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
                         </PasswordField>
-                        <PasswordField fx:id="textConfirmPassword" layoutY="298.0" prefHeight="20.0" prefWidth="350.0" promptText="Confirm password">
+                        <PasswordField fx:id="textConfirmPassword1" layoutY="298.0" prefHeight="20.0" prefWidth="350.0" promptText="Confirm password">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
@@ -196,32 +196,32 @@
                   </Group>
                   <Group layoutX="140.0" layoutY="20.0">
                      <children>
-                        <TextField fx:id="textCenterName" layoutX="-10.0" layoutY="377.0" prefHeight="20.0" prefWidth="350.0" promptText="Ecological island name">
+                        <TextField fx:id="textCenterName1" layoutX="-10.0" layoutY="377.0" prefHeight="20.0" prefWidth="350.0" promptText="Ecological island name">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="textCity" layoutX="-10.0" layoutY="422.0" prefHeight="20.0" prefWidth="350.0" promptText="City">
+                        <TextField fx:id="textCity1" layoutX="-10.0" layoutY="422.0" prefHeight="20.0" prefWidth="350.0" promptText="City">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="textAddress" layoutX="-10.0" layoutY="467.0" prefHeight="34.0" prefWidth="184.0" promptText="Address">
+                        <TextField fx:id="textAddress1" layoutX="-10.0" layoutY="467.0" prefHeight="34.0" prefWidth="184.0" promptText="Address">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="textN" layoutX="183.0" layoutY="467.0" prefHeight="34.0" prefWidth="38.0" promptText="n°">
+                        <TextField fx:id="textN1" layoutX="183.0" layoutY="467.0" prefHeight="34.0" prefWidth="38.0" promptText="n°">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="textCAP" layoutX="230.0" layoutY="467.0" prefHeight="34.0" prefWidth="110.0" promptText="CAP">
+                        <TextField fx:id="textCAP1" layoutX="230.0" layoutY="467.0" prefHeight="34.0" prefWidth="110.0" promptText="CAP">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="textCenterPhone" layoutX="-10.0" layoutY="512.0" prefHeight="20.0" prefWidth="350.0" promptText="Center phone number">
+                        <TextField fx:id="textCenterPhone1" layoutX="-10.0" layoutY="512.0" prefHeight="20.0" prefWidth="350.0" promptText="Center phone number">
                            <font>
                               <Font name="Calibri Light" size="18.0" />
                            </font>
@@ -232,7 +232,7 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Button fx:id="toUserLoginButton" layoutX="291.0" layoutY="626.0" mnemonicParsing="false" onAction="#toUserLogin" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="CONTINUE" textFill="WHITE">
+      <Button fx:id="toUserLoginButton" layoutX="291.0" layoutY="626.0" mnemonicParsing="false" onAction="#toUserLogin5" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="CONTINUE" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>

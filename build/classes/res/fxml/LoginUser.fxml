@@ -20,12 +20,12 @@
    <children>
       <Group layoutX="175.0" layoutY="273.0">
          <children>
-            <TextField fx:id="loginUsername" onAction="#loginUser" prefHeight="20.0" prefWidth="350.0" promptText="Username">
+            <TextField fx:id="loginUsername6" onAction="#loginUser6" prefHeight="20.0" prefWidth="350.0" promptText="Username">
                <font>
                   <Font name="Calibri Light" size="24.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="loginPassword" layoutY="72.0" onAction="#loginUser" prefHeight="20.0" prefWidth="350.0" promptText="Password">
+            <PasswordField fx:id="loginPassword6" layoutY="72.0" onAction="#loginUser6" prefHeight="20.0" prefWidth="350.0" promptText="Password">
                <font>
                   <Font name="Calibri Light" size="24.0" />
                </font>
@@ -35,7 +35,7 @@
             </PasswordField>
             <AnchorPane layoutX="116.0" layoutY="146.0">
                <children>
-                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginUser" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="LOG IN" textFill="WHITE">
+                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginUser6" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="LOG IN" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="15.0" />
                      </font>
@@ -76,7 +76,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage" stylesheets="@../styles/TransparentButton.css">
+            <Button fx:id="homeButton" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#returnHomepage6" stylesheets="@../styles/TransparentButton.css">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -121,42 +121,42 @@
       </Group>
       <AnchorPane layoutX="856.0" layoutY="237.0">
          <children>
-            <TextField fx:id="textName" onAction="#registerUser" prefHeight="20.0" prefWidth="350.0" promptText="Name">
+            <TextField fx:id="textName6" onAction="#registerUser6" prefHeight="20.0" prefWidth="350.0" promptText="Name">
                <font>
                   <Font name="Calibri Light" size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="textSurname" layoutY="45.0" onAction="#registerUser" prefHeight="20.0" prefWidth="350.0" promptText="Surname">
+            <TextField fx:id="textSurname6" layoutY="45.0" onAction="#registerUser6" prefHeight="20.0" prefWidth="350.0" promptText="Surname">
                <font>
                   <Font name="Calibri Light" size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="textEmailAddress" layoutY="90.0" onAction="#registerUser" prefHeight="20.0" prefWidth="350.0" promptText="Email address">
+            <TextField fx:id="textEmailAddress6" layoutY="90.0" onAction="#registerUser6" prefHeight="20.0" prefWidth="350.0" promptText="Email address">
                <font>
                   <Font name="Calibri Light" size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="textPhoneNumber" layoutY="135.0" onAction="#registerUser" prefHeight="20.0" prefWidth="350.0" promptText="Phone number">
+            <TextField fx:id="textPhoneNumber6" layoutY="135.0" onAction="#registerUser6" prefHeight="20.0" prefWidth="350.0" promptText="Phone number">
                <font>
                   <Font name="Calibri Light" size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="textUsername" layoutY="180.0" onAction="#registerUser" prefHeight="20.0" prefWidth="350.0" promptText="Username">
+            <TextField fx:id="textUsername6" layoutY="180.0" onAction="#registerUser6" prefHeight="20.0" prefWidth="350.0" promptText="Username">
                <font>
                   <Font name="Calibri Light" size="18.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="textPassword" layoutY="225.0" onAction="#registerUser" prefHeight="20.0" prefWidth="350.0" promptText="Password">
+            <PasswordField fx:id="textPassword6" layoutY="225.0" onAction="#registerUser6" prefHeight="20.0" prefWidth="350.0" promptText="Password">
                <font>
                   <Font name="Calibri Light" size="18.0" />
                </font>
             </PasswordField>
-            <PasswordField fx:id="textConfirmPassword" layoutY="270.0" onAction="#registerUser" prefHeight="20.0" prefWidth="350.0" promptText="Confirm password">
+            <PasswordField fx:id="textConfirmPassword6" layoutY="270.0" onAction="#registerUser6" prefHeight="20.0" prefWidth="350.0" promptText="Confirm password">
                <font>
                   <Font name="Calibri Light" size="18.0" />
                </font>
             </PasswordField>
-            <Button fx:id="signInButton" layoutX="118.0" layoutY="323.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="SIGN IN" textFill="WHITE">
+            <Button fx:id="signInButton" layoutX="118.0" layoutY="323.0" mnemonicParsing="false" onAction="#registerUser6" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/GreenButton.css" text="SIGN IN" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>
@@ -177,7 +177,7 @@
             </Label>
          </children>
       </Group>
-      <Button fx:id="toOwnerLoginButton" layoutX="291.0" layoutY="626.0" mnemonicParsing="false" onAction="#toOwnerLogin" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="CONTINUE" textFill="WHITE">
+      <Button fx:id="toOwnerLoginButton" layoutX="291.0" layoutY="626.0" mnemonicParsing="false" onAction="#toOwnerLogin6" prefHeight="50.0" prefWidth="113.0" style="-fx-cursor: hand;" stylesheets="@../styles/BlueButton.css" text="CONTINUE" textFill="WHITE">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>

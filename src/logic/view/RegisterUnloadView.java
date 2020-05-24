@@ -306,21 +306,7 @@ public class RegisterUnloadView implements Initializable {
 			control3.modifyBooking(booking9);
 			
 			bookingList9.removeAll(bookingList9);
-		    try {
-		    	booking9.setBbCenter(CenterOwnerBean.getInstance().getCobCenter());
-		    	booking9.setBbStatus("A");
-		    	data = control3.bookingListByCenter(booking9);	//prenotazioni accettate dal gestore
-		        bookingList9.addAll(data);
-		    }
-		    catch(Exception e){
-		    	Logger.getGlobal().log(Level.SEVERE, errorData);           
-		    }
-		    //riempio le colonne tramite il corrispondente nome dell'attributo dato nella definizione della classe
-		    colid.setCellValueFactory(new PropertyValueFactory<>("bbId"));
-		    colUser.setCellValueFactory(new PropertyValueFactory<>("bbUser"));
-			colDate.setCellValueFactory(new PropertyValueFactory<>("bbDate"));
-			colTime.setCellValueFactory(new PropertyValueFactory<>("bbTime"));
-			tableBookingAccepted.setItems(bookingList9);
+			populateTable();
 		}
 		textUser.clear();
 		textHour.clear();
@@ -362,15 +348,9 @@ public class RegisterUnloadView implements Initializable {
 		}
 	}
 	
-	
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
-		ownerButton.setText(CenterOwnerBean.getOwnerInstance("").getCobUsername());
-		bookingList9.removeAll(bookingList9);
+	//------------------------------------------------------------------------------
+	public void populateTable() {
 	    try {
-	    	booking9 = new BookingBean();
-	    	control3 = new BookingController();
 	    	booking9.setBbCenter(CenterOwnerBean.getInstance().getCobCenter());
 	    	booking9.setBbStatus("A");
 	    	data = control3.bookingListByCenter(booking9);	//prenotazioni accettate dal gestore
@@ -385,6 +365,18 @@ public class RegisterUnloadView implements Initializable {
 		colDate.setCellValueFactory(new PropertyValueFactory<>("bbDate"));
 		colTime.setCellValueFactory(new PropertyValueFactory<>("bbTime"));
 		tableBookingAccepted.setItems(bookingList9);
+	}
+	
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+    	booking9 = new BookingBean();
+    	control3 = new BookingController();
+		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
+		ownerButton.setText(CenterOwnerBean.getOwnerInstance("").getCobUsername());
+		
+		bookingList9.removeAll(bookingList9);
+	    populateTable();
 
 		tableBookingAccepted.widthProperty().addListener(new ChangeListener<Number>()
 		{

@@ -12,13 +12,10 @@ public class UserDAO {
 	//------------------------------------------------------------------------------
     public static boolean checkUsername(String username) {
     	String query = "SELECT count(*) FROM beecological.User WHERE Username = '" + username + "';";
-    	int count = DaoHelper.countStatement(query);        
-        if(count == 1) {
-        	return false;	//username gia utilizzato da altro utente, non permetto registrazione(insert del nuovo utente)
-        }
-        else {
-        	return true;	//username disponibile
-        }
+    	int count = DaoHelper.countStatement(query);  
+    	
+    	//true se username disponibile, false se è già stato usato (no nuova registrazione)
+    	return count == 0;
     }
         
     
@@ -27,12 +24,9 @@ public class UserDAO {
     	String query = "SELECT count(*) FROM beecological.User WHERE Username = '" + user.getUsUsername() + 
     			"' and Password = '" + user.getUsPassword() + "';";
     	int count = DaoHelper.countStatement(query);
-        if (count == 0) {
-        	return false;	//utente immesso non esiste
-        }
-        else {
-        	return true; 	//count=1 nel db, l'utente matcha una registrazione
-        }
+    	
+    	//true se utente esiste (login), false se non esiste nel db
+    	return count == 1;
     }
 
 
