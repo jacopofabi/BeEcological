@@ -54,7 +54,6 @@ public class RegisterUnloadView implements Initializable {
 	private static String invalidUnload = "Invalid unload registration.";
 	private static String errorData = "Error On Building Data";
 	
-	private List<BookingBean> data = new ArrayList<>();
 	private List<TextField> data1 = new ArrayList<>();
 	private List<CheckBox> data2 = new ArrayList<>();
 	private ObservableList<BookingBean> bookingList9 = FXCollections.observableArrayList();
@@ -353,7 +352,7 @@ public class RegisterUnloadView implements Initializable {
 	    try {
 	    	booking9.setBbCenter(CenterOwnerBean.getInstance().getCobCenter());
 	    	booking9.setBbStatus("A");
-	    	data = control3.bookingListByCenter(booking9);	//prenotazioni accettate dal gestore
+	    	List<BookingBean> data = control3.bookingListByCenter(booking9);	//prenotazioni accettate dal gestore
 	        bookingList9.addAll(data);
 	    }
 	    catch(Exception e){

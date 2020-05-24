@@ -195,7 +195,6 @@ public class LoginUserView implements Initializable {
 		    pageLoader6.homeConfig();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
-			e.printStackTrace();
 		}
 	}
 	
