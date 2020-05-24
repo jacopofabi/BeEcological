@@ -47,7 +47,6 @@ public class LoginOwnerServlet extends HttpServlet {
             centerBean.setCbName(information.get(4));
             centerBean.setCbPhone(information.get(5));
             centerBean.setCbCity(information.get(6));
-            System.out.println(information.get(7));
             centerBean.setCbAddress(information.get(7));
             centerBean.setCbCap(information.get(8));
             centerBean.setCbNum(information.get(9));

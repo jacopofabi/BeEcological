@@ -14,6 +14,8 @@ import logic.bean.UserBean;
 import logic.controller.UserController;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet("/LoginUserServlet")
 public class LoginUserServlet extends HttpServlet {
@@ -38,7 +40,7 @@ public class LoginUserServlet extends HttpServlet {
         try {
 			result = controller.login(userBean);
 		} catch (InexistentUsernameException | EmptyFieldException e) {
-
+			Logger.getGlobal().log(Level.SEVERE, "Invalid username");
 		}
 
         if (!result) {
@@ -46,7 +48,6 @@ public class LoginUserServlet extends HttpServlet {
             RequestDispatcher rd = req.getRequestDispatcher("/loginUser.jsp");
             rd.include(req, resp);
         } else {
-        	System.out.println("login con "+userBean.getUsbUsername()+" "+userBean.getUsbPassword());
             HttpSession session = req.getSession(true);
             session.setAttribute("loggedUser", userBean);
             resp.sendRedirect("homepage.jsp");

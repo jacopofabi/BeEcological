@@ -26,34 +26,34 @@ public class ConfirmBookingServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		CenterOwnerBean ownerBean = new CenterOwnerBean();
-    	CenterBean centerBean = new CenterBean();
-        BookingBean bookingBean = new BookingBean();
+		PrintWriter out5 = response.getWriter();
+		CenterOwnerBean ownerBean5 = new CenterOwnerBean();
+    	CenterBean centerBean5 = new CenterBean();
+        BookingBean bookingBean5 = new BookingBean();
         
-        ownerBean.setCobUsername(request.getParameter("username"));
-        ownerBean.setCobEmail(request.getParameter("mail"));
-        ownerBean.setCobPhone(request.getParameter("ownerphone"));
-        centerBean.setCbName(request.getParameter("centername"));
-        centerBean.setCbAddress(request.getParameter("address"));
-        centerBean.setCbPhone(request.getParameter("centerphone"));
+        ownerBean5.setCobUsername(request.getParameter("username"));
+        ownerBean5.setCobEmail(request.getParameter("mail"));
+        ownerBean5.setCobPhone(request.getParameter("ownerphone"));
+        centerBean5.setCbName(request.getParameter("centername"));
+        centerBean5.setCbAddress(request.getParameter("address"));
+        centerBean5.setCbPhone(request.getParameter("centerphone"));
         
-    	bookingBean.setBbCenter(request.getParameter("centername"));
-    	bookingBean.setBbUser(request.getParameter("userToRegister1"));
-    	bookingBean.setBbDate(request.getParameter("date1"));
-    	bookingBean.setBbTime(request.getParameter("time1"));
-    	bookingBean.setBbStatus("A");
+    	bookingBean5.setBbCenter(request.getParameter("centername"));
+    	bookingBean5.setBbUser(request.getParameter("userToRegister1"));
+    	bookingBean5.setBbDate(request.getParameter("date1"));
+    	bookingBean5.setBbTime(request.getParameter("time1"));
+    	bookingBean5.setBbStatus("A");
     	
-        HttpSession session = request.getSession(true);
+        HttpSession session5 = request.getSession(true);
     	
-        BookingController controller = new BookingController();
-    	controller.modifyBooking(bookingBean);
+        BookingController controller5 = new BookingController();
+    	controller5.modifyBooking(bookingBean5);
         
-        session.setAttribute("loggedOwner", ownerBean);
-        session.setAttribute("centerInfo", centerBean);
-        out.println("<script type=\"text/javascript\">");
-        out.println("alert('Booking accepted successfully.');");
-        out.println("location='homeOwner.jsp';");
-        out.println("</script>");
+        session5.setAttribute("loggedOwner", ownerBean5);
+        session5.setAttribute("centerInfo", centerBean5);
+        out5.println("<script type=\"text/javascript\">");
+        out5.println("alert('Booking accepted successfully.');");
+        out5.println("location='homeOwner.jsp';");
+        out5.println("</script>");
 	}
 }

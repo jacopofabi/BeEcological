@@ -185,7 +185,7 @@ public class CenterPageView implements Initializable {
 			try {
 				ok = control.login(user);
 			} catch (InexistentUsernameException | EmptyFieldException e) {
-				e.printStackTrace();
+				Logger.getGlobal().log(Level.SEVERE, "Invalid username");
 			}
 			Alert alert1 = new Alert(AlertType.ERROR);
 			if (!ok) {
@@ -206,7 +206,7 @@ public class CenterPageView implements Initializable {
 				userGroup.setVisible(true);
 				userButton.setText(UserBean.getUserInstance(usr).getUsbUsername());
 			}catch(Exception e){
-				e.printStackTrace();
+				Logger.getGlobal().log(Level.SEVERE, "Alert exception");
 			}
 		});
 

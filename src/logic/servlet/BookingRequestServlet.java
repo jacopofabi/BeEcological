@@ -16,6 +16,8 @@ import logic.controller.UserController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet("/BookingRequestServlet")
 public class BookingRequestServlet extends HttpServlet {
@@ -49,7 +51,7 @@ public class BookingRequestServlet extends HttpServlet {
             try {
 				controller1.insertBooking(bookingBean);
 			} catch (InexistentUsernameException e) {
-				
+				Logger.getGlobal().log(Level.SEVERE, "Invalid username");
 			}
         	session.setAttribute("loggedUser", userBean);
 		    out.println("<script type=\"text/javascript\">");

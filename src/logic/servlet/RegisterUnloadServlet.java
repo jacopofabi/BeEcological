@@ -25,24 +25,24 @@ public class RegisterUnloadServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	CenterOwnerBean ownerBean = new CenterOwnerBean();
-    	CenterBean centerBean = new CenterBean();
-        BookingBean bookingBean = new BookingBean();
-        ownerBean.setCobUsername(request.getParameter("username"));
-        ownerBean.setCobEmail(request.getParameter("mail"));
-        ownerBean.setCobPhone(request.getParameter("ownerphone"));
-        centerBean.setCbName(request.getParameter("centername"));
-        centerBean.setCbAddress(request.getParameter("address"));
-        centerBean.setCbPhone(request.getParameter("centerphone"));
-    	bookingBean.setBbCenter(request.getParameter("centername"));
-    	bookingBean.setBbStatus("A");
-        BookingController controller = new BookingController();
-        List<BookingBean> bookAccept= controller.bookingListByCenter(bookingBean);
+    	CenterOwnerBean ownerBean2 = new CenterOwnerBean();
+    	CenterBean centerBean2 = new CenterBean();
+        BookingBean bookingBean2 = new BookingBean();
+        ownerBean2.setCobUsername(request.getParameter("username"));
+        ownerBean2.setCobEmail(request.getParameter("mail"));
+        ownerBean2.setCobPhone(request.getParameter("ownerphone"));
+        centerBean2.setCbName(request.getParameter("centername"));
+        centerBean2.setCbAddress(request.getParameter("address"));
+        centerBean2.setCbPhone(request.getParameter("centerphone"));
+    	bookingBean2.setBbCenter(request.getParameter("centername"));
+    	bookingBean2.setBbStatus("A");
+        BookingController controller2 = new BookingController();
+        List<BookingBean> bookAccept= controller2.bookingListByCenter(bookingBean2);
         
         HttpSession session = request.getSession(true);
         session.setAttribute("bookAccept", bookAccept);
-        session.setAttribute("loggedOwner", ownerBean);
-        session.setAttribute("centerInfo", centerBean);
+        session.setAttribute("loggedOwner", ownerBean2);
+        session.setAttribute("centerInfo", centerBean2);
         response.sendRedirect("registerUnload.jsp");
 	}
 

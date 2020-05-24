@@ -27,7 +27,7 @@ public class CenterPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserBean userBean = new UserBean();
         CenterBean centerBean = new CenterBean();
-        CenterOwnerBean owner = new CenterOwnerBean();
+        CenterOwnerBean owner;
     	userBean.setUsbUsername(request.getParameter("username"));
     	centerBean.setCbAddress(request.getParameter("address"));
     	centerBean.setCbPhone(request.getParameter("phone"));

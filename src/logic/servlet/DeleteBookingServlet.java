@@ -26,34 +26,34 @@ public class DeleteBookingServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		CenterOwnerBean ownerBean = new CenterOwnerBean();
-    	CenterBean centerBean = new CenterBean();
-        BookingBean bookingBean = new BookingBean();
+		PrintWriter out4 = response.getWriter();
+		CenterOwnerBean ownerBean4 = new CenterOwnerBean();
+    	CenterBean centerBean4 = new CenterBean();
+        BookingBean bookingBean4 = new BookingBean();
         
-        ownerBean.setCobUsername(request.getParameter("username"));
-        ownerBean.setCobEmail(request.getParameter("mail"));
-        ownerBean.setCobPhone(request.getParameter("ownerphone"));
-        centerBean.setCbName(request.getParameter("centername"));
-        centerBean.setCbAddress(request.getParameter("address"));
-        centerBean.setCbPhone(request.getParameter("centerphone"));
+        ownerBean4.setCobUsername(request.getParameter("username"));
+        ownerBean4.setCobEmail(request.getParameter("mail"));
+        ownerBean4.setCobPhone(request.getParameter("ownerphone"));
+        centerBean4.setCbName(request.getParameter("centername"));
+        centerBean4.setCbAddress(request.getParameter("address"));
+        centerBean4.setCbPhone(request.getParameter("centerphone"));
         
-    	bookingBean.setBbCenter(request.getParameter("centername"));
-    	bookingBean.setBbUser(request.getParameter("userToDelete"));
-    	bookingBean.setBbDate(request.getParameter("date"));
-    	bookingBean.setBbTime(request.getParameter("time"));
-    	bookingBean.setBbStatus("D");
+    	bookingBean4.setBbCenter(request.getParameter("centername"));
+    	bookingBean4.setBbUser(request.getParameter("userToDelete"));
+    	bookingBean4.setBbDate(request.getParameter("date"));
+    	bookingBean4.setBbTime(request.getParameter("time"));
+    	bookingBean4.setBbStatus("D");
     	
-        HttpSession session = request.getSession(true);
+        HttpSession session4 = request.getSession(true);
     	
-        BookingController controller = new BookingController();
-    	controller.modifyBooking(bookingBean);
+        BookingController controller4 = new BookingController();
+    	controller4.modifyBooking(bookingBean4);
         
-        session.setAttribute("loggedOwner", ownerBean);
-        session.setAttribute("centerInfo", centerBean);
-        out.println("<script type=\"text/javascript\">");
-        out.println("alert('Booking refused successfully.');");
-        out.println("location='homeOwner.jsp';");
-        out.println("</script>");
+        session4.setAttribute("loggedOwner", ownerBean4);
+        session4.setAttribute("centerInfo", centerBean4);
+        out4.println("<script type=\"text/javascript\">");
+        out4.println("alert('Booking refused successfully.');");
+        out4.println("location='homeOwner.jsp';");
+        out4.println("</script>");
 	}
 }

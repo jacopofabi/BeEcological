@@ -25,24 +25,24 @@ public class ManageBookingServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	CenterOwnerBean ownerBean = new CenterOwnerBean();
-    	CenterBean centerBean = new CenterBean();
-        BookingBean bookingBean = new BookingBean();
-        ownerBean.setCobUsername(request.getParameter("username"));
-        ownerBean.setCobEmail(request.getParameter("mail"));
-        ownerBean.setCobPhone(request.getParameter("ownerphone"));
-        centerBean.setCbName(request.getParameter("centername"));
-        centerBean.setCbAddress(request.getParameter("address"));
-        centerBean.setCbPhone(request.getParameter("centerphone"));
-    	bookingBean.setBbCenter(request.getParameter("centername"));
-    	bookingBean.setBbStatus("W");
+    	CenterOwnerBean ownerBean3 = new CenterOwnerBean();
+    	CenterBean centerBean3 = new CenterBean();
+        BookingBean bookingBean3 = new BookingBean();
+        ownerBean3.setCobUsername(request.getParameter("username"));
+        ownerBean3.setCobEmail(request.getParameter("mail"));
+        ownerBean3.setCobPhone(request.getParameter("ownerphone"));
+        centerBean3.setCbName(request.getParameter("centername"));
+        centerBean3.setCbAddress(request.getParameter("address"));
+        centerBean3.setCbPhone(request.getParameter("centerphone"));
+    	bookingBean3.setBbCenter(request.getParameter("centername"));
+    	bookingBean3.setBbStatus("W");
         BookingController controller = new BookingController();
-        List<BookingBean> bookWait = controller.bookingListByCenter(bookingBean);
+        List<BookingBean> bookWait = controller.bookingListByCenter(bookingBean3);
         
         HttpSession session = request.getSession(true);
         session.setAttribute("bookWait", bookWait);
-        session.setAttribute("loggedOwner", ownerBean);
-        session.setAttribute("centerInfo", centerBean);
+        session.setAttribute("loggedOwner", ownerBean3);
+        session.setAttribute("centerInfo", centerBean3);
         response.sendRedirect("manageBooking.jsp");
 	}
 

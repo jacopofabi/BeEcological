@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet("/InsertBookingServlet")
 public class InsertBookingServlet extends HttpServlet {
@@ -31,11 +33,10 @@ public class InsertBookingServlet extends HttpServlet {
 	public boolean checkTime(String hour){
 	    try {
 	    	LocalTime.parse(hour);
-	        System.out.println("Valid time string: " + hour);
 	        return true;
 	    }
 	    catch (DateTimeParseException | NullPointerException e) {
-	        System.out.println("Invalid time string: " + hour);
+	    	Logger.getGlobal().log(Level.SEVERE, "Invalid time string");
 	        return false;
 	    }
 	}
@@ -46,32 +47,32 @@ public class InsertBookingServlet extends HttpServlet {
 		String openScript = "<script type=\"text/javascript\">";
 		String closeScript = "</script>";
 		String locationManageBooking = "location='manageBooking.jsp';";
-		UserBean userBean = new UserBean();
-		CenterOwnerBean ownerBean = new CenterOwnerBean();
-    	CenterBean centerBean = new CenterBean();
-        BookingBean bookingBean = new BookingBean();
+		UserBean userBean1 = new UserBean();
+		CenterOwnerBean ownerBean1 = new CenterOwnerBean();
+    	CenterBean centerBean1 = new CenterBean();
+        BookingBean bookingBean1 = new BookingBean();
         
-        userBean.setUsbUsername(request.getParameter("userToRegister"));
+        userBean1.setUsbUsername(request.getParameter("userToRegister"));
         
-        ownerBean.setCobUsername(request.getParameter("username"));
-        ownerBean.setCobEmail(request.getParameter("mail"));
-        ownerBean.setCobPhone(request.getParameter("ownerphone"));
-        centerBean.setCbName(request.getParameter("centername"));
-        centerBean.setCbAddress(request.getParameter("address"));
-        centerBean.setCbPhone(request.getParameter("centerphone"));
+        ownerBean1.setCobUsername(request.getParameter("username"));
+        ownerBean1.setCobEmail(request.getParameter("mail"));
+        ownerBean1.setCobPhone(request.getParameter("ownerphone"));
+        centerBean1.setCbName(request.getParameter("centername"));
+        centerBean1.setCbAddress(request.getParameter("address"));
+        centerBean1.setCbPhone(request.getParameter("centerphone"));
         
-    	bookingBean.setBbCenter(request.getParameter("centername"));
-    	bookingBean.setBbUser(request.getParameter("userToRegister"));
-    	bookingBean.setBbDate(request.getParameter("date"));
-    	bookingBean.setBbTime(request.getParameter("time"));
+    	bookingBean1.setBbCenter(request.getParameter("centername"));
+    	bookingBean1.setBbUser(request.getParameter("userToRegister"));
+    	bookingBean1.setBbDate(request.getParameter("date"));
+    	bookingBean1.setBbTime(request.getParameter("time"));
         
         HttpSession session = request.getSession(true);
-        session.setAttribute("loggedOwner", ownerBean);
-        session.setAttribute("centerInfo", centerBean);
+        session.setAttribute("loggedOwner", ownerBean1);
+        session.setAttribute("centerInfo", centerBean1);
         
     	UserController controller = new UserController();
     	boolean result = false;
-		result = controller.checkRegistration(userBean);
+		result = controller.checkRegistration(userBean1);
     	if(result) {
     		//username non esiste non posso inserire
             out.println(openScript);
@@ -81,7 +82,7 @@ public class InsertBookingServlet extends HttpServlet {
             return;
     	}
     	
-		if (!checkTime(bookingBean.getBbTime())) {
+		if (!checkTime(bookingBean1.getBbTime())) {
 			//orario immesso invalido non posso inserire
             out.println(openScript);
             out.println("alert('Insert a correct time format: [HH:MM].');");
@@ -91,12 +92,12 @@ public class InsertBookingServlet extends HttpServlet {
 		}
     	
     	BookingController controller1 = new BookingController();
-    	bookingBean.setBbStatus("W");
-    	int count = controller1.verifyBooking(bookingBean);
+    	bookingBean1.setBbStatus("W");
+    	int count = controller1.verifyBooking(bookingBean1);
     	if(count!=0) {
     		//esiste prenotazione, la aggiorno accettandola
-    		bookingBean.setBbStatus("A");
-    		controller1.modifyBooking(bookingBean);
+    		bookingBean1.setBbStatus("A");
+    		controller1.modifyBooking(bookingBean1);
             out.println(openScript);
             out.println("alert('Booking accepted successfully.');");
             out.println("location='homeOwner.jsp';");
@@ -104,8 +105,8 @@ public class InsertBookingServlet extends HttpServlet {
             return;
     	}
     	
-    	bookingBean.setBbStatus("A");
-		count = controller1.verifyBooking(bookingBean);
+    	bookingBean1.setBbStatus("A");
+		count = controller1.verifyBooking(bookingBean1);
     	if(count!=0) {
     		//prenotazione gia accettata, non posso inserire
             out.println(openScript);
@@ -116,9 +117,9 @@ public class InsertBookingServlet extends HttpServlet {
     	}    	
         
     	try {
-			controller1.insertBooking(bookingBean);
+			controller1.insertBooking(bookingBean1);
 		} catch (InexistentUsernameException e) {
-
+			Logger.getGlobal().log(Level.SEVERE, "Invalid username");
 		}
         
         out.println(openScript);
