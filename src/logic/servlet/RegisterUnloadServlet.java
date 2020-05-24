@@ -1,4 +1,4 @@
-package logic.Servlet;
+package logic.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import logic.Bean.BookingBean;
-import logic.Bean.CenterBean;
-import logic.Bean.CenterOwnerBean;
-import logic.Controller.BookingController;
+import logic.bean.BookingBean;
+import logic.bean.CenterBean;
+import logic.bean.CenterOwnerBean;
+import logic.controller.BookingController;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/RegisterUnloadServlet")
 public class RegisterUnloadServlet extends HttpServlet {
@@ -37,7 +37,7 @@ public class RegisterUnloadServlet extends HttpServlet {
     	bookingBean.setBbCenter(request.getParameter("centername"));
     	bookingBean.setBbStatus("A");
         BookingController controller = new BookingController();
-        ArrayList<BookingBean> bookAccept= controller.bookingListByCenter(bookingBean);
+        List<BookingBean> bookAccept= controller.bookingListByCenter(bookingBean);
         
         HttpSession session = request.getSession(true);
         session.setAttribute("bookAccept", bookAccept);

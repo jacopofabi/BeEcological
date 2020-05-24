@@ -1,4 +1,4 @@
-package logic.Servlet;
+package logic.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,15 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import logic.Bean.BookingBean;
-import logic.Bean.CenterBean;
-import logic.Bean.CenterOwnerBean;
-import logic.Bean.WasteUnloadedBean;
-import logic.Controller.BookingController;
-import logic.Controller.WasteUnloadedController;
+import logic.bean.BookingBean;
+import logic.bean.CenterBean;
+import logic.bean.CenterOwnerBean;
+import logic.bean.WasteUnloadedBean;
+import logic.controller.BookingController;
+import logic.controller.WasteUnloadedController;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/HistoryANDunloadsServlet")
 public class HistoryANDunloadsServlet extends HttpServlet {
@@ -42,9 +42,9 @@ public class HistoryANDunloadsServlet extends HttpServlet {
     	wasteBean.setWbCenter(centername);
     	bookingBean.setBbStatus("A");
         BookingController controller = new BookingController();
-        ArrayList<BookingBean> bookAccept= controller.bookingListByCenter(bookingBean);
+        List<BookingBean> bookAccept= controller.bookingListByCenter(bookingBean);
         WasteUnloadedController controller1 = new WasteUnloadedController();
-        ArrayList<WasteUnloadedBean> unloadRegister = controller1.listUnloadByCenter(wasteBean);
+        List<WasteUnloadedBean> unloadRegister = controller1.listUnloadByCenter(wasteBean);
         
         HttpSession session = request.getSession(true);
         session.setAttribute("bookAccept", bookAccept);

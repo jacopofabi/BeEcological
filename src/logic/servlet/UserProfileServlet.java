@@ -1,4 +1,4 @@
-package logic.Servlet;
+package logic.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,13 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import logic.Bean.UserBean;
-import logic.Bean.WasteUnloadedBean;
-import logic.Controller.UserController;
-import logic.Controller.WasteUnloadedController;
+import logic.bean.UserBean;
+import logic.bean.WasteUnloadedBean;
+import logic.controller.UserController;
+import logic.controller.WasteUnloadedController;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/UserProfileServlet")
@@ -39,7 +38,7 @@ public class UserProfileServlet extends HttpServlet {
         userBean.setUsbPhone(information.get(3));
         userBean.setEcopoints(Integer.parseInt(information.get(4)));
         
-        ArrayList<WasteUnloadedBean> listUnloadUser = controller1.listUnloadByUser(userBean);
+        List<WasteUnloadedBean> listUnloadUser = controller1.listUnloadByUser(userBean);
         
         HttpSession session = request.getSession(true);
         session.setAttribute("loggedUser", userBean);

@@ -1,4 +1,4 @@
-package logic.Servlet;
+package logic.servlet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import error.EmptyFieldException;
 import error.InexistentUsernameException;
-import logic.Bean.UserBean;
-import logic.Controller.UserController;
+import logic.bean.UserBean;
+import logic.controller.UserController;
 
 import java.io.IOException;
 
