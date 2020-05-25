@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import logic.bean.UserBean;
-import logic.controller.UserController;
+import logic.controller.AccountInformationController;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,7 +26,7 @@ public class ShopServlet extends HttpServlet {
 		HttpSession session = req.getSession(true);
         UserBean userBean = new UserBean();
         userBean.setUsbUsername(req.getParameter("param"));
-        UserController controller = new UserController();
+        AccountInformationController controller = new AccountInformationController();
         List<String> userInformation = controller.userInformation(userBean);
         userBean.setUsbName(userInformation.get(0));
         userBean.setUsbSurname(userInformation.get(1));

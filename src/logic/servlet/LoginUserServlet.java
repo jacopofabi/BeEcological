@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import error.EmptyFieldException;
 import error.InexistentUsernameException;
 import logic.bean.UserBean;
-import logic.controller.UserController;
+import logic.controller.LoginController;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -36,9 +36,9 @@ public class LoginUserServlet extends HttpServlet {
     	UserBean userBean = new UserBean();
         userBean.setUsbUsername(req.getParameter("username"));
         userBean.setUsbPassword(req.getParameter("password"));
-        UserController controller = new UserController();
+        LoginController controller = new LoginController();
         try {
-			result = controller.login(userBean);
+			result = controller.loginUser(userBean);
 		} catch (InexistentUsernameException | EmptyFieldException e) {
 			Logger.getGlobal().log(Level.SEVERE, "Invalid username");
 		}

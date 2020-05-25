@@ -10,15 +10,15 @@ import org.junit.Test;
 
 import logic.bean.UserBean;
 import logic.bean.WasteUnloadedBean;
-import logic.controller.UserController;
-import logic.controller.WasteUnloadedController;
+import logic.controller.AccountInformationController;
+import logic.controller.RegisterUnloadController;
 
 public class TestEarnEcopoints {
 	
 	private UserBean userBean;
 	private WasteUnloadedBean wasteBean;
-	private UserController userController = new UserController();
-	private WasteUnloadedController wasteController = new WasteUnloadedController();
+	private AccountInformationController userController = new AccountInformationController();
+	private RegisterUnloadController wasteController = new RegisterUnloadController();
 	
 	@Before
 	public void prepareData() {

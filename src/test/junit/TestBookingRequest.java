@@ -6,7 +6,8 @@ import org.junit.Test;
 
 import error.InexistentUsernameException;
 import logic.bean.BookingBean;
-import logic.controller.BookingController;
+import logic.controller.MakeBookingController;
+import logic.controller.ManageBookingController;
 
 public class TestBookingRequest {
 	
@@ -28,15 +29,16 @@ public class TestBookingRequest {
 		bookingBean.setBbTime(time);
 		bookingBean.setBbStatus(status);
 		
-		BookingController bookingController = new BookingController();
+		ManageBookingController control = new ManageBookingController();
+		MakeBookingController control1 = new MakeBookingController();
 		
 		try {
-			bookingController.insertBooking(bookingBean);
+			control1.insertBooking(bookingBean);
 		} catch (InexistentUsernameException e) {
 			message = "Username not valid";
 		}
 		
-		count = bookingController.verifyBooking(bookingBean);
+		count = control.verifyBooking(bookingBean);
 		if (count==0) {
 			//book invalid
 			result = false;

@@ -9,8 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import logic.bean.UserBean;
 import logic.bean.WasteUnloadedBean;
-import logic.controller.UserController;
-import logic.controller.WasteUnloadedController;
+import logic.controller.AccountInformationController;
+import logic.controller.RegisterUnloadController;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,8 +28,8 @@ public class UserProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserBean userBean = new UserBean();
     	userBean.setUsbUsername(request.getParameter("username"));
-    	UserController controller = new UserController();
-        WasteUnloadedController controller1 = new WasteUnloadedController();
+    	AccountInformationController controller = new AccountInformationController();
+        RegisterUnloadController controller1 = new RegisterUnloadController();
         
         List<String> information = controller.userInformation(userBean);
         userBean.setUsbName(information.get(0));

@@ -11,8 +11,8 @@ import logic.bean.BookingBean;
 import logic.bean.CenterBean;
 import logic.bean.CenterOwnerBean;
 import logic.bean.WasteUnloadedBean;
-import logic.controller.BookingController;
-import logic.controller.WasteUnloadedController;
+import logic.controller.ManageBookingController;
+import logic.controller.RegisterUnloadController;
 
 import java.io.IOException;
 import java.util.List;
@@ -41,9 +41,9 @@ public class HistoryANDunloadsServlet extends HttpServlet {
     	bookingBean.setBbCenter(centername);
     	wasteBean.setWbCenter(centername);
     	bookingBean.setBbStatus("A");
-        BookingController controller = new BookingController();
+        ManageBookingController controller = new ManageBookingController();
         List<BookingBean> bookAccept= controller.bookingListByCenter(bookingBean);
-        WasteUnloadedController controller1 = new WasteUnloadedController();
+        RegisterUnloadController controller1 = new RegisterUnloadController();
         List<WasteUnloadedBean> unloadRegister = controller1.listUnloadByCenter(wasteBean);
         
         HttpSession session = request.getSession(true);

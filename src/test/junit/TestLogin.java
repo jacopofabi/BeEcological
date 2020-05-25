@@ -7,7 +7,7 @@ import org.junit.Test;
 import error.EmptyFieldException;
 import error.InexistentUsernameException;
 import logic.bean.UserBean;
-import logic.controller.UserController;
+import logic.controller.LoginController;
 
 public class TestLogin {
 	
@@ -22,9 +22,9 @@ public class TestLogin {
 		userBean.setUsbUsername(username);
 		userBean.setUsbPassword(pass);
 		
-		UserController userController = new UserController();
+		LoginController userController = new LoginController();
 		try {
-			result = userController.login(userBean);
+			result = userController.loginUser(userBean);
 		} catch (EmptyFieldException e) {
 			message = "Empty field in credentials";
 		} catch (InexistentUsernameException e) {

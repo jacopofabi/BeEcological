@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
 
 import logic.bean.CenterOwnerBean;
-import logic.controller.OwnerController;
+import logic.controller.AccountInformationController;
 import logic.utilities.PageLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,7 +50,7 @@ public class HomeOwnerView implements Initializable {
 	@FXML private ImageView centerImageView;
 	
 	@FXML private CenterOwnerBean owner;
-	@FXML private OwnerController control;
+	@FXML private AccountInformationController control;
 
 	
 	//------------------------------------------------------------------------------
@@ -181,11 +181,11 @@ public class HomeOwnerView implements Initializable {
 		manageInformationButton.setTooltip(new Tooltip("Edit or update your center information"));
 		
 		owner = new CenterOwnerBean();
-		control = new OwnerController();
+		control = new AccountInformationController();
 		owner.setCobUsername(CenterOwnerBean.getOwnerInstance("").getCobUsername());
 		ownerButton.setText(owner.getCobUsername());
 		
-		List<String> ownerInfo = control.ownerData(owner);
+		List<String> ownerInfo = control.ownerInformation(owner);
 		centerName.setText(ownerInfo.get(4));
 		centerAddress.setText(ownerInfo.get(7)+" "+ownerInfo.get(9));
 		ownerMail.setText(ownerInfo.get(2));

@@ -15,9 +15,8 @@ import logic.bean.BookingBean;
 import logic.bean.CenterOwnerBean;
 import logic.bean.UnloadBean;
 import logic.bean.WasteUnloadedBean;
-import logic.controller.BookingController;
-import logic.controller.UnloadController;
-import logic.controller.WasteUnloadedController;
+import logic.controller.ManageBookingController;
+import logic.controller.RegisterUnloadController;
 import logic.utilities.PageLoader;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -68,8 +67,8 @@ public class BookingANDUnloadsView implements Initializable {
 
 	private BookingBean book;
 	private WasteUnloadedBean waste;
-	private WasteUnloadedController control;
-	private BookingController control1;
+	private RegisterUnloadController control;
+	private ManageBookingController control1;
 	
 	
 	//------------------------------------------------------------------------------
@@ -100,7 +99,7 @@ public class BookingANDUnloadsView implements Initializable {
 			
 			if (result.get() == ButtonType.OK) {
 				//cancello lo scarico di un rifiuto e tolgo ecoPoints con trigger
-				control = new WasteUnloadedController();
+				control = new RegisterUnloadController();
 				control.deleteWasteForAnUnload(waste);
 				alert.setAlertType(AlertType.INFORMATION);
 				alert.setTitle("Unload waste deleted.");
@@ -117,7 +116,7 @@ public class BookingANDUnloadsView implements Initializable {
 					unload.setUbCenter(waste.getWbCenter());
 					unload.setUbDate(waste.getWbDate());
 					unload.setUbTime(waste.getWbTime());
-					UnloadController control2 = new UnloadController();
+					RegisterUnloadController control2 = new RegisterUnloadController();
 			        control2.deleteAnUnload(unload);
 					alert.setAlertType(AlertType.INFORMATION);
 					alert.setTitle("Unload deleted.");
@@ -156,7 +155,7 @@ public class BookingANDUnloadsView implements Initializable {
 	        
 	        if (result.get() == ButtonType.OK){
 	    		booking.setBbStatus("D");
-	    		control1 = new BookingController();
+	    		control1 = new ManageBookingController();
 	        	control1.modifyBooking(booking);
 	    		alert.setAlertType(AlertType.INFORMATION);
 	    		alert.setTitle("Booking refuse completed.");
@@ -223,7 +222,7 @@ public class BookingANDUnloadsView implements Initializable {
 		book.setBbStatus("A");
 		bookingList.removeAll(bookingList);
 	    try {
-	    	control1 = new BookingController();
+	    	control1 = new ManageBookingController();
 	        data = control1.bookingListByCenter(book);
 	        bookingList.addAll(data);
 	    }
@@ -256,7 +255,7 @@ public class BookingANDUnloadsView implements Initializable {
 		waste.setWbCenter(CenterOwnerBean.getOwnerInstance("").getCobCenter());
 		unloadList.removeAll(unloadList);
 	    try {
-	    	control = new WasteUnloadedController();
+	    	control = new RegisterUnloadController();
 	        data1 = control.listUnloadByCenter(waste);
 	        unloadList.addAll(data1);
 	    }

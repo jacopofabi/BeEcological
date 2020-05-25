@@ -14,7 +14,7 @@ import com.sun.javafx.scene.control.skin.TableHeaderRow;
 import logic.bean.CenterBean;
 import logic.bean.CenterOwnerBean;
 import logic.bean.UserBean;
-import logic.controller.CenterController;
+import logic.controller.MakeBookingController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -73,7 +73,7 @@ public class SearchResultView implements Initializable {
 	
     private CenterBean center;
     private CenterOwnerBean owner;
-    private CenterController control;
+    private MakeBookingController control;
     
     
 	//------------------------------------------------------------------------------
@@ -129,7 +129,7 @@ public class SearchResultView implements Initializable {
     @FXML
 	public void gotoUserProfile10(ActionEvent event) {
 		try {
-			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, userButton);
 			pageLoader.stageShow();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
@@ -143,7 +143,7 @@ public class SearchResultView implements Initializable {
 		if (event.getButton().equals(MouseButton.PRIMARY)) {
 	        int index = tableView.getSelectionModel().getSelectedIndex();
 	        center = new CenterBean();
-	        control = new CenterController();
+	        control = new MakeBookingController();
 	        center = tableView.getItems().get(index);
 	        owner = control.ownerOfTheSelectedCenter(center);
 		}
@@ -204,7 +204,7 @@ public class SearchResultView implements Initializable {
 		center.setCbName(Tool.getString());
 		centerList.removeAll(centerList);
 	    try{      
-	    	control = new CenterController();
+	    	control = new MakeBookingController();
 	        data = control.centerList(center);
 	        centerList.addAll(data);
 	    }

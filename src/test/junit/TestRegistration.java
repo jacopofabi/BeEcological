@@ -11,12 +11,14 @@ import error.EmptyFieldException;
 import error.InvalidEmailException;
 import error.ShortPasswordException;
 import logic.bean.UserBean;
-import logic.controller.UserController;
+import logic.controller.AccountInformationController;
+import logic.controller.LoginController;
 
 public class TestRegistration {
 	
 	UserBean userBean;
-	UserController userController = new UserController();
+	LoginController userController = new LoginController();
+	AccountInformationController controller = new AccountInformationController();
 	boolean result;
 	
 	@Before
@@ -42,7 +44,7 @@ public class TestRegistration {
 		result = true;
 		
 		try {
-			userController.saveRegistration(userBean);
+			userController.saveRegistrationUser(userBean);
 		} catch (EmptyFieldException e){
 			message = "Empty field";
 			result = false;
@@ -62,7 +64,7 @@ public class TestRegistration {
 	@After
 	public void deleteRegister() {
 		if(result) {
-			userController.deleteAccount(userBean);
+			controller.deleteUser(userBean);
 		}
 	}
 }

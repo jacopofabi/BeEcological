@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import logic.bean.UserBean;
-import logic.controller.UserController;
+import logic.controller.AccountInformationController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,8 +27,8 @@ public class DeleteUserServlet extends HttpServlet {
 		UserBean userBean = new UserBean();
         
         userBean.setUsbUsername(request.getParameter("username"));
-        UserController controller = new UserController();
-        controller.deleteAccount(userBean);
+        AccountInformationController controller = new AccountInformationController();
+        controller.deleteUser(userBean);
         HttpSession session = request.getSession(true);
         session.setAttribute("loggedUser", null);
         

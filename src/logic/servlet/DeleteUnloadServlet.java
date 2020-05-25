@@ -11,8 +11,7 @@ import logic.bean.CenterBean;
 import logic.bean.CenterOwnerBean;
 import logic.bean.UnloadBean;
 import logic.bean.WasteUnloadedBean;
-import logic.controller.UnloadController;
-import logic.controller.WasteUnloadedController;
+import logic.controller.RegisterUnloadController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -49,7 +48,7 @@ public class DeleteUnloadServlet extends HttpServlet {
     	wasteBean.setWbWasteQuantity(Integer.parseInt(request.getParameter("quantity")));
         
 		//cancello lo scarico di un rifiuto e tolgo ecoPoints con trigger
-		WasteUnloadedController controller = new WasteUnloadedController();
+		RegisterUnloadController controller = new RegisterUnloadController();
 		controller.deleteWasteForAnUnload(wasteBean);
 		
 		HttpSession session = request.getSession(true);
@@ -68,7 +67,7 @@ public class DeleteUnloadServlet extends HttpServlet {
 			unload.setUbCenter(wasteBean.getWbCenter());
 			unload.setUbDate(wasteBean.getWbDate());
 			unload.setUbTime(wasteBean.getWbTime());
-			UnloadController controller1 = new UnloadController();
+			RegisterUnloadController controller1 = new RegisterUnloadController();
 	        controller1.deleteAnUnload(unload);
 	        session.setAttribute("loggedOwner", ownerBean);
 	        session.setAttribute("centerInfo", centerBean);

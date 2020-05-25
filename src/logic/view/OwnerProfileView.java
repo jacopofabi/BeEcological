@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import logic.bean.CenterOwnerBean;
-import logic.controller.OwnerController;
+import logic.controller.AccountInformationController;
 import logic.utilities.PageLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,7 +41,7 @@ public class OwnerProfileView implements Initializable {
 	@FXML private Text email8;
 	@FXML private Text phoneNumber8;
 	
-	private OwnerController control;
+	private AccountInformationController control;
 	
 	
 	//------------------------------------------------------------------------------
@@ -89,14 +89,14 @@ public class OwnerProfileView implements Initializable {
 
 		if (result.get() == ButtonType.OK) {
 			try {
-				control = new OwnerController();
+				control = new AccountInformationController();
 				
 				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 				HomepageView controller = (HomepageView) pageLoader.getController();
 				controller.userGroup4.setVisible(false);
 				controller.loginGroup4.setVisible(true);
 				
-				control.deleteAccount(CenterOwnerBean.getInstance());
+				control.deleteOwner(CenterOwnerBean.getInstance());
 				CenterOwnerBean.setInstance(null);
 				pageLoader.stageShow();
 			} catch (IOException e) {
@@ -147,12 +147,12 @@ public class OwnerProfileView implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		homeButton8.setTooltip(new Tooltip("Return to BeEcological Homepage"));
 		CenterOwnerBean owner = new CenterOwnerBean();
-		control = new OwnerController();
+		control = new AccountInformationController();
 		owner.setCobUsername(CenterOwnerBean.getOwnerInstance("").getCobUsername());
 		ownerButton8.setText(owner.getCobUsername());
 		userNick8.setText(owner.getCobUsername());
 		
-		List<String> ownerInfo = control.ownerData(owner);
+		List<String> ownerInfo = control.ownerInformation(owner);
 
 		name8.setText(ownerInfo.get(0));
 		surname8.setText(ownerInfo.get(1));

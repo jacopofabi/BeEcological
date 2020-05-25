@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import logic.bean.CenterBean;
 import logic.bean.CenterOwnerBean;
 import logic.bean.UserBean;
-import logic.controller.CenterController;
+import logic.controller.MakeBookingController;
 
 import java.io.IOException;
 
@@ -33,7 +33,7 @@ public class CenterPageServlet extends HttpServlet {
     	centerBean.setCbPhone(request.getParameter("phone"));
     	centerBean.setCbName(request.getParameter("centername"));
     	
-        CenterController controller = new CenterController();
+        MakeBookingController controller = new MakeBookingController();
         owner = controller.ownerOfTheSelectedCenter(centerBean);
         
         HttpSession session = request.getSession(true);

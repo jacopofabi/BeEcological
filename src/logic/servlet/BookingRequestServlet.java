@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 import error.InexistentUsernameException;
 import logic.bean.BookingBean;
 import logic.bean.UserBean;
-import logic.controller.BookingController;
-import logic.controller.UserController;
+import logic.controller.LoginController;
+import logic.controller.MakeBookingController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,9 +34,9 @@ public class BookingRequestServlet extends HttpServlet {
     	BookingBean bookingBean = new BookingBean();
         userBean.setUsbUsername(request.getParameter("username"));
         
-        UserController controller = new UserController();
+        LoginController controller = new LoginController();
         boolean result = true;
-		result = controller.checkRegistration(userBean);
+		result = controller.checkRegistrationUser(userBean);
 
         HttpSession session = request.getSession(true);
         
@@ -47,7 +47,7 @@ public class BookingRequestServlet extends HttpServlet {
             bookingBean.setBbDate(request.getParameter("date"));
             bookingBean.setBbTime(request.getParameter("time"));
             bookingBean.setBbStatus("W");
-            BookingController controller1 = new BookingController();
+            MakeBookingController controller1 = new MakeBookingController();
             try {
 				controller1.insertBooking(bookingBean);
 			} catch (InexistentUsernameException e) {

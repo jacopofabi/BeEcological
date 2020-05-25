@@ -15,8 +15,8 @@ import logic.bean.BookingBean;
 import logic.bean.CenterBean;
 import logic.bean.CenterOwnerBean;
 import logic.bean.UserBean;
-import logic.controller.BookingController;
-import logic.controller.UserController;
+import logic.controller.LoginController;
+import logic.controller.MakeBookingController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -93,7 +93,7 @@ public class CenterPageView implements Initializable {
     @FXML private ImageView centerImageView;
     
     private UserBean user;
-    private UserController control;
+    private LoginController control;
     private long end;
     boolean isBooking;
     
@@ -181,9 +181,9 @@ public class CenterPageView implements Initializable {
 			user = new UserBean();
 			user.setUsbUsername(UserBean.getUserInstance(usr).getUsbUsername());
 			user.setUsbPassword(psw);
-			control = new UserController();
+			control = new LoginController();
 			try {
-				ok = control.login(user);
+				ok = control.loginUser(user);
 			} catch (InexistentUsernameException | EmptyFieldException e) {
 				Logger.getGlobal().log(Level.SEVERE, "Invalid username");
 			}
@@ -266,7 +266,7 @@ public class CenterPageView implements Initializable {
 	@FXML
 	public void gotoUserProfile2(ActionEvent event) {
 		try {
-			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, userButton);
 			pageLoader.stageShow();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
@@ -384,7 +384,7 @@ public class CenterPageView implements Initializable {
 			booking.setBbTime(time);
 			booking.setBbStatus("W");
 			
-			BookingController control1 = new BookingController();
+			MakeBookingController control1 = new MakeBookingController();
 			try {
 				control1.insertBooking(booking);
 			} catch (InexistentUsernameException e) {

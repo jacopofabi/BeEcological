@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import logic.bean.CenterOwnerBean;
-import logic.controller.OwnerController;
+import logic.controller.LoginController;
 import logic.utilities.PageLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,7 +43,7 @@ public class LoginOwnerView implements Initializable {
 	@FXML private PasswordField loginPassword;
 	
 	@FXML private CenterOwnerBean owner;
-	@FXML private OwnerController control;
+	@FXML private LoginController control;
 		
 	
 	//------------------------------------------------------------------------------
@@ -91,8 +91,8 @@ public class LoginOwnerView implements Initializable {
 		owner = CenterOwnerBean.getOwnerInstance(username);
 		owner.setCobPassword(password);
 		
-		control = new OwnerController();
-		ok = control.login(owner);
+		control = new LoginController();
+		ok = control.loginOwner(owner);
 		Alert alert = new Alert(AlertType.ERROR);
 		if (!ok) {
 			CenterOwnerBean.setInstance(null);

@@ -8,12 +8,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import logic.bean.CenterBean;
-import logic.controller.CenterController;
+import logic.controller.MakeBookingController;
 
 public class TestSearchCenter {
 	
 	private CenterBean center;
-	private CenterController centerController = new CenterController();
+	private MakeBookingController centerController = new MakeBookingController();
 	
 	@Before
 	public void prepareData() {

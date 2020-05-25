@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import logic.bean.CenterBean;
 import logic.bean.CenterOwnerBean;
-import logic.controller.OwnerController;
+import logic.controller.AccountInformationController;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,9 +28,9 @@ public class OwnerProfileServlet extends HttpServlet {
         CenterOwnerBean ownerBean = new CenterOwnerBean();
         CenterBean centerBean = new CenterBean();
     	ownerBean.setCobUsername(request.getParameter("username"));
-    	OwnerController controller = new OwnerController();
+    	AccountInformationController controller = new AccountInformationController();
         
-        List<String> information = controller.ownerData(ownerBean);
+        List<String> information = controller.ownerInformation(ownerBean);
         ownerBean.setCobName(information.get(0));
         ownerBean.setCobSurname(information.get(1));
         ownerBean.setCobEmail(information.get(2));

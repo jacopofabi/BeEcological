@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import logic.bean.BookingBean;
 import logic.bean.UserBean;
-import logic.controller.BookingController;
+import logic.controller.UnloadHistoryController;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,7 +29,7 @@ public class UserBookingListServlet extends HttpServlet {
     	userBean.setUsbUsername(request.getParameter("username"));
     	bookingBean.setBbUser(userBean.getUsbUsername());
     	bookingBean.setBbStatus("W");
-        BookingController controller = new BookingController();
+        UnloadHistoryController controller = new UnloadHistoryController();
         List<BookingBean> bookingWait = controller.bookingListByUser(bookingBean);
         bookingBean.setBbStatus("A");
         List<BookingBean> bookingAccepted = controller.bookingListByUser(bookingBean);

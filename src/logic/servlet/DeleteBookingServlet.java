@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import logic.bean.BookingBean;
 import logic.bean.CenterBean;
 import logic.bean.CenterOwnerBean;
-import logic.controller.BookingController;
+import logic.controller.ManageBookingController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,7 +46,7 @@ public class DeleteBookingServlet extends HttpServlet {
     	
         HttpSession session4 = request.getSession(true);
     	
-        BookingController controller4 = new BookingController();
+        ManageBookingController controller4 = new ManageBookingController();
     	controller4.modifyBooking(bookingBean4);
         
         session4.setAttribute("loggedOwner", ownerBean4);

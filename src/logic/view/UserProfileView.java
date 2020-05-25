@@ -13,8 +13,8 @@ import com.sun.javafx.scene.control.skin.TableHeaderRow;
 
 import logic.bean.UserBean;
 import logic.bean.WasteUnloadedBean;
-import logic.controller.UserController;
-import logic.controller.WasteUnloadedController;
+import logic.controller.AccountInformationController;
+import logic.controller.RegisterUnloadController;
 import logic.utilities.PageLoader;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -67,7 +67,7 @@ public class UserProfileView implements Initializable {
 	@FXML private TableColumn<WasteUnloadedBean, String> colQuantity;
 	@FXML private TableColumn<WasteUnloadedBean, String> colPoints;
 	
-	private UserController control;
+	private AccountInformationController control;
 	
 	
 	//------------------------------------------------------------------------------
@@ -139,14 +139,12 @@ public class UserProfileView implements Initializable {
 
 		if (result.get() == ButtonType.OK) {
 			try {
-				control = new UserController();
-				
 				PageLoader pageLoader = new PageLoader(PageLoader.Page.HOMEPAGE, event);
 				HomepageView controller = (HomepageView) pageLoader.getController();
 				controller.userGroup4.setVisible(false);
 				controller.loginGroup4.setVisible(true);
 				
-				control.deleteAccount(UserBean.getInstance());
+				control.deleteUser(UserBean.getInstance());
 				UserBean.setInstance(null);
 				pageLoader.stageShow();
 			} catch (IOException e) {
@@ -193,8 +191,8 @@ public class UserProfileView implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		control = new AccountInformationController();
 		userGroup13.setVisible(true);
-		control = new UserController();
 		List<String> userInfo = control.userInformation(UserBean.getInstance());
 		userButton.setText(UserBean.getInstance().getUsbUsername());
 		userNick13.setText(UserBean.getInstance().getUsbUsername());
@@ -207,7 +205,7 @@ public class UserProfileView implements Initializable {
 		unloadList.removeAll(unloadList);
 		List<WasteUnloadedBean> data = new ArrayList<>();
 	    try {
-	        WasteUnloadedController control1 = new WasteUnloadedController();
+	        RegisterUnloadController control1 = new RegisterUnloadController();
 	    	data = control1.listUnloadByUser(UserBean.getInstance());
 	        unloadList.addAll(data);
 	    }

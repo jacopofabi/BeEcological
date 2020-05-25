@@ -17,9 +17,10 @@ import error.InexistentUsernameException;
 import logic.bean.BookingBean;
 import logic.bean.CenterOwnerBean;
 import logic.bean.UserBean;
-import logic.controller.BookingController;
-import logic.controller.OwnerController;
-import logic.controller.UserController;
+import logic.controller.ManageBookingController;
+import logic.controller.AccountInformationController;
+import logic.controller.LoginController;
+import logic.controller.MakeBookingController;
 import logic.utilities.PageLoader;
 import logic.utilities.Tool;
 import javafx.beans.value.ChangeListener;
@@ -72,9 +73,9 @@ public class ManageBookingView implements Initializable {
 	@FXML private CenterOwnerBean owner;
 	@FXML private UserBean user;
 	@FXML private BookingBean booking;
-	@FXML private OwnerController control;
-	@FXML private UserController control1;
-	@FXML private BookingController control2;
+	@FXML private AccountInformationController control;
+	@FXML private LoginController control1;
+	@FXML private ManageBookingController control2;
 
 	
 	//------------------------------------------------------------------------------
@@ -97,19 +98,19 @@ public class ManageBookingView implements Initializable {
 		user = new UserBean();
 		owner = new CenterOwnerBean();
 		
-		control = new OwnerController();
+		control = new AccountInformationController();
 		
 		owner.setCobUsername(CenterOwnerBean.getOwnerInstance("").getCobUsername());
 		user.setUsbUsername(userToBook.getText());
-		List<String> ownerData = control.ownerData(owner);
+		List<String> ownerData = control.ownerInformation(owner);
 		String center = ownerData.get(4);
 		LocalDate date = dateToBook.getValue();
 		String time = hourToBook.getText();
 		
-		control1 = new UserController();
+		control1 = new LoginController();
 		
 		Alert alert = new Alert(AlertType.ERROR);		
-		res = control1.checkRegistration(user);
+		res = control1.checkRegistrationUser(user);
 		//se true username non esiste, non posso aggiungere prenotazione
 		if (res) {
 			alert.setTitle(invalidBooking);
@@ -148,7 +149,7 @@ public class ManageBookingView implements Initializable {
 		booking.setBbTime(time);
 		
 		booking.setBbStatus("W");
-		control2 = new BookingController();
+		control2 = new ManageBookingController();
 		int count = control2.verifyBooking(booking);
     	if(count!=0) {
     		//esiste prenotazione, la aggiorno accettandola
@@ -186,7 +187,8 @@ public class ManageBookingView implements Initializable {
 		}
 		//la prenotazione non esiste
 		try {
-			control2.insertBooking(booking);
+			MakeBookingController control3 = new MakeBookingController();
+			control3.insertBooking(booking);
 		} catch (InexistentUsernameException e) {
 			Logger.getGlobal().log(Level.SEVERE, "Invalid username"); 
 		}
@@ -205,7 +207,7 @@ public class ManageBookingView implements Initializable {
 	        int index = tableBookingRequest.getSelectionModel().getSelectedIndex();
 	        BookingBean book = tableBookingRequest.getItems().get(index);
 	        
-	        control2 = new BookingController();
+	        control2 = new ManageBookingController();
 	        
 	        Alert alert = new Alert(AlertType.CONFIRMATION);
 	        alert.setTitle("Validate booking request");
@@ -294,10 +296,10 @@ public class ManageBookingView implements Initializable {
 		bookingList7.removeAll(bookingList7);
 		try {
 	    	booking = new BookingBean();
-	    	control2 = new BookingController();
+	    	control2 = new ManageBookingController();
 	    	booking.setBbCenter(CenterOwnerBean.getOwnerInstance("").getCobCenter());
 	    	booking.setBbStatus("W");
-	        control2 = new BookingController();
+	        control2 = new ManageBookingController();
 	    	data = control2.bookingListByCenter(booking); //richieste di prenotazione da accettare
 	        bookingList7.addAll(data);
 	    }

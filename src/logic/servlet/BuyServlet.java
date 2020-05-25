@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import logic.bean.UserBean;
-import logic.controller.UserController;
+import logic.controller.AccountInformationController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,7 +41,7 @@ public class BuyServlet extends HttpServlet {
         else {
 		    userBean.setEcopoints(newEcopoints);
 		    
-		    UserController controller = new UserController();
+		    AccountInformationController controller = new AccountInformationController();
 		    controller.updateEcoPoints(userBean);
 		    out.println("<script type=\"text/javascript\">");
 		    out.println("alert('Item acquired successfully.');");

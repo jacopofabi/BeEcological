@@ -12,8 +12,9 @@ import logic.bean.BookingBean;
 import logic.bean.CenterBean;
 import logic.bean.CenterOwnerBean;
 import logic.bean.UserBean;
-import logic.controller.BookingController;
-import logic.controller.UserController;
+import logic.controller.ManageBookingController;
+import logic.controller.LoginController;
+import logic.controller.MakeBookingController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -70,9 +71,9 @@ public class InsertBookingServlet extends HttpServlet {
         session.setAttribute("loggedOwner", ownerBean1);
         session.setAttribute("centerInfo", centerBean1);
         
-    	UserController controller = new UserController();
+    	LoginController controller = new LoginController();
     	boolean result = false;
-		result = controller.checkRegistration(userBean1);
+		result = controller.checkRegistrationUser(userBean1);
     	if(result) {
     		//username non esiste non posso inserire
             out.println(openScript);
@@ -91,7 +92,7 @@ public class InsertBookingServlet extends HttpServlet {
             return;
 		}
     	
-    	BookingController controller1 = new BookingController();
+    	ManageBookingController controller1 = new ManageBookingController();
     	bookingBean1.setBbStatus("W");
     	int count = controller1.verifyBooking(bookingBean1);
     	if(count!=0) {
@@ -117,7 +118,8 @@ public class InsertBookingServlet extends HttpServlet {
     	}    	
         
     	try {
-			controller1.insertBooking(bookingBean1);
+    		MakeBookingController controller2 = new MakeBookingController();
+			controller2.insertBooking(bookingBean1);
 		} catch (InexistentUsernameException e) {
 			Logger.getGlobal().log(Level.SEVERE, "Invalid username");
 		}

@@ -12,7 +12,7 @@ import error.InexistentUsernameException;
 import error.InvalidEmailException;
 import error.ShortPasswordException;
 import logic.bean.UserBean;
-import logic.controller.UserController;
+import logic.controller.LoginController;
 import logic.utilities.PageLoader;
 import logic.utilities.Tool;
 import javafx.event.ActionEvent;
@@ -42,7 +42,7 @@ public class LoginUserView implements Initializable {
 	@FXML private TextField loginUsername6;
 	@FXML private TextField loginPassword6;
 	
-    private UserController control;
+    private LoginController control;
     private UserBean user;
 	
     
@@ -80,8 +80,8 @@ public class LoginUserView implements Initializable {
 		user = UserBean.getUserInstance(username);
 		user.setUsbPassword(password);
 		
-		control = new UserController();
-		ok = control.login(user);
+		control = new LoginController();
+		ok = control.loginUser(user);
 		Alert alert6 = new Alert(AlertType.ERROR);
 		if (!ok) {
 			UserBean.setInstance(null);
@@ -109,9 +109,9 @@ public class LoginUserView implements Initializable {
 		
 		user = new UserBean();
 		user.setUsbUsername(username);
-		control = new UserController();
+		control = new LoginController();
 		
-		ok = control.checkRegistration(user);
+		ok = control.checkRegistrationUser(user);
 		Alert alert6 = new Alert(AlertType.ERROR);
 		if (name.isEmpty() || surname.isEmpty()) {
 			alert6.setTitle("Registration Failed - Invalid name");
@@ -178,7 +178,7 @@ public class LoginUserView implements Initializable {
 		user.setUsbPhone(phoneNumber);
 		user.setUsbPassword(password);
 		user.setEcopoints(0);
-		control.saveRegistration(user);
+		control.saveRegistrationUser(user);
 		alertConfig("Welcome to BeEcological!", "Registration completed, you will be redirected to the homepage.", event);
 	}
 	

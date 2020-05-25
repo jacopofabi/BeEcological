@@ -18,10 +18,9 @@ import logic.bean.CenterOwnerBean;
 import logic.bean.UnloadBean;
 import logic.bean.UserBean;
 import logic.bean.WasteUnloadedBean;
-import logic.controller.BookingController;
-import logic.controller.UnloadController;
-import logic.controller.UserController;
-import logic.controller.WasteUnloadedController;
+import logic.controller.ManageBookingController;
+import logic.controller.LoginController;
+import logic.controller.RegisterUnloadController;
 import logic.utilities.PageLoader;
 import logic.utilities.Tool;
 import javafx.beans.value.ChangeListener;
@@ -108,7 +107,7 @@ public class RegisterUnloadView implements Initializable {
 	@FXML private TableColumn<BookingBean, String> colTime;
 	
 	private BookingBean booking9;
-	private BookingController control3;
+	private ManageBookingController control3;
 	
 	
 	//------------------------------------------------------------------------------
@@ -213,7 +212,7 @@ public class RegisterUnloadView implements Initializable {
 	public void confirmRegistrationUnload9(ActionEvent event) {
 		boolean res;
 		UserBean user = new UserBean();
-		UserController control = new UserController();
+		LoginController control = new LoginController();
 		user.setUsbUsername(textUser.getText());
 		LocalDate date = textDate.getValue();
 		String time = textHour.getText();
@@ -221,7 +220,7 @@ public class RegisterUnloadView implements Initializable {
 		wasteQuantityList.removeAll(wasteQuantityList);
 		
 		Alert alert = new Alert(AlertType.ERROR);		
-		res = control.checkRegistration(user);
+		res = control.checkRegistrationUser(user);
 		//se true username non esiste, non posso aggiungere prenotazione
 		if (res) {
 			alert.setTitle(invalidUnload);
@@ -253,7 +252,7 @@ public class RegisterUnloadView implements Initializable {
 		data2.addAll(wasteList);
 		
 		UnloadBean unload = new UnloadBean();
-		UnloadController control1 = new UnloadController();
+		RegisterUnloadController control1 = new RegisterUnloadController();
 		unload.setUbUser(user.getUsbUsername());
 		unload.setUbCenter(CenterOwnerBean.getInstance().getCobCenter());
 		unload.setUbDate(date.format(DateTimeFormatter.ofPattern(dateFormat)));
@@ -270,7 +269,7 @@ public class RegisterUnloadView implements Initializable {
 				waste = data2.get(i).getText();
 				quantity = Integer.parseInt(data1.get(i).getText());
 				WasteUnloadedBean wasteUnloaded = new WasteUnloadedBean();
-				WasteUnloadedController control2 = new WasteUnloadedController();
+				RegisterUnloadController control2 = new RegisterUnloadController();
 				wasteUnloaded.setWbUser(user.getUsbUsername());
 				wasteUnloaded.setWbCenter(CenterOwnerBean.getInstance().getCobCenter());
 				wasteUnloaded.setWbDate(date.format(DateTimeFormatter.ofPattern(dateFormat)));
@@ -299,7 +298,7 @@ public class RegisterUnloadView implements Initializable {
 		//se era una prenotazione presente nella griglia la salvo come registrata
 		if(user.getUsbUsername().equals(userSelected) && date.format(DateTimeFormatter.ofPattern(dateFormat)).equals(dateSelected) && time.equals(hourSelected )) {
 			booking9 = new BookingBean();
-			control3 = new BookingController();
+			control3 = new ManageBookingController();
 			booking9.setBbId(bookingID);
 			booking9.setBbStatus("R");
 			control3.modifyBooking(booking9);
@@ -370,7 +369,7 @@ public class RegisterUnloadView implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
     	booking9 = new BookingBean();
-    	control3 = new BookingController();
+    	control3 = new ManageBookingController();
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
 		ownerButton.setText(CenterOwnerBean.getOwnerInstance("").getCobUsername());
 		

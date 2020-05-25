@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import logic.bean.CenterBean;
 import logic.bean.UserBean;
-import logic.controller.CenterController;
+import logic.controller.MakeBookingController;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,7 +34,7 @@ public class SearchServlet extends HttpServlet {
     	UserBean userBean = new UserBean();
         centerBean.setCbName(req.getParameter("search"));
         userBean.setUsbUsername(req.getParameter("username"));
-        CenterController controller = new CenterController();
+        MakeBookingController controller = new MakeBookingController();
         List<CenterBean> centerList = controller.centerList(centerBean);
         
         HttpSession session = req.getSession(true);

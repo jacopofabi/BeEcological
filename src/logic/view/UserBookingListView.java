@@ -13,7 +13,7 @@ import com.sun.javafx.scene.control.skin.TableHeaderRow;
 
 import logic.bean.BookingBean;
 import logic.bean.UserBean;
-import logic.controller.BookingController;
+import logic.controller.UnloadHistoryController;
 import logic.utilities.PageLoader;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -78,7 +78,7 @@ public class UserBookingListView implements Initializable {
 	@FXML private TableColumn<BookingBean, String> colDate2;
 	@FXML private TableColumn<BookingBean, String> colTime2;
 	
-	private BookingController control;
+	private UnloadHistoryController control;
 	
 	
 	//------------------------------------------------------------------------------
@@ -120,7 +120,7 @@ public class UserBookingListView implements Initializable {
 	@FXML
 	public void gotoUserProfile12(ActionEvent event) {
 		try {
-			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, userButton);
 			pageLoader.stageShow();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
@@ -153,7 +153,7 @@ public class UserBookingListView implements Initializable {
 		bookingWaitList.removeAll(bookingWaitList);
 		List<BookingBean> data = new ArrayList<>();
 		try {
-			control = new BookingController();
+			control = new UnloadHistoryController();
 	    	data = control.bookingListByUser(booking); //richieste di prenotazione in attesa
 	        bookingWaitList.addAll(data);
 	    }

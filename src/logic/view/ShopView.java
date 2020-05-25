@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import logic.bean.UserBean;
-import logic.controller.UserController;
+import logic.controller.AccountInformationController;
 import logic.utilities.PageLoader;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -51,7 +51,7 @@ public class ShopView implements Initializable {
 	private Alert alert11;
 	private boolean isBuying = false;
 	
-	private UserController control;
+	private AccountInformationController control;
 	
 	
 	//------------------------------------------------------------------------------
@@ -127,7 +127,7 @@ public class ShopView implements Initializable {
 	@FXML
 	public void gotoUserProfile11(ActionEvent event) {
 		try {
-			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, event);
+			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_PROFILE, userButton);
 			pageLoader.stageShow();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
@@ -211,7 +211,6 @@ public class ShopView implements Initializable {
 		if (result.get() == ButtonType.OK){
 			int newEcoPoints = oldEcoPoints - cost;
 			UserBean.getInstance().setEcopoints(newEcoPoints);
-			control = new UserController();
 			control.updateEcoPoints(UserBean.getUserInstance(""));
 			isBuying = false;
 			gotoShop11(event);
@@ -222,7 +221,7 @@ public class ShopView implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		homeButton.setTooltip(new Tooltip("Return to BeEcological Homepage"));
-		control = new UserController();
+		control = new AccountInformationController();
 		List<String> userInfo = control.userInformation(UserBean.getInstance());
 		userButton.setText(UserBean.getInstance().getUsbUsername());
 		ecoPoints.setText(userInfo.get(4));

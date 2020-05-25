@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import logic.bean.BookingBean;
 import logic.bean.CenterBean;
 import logic.bean.CenterOwnerBean;
-import logic.controller.BookingController;
+import logic.controller.ManageBookingController;
 
 import java.io.IOException;
 import java.util.List;
@@ -36,7 +36,7 @@ public class RegisterUnloadServlet extends HttpServlet {
         centerBean2.setCbPhone(request.getParameter("centerphone"));
     	bookingBean2.setBbCenter(request.getParameter("centername"));
     	bookingBean2.setBbStatus("A");
-        BookingController controller2 = new BookingController();
+        ManageBookingController controller2 = new ManageBookingController();
         List<BookingBean> bookAccept= controller2.bookingListByCenter(bookingBean2);
         
         HttpSession session = request.getSession(true);
