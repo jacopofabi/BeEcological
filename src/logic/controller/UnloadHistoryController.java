@@ -15,18 +15,18 @@ public class UnloadHistoryController {
 	List<Booking> listOfBooking;
 	
 	public List<BookingBean> listBookingBean(List<Booking> listOfBooking) {
-		List<BookingBean> listOfBookingBean = new ArrayList<>();
+		List<BookingBean> listOfBookingBean1 = new ArrayList<>();
 		for(Booking book : listOfBooking) {
-			BookingBean bookB = new BookingBean();
-			bookB.setBbId(book.getbId());
-			bookB.setBbUser(book.getbUser());
-			bookB.setBbCenter(book.getbCenter());
-			bookB.setBbDate(book.getbDate());
-			bookB.setBbTime(book.getbTime());
-			bookB.setBbStatus(book.getbStatus());
-			listOfBookingBean.add(bookB);
+			BookingBean bookBean = new BookingBean();
+			bookBean.setBbId(book.getbId());
+			bookBean.setBbUser(book.getbUser());
+			bookBean.setBbCenter(book.getbCenter());
+			bookBean.setBbDate(book.getbDate());
+			bookBean.setBbTime(book.getbTime());
+			bookBean.setBbStatus(book.getbStatus());
+			listOfBookingBean1.add(bookBean);
 		}
-		return listOfBookingBean;
+		return listOfBookingBean1;
 	}
 	
 	public List<BookingBean> bookingListByUser(BookingBean bookingBean) {
@@ -35,19 +35,19 @@ public class UnloadHistoryController {
 	}
 	
 	public List<WasteUnloadedBean> listUnloadBean(List<WasteUnloaded> listOfUnload) {
-		List<WasteUnloadedBean> listOfUnloadBean = new ArrayList<>();
+		List<WasteUnloadedBean> listOfUnloadBean1 = new ArrayList<>();
 		for(WasteUnloaded waste : listOfUnload) {
-			WasteUnloadedBean wasteB = new WasteUnloadedBean();
-			wasteB.setWbUser(waste.getWuUser());
-			wasteB.setWbCenter(waste.getWuCenter());
-			wasteB.setWbDate(waste.getWuDate());
-			wasteB.setWbTime(waste.getWuTime());
-			wasteB.setWbWaste(waste.getWuWaste());
-			wasteB.setWbWasteQuantity(waste.getWuWasteQuantity());
-			wasteB.setWbEcoPoints(waste.getWuEcoPoints());
-			listOfUnloadBean.add(wasteB);
+			WasteUnloadedBean wasteBean = new WasteUnloadedBean();
+			wasteBean.setWbUser(waste.getWuUser());
+			wasteBean.setWbCenter(waste.getWuCenter());
+			wasteBean.setWbDate(waste.getWuDate());
+			wasteBean.setWbTime(waste.getWuTime());
+			wasteBean.setWbWaste(waste.getWuWaste());
+			wasteBean.setWbWasteQuantity(waste.getWuWasteQuantity());
+			wasteBean.setWbEcoPoints(waste.getWuEcoPoints());
+			listOfUnloadBean1.add(wasteBean);
 		}
-		return listOfUnloadBean;
+		return listOfUnloadBean1;
 	}
 	
 	public List<WasteUnloadedBean> listUnloadByUser(UserBean userBean) {

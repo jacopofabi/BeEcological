@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="705.0" prefWidth="1345.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.LoginOwnerView">
+<AnchorPane prefHeight="705.0" prefWidth="1345.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="logic.view.LoginOwnerView">
    <children>
       <TextField fx:id="loginUsername" layoutX="175.0" layoutY="273.0" onAction="#loginOwner5" prefHeight="20.0" prefWidth="350.0" promptText="Username">
          <font>
