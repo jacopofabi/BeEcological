@@ -18,52 +18,52 @@ public class TestRedeemPrize {
 		String user = "user";
 		String pass = "user";
 		
-		WebDriver webDriver = null;
+		WebDriver webDriver1 = null;
 		
-		WebElement userField;
-		WebElement passField;
-		WebElement loginButton;
-		WebElement logoutButton;
-		WebElement shopButton;
-		WebElement prizeButton;
+		WebElement userField1;
+		WebElement passField1;
+		WebElement loginButton1;
+		WebElement logoutButton1;
+		WebElement shopButton1;
+		WebElement prizeButton1;
 		
 		try {
 			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-			webDriver = new ChromeDriver();
-			webDriver.get("http://localhost:8080/BeEcological/index.jsp");
-			webDriver.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/ul/li[1]/a")).click();
+			webDriver1 = new ChromeDriver();
+			webDriver1.get("http://localhost:8080/BeEcological/index.jsp");
+			webDriver1.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/ul/li[1]/a")).click();
 			Thread.sleep(2000);
 			
-			userField = webDriver.findElement(By.xpath("//*[@id=\"usr\"]"));
-			passField = webDriver.findElement(By.xpath("//*[@id=\"pwd\"]"));
-			loginButton = webDriver.findElement(By.xpath("/html/body/div/div/div[1]/form/div[3]/button"));
-			userField.sendKeys(user);
-			passField.sendKeys(pass);
-			loginButton.click();
+			userField1 = webDriver1.findElement(By.xpath("//*[@id=\"usr\"]"));
+			passField1 = webDriver1.findElement(By.xpath("//*[@id=\"pwd\"]"));
+			loginButton1 = webDriver1.findElement(By.xpath("/html/body/div/div/div[1]/form/div[3]/button"));
+			userField1.sendKeys(user);
+			passField1.sendKeys(pass);
+			loginButton1.click();
 			Thread.sleep(2000);
 
-			shopButton = webDriver.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/ul/li[1]/a"));
-			shopButton.click();
+			shopButton1 = webDriver1.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/ul/li[1]/a"));
+			shopButton1.click();
 			Thread.sleep(2000);
 			
-			prizeButton = webDriver.findElement(By.xpath("/html/body/div/div/div/div[1]/form[1]/button"));
-			prizeButton.click();
+			prizeButton1 = webDriver1.findElement(By.xpath("/html/body/div/div/div/div[1]/form[1]/button"));
+			prizeButton1.click();
 			Thread.sleep(2000);
 			
-			actual = webDriver.switchTo().alert().getText();
+			actual = webDriver1.switchTo().alert().getText();
 			Thread.sleep(2000);
-			webDriver.switchTo().alert().accept();
+			webDriver1.switchTo().alert().accept();
 			
-			webDriver.findElement(By.xpath("//*[@id=\"navbarDropdown\"]")).click();
+			webDriver1.findElement(By.xpath("//*[@id=\"navbarDropdown\"]")).click();
 			Thread.sleep(1000);
-			logoutButton = webDriver.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/ul/li[2]/div/a[2]"));
-			logoutButton.click();
+			logoutButton1 = webDriver1.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/ul/li[2]/div/a[2]"));
+			logoutButton1.click();
 		
 		} catch(Exception e) {
 			Logger.getGlobal().log(Level.SEVERE, "Test Exception");
 		} finally {
-			if(webDriver != null) {
-				webDriver.close();
+			if(webDriver1 != null) {
+				webDriver1.close();
 			}
 		}
 		
