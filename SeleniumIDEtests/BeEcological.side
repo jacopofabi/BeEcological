@@ -1,0 +1,369 @@
+{
+  "id": "96729ff8-4f0a-44ea-b177-7c6274bdafd2",
+  "version": "2.0",
+  "name": "BeEcological",
+  "url": "http://localhost:8080/BeEcological/index.jsp",
+  "tests": [{
+    "id": "27b456e3-d8af-4dc4-95e7-400aac72fe3e",
+    "name": "Fabi_Check Booking",
+    "commands": [{
+      "id": "1d0acf65-d9f2-449d-ab63-ffa963de6a7e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/BeEcological/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1091ae6c-4360-48fe-bcd9-1415b3a45e77",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aa8af0cb-8647-4583-8bf7-4dfb6bed3b58",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'loginUser.jsp')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6eedf42-caa5-4a5b-9e08-aee5cab94bad",
+      "comment": "",
+      "command": "click",
+      "target": "id=usr",
+      "targets": [
+        ["id=usr", "id"],
+        ["name=username", "name"],
+        ["css=#usr", "css:finder"],
+        ["xpath=//input[@id='usr']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed2299a7-44e2-49af-aea5-e903dc5b59e7",
+      "comment": "",
+      "command": "type",
+      "target": "id=usr",
+      "targets": [
+        ["id=usr", "id"],
+        ["name=username", "name"],
+        ["css=#usr", "css:finder"],
+        ["xpath=//input[@id='usr']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "user"
+    }, {
+      "id": "328e13b0-36a8-44d8-9b0e-44898ff4c9e2",
+      "comment": "",
+      "command": "click",
+      "target": "id=pwd",
+      "targets": [
+        ["id=pwd", "id"],
+        ["name=password", "name"],
+        ["css=#pwd", "css:finder"],
+        ["xpath=//input[@id='pwd']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d090e863-700e-463b-9e8b-b79d7181e3c2",
+      "comment": "",
+      "command": "type",
+      "target": "id=pwd",
+      "targets": [
+        ["id=pwd", "id"],
+        ["name=password", "name"],
+        ["css=#pwd", "css:finder"],
+        ["xpath=//input[@id='pwd']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "user"
+    }, {
+      "id": "554ee7fd-313b-42d8-ac54-3b606bea42fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-sm:nth-child(1) > form .btn",
+      "targets": [
+        ["css=.col-sm:nth-child(1) > form .btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'LOG IN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2de58762-8f65-475b-b55e-976a3b6b1524",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=user", "linkText"],
+        ["css=.nav-item:nth-child(2) > #navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'user')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'user')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "add0e73e-442f-43bb-ac9f-592e6b0c08ca",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Your Profile",
+      "targets": [
+        ["linkText=Your Profile", "linkText"],
+        ["css=.show > .dropdown-item:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Your Profile')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'UserProfileServlet?username=user')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Your Profile')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "00ffca1b-6bc5-4e31-af62-ceb16e805856",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(1)",
+      "targets": [
+        ["css=.btn-primary:nth-child(1)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'SEE BOOKING REQUEST')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "32c15a9b-53a5-4085-9a27-e01266d6b1ae",
+      "comment": "",
+      "command": "click",
+      "target": "id=tab2-tab",
+      "targets": [
+        ["id=tab2-tab", "id"],
+        ["linkText=Accepted booking request", "linkText"],
+        ["css=#tab2-tab", "css:finder"],
+        ["xpath=//a[contains(text(),'Accepted booking request')]", "xpath:link"],
+        ["xpath=//a[@id='tab2-tab']", "xpath:attributes"],
+        ["xpath=//ul[@id='myTab']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#tab2')]", "xpath:href"],
+        ["xpath=//body/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Accepted booking request')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9501621c-d1ed-4064-8826-8dcf90f95ae8",
+      "comment": "",
+      "command": "click",
+      "target": "id=tab3-tab",
+      "targets": [
+        ["id=tab3-tab", "id"],
+        ["linkText=Refused booking request", "linkText"],
+        ["css=#tab3-tab", "css:finder"],
+        ["xpath=//a[contains(text(),'Refused booking request')]", "xpath:link"],
+        ["xpath=//a[@id='tab3-tab']", "xpath:attributes"],
+        ["xpath=//ul[@id='myTab']/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#tab3')]", "xpath:href"],
+        ["xpath=//body/ul/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Refused booking request')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a4b9f98f-7821-4af4-b408-10bc9ba7a5fe",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=user", "linkText"],
+        ["css=.nav-item:nth-child(2) > #navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'user')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'user')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5390f9fd-b314-4ebb-a92e-3f420c4c1633",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.show > .dropdown-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
+        ["xpath=//a[@onclick='']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'homepage.jsp')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8b21054-cf2b-4aee-a979-013c44cd74e1",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "58c8fece-66e5-4800-aaa7-232ef3aaa749",
+    "name": "Dell'Orco_Login",
+    "commands": [{
+      "id": "6e2240f5-ca75-4a6e-bd68-7bf1789ac2c1",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/BeEcological/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "59eaf25d-8677-4717-864e-beea434a2c2e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8ff1f702-9fe5-4d81-a9cd-5dec6f9c1654",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'loginUser.jsp')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "293c35bc-9216-438a-bbe3-c0241b6e5bfa",
+      "comment": "",
+      "command": "click",
+      "target": "id=usr",
+      "targets": [
+        ["id=usr", "id"],
+        ["name=username", "name"],
+        ["css=#usr", "css:finder"],
+        ["xpath=//input[@id='usr']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e47be099-bdcf-4207-8fe6-76db78ea6fb7",
+      "comment": "",
+      "command": "type",
+      "target": "id=usr",
+      "targets": [
+        ["id=usr", "id"],
+        ["name=username", "name"],
+        ["css=#usr", "css:finder"],
+        ["xpath=//input[@id='usr']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "user"
+    }, {
+      "id": "7c04911e-4c4e-4f7f-8181-4c867c85ee58",
+      "comment": "",
+      "command": "click",
+      "target": "id=pwd",
+      "targets": [
+        ["id=pwd", "id"],
+        ["name=password", "name"],
+        ["css=#pwd", "css:finder"],
+        ["xpath=//input[@id='pwd']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "01bc1e6d-7426-4a76-9654-724c280167ec",
+      "comment": "",
+      "command": "type",
+      "target": "id=pwd",
+      "targets": [
+        ["id=pwd", "id"],
+        ["name=password", "name"],
+        ["css=#pwd", "css:finder"],
+        ["xpath=//input[@id='pwd']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "user"
+    }, {
+      "id": "b7f271f7-7e29-47e1-b940-a451931ff40f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-sm:nth-child(1) > form .btn",
+      "targets": [
+        ["css=.col-sm:nth-child(1) > form .btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'LOG IN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "69376a7c-5981-4981-841b-0bb12d5bf25a",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=user", "linkText"],
+        ["css=.nav-item:nth-child(2) > #navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'user')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'user')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4794c5d0-f998-4e15-aa54-07c6c1e747cf",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.show > .dropdown-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
+        ["xpath=//a[@onclick='']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'homepage.jsp')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7214fd76-c7c1-4d5f-91b4-8683cde01f1a",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f5a0cf14-efdb-4f58-8736-67e4b40edaba",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/BeEcological/index.jsp"],
+  "plugins": []
+}
