@@ -176,7 +176,7 @@ public class UserProfileView implements Initializable {
 		Optional<ButtonType> result = alert13.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader13 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				PageLoader pageLoader13 = new PageLoader(PageLoader.Page.HOMEPAGE, userButton);
 				HomepageView controller13 = (HomepageView) pageLoader13.getController();
 				controller13.userGroup4.setVisible(false);
 				controller13.loginGroup4.setVisible(true);

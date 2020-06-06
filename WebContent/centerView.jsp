@@ -19,6 +19,23 @@ if(session.getAttribute("loggedUser")!=null){
   <title>BeEcological - Center Page</title>
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/centerView.css">
+
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 240px;
+  height: 240px;
+}
+
+td, th {
+  height: 5px;
+}
+</style>  
+  
 </head>
 <body>
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style = "background-color:#589442">
@@ -93,8 +110,55 @@ if(session.getAttribute("loggedUser")!=null){
       <h4 style = "color:#589442;margin-top: 10px">Address</h4>
       <p> <%=center.getCbAddress()%></p>
       <h4 style = "color:#589442; margin-top: 60px">Opening Hours</h4>
-      <div style="width:200px;height:200px;border:1px solid #0B526D;">Hours-table</div>
-    </div>
+      <div style="width:200px;height:240px">
+		<table>
+  			<thead style= "background-color: #589442; color:white; height:30px">
+    		<tr>
+      			<th scope="col">Day</th>
+      			<th scope="col">Open at</th>
+      			<th scope="col">Close at</th>
+    		</tr>
+  			</thead>
+  			<tbody>
+    		<tr>
+        		<td>Sunday</td>
+        		<td> - </td>
+        		<td> - </td>
+    		</tr>
+    		<tr>
+        		<td>Monday</td>
+        		<td>08:00</td>
+        		<td>19:00</td>
+    		</tr>
+    		<tr>
+        		<td>Tuesday</td>
+        		<td>08:00</td>
+        		<td>19:00</td>
+    		</tr>
+    		<tr>
+        		<td>Wednesday</td>
+        		<td>14:00</td>
+        		<td>20:00</td>
+    		</tr>
+    		<tr>
+        		<td>Thursday</td>
+        		<td>07:00</td>
+        		<td>13:30</td>
+    		</tr>
+    		<tr>
+        		<td>Friday</td>
+        		<td>08:00</td>
+        		<td>19:00</td>
+    		</tr>
+    		<tr>
+        		<td>Saturday</td>
+        		<td>09:00</td>
+        		<td>16:30</td>
+    		</tr>
+  			</tbody>
+		</table>
+	  </div>
+   </div>
     <div class="col-sm" style = "text-align: center">
     	<h3 style="color: #589442;text-decoration: underline;margin-top: 10px;text-align: center"> Book for this center!</h3>
     	<div class="container">

@@ -302,7 +302,7 @@ public class CenterPageView implements Initializable {
 		long start = System.currentTimeMillis();
 		isBooking = true;
 		promptBox.setVisible(true);
-		end = start + 60*1000; // 60 seconds * 1000 ms/sec
+		end = start + 10*1000; // 60 seconds * 1000 ms/sec
 		TimeoutThread2 timeout = new TimeoutThread2();
 		timeout.start();
 	}

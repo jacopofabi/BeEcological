@@ -17,5 +17,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/libProject/selenium-server-standalone-3.141.59.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

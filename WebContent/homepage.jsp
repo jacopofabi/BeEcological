@@ -69,8 +69,8 @@ if(session.getAttribute("loggedUser")!=null){
 
 
 <div class="container">
-	<h2 align="right">Keep the world cleaner</h2>
-	<h3 align="right" style = "margin-bottom: 50px">More rubbish you dump, more rewards you get</h3>
+	<h2 align="right">Keep the world cleaner.</h2>
+	<h3 align="right" style = "margin-bottom: 50px">More rubbish you dump, more rewards you get.</h3>
   	<form action="SearchServlet" method="post">
 		<div class="md-form mt-0">
 	  		<input class="form-control" type="text" placeholder="Search by center name, city, address..." aria-label="Search" 

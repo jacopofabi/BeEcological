@@ -261,7 +261,7 @@
                         </Text>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#589442" height="1.0" layoutX="35.0" layoutY="160.0" stroke="#589442" strokeType="INSIDE" strokeWidth="0.0" width="290.0" />
                      </children></Pane>
-                  <Text fill="#589442" layoutX="540.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opening Time">
+                  <Text fill="#589442" layoutX="540.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opening Hours">
                      <font>
                         <Font name="Calibri" size="24.0" />
                      </font>

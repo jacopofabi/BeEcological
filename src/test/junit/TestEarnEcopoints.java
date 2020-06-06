@@ -41,6 +41,7 @@ public class TestEarnEcopoints {
 		wasteBean.setWbWasteQuantity(wasteQuantity);
 	}
 	
+	// Danilo Dell'Orco 0245513
 	@Test
 	public void testAddEcopoints() {
 		int oldPoints;

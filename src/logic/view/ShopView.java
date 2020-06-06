@@ -110,7 +110,7 @@ public class ShopView implements Initializable {
 		Optional<ButtonType> result = alert11.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader11 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				PageLoader pageLoader11 = new PageLoader(PageLoader.Page.HOMEPAGE, userButton);
 				HomepageView controller11 = (HomepageView) pageLoader11.getController();
 				controller11.userGroup4.setVisible(false);
 				controller11.loginGroup4.setVisible(true);
@@ -199,7 +199,7 @@ public class ShopView implements Initializable {
 		}
 		long start = System.currentTimeMillis();
 		isBuying = true;
-		end = start + 10*1000; // 60 seconds * 1000 ms/sec
+		end = start + 60*1000; // 60 seconds * 1000 ms/sec
 		TimeoutThread11 timeout = new TimeoutThread11();
 		timeout.start();
 		alert11.setAlertType(AlertType.CONFIRMATION);

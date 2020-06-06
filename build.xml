@@ -7,6 +7,7 @@
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="BeEcological">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../eclipse/jee-2019-09/eclipse/"/>
+    <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
     <property name="source" value="1.8"/>
@@ -63,6 +64,7 @@
         <pathelement location="../../../../libProject/junit-4.13.jar"/>
         <pathelement location="../../../../libProject/mysql-connector-java-8.0.19.jar"/>
         <path refid="Apache Tomcat v9.0 [Apache Tomcat v9.0].libraryclasspath"/>
+        <pathelement location="../../../../libProject/selenium-server-standalone-3.141.59.jar"/>
     </path>
     <target name="init">
         <mkdir dir="build/classes"/>
@@ -101,14 +103,63 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="mainApp (1)">
-        <java classname="logic.Controller.mainApp" failonerror="true" fork="yes">
-            <classpath refid="BeEcological.classpath"/>
-        </java>
-    </target>
     <target name="StandaloneMain">
         <java classname="logic.StandaloneMain" failonerror="true" fork="yes">
             <classpath refid="BeEcological.classpath"/>
         </java>
+    </target>
+    <target name="TestCorrectRegistration">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.junit.TestCorrectRegistration" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="BeEcological.classpath"/>
+        </junit>
+    </target>
+    <target name="TestEarnEcopoints">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.junit.TestEarnEcopoints" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="BeEcological.classpath"/>
+        </junit>
+    </target>
+    <target name="TestLoginController">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.junit.TestLoginController" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="BeEcological.classpath"/>
+        </junit>
+    </target>
+    <target name="TestManageBookingController">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.junit.TestManageBookingController" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="BeEcological.classpath"/>
+        </junit>
+    </target>
+    <target name="TestMakeBooking">
+        <java classname="test.selenium.TestMakeBooking" failonerror="true" fork="yes">
+            <classpath refid="BeEcological.classpath"/>
+        </java>
+    </target>
+    <target name="TestRedeemPrize">
+        <java classname="test.selenium.TestRedeemPrize" failonerror="true" fork="yes">
+            <classpath refid="BeEcological.classpath"/>
+        </java>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
     </target>
 </project>

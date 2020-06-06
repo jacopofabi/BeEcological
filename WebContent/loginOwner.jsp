@@ -86,18 +86,18 @@
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefaultUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupPrepend2">@</span>
-        </div>
-        <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
-      </div>
+	  <input type="text" class="form-control" id="validationDefault03" required>
     </div>
   </div>
   <div class="form-row">
     <div class="col-md-6 mb-3">
       <label for="validationDefault03">E-mail</label>
-      <input type="text" class="form-control" id="validationDefault03" required>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend2">@</span>
+        </div>
+        <input type="text" class="form-control" id="validationDefaultEmail"  aria-describedby="inputGroupPrepend2" required>
+      </div>
     </div>
     <div class="col-md-6 mb-3">
       <label for="validationDefault03">Phone Number</label>
@@ -128,7 +128,7 @@
       <input type="text" class="form-control" id="validationDefault03" required>
     </div>
     <div class="col-md-3 mb-3">
-        <label for="validationDefault03">nÂ°</label>
+        <label for="validationDefault03">n°</label>
         <input type="text" class="form-control" id="validationDefault03" required>
     </div>
     <div class="col-md-3 mb-3">
