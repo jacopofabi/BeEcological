@@ -284,7 +284,7 @@ public class CenterPageView implements Initializable {
 		Optional<ButtonType> result = alert2.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader2 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				PageLoader pageLoader2 = new PageLoader(PageLoader.Page.HOMEPAGE, userButton);
 				HomepageView controller2 = (HomepageView) pageLoader2.getController();
 				controller2.userGroup4.setVisible(false);
 				controller2.loginGroup4.setVisible(true);

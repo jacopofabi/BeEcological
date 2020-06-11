@@ -194,7 +194,7 @@ public class HomeOwnerView implements Initializable {
 		
 		String filename = ownerInfo.get(4);
 		CenterOwnerBean.getOwnerInstance("").setCobCenter(filename);
-		File sourcePhoto = new File("src/jpeg/"+filename+".jpg");
+		File sourcePhoto = new File("src/res/jpeg/"+filename+".jpg");
 		if(sourcePhoto.exists() && !sourcePhoto.isDirectory()) { 
 			Image image = new Image(sourcePhoto.toURI().toString());
 	        centerImageView.setImage(image);

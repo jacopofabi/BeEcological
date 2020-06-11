@@ -103,7 +103,7 @@ public class UserBookingListView implements Initializable {
 		Optional<ButtonType> result = alert12.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			try {
-				PageLoader pageLoader12 = new PageLoader(PageLoader.Page.HOMEPAGE, event);
+				PageLoader pageLoader12 = new PageLoader(PageLoader.Page.HOMEPAGE, userButton);
 				HomepageView controller12 = (HomepageView) pageLoader12.getController();
 				controller12.userGroup4.setVisible(false);
 				controller12.loginGroup4.setVisible(true);
