@@ -6,7 +6,7 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="BeEcological">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="../../eclipse/jee-2019-09/eclipse/"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse/java-2019-09/eclipse/"/>
     <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
@@ -135,6 +135,11 @@
             <classpath refid="BeEcological.classpath"/>
         </junit>
     </target>
+    <target name="TestMakeBooking">
+        <java classname="test.selenium.TestMakeBooking" failonerror="true" fork="yes">
+            <classpath refid="BeEcological.classpath"/>
+        </java>
+    </target>
     <target name="TestManageBookingController">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
@@ -143,11 +148,6 @@
             <jvmarg line="-ea"/>
             <classpath refid="BeEcological.classpath"/>
         </junit>
-    </target>
-    <target name="TestMakeBooking">
-        <java classname="test.selenium.TestMakeBooking" failonerror="true" fork="yes">
-            <classpath refid="BeEcological.classpath"/>
-        </java>
     </target>
     <target name="TestRedeemPrize">
         <java classname="test.selenium.TestRedeemPrize" failonerror="true" fork="yes">

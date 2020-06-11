@@ -87,7 +87,7 @@ public class UserProfileView implements Initializable {
 	public void gotoUserBookingList13(ActionEvent event) {
 		try {
 			PageLoader pageLoader = new PageLoader(PageLoader.Page.USER_BOOKING_LIST, event);
-			pageLoader.homeConfig();
+			pageLoader.stageShow();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, PageLoader.getErrorMessage());
 		}

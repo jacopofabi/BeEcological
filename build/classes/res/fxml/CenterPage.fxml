@@ -73,7 +73,7 @@
                   </Button>
                   <MenuButton fx:id="userButton" layoutX="13.0" layoutY="16.0" mnemonicParsing="false" stylesheets="@../styles/TransparentButton.css" text="&lt;USER-NICK&gt;" textFill="WHITE">
                      <items>
-                        <MenuItem fx:id="userProfileItem" mnemonicParsing="false" style="-fx-text-fill: #0b526d;" text="Your Profile">
+                        <MenuItem fx:id="userProfileItem" mnemonicParsing="false" onAction="#gotoUserProfile2" style="-fx-text-fill: #0b526d;" text="Your Profile">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
